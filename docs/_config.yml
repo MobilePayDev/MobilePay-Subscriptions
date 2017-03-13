@@ -1,7 +1,6 @@
 title: MobilePay Subscriptions
-description: MobilePay Subscriptions description
+description: MobilePay Subscriptions API documentation.
 show_downloads: false
-google_analytics:
 theme: jekyll-theme-minimal
-repository: DanskeBank/MobilePay-Subscriptions
+repository: MobilePayDev/MobilePay-Subscriptions
 google_analytics: UA-92933803-1
