@@ -1,0 +1,19 @@
+docs:
+
+- title: Overview
+  url: https://mobilepaydev.github.io/MobilePay-Subscriptions/#overview
+
+- title: What's New in Version 1.1
+  url: https://mobilepaydev.github.io/MobilePay-Subscriptions/whatsnew/1.1.html
+
+- title: General notes
+  url: https://mobilepaydev.github.io/MobilePay-Subscriptions/#general-notes
+
+- title: Agreements
+  url: https://mobilepaydev.github.io/MobilePay-Subscriptions/#agreements
+
+- title: Subscription Payments
+  url: https://mobilepaydev.github.io/MobilePay-Subscriptions/#subscription-payments
+
+- title: One-Off Payments
+  url: https://mobilepaydev.github.io/MobilePay-Subscriptions/#oneoffpayments
