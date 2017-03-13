@@ -43,7 +43,7 @@ Generate two certificates for Sandbox and Production environments:
 >* Sandbox: set {environment} to Sandbox
 >* Production: leave {environment} blank.
 
-Send the generated *.cer (or *.crt, if you use OpenSSL) files to [recurringpayments@mobilepay.dk](mailto:recurringpayments@mobilepay.dk) and store the *.pfx file in a secure private key storage on your end.
+Send the generated *.cer (or *.crt, if you use OpenSSL) files to [help@mobilepay.dk](mailto:help@mobilepay.dk) and store the *.pfx file in a secure private key storage on your end.
 
 ##### Using makecert.exe to generate client certificate
 ```
