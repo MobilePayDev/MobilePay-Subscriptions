@@ -35,7 +35,7 @@ All requests to the API must contain a client certificate and at least two authe
 $ curl --cert /path/to/cert.pem --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
 ```
 
-##### Client certificate for mutual SSL
+##### <a name="client-certificate"></a>Client certificate for mutual SSL
 
 In order to be authenticated to our REST services you have to provide a self-signed client certificate, which can be generated either using `makecert.exe` or `OpenSSL`. __Note, that the certificate is valid for 2 years and will have to be regenerated after it expires.__
 
