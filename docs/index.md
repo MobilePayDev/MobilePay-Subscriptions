@@ -397,7 +397,7 @@ Once the payment status changes from *Pending* to *Executed, Declined, Rejected*
 |----------|---------|--------------|-------------------|------------------------|------------------------|
 |Executed  |_The payment was successfully executed on the due-date_| After 03:15 in the morning of the due-date |Executed  | | 0 |
 |Failed    |_Payment failed to execute during the due-date._| After 23:59 of the due-date |Failed    | | 50000 |
-|Rejected  |_User rejected the Pending payment in MobilePay_       | Any time during the 8 day period when user is presented with the Pending payment in the MobilePay activity list. |Rejected  |Declined by user.| 50001 | 
+|Rejected  |_User rejected the Pending payment in MobilePay_       | Any time during the 8 day period when user is presented with the Pending payment in the MobilePay activity list. |Rejected  |Rejected by user.| 50001 | 
 |Declined  |_Merchant declined the Pending payment via the API_       | Any time during the 8 day period when user is presented with the Pending payment in the MobilePay activity list. |Declined  |Declined by merchant.| 50002 | 
 |Declined  |_**Agreement** is not in Active state._                | Right after the payment request was received. |Declined  |Declined by system: Agreement is not "Active" state.| 50003 | 
 |Declined  |_If the **Agreement's** frequency period has not passed since the last *Pending* or *Executed* **Payment Request** for that Agreement. Monthly agreements have a 1 week tolerance level._| Right after the payment request was received. |Declined  |Declined by system: Another payment is already due.| 50004 | 
@@ -430,9 +430,9 @@ Once the payment status changes from *Pending* to *Executed, Declined, Rejected*
         "amount" : "10.20",
         "currency" : "DKK",
         "payment_date" : "2016-09-29",
-        "status" : "Declined",
-        "status_text" : "Declined by user.",
-        "status_code" : "40000",
+        "status" : "Rejected",
+        "status_text" : "Rejected by user.",
+        "status_code" : "50001",
         "external_id" : "SFPMT134560"
     }
 ]
@@ -611,7 +611,7 @@ Once the one-off payment status changes from *Requested* to *Reserved*, *Rejecte
 |New Status|Condition|When to expect|Callback *status*  | Callback *status_text* | Callback *status_code* |
 |----------|---------|--------------|-------------------|------------------------|------------------------|
 |Reserved  |_The one-off payment was accepted by user and money is reserved for you on his card. You can now capture the money._| After user accepts the requested one-off payment. |Reserved| Payment successfully reserved. | 0 |
-|Rejected  |_User rejected one-off payment request in MobilePay._ | Right after user rejects one-off payment. |Rejected  |Rejected by user.| 40000 |
+|Rejected  |_User rejected one-off payment request in MobilePay._ | Right after user rejects one-off payment. |Rejected  |Rejected by user.| 50001 |
 |Expired   |_One-off payment was neither accepted, nor rejected by user or it was accepted, but you didn't capture it._| 1 day after you requested payment or 7 days after payment was accepted |Expired|Expired by system.| 50008 |
 
 #### One-off payment state diagram
