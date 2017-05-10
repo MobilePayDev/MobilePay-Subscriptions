@@ -1,4 +1,4 @@
-Subscriptions supports 3 countries & languages
+## <a name="countries"></a> MobilePay Subscriptions supports 3 countries & languages
 
 Receive payment from consumers in:
 - Danmark (DK)
