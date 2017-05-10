@@ -195,8 +195,8 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |:---------------------|:-----------|:---------|:----------------------------------------------------------------|:-----------|
 |**amount**            |number(0.00)|          |*__Agreement__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
-|**currency**          |string(3)   |required |*The __Agreement__ currency code, that will be displayed for the use in the MobilePay app.*|DKK|
-|**country_code**      |string(2)   |required |*Country code, which will be used to differentiate between MobilePay DK, NO and FI apps.*|DK|
+|**currency**          |string(3)   |required |*The __Agreement__ currency code, that will be displayed for the use in the MobilePay app.*|DKK, NOK, EUR|
+|**country_code**      |string(2)   |required |*Country code, which will be used to differentiate between MobilePay DK, NO and FI apps.*|DK, NO, FI|
 |**plan**              |string(30)  |required |*Short __Agreement__ information text, that will be displayed on the __Agreement__ screen. (examples: "Basic" / "Premium").*||
 |**description**       |string(60)  |          |*Additional information provided by the merchant to the user, that will be displayed on the __Agreement__ screen.*||
 |**next_payment_date** |date        |          |*The date of the first scheduled __Payment Request__. This will be displayed on the __Agreement__ creation screen and on the __Agreement__ details screen if first payment date > current date.*|ISO date format: yyyy-MM-dd|
