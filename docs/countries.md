@@ -1,11 +1,13 @@
-## <a name="countries"></a> MobilePay Subscriptions countries & languages
+## <a name="countries"></a> MobilePay Subscriptions countries
 
 #### Receive payment from consumers in:
-- Danmark (DK)
+- Danmark (DK) 
 - Norway (NO)
 - Finland (FI)
 
-#### Supporting languages:
-- Danish (da)
-- Norwegian (no)
-- Finnish (fi)
+#### Valid currency values for each countries:
+| Country code | Currency code |
+|:-------------|:--------------|
+|    **DK**    |      DKK      |
+|    **NO**    |      NOK      |
+|    **FI**    |      EUR      |
