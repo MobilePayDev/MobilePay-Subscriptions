@@ -1,11 +1,11 @@
 ## <a name="countries"></a> MobilePay Subscriptions supports 3 countries & languages
 
-Receive payment from consumers in:
+#### Receive payment from consumers in:
 - Danmark (DK)
 - Norway (NO)
 - Finland (FI)
 
-Supporting languages:
+#### Supporting languages:
 - Danish (da)
 - Norwegian (no)
 - Finnish (fi)
