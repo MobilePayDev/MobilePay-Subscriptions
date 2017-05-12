@@ -9,21 +9,12 @@ Billing your customers has never been easier before. Our MobilePay Subscriptions
 1. Establish and manage **Agreements** between you, the **Merchant**, and MobilePay **Users**.
 2. Create monthly **Subscription Payments** in relation to an established **Agreement** and get notified about the status via REST callbacks. **Subscription Payments** are requested 8 days before the actual booking date - no manual user confirmation required!
 
-## <a name="countries"></a> Countries
+### Where is Subscription Payments available ?
 
-You can receive **Subscription Payments** from consumers in:
+Here are the countries where you can sign up for **Subscription Payments**:
 - Denmark
 - Norway
 - Finland
-
-##### Valid currency values for each country:
-
-| Country code | Currency code |
-|:-------------|:--------------|
-|    **DK**    |      DKK      |
-|    **NO**    |      NOK      |
-|    **FI**    |      EUR      |
-
 
 ## <a name="general-notes"></a>General notes 
 
@@ -211,7 +202,7 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |:---------------------|:-----------|:---------|:----------------------------------------------------------------|:-----------|
 |**amount**            |number(0.00)|          |*__Agreement__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
-|**currency**          |string(3)   |required |*The __Agreement__ currency code, that will be displayed for the use in the MobilePay app.*|DKK, NOK, EUR|
+|**currency**          |string(3)   |required |*The __Agreement__ currency code, that will be displayed for the use in the MobilePay app. Currency and country_code must match one of valid pairs: DKK->DK, NOK->NO, EUR->FI. *|DKK, NOK, EUR|
 |**country_code**      |string(2)   |required |*Country code, which will be used to differentiate between MobilePay DK, NO and FI apps.*|DK, NO, FI|
 |**plan**              |string(30)  |required |*Short __Agreement__ information text, that will be displayed on the __Agreement__ screen. (examples: "Basic" / "Premium").*||
 |**description**       |string(60)  |          |*Additional information provided by the merchant to the user, that will be displayed on the __Agreement__ screen.*||
