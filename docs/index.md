@@ -11,7 +11,7 @@ Billing your customers has never been easier before. Our MobilePay Subscriptions
 
 ### Where is Subscription Payments available ?
 
-Here are the countries where you can sign up for **Subscription Payments**:
+Here are the countries where you can sign up and receive **Subscription Payments**:
 - Denmark
 - Norway
 - Finland
@@ -202,7 +202,7 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |:---------------------|:-----------|:---------|:----------------------------------------------------------------|:-----------|
 |**amount**            |number(0.00)|          |*__Agreement__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
-|**currency**          |string(3)   |required |*The __Agreement__ currency code, that will be displayed for the use in the MobilePay app. Currency and country_code must match one of valid pairs: DKK->DK, NOK->NO, EUR->FI. *|DKK, NOK, EUR|
+|**currency**          |string(3)   |required |*The __Agreement__ currency code, that will be displayed for the use in the MobilePay app. Currency and country_code must match one of valid pairs: DKK->DK, NOK->NO, EUR->FI.*|DKK, NOK, EUR|
 |**country_code**      |string(2)   |required |*Country code, which will be used to differentiate between MobilePay DK, NO and FI apps.*|DK, NO, FI|
 |**plan**              |string(30)  |required |*Short __Agreement__ information text, that will be displayed on the __Agreement__ screen. (examples: "Basic" / "Premium").*||
 |**description**       |string(60)  |          |*Additional information provided by the merchant to the user, that will be displayed on the __Agreement__ screen.*||
