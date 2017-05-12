@@ -1,7 +1,7 @@
 ## <a name="countries"></a> MobilePay Subscriptions countries
 
 #### Receive payment from consumers in:
-- Danmark (DK) 
+- Denmark (DK) 
 - Norway (NO)
 - Finland (FI)
 
