@@ -9,6 +9,22 @@ Billing your customers has never been easier before. Our MobilePay Subscriptions
 1. Establish and manage **Agreements** between you, the **Merchant**, and MobilePay **Users**.
 2. Create monthly **Subscription Payments** in relation to an established **Agreement** and get notified about the status via REST callbacks. **Subscription Payments** are requested 8 days before the actual booking date - no manual user confirmation required!
 
+## <a name="countries"></a> Countries
+
+You can receive payment from consumers in:
+- Denmark
+- Norway
+- Finland
+
+Valid currency values for each country:
+
+| Country code | Currency code |
+|:-------------|:--------------|
+|    **DK**    |      DKK      |
+|    **NO**    |      NOK      |
+|    **FI**    |      EUR      |
+
+
 ## <a name="general-notes"></a>General notes 
 
 MobilePay Subscriptions is a full-fledged HTTPS REST api using JSON as request/response communication media.
