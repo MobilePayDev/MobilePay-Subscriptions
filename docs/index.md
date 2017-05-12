@@ -11,12 +11,12 @@ Billing your customers has never been easier before. Our MobilePay Subscriptions
 
 ## <a name="countries"></a> Countries
 
-You can receive payment from consumers in:
+You can receive **Subscription Payments** from consumers in:
 - Denmark
 - Norway
 - Finland
 
-Valid currency values for each country:
+##### Valid currency values for each country:
 
 | Country code | Currency code |
 |:-------------|:--------------|
