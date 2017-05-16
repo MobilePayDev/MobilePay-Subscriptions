@@ -333,7 +333,7 @@ When the **Agreement** activation is complete or canceled, the user will be navi
 
 ## <a name="subscription-payments"></a>Subscription Payments
 
-When the **Agreement** between **Merchant** and MobilePay **User** is established, use the `POST /api/merchants/me/paymentrequest` endpoint to en-queue **Subscription Payments**. This service accepts a JSON array of individual **Subscription Payments** to be processed asynchronously. Notice that the **Subscription Payments** payload does not contain a currency code - this will be fetched from the **Agreement** using the provided *agreement_id*.
+When the **Agreement** between **Merchant** and MobilePay **User** is established, use the `POST /api/merchants/me/paymentrequests` endpoint to en-queue **Subscription Payments**. This service accepts a JSON array of individual **Subscription Payments** to be processed asynchronously. Notice that the **Subscription Payments** payload does not contain a currency code - this will be fetched from the **Agreement** using the provided *agreement_id*.
 
 ```json
 [
@@ -359,7 +359,7 @@ When the **Agreement** between **Merchant** and MobilePay **User** is establishe
 |**external_id**       |string      | required |*The identifier of a specific payment in the external merchant's system.*||
 |**description**       |string(60)  | required |*Additional information of the __Subscription Payment__.*||
 
-The `POST /api/merchants/me/paymentrequest` service returns HTTP 202 - Accepted response if at least one payment is provided in the request payload.
+The `POST /api/merchants/me/paymentrequests` service returns HTTP 202 - Accepted response if at least one payment is provided in the request payload.
 
 The response body containts two lists:
 * **pending_payments** - a map of newly generated Subscription payment ID and the external ID, that where accepted for processing and now are in a _Pending_ state.
