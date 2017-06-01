@@ -69,7 +69,7 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
 
 Refund screens:
 
-![](../assets/images/Refund_0162.png)
-![](../assets/images/Refund_0163.png)
+![](../assets/images/Refund_0162.PNG)
+![](../assets/images/Refund_0163.PNG)
 
 #### More details coming soon...
