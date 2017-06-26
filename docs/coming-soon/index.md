@@ -1,7 +1,6 @@
-## Coming Soon
-
 ### Refunds
-A refund can either be FULL or PARTIAL.<br />
+
+As of 1.2 version, you are able to initiate:
 
 **Full refund** - 100% of the amount paid is returned to the payer.<br />
 **Partial refund** - An amount up to the net (the amount the merchant received) will be returned to the payer. Multiple partial refunds can be made.
@@ -67,9 +66,9 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
 ]
 ```
 
-Refund screens:
+Refund screens within an mobile application:
 
 ![](../assets/images/Refund_0162.PNG)
 ![](../assets/images/Refund_0163.PNG)
 
-#### More details coming soon...
+> Refunds in Sandbox environment will work for payments from 2017-06-26
