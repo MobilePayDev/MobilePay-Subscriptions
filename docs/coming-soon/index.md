@@ -66,7 +66,7 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
 ]
 ```
 
-Refund screens within an mobile application:
+Refund screens within mobile application:
 
 ![](../assets/images/Refund_0162.PNG)
 ![](../assets/images/Refund_0163.PNG)
