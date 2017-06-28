@@ -528,13 +528,12 @@ Add a `one_off_payment` property to the `POST /api/merchants/me/agreements?api-v
   "plan": "Basic",
   "expiration_timeout_minutes": 5,
   "mobile_phone_number": "4511100118",
-  "one_off_payment": [
+  "one_off_payment": 
     {
       "amount": 80,
       "external_id": "OOP00348",
       "description": "Down payment for our services"
     }
-  ]
 }
 ```
 
