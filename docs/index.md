@@ -22,6 +22,8 @@ MobilePay Subscriptions is a full-fledged HTTPS REST api using JSON as request/r
 
 All dates and time-stamps use the ISO 8601 format: date format - `YYYY-MM-DD`, date-time format - `YYYY-MM-DDTHH:mm:ssZ`.
 
+Amounts are enquoted with double quotation marks using `0.00` format, decimals separated with a dot.
+
 When doing `POST`, `PATCH` or `PUT` requests, `Content-Type: application/json` HTTP header must be provided.
 
 ```console 
@@ -169,7 +171,7 @@ Once the user is given to choose the payment method on the merchant's signup flo
 ```json
 {
   "external_id": "AGGR00068",
-  "amount": 10,
+  "amount": "10",
   "currency": "DKK",
   "description": "Monthly subscription",
   "next_payment_date": "2017-03-09",
@@ -339,7 +341,7 @@ When the **Agreement** between **Merchant** and MobilePay **User** is establishe
 [
     {
         "agreement_id": "fda31b3c-794e-4148-ac00-77b957a7d47f",
-        "amount": 10.99,
+        "amount": "10.99",
         "due_date": "2017-03-09",
         "next_payment_date": "2017-04-09",
         "external_id": "PMT000023",
@@ -505,7 +507,7 @@ Add a `one_off_payment` property to the `POST /api/merchants/me/agreements?api-v
 ```json
 {
   "external_id": "AGGR00068",
-  "amount": 10,
+  "amount": "10",
   "currency": "DKK",
   "description": "Monthly subscription",
   "next_payment_date": "2017-03-09",
@@ -530,7 +532,7 @@ Add a `one_off_payment` property to the `POST /api/merchants/me/agreements?api-v
   "mobile_phone_number": "4511100118",
   "one_off_payment": 
     {
-      "amount": 80,
+      "amount": "80",
       "external_id": "OOP00348",
       "description": "Down payment for our services"
     }
@@ -567,7 +569,7 @@ Use a `POST /api/merchants/me/agreements/{agreementId}/oneoffpayments?api-versio
 
 ```json
 {
-  "amount": 80,
+  "amount": "80",
   "external_id": "OOP00348",
   "description": "Pay now for additional goods",
   "mobile_phone_number": "4511100118",
