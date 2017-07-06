@@ -10,7 +10,7 @@ Use the `POST /api/merchants/me/agreements/{agreementId}/payments/{paymentId}/re
 
 ```json
 {
-    "amount": 10.99,
+    "amount": "10.99",
     "status_callback_url" : "https://example.com"
 }
 ```
