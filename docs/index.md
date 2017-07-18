@@ -637,7 +637,7 @@ In case you weren't able to deliver goods or any other problem occur, you can al
 It is **mandatory** for the merchant to Capture/Cancel one-off payment if it was reserved on a customer account.
 
 ***
-## Refunds
+## <a name="refunds"></a>Refunds
 
 As of 1.2 version, you are able to initiate:
 
@@ -653,7 +653,6 @@ Use the `POST /api/merchants/me/agreements/{agreementId}/payments/{paymentId}/re
     "status_callback_url" : "https://example.com"
 }
 ```
-
 
 #### Request parameters
 
