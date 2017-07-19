@@ -384,6 +384,18 @@ The response body containts two lists:
 }
 ```
 
+#### Frequency of Payment Requests
+We have five frequency intervals: 1, 2, 4, 12 or 26. Furthermore, each frequency interval has different grace periods. These periods are listed below:
+
+|Frequency|Grace period|Description |
+|---------|------------|------------|
+|**1**    |  30        |If payments occur once a year, allow payments to be requested 30 days before due date.|
+|**2**    |  30        |If payments occur once every 6 months, allow payments to be requested 30 days before due date.|
+|**4**    |  15        |If payments occur every 3 months, allow payments to be requested 15 days before due date.|
+|**12**   |  8         |If payments occur every month, allow payments to be requested 8 days before due date.|
+|**26**   |  8         |If payments occur bi-weekly, allow payments to be requested 8 days before due date.|
+
+
 #### Payment screens
 
 [![](assets/images/RecurringPayments_Details.png)](assets/images/RecurringPayments_Details.png)
