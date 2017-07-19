@@ -395,6 +395,8 @@ We have five frequency intervals: 1, 2, 4, 12 or 26. Furthermore, each frequency
 |**12**   |  8         |If payments occur every month, allow payments to be requested 8 days before due date.|
 |**26**   |  8         |If payments occur bi-weekly, allow payments to be requested 8 days before due date.|
 
+##### Example of a Grace Period
+For example: if you have a customer where the frequency of an agreement is set to 4, that means  365 / 4 = 91.25 (approximately payment requests every 3rd month). You can actually request the payment 3months – 15 days due to this grace period. The grace period entails that, the merchant can send Payment Requests a bit earlier than normally. Without the grace period, the merchant could only send new payment requests precisely when 3 months have passed. MobilePay has done it possible to send the payment 15 days before the actual due date.
 
 #### Payment screens
 
