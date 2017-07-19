@@ -635,3 +635,88 @@ When you receive a callback about successfully reserved payment, now it's time t
 In case you weren't able to deliver goods or any other problem occur, you can always cancel one-off payment until it's not captured or expired. You can do that by making a call to `DELETE /api/merchants/me/agreements/{agreementId}/oneoffpayments/{paymentId}?api-version=1.1` endpoint. If the HTTP response is '204 - No Content', it means that one-off payment request/reservation was canceled.
 
 It is **mandatory** for the merchant to Capture/Cancel one-off payment if it was reserved on a customer account.
+
+***
+## <a name="refunds"></a>Refunds
+
+As of 1.2 version, you are able to initiate:
+
+**Full refund** - 100% of the amount paid is returned to the payer.<br />
+**Partial refund** - An amount up to the net (the amount the merchant received) will be returned to the payer. Multiple partial refunds can be made.
+
+#### Request a Refund
+Use the `POST /api/merchants/me/agreements/{agreementId}/payments/{paymentId}/refunds` endpoint to request a **Refund**.
+
+```json
+{
+    "amount": "10.99",
+    "status_callback_url" : "https://example.com"
+}
+```
+
+#### Request parameters
+
+|Parameter             |Type        |Required  |Description                                                      |Valid values|
+|----------------------|------------|----------|-----------------------------------------------------------------|------------|
+|**amount**            |number(0.01)| required |*The requested amount to be returned.*|>= 0.01, decimals separated with a dot.|
+|**status_callback_url**  |string| required |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
+
+
+The `POST /api/merchants/me/agreements/{agreementId}/payments/{paymentId}/refunds` service returns HTTP 202 and the response contains single value: a unique *id* of the newly created **Refund**.
+
+##### HTTP 202 Response body example
+```json
+{
+    "id": "263cfe92-9f8e-4829-8b96-14a5e53c9041"
+}
+```
+
+#### Callbacks
+
+When the **Refund's** status changes from *Requested* we will do a callback to the callback address provided in request parameter `status_callback_url`.
+
+##### Refund callback body example
+```json
+[
+    {
+        "refund_id" : "4bb9b33a-f34a-42e7-9143-d6eabd9aae1d",
+        "agreement_id" : "1b08e244-4aea-4988-99d6-1bd22c6a5b2c",
+        "payment_id" : "c710b883-6ed6-4506-9599-490ead89525a",
+        "amount" : "10.99",
+        "currency" : "DKK",
+        "status" : "Issued",
+        "status_text" : null,
+        "status_code" : 0
+    }
+]
+```
+##### Refund callback response example
+```json
+[
+    {
+        "refund_id" : "4bb9b33a-f34a-42e7-9143-d6eabd9aae1d",
+        "agreement_id" : "1b08e244-4aea-4988-99d6-1bd22c6a5b2c",
+        "payment_id" : "c710b883-6ed6-4506-9599-490ead89525a",
+        "status_code" : "3000",
+        "status_text" : "Server is down.",
+        "transaction_id" : "63679ab7-cc49-4f75-80a7-86217fc105ea"
+    }
+]
+```
+
+|New Status|Condition|When to expect|Callback *status*  | Callback *status_text* | Callback *status_code* |
+|----------|---------|--------------|-------------------|------------------------|------------------------|
+|Issued    |_The **Refund** was successfully issued_| Right after the refund request was received |Issued  | |  |
+|Declined  |_If **Payment** is fully refunded_           | Right after the refund was requested |Declined    |Payment is fully refunded. | 60001 |
+|Declined  |_If the total sum of previous **Refunds** exceed the original payment amount_           | Right after the refund was requested |Declined  |The total sum of previous **Refunds** cannot exceed the original payment amount.| 60002 | 
+|Declined  |_When **Refund** was declined by system_          | Right after the refund was requested |Declined  |Payment was not found.| 60003 | 
+|Declined  |_When **Refund** was declined by system_           | Right after the refund was requested |Declined  |Payment cannot be refunded.| 60004 | 
+|Declined  |_A catch-all error code when **Refund** was declined by core system._           | Right after the refund was requested |Declined  |Refund was declined by system.| 60005 | 
+
+
+Refund screens within mobile application:
+
+![](assets/images/Refund_0162.PNG)
+![](assets/images/Refund_0163.PNG)
+
+> Refunds will work for payments from 2017-06-26

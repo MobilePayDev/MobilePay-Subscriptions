@@ -1,8 +1,5 @@
 docs:
 
-- title: Coming soon
-  url: https://mobilepaydev.github.io/MobilePay-Subscriptions/coming-soon/index.html
-
 - title: Overview
   url: https://mobilepaydev.github.io/MobilePay-Subscriptions/#overview
 
@@ -17,3 +14,6 @@ docs:
 
 - title: One-Off Payments
   url: https://mobilepaydev.github.io/MobilePay-Subscriptions/#oneoffpayments
+  
+- title: Refunds
+  url: https://mobilepaydev.github.io/MobilePay-Subscriptions/#refunds
