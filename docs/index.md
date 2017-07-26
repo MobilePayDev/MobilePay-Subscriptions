@@ -691,31 +691,27 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
 
 ##### Refund callback body example
 ```json
-[
-    {
-        "refund_id" : "4bb9b33a-f34a-42e7-9143-d6eabd9aae1d",
-        "agreement_id" : "1b08e244-4aea-4988-99d6-1bd22c6a5b2c",
-        "payment_id" : "c710b883-6ed6-4506-9599-490ead89525a",
-        "amount" : "10.99",
-        "currency" : "DKK",
-        "status" : "Issued",
-        "status_text" : null,
-        "status_code" : 0
-    }
-]
+{
+    "refund_id" : "4bb9b33a-f34a-42e7-9143-d6eabd9aae1d",
+    "agreement_id" : "1b08e244-4aea-4988-99d6-1bd22c6a5b2c",
+    "payment_id" : "c710b883-6ed6-4506-9599-490ead89525a",
+    "amount" : "10.99",
+    "currency" : "DKK",
+    "status" : "Issued",
+    "status_text" : null,
+    "status_code" : 0
+}
 ```
 ##### Refund callback response example
 ```json
-[
-    {
-        "refund_id" : "4bb9b33a-f34a-42e7-9143-d6eabd9aae1d",
-        "agreement_id" : "1b08e244-4aea-4988-99d6-1bd22c6a5b2c",
-        "payment_id" : "c710b883-6ed6-4506-9599-490ead89525a",
-        "status_code" : "3000",
-        "status_text" : "Server is down.",
-        "transaction_id" : "63679ab7-cc49-4f75-80a7-86217fc105ea"
-    }
-]
+{
+    "refund_id" : "4bb9b33a-f34a-42e7-9143-d6eabd9aae1d",
+    "agreement_id" : "1b08e244-4aea-4988-99d6-1bd22c6a5b2c",
+    "payment_id" : "c710b883-6ed6-4506-9599-490ead89525a",
+    "status_code" : "3000",
+    "status_text" : "Server is down.",
+    "transaction_id" : "63679ab7-cc49-4f75-80a7-86217fc105ea"
+}
 ```
 
 |New Status|Condition|When to expect|Callback *status*  | Callback *status_text* | Callback *status_code* |
