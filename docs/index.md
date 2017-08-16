@@ -560,7 +560,7 @@ Add a `one_off_payment` property to the `POST /api/merchants/me/agreements?api-v
 |**one_off_payment**              |object      |          |*__One-Off Payment__ details.*||
 |**one_off_payment.amount**       |number(0.00)|required  |*__One-Off Payment__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
 |**one_off_payment.description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
-|**one_off_payment.external_id**  |string      |          |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the success / cancel callback.*||
+|**one_off_payment.external_id**  |string      |          |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
 
 In this case the response of `POST /api/merchants/me/agreements?api-version=1.1` will contain additional `one_off_payment_id` value - id of the newly requested **One-Off Payment**.
 
@@ -604,7 +604,7 @@ __One-off Payment__ will expire in 1 day if it is not accepted or rejected by th
 |:-----------------------------|:---------|:---------|:----------------------------------------------------------------|:-----------|
 |**amount**       |number(0.00)|required  |*__One-off Payment__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
 |**description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
-|**external_id**  |string      |          |*__One-off Payment__ identifier on the merchant's side. This will be included in the request body of the success / cancel callback.*||
+|**external_id**  |string      |          |*__One-off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
 |**links**        |string      |required  |*Link relation of the __One-off Payment__ creation sequence. Must contain 1 value for user redirect.*||
 |**links[].rel**  |string      |required  |*Link relation type.*|user-redirect|
 |**links[].href** |string      |required  |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
