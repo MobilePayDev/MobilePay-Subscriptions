@@ -22,7 +22,7 @@ Here are the countries where you can sign up and receive **Subscription Payments
 
 You enroll to the Subscriptions Production via www.MobilePay.dk or the MobilePay Business Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the technical integration. The environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Developer Portal </a> 
 
-## <a name="general-notes"></a> 1 - General notes 
+## <a name="general-notes"></a> General notes 
 
 MobilePay Subscriptions is a full-fledged HTTPS REST api using JSON as request/response communication media.
 
