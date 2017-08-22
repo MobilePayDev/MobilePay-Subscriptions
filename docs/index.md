@@ -4,7 +4,9 @@ layout: default
 
 ## <a name="overview"></a> Overview 
 
-Billing your customers has never been easier before. Our MobilePay Subscriptions REST api enables you to:
+Billing your customers has never been easier before. This document explains how to make a technical integration to the MobilePay Subscription product. The audience for this document is either technical integrators acting on behalf of merchants, or merchant creating their own integrations. 
+
+Our MobilePay Subscriptions REST api enables you to:
 
 1. Establish and manage **Agreements** between you, the **Merchant**, and MobilePay **Users**.
 2. Create monthly **Subscription Payments** in relation to an established **Agreement** and get notified about the status via REST callbacks. **Subscription Payments** are requested 8 days before the actual booking date - no manual user confirmation required!
@@ -15,6 +17,10 @@ Here are the countries where you can sign up and receive **Subscription Payments
 - Denmark 
 - Norway 
 - Finland 
+
+### Merchant onboarding
+
+You enroll to the Subscriptions Production via www.MobilePay.dk or the MobilePay Business Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the technical integration. The environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Developer Portal </a> 
 
 ## <a name="general-notes"></a> 1 - General notes 
 
