@@ -39,7 +39,7 @@ $ curl --url https://<mobile-pay-root>/resource?api-version=1.1 --request POST -
 
 Before your application
 
-#### Authentication :closed_lock_with_key: 
+#### Authentication 
 
 All requests to the API must contain a client certificate and at least two authentication headers - `x-ibm-client-id` and `x-ibm-client-secret` in order to authenticate to the API.
 
