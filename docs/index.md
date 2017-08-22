@@ -14,7 +14,7 @@ Billing your customers has never been easier before. Our MobilePay Subscriptions
 Here are the countries where you can sign up and receive **Subscription Payments**:
 - Denmark 🇩🇰
 - Norway 🇳
-- Finland 🇫
+- Finland 🇫🇮
 
 ## <a name="general-notes"></a> 1 - General notes 
 
