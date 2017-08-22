@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## <a name="overview"></a> Overview :memo:
+## <a name="overview"></a> Overview 
 
 Billing your customers has never been easier before. Our MobilePay Subscriptions REST api enables you to:
 
