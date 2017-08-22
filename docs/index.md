@@ -35,9 +35,6 @@ API version is set using the `api-version` query parameter.
 ```console 
 $ curl --url https://<mobile-pay-root>/resource?api-version=1.1 --request POST --header 'Content-Type: application/json' --data '{}'
 ```
-## <a name="general-notes"></a>Prerequisites :ballot_box_with_check: 
-
-Before your application
 
 #### Authentication 
 
