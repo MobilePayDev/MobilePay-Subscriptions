@@ -12,9 +12,9 @@ Billing your customers has never been easier before. Our MobilePay Subscriptions
 ### Where is Subscription Payments available ?
 
 Here are the countries where you can sign up and receive **Subscription Payments**:
-- Denmark
-- Norway
-- Finland
+- Denmark 🇩🇰
+- Norway 🇳
+- Finland 🇫
 
 ## <a name="general-notes"></a> 1 - General notes 
 
