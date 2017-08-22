@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## <a name="overview"></a>:memo: Overview
+## <a name="overview"></a> Overview :memo:
 
 Billing your customers has never been easier before. Our MobilePay Subscriptions REST api enables you to:
 
@@ -16,7 +16,7 @@ Here are the countries where you can sign up and receive **Subscription Payments
 - Norway
 - Finland
 
-## <a name="general-notes"></a>General notes 
+## <a name="general-notes"></a> 1 - General notes 
 
 MobilePay Subscriptions is a full-fledged HTTPS REST api using JSON as request/response communication media.
 
