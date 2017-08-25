@@ -520,6 +520,9 @@ As of `1.1` version, you are able to:
 * Create agreements with an initial payment.
 * Request arbitrary one-off payments on an existing agreement. These must be manually confirmed by the user. 
 
+Note:  Subscription payments are charged automatically, while one-off are charged when the customer manually swipes accept. OneOff payment does not affect the frequency and grace period. So if you create an agreement with a OneOff, you can request the first subscriptions payment whenever you want. You can also request a OneOff on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. But if you do it on an existing agreement, the user has to swipe to accept the payment. When you create an agreement with a OneOff, and the user accepts the agreement, the payment will be processed and executed right away. OneOff is an instant payment, and it is not subject to the 8 day rule. 
+
+
 #### Request One-Off Payment With a New Agreement
 
 Add a `one_off_payment` property to the `POST /api/merchants/me/agreements?api-version=1.1` request payload if you want the agreement being activated only when the user is successfully charged an initial subscription amount.
