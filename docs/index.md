@@ -4,7 +4,7 @@ layout: default
 
 ## <a name="overview"></a> Overview 
 
-Billing your customers has never been easier before. This document explains how to make a technical integration to the MobilePay Subscription product. The audience for this document is either technical integrators acting on behalf of merchants, or merchant creating their own integrations. 
+Billing your customers has never been easier before. This document explains how to make a technical integration to the MobilePay Subscription product. The audience for this document is either technical integrators acting on behalf of merchants, or merchant creating their own integrations. You can find more information on our <a href="https://developer.mobilepay.dk/subscriptions-main">Developer Portal</a>.
 
 Our MobilePay Subscriptions REST api enables you to:
 
@@ -20,7 +20,7 @@ Here are the countries where you can sign up and receive **Subscription Payments
 
 ### Merchant onboarding
 
-You enroll to the Subscriptions Production via www.MobilePay.dk or the MobilePay Business Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the technical integration. The environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Developer Portal </a> 
+You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-dk/Pages/mobilepay.aspx">www.MobilePay.dk</a> or the MobilePay Business Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the technical integration. The environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Developer Portal </a> 
 
 ## <a name="general-notes"></a> General notes 
 
