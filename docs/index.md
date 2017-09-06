@@ -364,7 +364,7 @@ When the **Agreement** between **Merchant** and MobilePay **User** is establishe
 |**amount**            |number(0.00)| required |*The requested amount to be paid.*|>= 0.00, decimals separated with a dot.|
 |**due_date**          |date        | required |*Payment due date. Must be at least 8 days in the future, otherwise the __Subscription Payment__ will be declined.*|ISO date format: yyyy-MM-dd|
 |**next_payment_date** |date        |          |*Next __Subscription Payment's__ due date, to be shown to the user in the __Agreement__ details.*|ISO date format: yyyy-MM-dd|
-|**external_id**       |string      | required |*The identifier of a specific payment in the external merchant's system.*||
+|**external_id**       |string      | required |*The identifier of a specific payment in the external merchant's system. Maximum length is 30 characters*||
 |**description**       |string(60)  | required |*Additional information of the __Subscription Payment__.*||
 
 The `POST /api/merchants/me/paymentrequests` service returns HTTP 202 - Accepted response if at least one payment is provided in the request payload.
@@ -447,7 +447,7 @@ Once the payment status changes from *Pending* to *Executed, Declined, Rejected*
 |**amount**  	 |number(0.00)|Amount withdrawn from the MobilePay user.             ||
 |**currency**  	 |string      |Amount currency (agreement's currency)                ||
 |**payment_date**|date        |Date of the batch when the payment was executed.      |ISO 8601 UTC date: YYYY-MM-DD|
-|**external_id** |string      |Payment ID on the merchant's side                   ||
+|**external_id** |string      |Payment ID on the merchant's side. Maximum length is 30 characters                   ||
 
 
 ##### Payment callback body example
