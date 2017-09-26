@@ -138,7 +138,7 @@ You might encounter the following HTTP errors:
     }
     ```
 
-#### REST request correlation
+#### <a name="general-notes_correlation"></a>REST request correlation
 
 _CorrelationId_ is an optional _[Guid](https://en.wikipedia.org/wiki/Globally_unique_identifier)_ header value which can be used to link requests on your back-end system to MobilePay Subscriptions business transaction for a more convenient debugging.
 
@@ -146,14 +146,14 @@ _CorrelationId_ is an optional _[Guid](https://en.wikipedia.org/wiki/Globally_un
 $ curl --header 'CorrelationId: 37b8450b-579b-489d-8698-c7800c65934c' --url https://<mobile-pay-root>/api/merchants/me/agreements
 ```
 
-#### REST callback authentication
+#### <a name="general-notes_callback-authentication"></a>REST callback authentication
 
 Use one of these endpoints to set REST callback authentication scheme and credentials:
 * `PUT /api/merchants/me/auth/oauth2` - set OAuth2 scheme which conforms to RFC 6749 [section 4.4.](https://tools.ietf.org/html/rfc6749#section-4.4).
 * `PUT /api/merchants/me/auth/basic` - set Basic auth scheme using username and password.
 * `PUT /api/merchants/me/auth/apikey` - set a value which will be set to the _Authorization_ header. API key must conform to the token68 specification as defined in RFC 7235 [section2.1.](https://tools.ietf.org/html/rfc7235#section-2.1).
 
-#### REST callback retries
+#### <a name="general-notes_callback-retries"></a>REST callback retries
 
 In case the REST callback failed, 8 retries will be made using the [exponential back-off algorithm](https://en.wikipedia.org/wiki/Exponential_backoff), where N - next retry time, c - retry attempt number, R - second retry time in seconds (1st retry is an exception and is done after 5 seconds):
 
@@ -205,7 +205,7 @@ Once the user is given to choose the payment method on the merchant's signup flo
 
 The *Pending* **Agreement**, if not activated, will expire within the value, provided in the _expiration_timeout_minutes_.
 
-#### Request parameters
+#### <a name="agreements_paramters"></a>Request parameters
 
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |:---------------------|:-----------|:---------|:----------------------------------------------------------------|:-----------|
@@ -222,7 +222,7 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |**links[].rel**       |string      |required |*Link relation type.*|user-redirect, success-callback, cancel-callback|
 |**links[].href**      |string      |required |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
 
-
+<a name="agreements_response"></a>
 The response of `POST /api/merchants/me/agreements` contains two values: a unique *id* of the newly created *Pending* **Agreement** and a link *rel* = *mobile-pay*.
 
 ```json
@@ -250,7 +250,7 @@ The link can be used in two ways:
 [![](assets/images/RecurringPayments_DualDevice.png)](assets/images/RecurringPayments_DualDevice.png)
 [![](assets/images/RecurringPayments_SingleDevice.png)](assets/images/RecurringPayments_SingleDevice.png)
 
-#### Callbacks
+#### <a name="agreements_callback"></a>Callbacks
 
 When the **Agreement's** status changes from *Pending* we will do a callback to the merchant's system (see the sequence diagram below).
 
@@ -265,11 +265,11 @@ The table below shows possible *status*, *status_text* and *status_code* values 
 |Canceled  |_Merchant canceled an Active agreement_      |*cancel-callback*  |Canceled|Agreement canceled by merchant|40003|
 |Canceled  |_System canceled an Active agreement because user was Deleted_ |*cancel-callback*  |Canceled|Agreement canceled by system|40004|
 
-##### Agreement state diagram
+##### <a name="agreements_state-diagram"></a>Agreement state diagram
 
 ![](assets/images/RecurringPayments_AgreementStateDiagram.png)
 
-##### Other callback properties
+##### <a name="agreements_callback-properties"></a>Other callback properties
 
 |Name            |Type        |Description                                           |Format|
 |----------------|------------|------------------------------------------------------|------|
@@ -277,7 +277,7 @@ The table below shows possible *status*, *status_text* and *status_code* values 
 |**external_id** |string      |Agreement ID on the merchant's side                   ||
 |**timestamp**   |datetime    |Timestamp when the status change occurred.            |ISO 8601 UTC date and time format: YYYY-MM-DDThh:mm:ssZ|
 
-##### Agreement callback request example
+##### <a name="agreements_callback-request"></a>Agreement callback request example
 
 ```json
 {
@@ -290,7 +290,7 @@ The table below shows possible *status*, *status_text* and *status_code* values 
 }
 ```
 
-##### Agreement callback response properties
+##### <a name="agreements_callback-response-propterties"></a>Agreement callback response properties
 
 |Name               |Description|
 |-------------------|-----------|
@@ -308,7 +308,7 @@ The table below shows possible *status*, *status_text* and *status_code* values 
 The callback response properties are optional.
 In case of technical errors (HTTP response is not 2xx), we will try to re-POST the callback.
 
-##### Agreement callback response example
+##### <a name="agreements_callback-response-example"></a>Agreement callback response example
 ```json
 {
     "agreement_id" : "63679ab7-cc49-4f75-80a7-86217fc105ea",
@@ -320,20 +320,20 @@ In case of technical errors (HTTP response is not 2xx), we will try to re-POST t
 
 When the **Agreement** activation is complete or canceled, the user will be navigated to the link *rel = user-redirect* to finalize the signup.
 
-#### Agreement creation sequence diagram
+#### <a name="agreements_creation-diagram"></a>Agreement creation sequence diagram
 
 ![](assets/images/RecurringPayments_CreateAgreement.png)
 
 
-#### When merchant cancels agreement - sequence diagram
+#### <a name="agreements_cancel-diagram"></a>When merchant cancels agreement - sequence diagram
 
 ![](assets/images/RecurringPayments_CancelAgreement_Merchant.png)
 
-#### When user cancels a Pending agreement during signup - sequence diagram
+#### <a name="agreements_cancel-pending-diagram"></a>When user cancels a Pending agreement during signup - sequence diagram
 
 ![](assets/images/RecurringPayments_CancelAgreement_User_Signup.png)
 
-#### When user cancels an Active agreement - sequence diagram
+#### <a name="agreements_cancel-active-diagram"></a>When user cancels an Active agreement - sequence diagram
 
 ![](assets/images/RecurringPayments_CancelAgreement_User.png)
 
@@ -356,7 +356,7 @@ When the **Agreement** between **Merchant** and MobilePay **User** is establishe
 ]
 ```
 
-#### Request parameters
+#### <a name="subscription-payments_request-parameters"></a>Request parameters
 
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |----------------------|------------|----------|-----------------------------------------------------------------|------------|
@@ -366,7 +366,7 @@ When the **Agreement** between **Merchant** and MobilePay **User** is establishe
 |**next_payment_date** |date        |          |*Next __Subscription Payment's__ due date, to be shown to the user in the __Agreement__ details.*|ISO date format: yyyy-MM-dd|
 |**external_id**       |string      | required |*The identifier of a specific payment in the external merchant's system. Maximum length is 30 characters*||
 |**description**       |string(60)  | required |*Additional information of the __Subscription Payment__.*||
-
+<a name="subscription-payments_response"></a>
 The `POST /api/merchants/me/paymentrequests` service returns HTTP 202 - Accepted response if at least one payment is provided in the request payload.
 
 The response body containts two lists:
@@ -374,7 +374,7 @@ The response body containts two lists:
 * **rejected_payments** - a list of rejected payments. This can only occur if any of the mandatory fields are missing or do not conform to the format rule. Business logic validations are done asynchronously in the back-end (for example, checking if due-date conforms to 8 day rule).
 
 
-##### HTTP 202 Response body example
+##### <a name="subscription-payments_response-example"></a>HTTP 202 Response body example
 ```json
 {
     "pending_payments": [{
@@ -390,7 +390,7 @@ The response body containts two lists:
 }
 ```
 
-#### Frequency of Payment Requests
+#### <a name="subscription-payments_frequency"></a>Frequency of Payment Requests
 We have five frequency intervals: 1, 2, 4, 12 or 26. Furthermore, each frequency interval has different grace periods. These periods are listed below:
 
 |Frequency|Grace period|Description |
@@ -401,7 +401,7 @@ We have five frequency intervals: 1, 2, 4, 12 or 26. Furthermore, each frequency
 |**12**   |  8         |If payments occur every month, allow payments to be requested 8 days before due date.|
 |**26**   |  8         |If payments occur bi-weekly, allow payments to be requested 8 days before due date.|
 
-##### Example of a Grace Period
+##### <a name="subscription-payments_grace-example"></a>Example of a Grace Period
 For example: if you have a customer where the frequency of an agreement is set to 4, that means  365 / 4 = 91.25 (approximately payment requests every 3rd month). You can actually request the payment 3months – 15 days due to this grace period. The grace period entails that, the merchant can send Payment Requests a bit earlier than normally. Without the grace period, the merchant could only send new payment requests precisely when 3 months have passed. MobilePay has done it possible to send the payment 15 days before the actual due date.
 
 #### Payment screens
@@ -434,11 +434,11 @@ Once the payment status changes from *Pending* to *Executed, Declined, Rejected*
 |Rejected  |When the **Agreement** was canceled by user | Any time during the 8 day period when user is presented with the Pending payment in the MobilePay activity list.  |Rejected  |Declined by system: Agreement was canceled. | 50005 | 
 |Declined  |A catch-all error code when payment was declined by core system.| Right after the payment request was received. |Declined  | Declined by system. | 50006 | 
 
-##### Payment state diagram
+##### <a name="subscription-payments_state"></a>Payment state diagram
 
 ![](assets/images/RecurringPayments_PaymentStateDiagram.png)
 
-##### Other callback properties
+##### <a name="subscription-payments_callback-properties"></a>Other callback properties
 
 |Name            |Type        |Description                                           |Format|
 |----------------|------------|------------------------------------------------------|------|
@@ -450,7 +450,7 @@ Once the payment status changes from *Pending* to *Executed, Declined, Rejected*
 |**external_id** |string      |Payment ID on the merchant's side. Maximum length is 30 characters                   ||
 
 
-##### Payment callback body example
+##### <a name="subscription-payments_callback-example"></a>Payment callback body example
 ```json
 [
     {
@@ -467,7 +467,7 @@ Once the payment status changes from *Pending* to *Executed, Declined, Rejected*
 ]
 ```
 
-##### Payment callback response properties
+##### <a name="subscription-payments_callback-response-properties"></a>Payment callback response properties
 
 An array containing the following properties.
 
@@ -487,7 +487,7 @@ An array containing the following properties.
 The callback response properties are optional.
 In case of technical errors (HTTP response is not 2xx), we will try to re-POST the callback.
 
-##### Payment callback response example
+##### <a name="subscription-payments_callbacl-response-example"></a>Payment callback response example
 ```json
 [
     {
@@ -499,7 +499,7 @@ In case of technical errors (HTTP response is not 2xx), we will try to re-POST t
 ]
 ```
 
-#### Update existing Payment Request
+#### <a name="subscription-payments_update-existing"></a>Update existing Payment Request
 
 Use the `PATCH /api/merchants/me/paymentrequests/{paymentId}` endpoint to decrease the requested amount to be paid.
 
@@ -523,7 +523,7 @@ As of `1.1` version, you are able to:
 Note:  Subscription payments are charged automatically, while one-off are charged when the customer manually swipes accept. OneOff payment does not affect the frequency and grace period. So if you create an agreement with a OneOff, you can request the first subscriptions payment whenever you want. You can also request a OneOff on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. But if you do it on an existing agreement, the user has to swipe to accept the payment. When you create an agreement with a OneOff, and the user accepts the agreement, the payment will be processed and executed right away. OneOff is an instant payment, and it is not subject to the 8 day rule. 
 
 
-#### Request One-Off Payment With a New Agreement
+#### <a name="oneoffpayments_request-new-agreement"></a>Request One-Off Payment With a New Agreement
 
 Add a `one_off_payment` property to the `POST /api/merchants/me/agreements?api-version=1.1` request payload if you want the agreement being activated only when the user is successfully charged an initial subscription amount.
 
@@ -570,7 +570,7 @@ Add a `one_off_payment` property to the `POST /api/merchants/me/agreements?api-v
 |**one_off_payment.amount**       |number(0.00)|required  |*__One-Off Payment__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
 |**one_off_payment.description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
 |**one_off_payment.external_id**  |string      |          |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
-
+<a name="oneoffpayments_response-new"></a>
 In this case the response of `POST /api/merchants/me/agreements?api-version=1.1` will contain additional `one_off_payment_id` value - id of the newly requested **One-Off Payment**.
 
 ```json
@@ -586,7 +586,7 @@ In this case the response of `POST /api/merchants/me/agreements?api-version=1.1`
 }
 ```
 
-#### Request One-off Payment on an Existing Agreement
+#### <a name="oneoffpayments_existing-agreement"></a>Request One-off Payment on an Existing Agreement
 
 Use a `POST /api/merchants/me/agreements/{agreementId}/oneoffpayments?api-version=1.1` endpoint in order to charge your customer one time for extra services. 
 
@@ -607,7 +607,7 @@ Use a `POST /api/merchants/me/agreements/{agreementId}/oneoffpayments?api-versio
 
 __One-off Payment__ will expire in 1 day if it is not accepted or rejected by the user during that time.
 
-##### Request parameters
+##### <a name="oneoffpayments_request-parameters"></a>Request parameters
 
 |Parameter                     |Type      |Required  |Description                                                      |Valid values|
 |:-----------------------------|:---------|:---------|:----------------------------------------------------------------|:-----------|
@@ -617,7 +617,7 @@ __One-off Payment__ will expire in 1 day if it is not accepted or rejected by th
 |**links**        |string      |required  |*Link relation of the __One-off Payment__ creation sequence. Must contain 1 value for user redirect.*||
 |**links[].rel**  |string      |required  |*Link relation type.*|user-redirect|
 |**links[].href** |string      |required  |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
-
+<a name="oneoffpayments_response-existing"></a>
 The response of `POST /ap/merchants/me/agreements/{agreementId}/oneoffpayments?api-version=1.1` contains two values: a unique *id* of the newly requested **One-Off Payment** and a link *rel* = *mobile-pay*.
 
 ```json
@@ -635,7 +635,7 @@ The response of `POST /ap/merchants/me/agreements/{agreementId}/oneoffpayments?a
 * The *id* value can be used on the merchant's back-end system to map a one-off payment with a specific Subscription agreement on the merchant's side, and subsequently to capture a requested **One-Off Payment** when MobilePay user accepts it. 
 * The link *rel = mobile-pay* hyperlink reference must be used to redirect the user automatically using an HTTP response 302 or 303. Once the user is redirected, the MobilePay app will be opened to confirm the __One-off Payment__.
 
-##### Callbacks
+##### <a name="oneoffpayments_callback"></a>Callbacks
 
 Once the one-off payment status changes from *Requested* to *Reserved*, *Rejected* or *Expired*, a callback will be done to the callback address, which is configurable via `PATCH /api/merchants/me` with path value `/payment_status_callback_url`. The same way as with [callbacks](../#subscription-payments_callbacks) for regular payment requests.
 
@@ -645,29 +645,27 @@ Once the one-off payment status changes from *Requested* to *Reserved*, *Rejecte
 |Rejected  |_User rejected one-off payment request in MobilePay._ | Right after user rejects one-off payment. |Rejected  |Rejected by user.| 50001 |
 |Expired   |_One-off payment was neither accepted, nor rejected by user._| 1 day after you requested one-off payment |Expired|Expired by system.| 50008 |
 
-#### One-off payment state diagram
+#### <a name="oneoffpayments_state"></a>One-off payment state diagram
 
 ![](assets/images/RecurringPayments_OneOffPaymentStateDiagram.png)
 
-#### Capture Reserved One-Off Payment
+#### <a name="oneoffpayments_capture"></a>Capture Reserved One-Off Payment
 
 When you receive a callback about successfully reserved payment, now it's time to capture your money. You can do that by making a call to `POST /api/merchants/me/agreements/{agreementId}/oneoffpayments/{paymentId}/capture?api-version=1.1` endpoint. If the HTTP response is `204 - No Content`, it means that the money was transfered to your account.
 
-#### Cancel One-Off Payment Request/Reservation
+#### <a name="oneoffpayments_cancel"></a>Cancel One-Off Payment Request/Reservation
 
 In case you weren't able to deliver goods or any other problem occur, you can always cancel one-off payment until it's not captured or expired. You can do that by making a call to `DELETE /api/merchants/me/agreements/{agreementId}/oneoffpayments/{paymentId}?api-version=1.1` endpoint. If the HTTP response is '204 - No Content', it means that one-off payment request/reservation was canceled.
 
-It is **mandatory** for the merchant to Capture/Cancel one-off payment if it was reserved on a customer account.
+It is **mandatory** for the merchant to Capture or Cancel one-off payment if it was reserved on a customer account.
 
 ***
 ## <a name="refunds"></a>Refunds
 
-As of 1.2 version, you are able to initiate:
-
 **Full refund** - 100% of the amount paid is returned to the payer.<br />
 **Partial refund** - An amount up to the net (the amount the merchant received) will be returned to the payer. Multiple partial refunds can be made.
 
-#### Request a Refund
+#### <a name="refunds_request"></a>Request a Refund
 Use the `POST /api/merchants/me/agreements/{agreementId}/payments/{paymentId}/refunds` endpoint to request a **Refund**.
 
 ```json
@@ -677,28 +675,28 @@ Use the `POST /api/merchants/me/agreements/{agreementId}/payments/{paymentId}/re
 }
 ```
 
-#### Request parameters
+#### <a name="refunds_request-parameters"></a>Request parameters
 
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |----------------------|------------|----------|-----------------------------------------------------------------|------------|
 |**amount**            |number(0.01)| required |*The requested amount to be returned.*|>= 0.01, decimals separated with a dot.|
 |**status_callback_url**  |string| required |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
 
-
+<a name="refunds_response"></a>
 The `POST /api/merchants/me/agreements/{agreementId}/payments/{paymentId}/refunds` service returns HTTP 202 and the response contains single value: a unique *id* of the newly created **Refund**.
 
-##### HTTP 202 Response body example
+##### <a name="refunds_response-example"></a>HTTP 202 Response body example
 ```json
 {
     "id": "263cfe92-9f8e-4829-8b96-14a5e53c9041"
 }
 ```
 
-#### Callbacks
+#### <a name="refunds_callback"></a>Callbacks
 
 When the **Refund's** status changes from *Requested* we will do a callback to the callback address provided in request parameter `status_callback_url`.
 
-##### Refund callback body example
+##### <a name="refunds_callback-example"></a>Refund callback body example
 ```json
 {
     "refund_id" : "4bb9b33a-f34a-42e7-9143-d6eabd9aae1d",
@@ -711,7 +709,7 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
     "status_code" : 0
 }
 ```
-##### Refund callback response example
+##### <a name="refunds_callback-response"></a>Refund callback response example
 ```json
 {
     "refund_id" : "4bb9b33a-f34a-42e7-9143-d6eabd9aae1d",
@@ -722,7 +720,7 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
     "transaction_id" : "63679ab7-cc49-4f75-80a7-86217fc105ea"
 }
 ```
-
+<a name="refunds_status"></a>
 |New Status|Condition|When to expect|Callback *status*  | Callback *status_text* | Callback *status_code* |
 |----------|---------|--------------|-------------------|------------------------|------------------------|
 |Issued    |_The **Refund** was successfully issued_| Right after the refund request was received |Issued  | |  |
@@ -732,7 +730,7 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
 |Declined  |_When **Refund** was declined by system_           | Right after the refund was requested |Declined  |Payment cannot be refunded.| 60004 | 
 |Declined  |_A catch-all error code when **Refund** was declined by core system._           | Right after the refund was requested |Declined  |Refund was declined by system.| 60005 | 
 
-
+<a name="refunds_screens"></a>
 Refund screens within mobile application:
 
 ![](assets/images/Refund_0162.PNG)
