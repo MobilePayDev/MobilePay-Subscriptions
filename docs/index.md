@@ -42,7 +42,7 @@ API version is set using the `api-version` query parameter.
 $ curl --url https://<mobile-pay-root>/resource?api-version=1.1 --request POST --header 'Content-Type: application/json' --data '{}'
 ```
 
-#### Authentication 
+#### <a name="general-notes_authentication"></a>Authentication 
 
 All requests to the API must contain a client certificate and at least two authentication headers - `x-ibm-client-id` and `x-ibm-client-secret` in order to authenticate to the API.
 
@@ -60,7 +60,7 @@ Generate two certificates for Sandbox and Production environments:
 
 Send the generated *.cer (or *.crt, if you use OpenSSL) files to [help@mobilepay.dk](mailto:help@mobilepay.dk) and store the *.pfx file in a secure private key storage on your end. Note: Please zip the certificate, as our e-mail server is quite sensitive. 
 
-##### Using makecert.exe to generate client certificate
+##### <a name="client-certificate_makecert"></a>Using makecert.exe to generate client certificate
 ```
 makecert.exe ^
  -n "CN={your company name} - Recurring Payments - {environment}" ^
@@ -83,7 +83,7 @@ pvk2pfx.exe ^
  -pfx {environment}RecurringPayments{your company name}.pfx
 ```
 
-##### Using OpenSSL to generate client certificate
+##### <a name="client-certificate_openssl"></a>Using OpenSSL to generate client certificate
 
 ```console
 $ openssl req -x509 -nodes -sha512 -newkey rsa:2048 -keyout {environment}RecurringPayments{your company name}.pvk -out {environment}RecurringPayments{your company name}.crt -days 730
@@ -95,7 +95,7 @@ Export private key to pfx:
 $ openssl pkcs12 -export -in {environment}RecurringPayments{your company name}.crt -inkey {environment}RecurringPayments{your company name}.pvk -CSP "Microsoft Enhanced RSA and AES Cryptographic Provider" -out {environment}RecurringPayments{your company name}.pfx
 ```
 
-#### Errors
+#### <a name="general-notes_errors"></a>Errors
 
 You might encounter the following HTTP errors:
 
