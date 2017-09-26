@@ -487,7 +487,7 @@ An array containing the following properties.
 The callback response properties are optional.
 In case of technical errors (HTTP response is not 2xx), we will try to re-POST the callback.
 
-##### <a name="subscription-payments_callbacl-response-example"></a>Payment callback response example
+##### <a name="subscription-payments_callback-response-example"></a>Payment callback response example
 ```json
 [
     {
