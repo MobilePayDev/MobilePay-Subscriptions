@@ -570,8 +570,8 @@ Add a `one_off_payment` property to the `POST /api/merchants/me/agreements?api-v
 |**one_off_payment.amount**       |number(0.00)|required  |*__One-Off Payment__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
 |**one_off_payment.description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
 |**one_off_payment.external_id**  |string      |          |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
-<a name="oneoffpayments_response-new"></a>
-In this case the response of `POST /api/merchants/me/agreements?api-version=1.1` will contain additional `one_off_payment_id` value - id of the newly requested **One-Off Payment**.
+
+<a name="oneoffpayments_response-new"></a>In this case the response of `POST /api/merchants/me/agreements?api-version=1.1` will contain additional `one_off_payment_id` value - id of the newly requested **One-Off Payment**.
 
 ```json
 {
@@ -617,8 +617,8 @@ __One-off Payment__ will expire in 1 day if it is not accepted or rejected by th
 |**links**        |string      |required  |*Link relation of the __One-off Payment__ creation sequence. Must contain 1 value for user redirect.*||
 |**links[].rel**  |string      |required  |*Link relation type.*|user-redirect|
 |**links[].href** |string      |required  |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
-<a name="oneoffpayments_response-existing"></a>
-The response of `POST /ap/merchants/me/agreements/{agreementId}/oneoffpayments?api-version=1.1` contains two values: a unique *id* of the newly requested **One-Off Payment** and a link *rel* = *mobile-pay*.
+
+<a name="oneoffpayments_response-existing"></a>The response of `POST /ap/merchants/me/agreements/{agreementId}/oneoffpayments?api-version=1.1` contains two values: a unique *id* of the newly requested **One-Off Payment** and a link *rel* = *mobile-pay*.
 
 ```json
 {
@@ -721,6 +721,7 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
 }
 ```
 <a name="refunds_status"></a>
+
 |New Status|Condition|When to expect|Callback *status*  | Callback *status_text* | Callback *status_code* |
 |----------|---------|--------------|-------------------|------------------------|------------------------|
 |Issued    |_The **Refund** was successfully issued_| Right after the refund request was received |Issued  | |  |
