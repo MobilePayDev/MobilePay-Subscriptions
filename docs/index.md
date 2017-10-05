@@ -22,35 +22,28 @@ Here are the countries where you can sign up and receive **Subscription Payments
 
 You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-dk/Pages/mobilepay.aspx">www.MobilePay.dk</a> or the MobilePay Business Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the technical integration. The environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Developer Portal </a> 
 
-## <a name="general-notes"></a> General notes 
+## <a name="authentication"></a> Authentication
 
-MobilePay Subscriptions is a full-fledged HTTPS REST api using JSON as request/response communication media.
+There's two step authentication required in order to access __Subscriptions__ services:
+1.  API gateway authentication
+2. Subscriptions service authentication
+#### API gateway authentication
+All requests to the API must contain at least two authentication headers - `x-ibm-client-id` and `x-ibm-client-secret` in order to authenticate to the API gateway.
 
-All dates and time-stamps use the ISO 8601 format: date format - `YYYY-MM-DD`, date-time format - `YYYY-MM-DDTHH:mm:ssZ`.
+#### Subscriptions service authentication
+There are two possible ways to authenticate to __Subscriptions__ services:
+>1. [OpenID Connect](#openid-connect)
+>2. [Mutual SSL authentication](#client-certificate)
 
-Amounts are enquoted with double quotation marks using `0.00` format, decimals separated with a dot.
+### <a name="openid-connect"></a>OpenID Connect
 
-When doing `POST`, `PATCH` or `PUT` requests, `Content-Type: application/json` HTTP header must be provided.
+When the merchant is onboarded, he has a user in MobilePay that is able to manage which products the merchant wishes to use. Not all merchants have the technical capabilities to make integrations to MobilePay, instead they may need to go through applications whith these capabilities. In order for this to work, the merchant must grant consent to an application(__Client__) with these capabilities. This consent is granted through mechanism in the [OpenID Connect](http://openid.net/connect/) protocol suite.</br>
+The OpenID Connect protocol is a simple identity layer on top of the OAuth 2.0 protocol. Integrators are the same as __Clients__ in the OAuth 2.0 protocol. The first thing that must be done as a __Client__ is to go and register [here](). Once this is done the __Client__ must initiate the [hybrid flow](http://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth) specified in OpenID connect. For __Subscriptions__ product the __Client__ must request consent from the merchant using the `subscriptions.read` and/or `subscriptions.write` scopes, depending on what operations the __Client__ is willing to perform on behalf of merchant. The authorization server in sandbox is located [here](https://api.sandbox.mobilepay.dk/merchant-authentication-openidconnect).</br>
+If the merchant grants consent, an authorization code is returned which the __Client__ must exchange for an id token, an access token and a refresh token. The refresh token is used to refresh ended sessions without asking for merchant consent again. This means that if the __Client__ receives an answer from the api gateway saying that the access token is invalid, the refresh token is exchanged for a new access token and refresh token. </br> </br>
+An example of how to use OpenID connect in C# can be found [here](https://github.com/MobilePayDev/MobilePay-Invoice/tree/master/ClientExamples).
 
-```console 
-$ curl --request POST --header 'Content-Type: application/json' --url https://<mobile-pay-root>/resource --data '{}'
-```
 
-API version is set using the `api-version` query parameter.
-
-```console 
-$ curl --url https://<mobile-pay-root>/resource?api-version=1.1 --request POST --header 'Content-Type: application/json' --data '{}'
-```
-
-#### <a name="general-notes_authentication"></a>Authentication 
-
-All requests to the API must contain a client certificate and at least two authentication headers - `x-ibm-client-id` and `x-ibm-client-secret` in order to authenticate to the API.
-
-```console
-$ curl --cert /path/to/cert.pem --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
-```
-
-##### <a name="client-certificate"></a>Client certificate for mutual SSL
+### <a name="client-certificate"></a>Client certificate for mutual SSL
 
 In order to be authenticated to our REST services you have to provide a self-signed client certificate, which can be generated either using `makecert.exe` or `OpenSSL`. __Note, that the certificate is valid for 2 years and will have to be regenerated after it expires.__
 
@@ -93,6 +86,31 @@ Enter `{your company name} - Recurring Payments - {environment}` for Common Name
 Export private key to pfx:
 ```console
 $ openssl pkcs12 -export -in {environment}RecurringPayments{your company name}.crt -inkey {environment}RecurringPayments{your company name}.pvk -CSP "Microsoft Enhanced RSA and AES Cryptographic Provider" -out {environment}RecurringPayments{your company name}.pfx
+```
+
+#### Request example
+```console
+$ curl --cert /path/to/cert.pem --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
+```
+
+## <a name="general-notes"></a> General notes 
+
+MobilePay Subscriptions is a full-fledged HTTPS REST api using JSON as request/response communication media.
+
+All dates and time-stamps use the ISO 8601 format: date format - `YYYY-MM-DD`, date-time format - `YYYY-MM-DDTHH:mm:ssZ`.
+
+Amounts are enquoted with double quotation marks using `0.00` format, decimals separated with a dot.
+
+When doing `POST`, `PATCH` or `PUT` requests, `Content-Type: application/json` HTTP header must be provided.
+
+```console 
+$ curl --request POST --header 'Content-Type: application/json' --url https://<mobile-pay-root>/resource --data '{}'
+```
+
+API version is set using the `api-version` query parameter.
+
+```console 
+$ curl --url https://<mobile-pay-root>/resource?api-version=1.1 --request POST --header 'Content-Type: application/json' --data '{}'
 ```
 
 #### <a name="general-notes_errors"></a>Errors
