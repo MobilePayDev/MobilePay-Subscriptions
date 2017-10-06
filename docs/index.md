@@ -55,8 +55,8 @@ $ curl --cert /path/to/cert.pem --header 'x-ibm-client-id: client-id' --header '
 In order to be authenticated to our REST services you have to provide a self-signed client certificate, which can be generated either using `makecert.exe` or `OpenSSL`. __Note, that the certificate is valid for 2 years and will have to be regenerated after it expires.__
 
 Generate two certificates for Sandbox and Production environments:
->* Sandbox: set {environment} to Sandbox
->* Production: leave {environment} blank.
+>* Sandbox: set {environment} to Sandbox (without {}).
+>* Production: leave {environment} blank (without{}).
 
 Send the generated *.cer (or *.crt, if you use OpenSSL) files to [help@mobilepay.dk](mailto:help@mobilepay.dk) and store the *.pfx file in a secure private key storage on your end. Note: Please zip the certificate, as our e-mail server is quite sensitive. 
 
