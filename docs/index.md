@@ -22,34 +22,41 @@ Here are the countries where you can sign up and receive **Subscription Payments
 
 You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-dk/Pages/mobilepay.aspx">www.MobilePay.dk</a> or the MobilePay Business Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the technical integration. The environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Developer Portal </a> 
 
-## <a name="authentication"></a> Authentication
+## <a name="general-notes"></a> General notes 
 
-There's two step authentication required in order to access __Subscriptions__ services:
-1.  API gateway authentication
-2. Subscriptions service authentication
-#### API gateway authentication
-All requests to the API must contain at least two authentication headers - `x-ibm-client-id` and `x-ibm-client-secret` in order to authenticate to the API gateway.
+MobilePay Subscriptions is a full-fledged HTTPS REST api using JSON as request/response communication media.
 
-#### Subscriptions service authentication
-There are two possible ways to authenticate to __Subscriptions__ services:
->1. [OpenID Connect](#openid-connect)
->2. [Mutual SSL authentication](#client-certificate)
+All dates and time-stamps use the ISO 8601 format: date format - `YYYY-MM-DD`, date-time format - `YYYY-MM-DDTHH:mm:ssZ`.
 
-### <a name="openid-connect"></a>OpenID Connect
+Amounts are enquoted with double quotation marks using `0.00` format, decimals separated with a dot.
 
-When the merchant is onboarded, he has a user in MobilePay that is able to manage which products the merchant wishes to use. Not all merchants have the technical capabilities to make integrations to MobilePay, instead they may need to go through applications whith these capabilities. In order for this to work, the merchant must grant consent to an application(__Client__) with these capabilities. This consent is granted through mechanism in the [OpenID Connect](http://openid.net/connect/) protocol suite.</br>
-The OpenID Connect protocol is a simple identity layer on top of the OAuth 2.0 protocol. Integrators are the same as __Clients__ in the OAuth 2.0 protocol. The first thing that must be done as a __Client__ is to go and register [here](). Once this is done the __Client__ must initiate the [hybrid flow](http://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth) specified in OpenID connect. For __Subscriptions__ product the __Client__ must request consent from the merchant using the `subscriptions` scope. The authorization server in sandbox is located [here](https://api.sandbox.mobilepay.dk/merchant-authentication-openidconnect).</br>
-If the merchant grants consent, an authorization code is returned which the __Client__ must exchange for an id token, an access token and a refresh token. The refresh token is used to refresh ended sessions without asking for merchant consent again. This means that if the __Client__ receives an answer from the api gateway saying that the access token is invalid, the refresh token is exchanged for a new access token and refresh token. </br> </br>
-An example of how to use OpenID connect in C# can be found [here](https://github.com/MobilePayDev/MobilePay-Invoice/tree/master/ClientExamples).
+When doing `POST`, `PATCH` or `PUT` requests, `Content-Type: application/json` HTTP header must be provided.
 
+```console 
+$ curl --request POST --header 'Content-Type: application/json' --url https://<mobile-pay-root>/resource --data '{}'
+```
 
-### <a name="client-certificate"></a>Client certificate for mutual SSL
+API version is set using the `api-version` query parameter.
 
-Another way to be authenticated to __Subscriptions__ service is to provide a self-signed client certificate, which can be generated either using `makecert.exe` or `OpenSSL`. __Note, that the certificate is valid for 2 years and will have to be regenerated after it expires.__
+```console 
+$ curl --url https://<mobile-pay-root>/resource?api-version=1.1 --request POST --header 'Content-Type: application/json' --data '{}'
+```
+
+#### <a name="general-notes_authentication"></a>Authentication 
+
+All requests to the API must contain a client certificate and at least two authentication headers - `x-ibm-client-id` and `x-ibm-client-secret` in order to authenticate to the API.
+
+```console
+$ curl --cert /path/to/cert.pem --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
+```
+
+##### <a name="client-certificate"></a>Client certificate for mutual SSL
+
+In order to be authenticated to our REST services you have to provide a self-signed client certificate, which can be generated either using `makecert.exe` or `OpenSSL`. __Note, that the certificate is valid for 2 years and will have to be regenerated after it expires.__
 
 Generate two certificates for Sandbox and Production environments:
->* Sandbox: set {environment} to Sandbox
->* Production: leave {environment} blank.
+>* Sandbox: set {environment} to Sandbox (without {}).
+>* Production: leave {environment} blank (without{}).
 
 Send the generated *.cer (or *.crt, if you use OpenSSL) files to [help@mobilepay.dk](mailto:help@mobilepay.dk) and store the *.pfx file in a secure private key storage on your end. Note: Please zip the certificate, as our e-mail server is quite sensitive. 
 
@@ -86,31 +93,6 @@ Enter `{your company name} - Recurring Payments - {environment}` for Common Name
 Export private key to pfx:
 ```console
 $ openssl pkcs12 -export -in {environment}RecurringPayments{your company name}.crt -inkey {environment}RecurringPayments{your company name}.pvk -CSP "Microsoft Enhanced RSA and AES Cryptographic Provider" -out {environment}RecurringPayments{your company name}.pfx
-```
-
-#### Request example
-```console
-$ curl --cert /path/to/cert.pem --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
-```
-
-## <a name="general-notes"></a> General notes 
-
-MobilePay Subscriptions is a full-fledged HTTPS REST api using JSON as request/response communication media.
-
-All dates and time-stamps use the ISO 8601 format: date format - `YYYY-MM-DD`, date-time format - `YYYY-MM-DDTHH:mm:ssZ`.
-
-Amounts are enquoted with double quotation marks using `0.00` format, decimals separated with a dot.
-
-When doing `POST`, `PATCH` or `PUT` requests, `Content-Type: application/json` HTTP header must be provided.
-
-```console 
-$ curl --request POST --header 'Content-Type: application/json' --url https://<mobile-pay-root>/resource --data '{}'
-```
-
-API version is set using the `api-version` query parameter.
-
-```console 
-$ curl --url https://<mobile-pay-root>/resource?api-version=1.1 --request POST --header 'Content-Type: application/json' --data '{}'
 ```
 
 #### <a name="general-notes_errors"></a>Errors
@@ -165,8 +147,6 @@ $ curl --header 'CorrelationId: 37b8450b-579b-489d-8698-c7800c65934c' --url http
 ```
 
 #### <a name="general-notes_callback-authentication"></a>REST callback authentication
-
-`PUT `{{site.integrators_base_path}}
 
 Use one of these endpoints to set REST callback authentication scheme and credentials:
 * `PUT /api/merchants/me/auth/oauth2` - set OAuth2 scheme which conforms to RFC 6749 [section 4.4.](https://tools.ietf.org/html/rfc6749#section-4.4).
@@ -384,7 +364,7 @@ When the **Agreement** between **Merchant** and MobilePay **User** is establishe
 |**amount**            |number(0.00)| required |*The requested amount to be paid.*|>= 0.00, decimals separated with a dot.|
 |**due_date**          |date        | required |*Payment due date. Must be at least 8 days in the future, otherwise the __Subscription Payment__ will be declined.*|ISO date format: yyyy-MM-dd|
 |**next_payment_date** |date        |          |*Next __Subscription Payment's__ due date, to be shown to the user in the __Agreement__ details.*|ISO date format: yyyy-MM-dd|
-|**external_id**       |string      | required |*The identifier of a specific payment in the external merchant's system. Maximum length is 30 characters*||
+|**external_id**       |string      | required |*The identifier of a specific payment in the external merchant's system. Maximum length is 30 characters*||
 |**description**       |string(60)  | required |*Additional information of the __Subscription Payment__.*||
 
 <a name="subscription-payments_response"></a>The `POST /api/merchants/me/paymentrequests` service returns HTTP 202 - Accepted response if at least one payment is provided in the request payload.
@@ -467,7 +447,7 @@ Once the payment status changes from *Pending* to *Executed, Declined, Rejected*
 |**amount**  	 |number(0.00)|Amount withdrawn from the MobilePay user.             ||
 |**currency**  	 |string      |Amount currency (agreement's currency)                ||
 |**payment_date**|date        |Date of the batch when the payment was executed.      |ISO 8601 UTC date: YYYY-MM-DD|
-|**external_id** |string      |Payment ID on the merchant's side. Maximum length is 30 characters                   ||
+|**external_id** |string      |Payment ID on the merchant's side. Maximum length is 30 characters                   ||
 
 
 ##### <a name="subscription-payments_callback-example"></a>Payment callback body example
