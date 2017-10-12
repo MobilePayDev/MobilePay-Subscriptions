@@ -18,20 +18,6 @@ Here are the countries where you can sign up and receive **Subscription Payments
 
 You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-dk/Pages/mobilepay.aspx">www.MobilePay.dk</a> or the MobilePay Business Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the technical integration. The environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Developer Portal </a> 
 
-## <a name="general-notes"></a> General notes 
-
-MobilePay Subscriptions is a full-fledged HTTPS REST api using JSON as request/response communication media.
-
-All dates and time-stamps use the ISO 8601 format: date format - `YYYY-MM-DD`, date-time format - `YYYY-MM-DDTHH:mm:ssZ`.
-
-Amounts are enquoted with double quotation marks using `0.00` format, decimals separated with a dot.
-
-When doing `POST`, `PATCH` or `PUT` requests, `Content-Type: application/json` HTTP header must be provided.
-
-```console 
-$ curl --request POST --header 'Content-Type: application/json' --url https://<mobile-pay-root>/resource --data '{}'
-```
-
 ## <a name="general-notes_authentication"></a>Authentication 
 
 ### <a name="openid-connect"></a>OpenID Connect
@@ -48,6 +34,20 @@ In order to authenticate to the API, all requests to the API must contain at lea
 
 ```console
 $ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
+```
+
+## <a name="general-notes"></a> General notes 
+
+MobilePay Subscriptions is a full-fledged HTTPS REST api using JSON as request/response communication media.
+
+All dates and time-stamps use the ISO 8601 format: date format - `YYYY-MM-DD`, date-time format - `YYYY-MM-DDTHH:mm:ssZ`.
+
+Amounts are enquoted with double quotation marks using `0.00` format, decimals separated with a dot.
+
+When doing `POST`, `PATCH` or `PUT` requests, `Content-Type: application/json` HTTP header must be provided.
+
+```console 
+$ curl --request POST --header 'Content-Type: application/json' --url https://<mobile-pay-root>/resource --data '{}'
 ```
 
 #### <a name="general-notes_errors"></a>Errors
@@ -99,6 +99,107 @@ _CorrelationId_ is an optional _[Guid](https://en.wikipedia.org/wiki/Globally_un
 
 ```console
 $ curl --header 'CorrelationId: 37b8450b-579b-489d-8698-c7800c65934c' --url https://<mobile-pay-root>/api/merchants/me/agreements
+```
+
+## <a name="general-notes_provider-update"></a>Updating subscription provider
+
+There is some information about subscription provider that can be updated by calling `PATCH /api/v{version}/providers/{providerId}`:
+#### Name
+
+```json
+[
+    {
+        "value": "New Name",
+        "path": "/name",
+        "op": "replace"
+    }
+]
+```
+
+#### Customer service URL
+```json
+[
+    {
+        "value": "https://newurl.dk/service",
+        "path": "/customer_service",
+        "op": "replace"
+    }
+]
+```
+
+#### Frequently Asked Questions URL
+```json
+[
+    {
+        "value": "https://merchant.dk/url",
+        "path": "/faq",
+        "op": "replace"
+    }
+]
+```
+
+#### Homepage URL
+```json
+[
+    {
+        "value": "https://merchant.dk/",
+        "path": "/homepage",
+        "op": "replace"
+    }
+]
+```
+
+#### Self-service URL
+```json
+[
+    {
+        "value": "https://merchant.dk/self-service",
+        "path": "/portal",
+        "op": "replace"
+    }
+]
+```
+
+#### Account number
+```json
+[
+    {
+        "value": "DK5000400440116243",
+        "path": "/external_account_number",
+        "op": "replace"
+    }
+]
+```
+
+#### Payment status callback URL
+```json
+[
+    {
+        "value": "https://merchant.dk/notifications_from_mobilepay/payments",
+        "path": "/payment_status_callback_url",
+        "op": "replace"
+    }
+]
+```
+**NOTE:** _More than one property updates can be combined into single request, e.g._:
+```json
+[
+    {
+        "value": "https://newurl.dk/service",
+        "path": "/customer_service",
+        "op": "replace"
+    },
+    {
+        "value": "https://merchant.dk/",
+        "path": "/homepage",
+        "op": "replace"
+    },
+    {
+        "value": "https://merchant.dk/self-service",
+        "path": "/portal",
+        "op": "replace"
+    }
+]
 ```
 
 #### <a name="general-notes_callback-authentication"></a>REST callback authentication
