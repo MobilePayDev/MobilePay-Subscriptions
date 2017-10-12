@@ -55,15 +55,15 @@ $ curl --cert /path/to/cert.pem --header 'x-ibm-client-id: client-id' --header '
 In order to be authenticated to our REST services you have to provide a self-signed client certificate, which can be generated either using `makecert.exe` or `OpenSSL`. __Note, that the certificate is valid for 2 years and will have to be regenerated after it expires.__
 
 Generate two certificates for Sandbox and Production environments:
->* Sandbox: set {environment} to Sandbox (without {}).
->* Production: leave {environment} blank (without{}).
+>* Sandbox: set environment to Sandbox.
+>* Production: leave environment blank.
 
 Send the generated *.cer (or *.crt, if you use OpenSSL) files to [help@mobilepay.dk](mailto:help@mobilepay.dk) and store the *.pfx file in a secure private key storage on your end. Note: Please zip the certificate, as our e-mail server is quite sensitive. 
 
 ##### <a name="client-certificate_makecert"></a>Using makecert.exe to generate client certificate
 ```
 makecert.exe ^
- -n "CN={your company name} - Recurring Payments - {environment}" ^
+ -n "CN=your-company-name - MobilePay - environment" ^
  -sky exchange ^
  -eku 1.3.6.1.5.5.7.3.2 ^
  -r ^
@@ -71,28 +71,28 @@ makecert.exe ^
  -a sha512 ^
  -len 2048 ^
  -m 24 ^
- -sv {environment}RecurringPayments{your company name}.pvk ^
- {environment}RecurringPayments{your company name}.cer
+ -sv environment_MobilePay_your-company-name.pvk ^
+ environment_MobilePay_your-company-name.cer
 ```
 
 Export private key to pfx:
 ```
 pvk2pfx.exe ^ 
- -pvk {environment}RecurringPayments{your company name}.pvk ^
- -spc {environment}RecurringPayments{your company name}.cer ^
- -pfx {environment}RecurringPayments{your company name}.pfx
+ -pvk environment_MobilePay_your-company-name.pvk ^
+ -spc environment_MobilePay_your-company-name.cer ^
+ -pfx environment_MobilePay_your-company-name.pfx
 ```
 
 ##### <a name="client-certificate_openssl"></a>Using OpenSSL to generate client certificate
 
 ```console
-$ openssl req -x509 -nodes -sha512 -newkey rsa:2048 -keyout {environment}RecurringPayments{your company name}.pvk -out {environment}RecurringPayments{your company name}.crt -days 730
+$ openssl req -x509 -nodes -sha512 -newkey rsa:2048 -keyout environment_MobilePay_your-company-name.pvk -out environment_MobilePay_your-company-name.crt -days 730
 ```
-Enter `{your company name} - Recurring Payments - {environment}` for Common Name, when asked.
+Enter `your-company-name - MobilePay - environment` for Common Name, when asked.
 
 Export private key to pfx:
 ```console
-$ openssl pkcs12 -export -in {environment}RecurringPayments{your company name}.crt -inkey {environment}RecurringPayments{your company name}.pvk -CSP "Microsoft Enhanced RSA and AES Cryptographic Provider" -out {environment}RecurringPayments{your company name}.pfx
+$ openssl pkcs12 -export -in environment_MobilePay_your-company-name.crt -inkey environment_MobilePay_your-company-name.pvk -CSP "Microsoft Enhanced RSA and AES Cryptographic Provider" -out environment_MobilePay_your-company-name.pfx
 ```
 
 #### <a name="general-notes_errors"></a>Errors
