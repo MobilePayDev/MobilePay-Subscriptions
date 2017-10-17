@@ -103,7 +103,7 @@ $ curl --header 'CorrelationId: 37b8450b-579b-489d-8698-c7800c65934c' --url http
 
 ## <a name="general-notes_provider-update"></a>Updating subscription provider
 
-There is some information about subscription provider that can be updated by calling `PATCH /api/v{version}/providers/{providerId}`:
+There is some information about subscription provider that can be updated by calling `PATCH /api/providers/{providerId}`:
 #### Name
 
 ```json
@@ -205,9 +205,9 @@ There is some information about subscription provider that can be updated by cal
 #### <a name="general-notes_callback-authentication"></a>REST callback authentication
 
 Use one of these endpoints to set REST callback authentication scheme and credentials:
-* `PUT /api/v{version}/providers/{providerId}/auth/oauth2` - set OAuth2 scheme which conforms to RFC 6749 [section 4.4.](https://tools.ietf.org/html/rfc6749#section-4.4).
-* `PUT /api/v{version}/providers/{providerId}/auth/basic` - set Basic auth scheme using username and password.
-* `PUT /api/v{version}/providers/{providerId}/auth/apikey` - set a value which will be set to the _Authorization_ header. API key must conform to the token68 specification as defined in RFC 7235 [section2.1.](https://tools.ietf.org/html/rfc7235#section-2.1).
+* `PUT /api/providers/{providerId}/auth/oauth2` - set OAuth2 scheme which conforms to RFC 6749 [section 4.4.](https://tools.ietf.org/html/rfc6749#section-4.4).
+* `PUT /api/providers/{providerId}/auth/basic` - set Basic auth scheme using username and password.
+* `PUT /api/providers/{providerId}/auth/apikey` - set a value which will be set to the _Authorization_ header. API key must conform to the token68 specification as defined in RFC 7235 [section2.1.](https://tools.ietf.org/html/rfc7235#section-2.1).
 
 #### <a name="general-notes_callback-retries"></a>REST callback retries
 
@@ -228,7 +228,7 @@ In case the REST callback failed, 8 retries will be made using the [exponential 
 
 ## <a name="agreements"></a>Agreements
 
-Once the user is given to choose the payment method on the merchant's signup flow, an additional "*Pay with MobilePay*" button should be shown for the user to be able to click on. When user clicks on this button, merchant's back-end system must call the `POST /api/v{version}/providers/{providerId}/agreements` endpoint in order to create a *Pending* Subscription **Agreement**, which can only be activated by the MobilePay user through the app. 
+Once the user is given to choose the payment method on the merchant's signup flow, an additional "*Pay with MobilePay*" button should be shown for the user to be able to click on. When user clicks on this button, merchant's back-end system must call the `POST /api/providers/{providerId}/agreements` endpoint in order to create a *Pending* Subscription **Agreement**, which can only be activated by the MobilePay user through the app. 
 
 ```json
 {
@@ -279,7 +279,7 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |**links[].href**      |string      |required |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
 
 <a name="agreements_response"></a>
-The response of `POST /api/v{version}/providers/{providerId}/agreements` contains two values: a unique *id* of the newly created *Pending* **Agreement** and a link *rel* = *mobile-pay*.
+The response of `POST /api/providers/{providerId}/agreements` contains two values: a unique *id* of the newly created *Pending* **Agreement** and a link *rel* = *mobile-pay*.
 
 ```json
 {
@@ -397,7 +397,7 @@ When the **Agreement** activation is complete or canceled, the user will be navi
 
 ## <a name="subscription-payments"></a>Subscription Payments
 
-When the **Agreement** between **Merchant** and MobilePay **User** is established, use the `POST /api/v{version}/providers/{providerId}/paymentrequests` endpoint to en-queue **Subscription Payments**. This service accepts a JSON array of individual **Subscription Payments** to be processed asynchronously. Notice that the **Subscription Payments** payload does not contain a currency code - this will be fetched from the **Agreement** using the provided *agreement_id*.
+When the **Agreement** between **Merchant** and MobilePay **User** is established, use the `POST /api/providers/{providerId}/paymentrequests` endpoint to en-queue **Subscription Payments**. This service accepts a JSON array of individual **Subscription Payments** to be processed asynchronously. Notice that the **Subscription Payments** payload does not contain a currency code - this will be fetched from the **Agreement** using the provided *agreement_id*.
 
 ```json
 [
@@ -424,7 +424,7 @@ When the **Agreement** between **Merchant** and MobilePay **User** is establishe
 |**description**       |string(60)  | required |*Additional information of the __Subscription Payment__.*||
 
 <a name="subscription-payments_response"></a>
-The `POST /api/v{version}/providers/{providerId}/paymentrequests` service returns HTTP 202 - Accepted response if at least one payment is provided in the request payload.
+The `POST /api/providers/{providerId}/paymentrequests` service returns HTTP 202 - Accepted response if at least one payment is provided in the request payload.
 
 The response body containts two lists:
 * **pending_payments** - a map of newly generated Subscription payment ID and the external ID, that where accepted for processing and now are in a _Pending_ state.
@@ -467,7 +467,7 @@ For example: if you have a customer where the frequency of an agreement is set t
 
 #### <a name="subscription-payments_callbacks"></a>Callbacks
 
-Once the payment status changes from *Pending* to *Executed, Declined, Rejected* or *Failed*, a callback will be done to the callback address, which is configurable via `PATCH /api/v{version}/providers/{providerId}` with path value `/payment_status_callback_url`. 
+Once the payment status changes from *Pending* to *Executed, Declined, Rejected* or *Failed*, a callback will be done to the callback address, which is configurable via `PATCH /api/providers/{providerId}` with path value `/payment_status_callback_url`. 
 
 ```json
 [
@@ -558,7 +558,7 @@ In case of technical errors (HTTP response is not 2xx), we will try to re-POST t
 
 #### <a name="subscription-payments_update-existing"></a>Update existing Payment Request
 
-Use the `PATCH /api/v{version}/providers/{providerId}/agreements/{agreementId}/paymentrequests/{paymentId}` endpoint to decrease the requested amount to be paid.
+Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentrequests/{paymentId}` endpoint to decrease the requested amount to be paid.
 
 ```json
 [
@@ -582,7 +582,7 @@ Note:  Subscription payments are charged automatically, while one-off are charge
 
 #### <a name="oneoffpayments_request-new-agreement"></a>Request One-Off Payment With a New Agreement
 
-Add a `one_off_payment` property to the `POST /api/v{version}/providers/{providerId}/agreements` request payload if you want the agreement being activated only when the user is successfully charged an initial subscription amount.
+Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreements` request payload if you want the agreement being activated only when the user is successfully charged an initial subscription amount.
 
 ```json
 {
@@ -628,7 +628,7 @@ Add a `one_off_payment` property to the `POST /api/v{version}/providers/{provide
 |**one_off_payment.description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
 |**one_off_payment.external_id**  |string      |          |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
 
-<a name="oneoffpayments_response-new"></a>In this case the response of `POST /api/v{version}/providers/{providerId}/agreements` will contain additional `one_off_payment_id` value - id of the newly requested **One-Off Payment**.
+<a name="oneoffpayments_response-new"></a>In this case the response of `POST /api/providers/{providerId}/agreements` will contain additional `one_off_payment_id` value - id of the newly requested **One-Off Payment**.
 
 ```json
 {
@@ -645,7 +645,7 @@ Add a `one_off_payment` property to the `POST /api/v{version}/providers/{provide
 
 #### <a name="oneoffpayments_existing-agreement"></a>Request One-off Payment on an Existing Agreement
 
-Use a `POST /api/v{version}/providers/{providerId}/agreements/{agreementId}/oneoffpayments` endpoint in order to charge your customer one time for extra services. 
+Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` endpoint in order to charge your customer one time for extra services. 
 
 ```json
 {
@@ -675,7 +675,7 @@ __One-off Payment__ will expire in 1 day if it is not accepted or rejected by th
 |**links[].rel**  |string      |required  |*Link relation type.*|user-redirect|
 |**links[].href** |string      |required  |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
 
-<a name="oneoffpayments_response-existing"></a>The response of `POST /api/v{version}/providers/{providerId}/agreements/{agreementId}/oneoffpayments` contains two values: a unique *id* of the newly requested **One-Off Payment** and a link *rel* = *mobile-pay*.
+<a name="oneoffpayments_response-existing"></a>The response of `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` contains two values: a unique *id* of the newly requested **One-Off Payment** and a link *rel* = *mobile-pay*.
 
 ```json
 {
@@ -694,7 +694,7 @@ __One-off Payment__ will expire in 1 day if it is not accepted or rejected by th
 
 ##### <a name="oneoffpayments_callback"></a>Callbacks
 
-Once the one-off payment status changes from *Requested* to *Reserved*, *Rejected* or *Expired*, a callback will be done to the callback address, which is configurable via `PATCH /api/v{version}/providers/{providerId}` with path value `/payment_status_callback_url`. The same way as with [callbacks](../#subscription-payments_callbacks) for regular payment requests.
+Once the one-off payment status changes from *Requested* to *Reserved*, *Rejected* or *Expired*, a callback will be done to the callback address, which is configurable via `PATCH /api/providers/{providerId}` with path value `/payment_status_callback_url`. The same way as with [callbacks](../#subscription-payments_callbacks) for regular payment requests.
 
 |New Status|Condition|When to expect|Callback *status*  | Callback *status_text* | Callback *status_code* |
 |----------|---------|--------------|-------------------|------------------------|------------------------|
@@ -708,11 +708,11 @@ Once the one-off payment status changes from *Requested* to *Reserved*, *Rejecte
 
 #### <a name="oneoffpayments_capture"></a>Capture Reserved One-Off Payment
 
-When you receive a callback about successfully reserved payment, now it's time to capture your money. You can do that by making a call to `POST /api/v{version}/providers/{providerId}/agreements/{agreementId}/oneoffpayments/{paymentId}/capture` endpoint. If the HTTP response is `204 - No Content`, it means that the money was transfered to your account.
+When you receive a callback about successfully reserved payment, now it's time to capture your money. You can do that by making a call to `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments/{paymentId}/capture` endpoint. If the HTTP response is `204 - No Content`, it means that the money was transfered to your account.
 
 #### <a name="oneoffpayments_cancel"></a>Cancel One-Off Payment Request/Reservation
 
-In case you weren't able to deliver goods or any other problem occur, you can always cancel one-off payment until it's not captured or expired. You can do that by making a call to `DELETE /api/v{version}/providers/{providerId}/agreements/{agreementId}/oneoffpayments/{paymentId}` endpoint. If the HTTP response is '204 - No Content', it means that one-off payment request/reservation was canceled.
+In case you weren't able to deliver goods or any other problem occur, you can always cancel one-off payment until it's not captured or expired. You can do that by making a call to `DELETE /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments/{paymentId}` endpoint. If the HTTP response is '204 - No Content', it means that one-off payment request/reservation was canceled.
 
 It is **mandatory** for the merchant to Capture or Cancel one-off payment if it was reserved on a customer account.
 
@@ -723,7 +723,7 @@ It is **mandatory** for the merchant to Capture or Cancel one-off payment if it 
 **Partial refund** - An amount up to the net (the amount the merchant received) will be returned to the payer. Multiple partial refunds can be made.
 
 #### <a name="refunds_request"></a>Request a Refund
-Use the `POST /api/v{version}/providers/{providerId}/agreements/{agreementId}/payments/{paymentId}/refunds` endpoint to request a **Refund**.
+Use the `POST /api/providers/{providerId}/agreements/{agreementId}/payments/{paymentId}/refunds` endpoint to request a **Refund**.
 
 ```json
 {
@@ -740,7 +740,7 @@ Use the `POST /api/v{version}/providers/{providerId}/agreements/{agreementId}/pa
 |**status_callback_url**  |string| required |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
 
 <a name="refunds_response"></a>
-The `POST /api/v{version}/providers/{providerId}/agreements/{agreementId}/payments/{paymentId}/refunds` service returns HTTP 202 and the response contains single value: a unique *id* of the newly created **Refund**.
+The `POST /api/providers/{providerId}/agreements/{agreementId}/payments/{paymentId}/refunds` service returns HTTP 202 and the response contains single value: a unique *id* of the newly created **Refund**.
 
 ##### <a name="refunds_response-example"></a>HTTP 202 Response body example
 ```json
