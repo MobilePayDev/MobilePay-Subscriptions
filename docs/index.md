@@ -392,14 +392,12 @@ The response body containts two lists:
 #### <a name="subscription-payments_frequency"></a>Frequency of Payment Requests
  The merchant can send a payment max 32 days prior due date, and at at least 8 days before due date. 
  Valid values are 1,2,4,12,26,52.
+ * **Due Date** Payments cannot be created with the same Due Date. 
+* **Multiple Recurring payments**  Multiple recurring payment requests can be created within period [32 before Due Date >= Payment Request Date >= 8 before Due Date]
+* **Next Payment Date** If there are multiple pending payments, Next Payment Date is the one closest to Today()
  
  ##### <a name="subscription-payments_grace-example"></a>Example of Frequency
 For example: if you have a customer where the frequency of an agreement is set to 4, that means  365 / 4 = 91.25 (approximately payment requests every 3rd month). 
-note: Payments cannot be created with the same Due Date. 
-Multiple recurring payment requests can be created within period [32 before Due Date >= Payment Request Date >= 8 before Due Date]
-If there are multiple pending payments, Next Payment Date is the one closest to Today()
-
-
 
 #### Payment screens
 
