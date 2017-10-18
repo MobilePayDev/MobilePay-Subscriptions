@@ -390,18 +390,12 @@ The response body containts two lists:
 ```
 
 #### <a name="subscription-payments_frequency"></a>Frequency of Payment Requests
- Multiple recurring payment requests can be created within period 32 >= Due Date >= 8. The merchant can send a payment max 32 prior due date, and they always need to respect the 8 day rule. 
+ The merchant can send a payment max 32 days prior due date, and at at least 8 days before due date. 
  
-|Frequency|Grace period|Description |
-|---------|------------|------------|
-|**1**    |  30        |If payments occur once a year, allow payments to be requested 30 days before due date.|
-|**2**    |  30        |If payments occur once every 6 months, allow payments to be requested 30 days before due date.|
-|**4**    |  15        |If payments occur every 3 months, allow payments to be requested 15 days before due date.|
-|**12**   |  8         |If payments occur every month, allow payments to be requested 8 days before due date.|
-|**26**   |  8         |If payments occur bi-weekly, allow payments to be requested 8 days before due date.|
 
 ##### <a name="subscription-payments_grace-example"></a>Example of a Grace Period
-For example: if you have a customer where the frequency of an agreement is set to 4, that means  365 / 4 = 91.25 (approximately payment requests every 3rd month). You can actually request the payment 3months – 15 days due to this grace period. The grace period entails that, the merchant can send Payment Requests a bit earlier than normally. Without the grace period, the merchant could only send new payment requests precisely when 3 months have passed. MobilePay has done it possible to send the payment 15 days before the actual due date.
+For example: If you want to do bi-weekly payments, then the merchant will need to set the frequency to 26. 
+if you have a customer where the frequency of an agreement is set to 26, that means  365 / 26 = 14 days.
 
 #### Payment screens
 
