@@ -394,8 +394,7 @@ The response body containts two lists:
  
 
 ##### <a name="subscription-payments_grace-example"></a>Example of a Grace Period
-For example: If you want to do bi-weekly payments, then the merchant will need to set the frequency to 26. 
-if you have a customer where the frequency of an agreement is set to 26, that means  365 / 26 = 14 days.
+ 
 
 #### Payment screens
 
@@ -730,4 +729,3 @@ Refund screens within mobile application:
 ![](assets/images/Refund_0162.PNG)
 ![](assets/images/Refund_0163.PNG)
 
-> Refunds will work for payments from 2017-06-26
