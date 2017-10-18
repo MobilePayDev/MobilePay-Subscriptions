@@ -15,7 +15,6 @@ Our MobilePay Subscriptions REST api enables you to:
 
 Here are the countries where you can sign up and receive **Subscription Payments**:
 - Denmark 
-- Norway 
 - Finland 
 
 ### <a name="overview_onboarding"></a>Merchant onboarding
@@ -391,8 +390,8 @@ The response body containts two lists:
 ```
 
 #### <a name="subscription-payments_frequency"></a>Frequency of Payment Requests
-We have five frequency intervals: 1, 2, 4, 12 or 26. Furthermore, each frequency interval has different grace periods. These periods are listed below:
-
+ Multiple recurring payment requests can be created within period 32 >= Due Date >= 8. The merchant can send a payment max 32 prior due date, and they always need to respect the 8 day rule. 
+ 
 |Frequency|Grace period|Description |
 |---------|------------|------------|
 |**1**    |  30        |If payments occur once a year, allow payments to be requested 30 days before due date.|
