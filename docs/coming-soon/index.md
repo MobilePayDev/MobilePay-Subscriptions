@@ -23,7 +23,7 @@ You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-
 ### <a name="openid-connect"></a>OpenID Connect
 
 When the merchant is onboarded, he has a user in MobilePay that is able to manage which products the merchant wishes to use. Not all merchants have the technical capabilities to make integrations to MobilePay, instead they may need to go through applications whith these capabilities. In order for this to work, the merchant must grant consent to an application(__Client__) with these capabilities. This consent is granted through mechanism in the [OpenID Connect](http://openid.net/connect/) protocol suite. <br />
-The OpenID Connect protocol is a simple identity layer on top of the OAuth 2.0 protocol. Integrators are the same as __Clients__ in the OAuth 2.0 protocol. The first thing that must be done as a __Client__ is to go and register [here](). Once this is done the __Client__ must initiate the [hybrid flow](http://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth) specified in OpenID connect. For __Subscriptions__ product the __Client__ must request consent from the merchant using the `subscriptions` scope. The authorization server in sandbox is located [here](https://api.sandbox.mobilepay.dk/merchant-authentication-openidconnect).<br />
+The OpenID Connect protocol is a simple identity layer on top of the OAuth 2.0 protocol. Integrators are the same as __Clients__ in the OAuth 2.0 protocol. The first thing that must be done as a __Client__ is to go and register [here](https://www.mobilepay.dk/da-dk/Erhverv/Pages/MobilePay-integrator.aspx). Once this is done the __Client__ must initiate the [hybrid flow](http://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth) specified in OpenID connect. For __Subscriptions__ product the __Client__ must request consent from the merchant using the `subscriptions` scope. The authorization server in sandbox is located [here](https://api.sandbox.mobilepay.dk/merchant-authentication-openidconnect).<br />
 If the merchant grants consent, an authorization code is returned which the __Client__ must exchange for an id token, an access token and a refresh token. The refresh token is used to refresh ended sessions without asking for merchant consent again. This means that if the __Client__ receives an answer from the api gateway saying that the access token is invalid, the refresh token is exchanged for a new access token and refresh token. <br /> <br />
 An example of how to use OpenID connect in C# can be found [here](https://github.com/MobilePayDev/MobilePay-Invoice/tree/master/ClientExamples).
 
@@ -103,73 +103,7 @@ $ curl --header 'CorrelationId: 37b8450b-579b-489d-8698-c7800c65934c' --url http
 
 ## <a name="general-notes_provider-update"></a>Updating subscription provider
 
-There is some information about subscription provider that can be updated by calling `PATCH /api/providers/{providerId}`:
-#### Name
-
-```json
-[
-    {
-        "value": "New Name",
-        "path": "/name",
-        "op": "replace"
-    }
-]
-```
-
-#### Customer service URL
-```json
-[
-    {
-        "value": "https://newurl.dk/service",
-        "path": "/customer_service",
-        "op": "replace"
-    }
-]
-```
-
-#### Frequently Asked Questions URL
-```json
-[
-    {
-        "value": "https://merchant.dk/url",
-        "path": "/faq",
-        "op": "replace"
-    }
-]
-```
-
-#### Homepage URL
-```json
-[
-    {
-        "value": "https://merchant.dk/",
-        "path": "/homepage",
-        "op": "replace"
-    }
-]
-```
-
-#### Self-service URL
-```json
-[
-    {
-        "value": "https://merchant.dk/self-service",
-        "path": "/portal",
-        "op": "replace"
-    }
-]
-```
-
-#### Account number
-```json
-[
-    {
-        "value": "DK5000400440116243",
-        "path": "/external_account_number",
-        "op": "replace"
-    }
-]
-```
+Before requesting payments a status callback URL must be set by calling `PATCH /api/providers/{providerId}`:
 
 #### Payment status callback URL
 ```json
@@ -177,26 +111,6 @@ There is some information about subscription provider that can be updated by cal
     {
         "value": "https://merchant.dk/notifications_from_mobilepay/payments",
         "path": "/payment_status_callback_url",
-        "op": "replace"
-    }
-]
-```
-**NOTE:** _More than one property updates can be combined into single request, e.g._:
-```json
-[
-    {
-        "value": "https://newurl.dk/service",
-        "path": "/customer_service",
-        "op": "replace"
-    },
-    {
-        "value": "https://merchant.dk/",
-        "path": "/homepage",
-        "op": "replace"
-    },
-    {
-        "value": "https://merchant.dk/self-service",
-        "path": "/portal",
         "op": "replace"
     }
 ]
