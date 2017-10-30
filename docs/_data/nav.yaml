@@ -1,19 +1,39 @@
-docs:
-
+mutual_ssl_flow :
 - title: Overview
-  url: https://mobilepaydev.github.io/MobilePay-Subscriptions/#overview
+  url: "#overview"
 
 - title: General notes
-  url: https://mobilepaydev.github.io/MobilePay-Subscriptions/#general-notes
+  url: "#general-notes"
 
 - title: Agreements
-  url: https://mobilepaydev.github.io/MobilePay-Subscriptions/#agreements
+  url: "#agreements"
 
 - title: Subscription Payments
-  url: https://mobilepaydev.github.io/MobilePay-Subscriptions/#subscription-payments
+  url: "#subscription-payments"
 
 - title: One-Off Payments
-  url: https://mobilepaydev.github.io/MobilePay-Subscriptions/#oneoffpayments
+  url: "#oneoffpayments"
   
 - title: Refunds
-  url: https://mobilepaydev.github.io/MobilePay-Subscriptions/#refunds
+  url: "#refunds"
+openid_flow : 
+- title: Overview
+  url: "coming-soon/#overview"
+
+- title: General notes
+  url: "coming-soon/#general-notes"
+
+- title: Agreements
+  url: "coming-soon/#agreements"
+
+- title: Subscription Payments
+  url: "coming-soon/#subscription-payments"
+
+- title: One-Off Payments
+  url: "coming-soon/#oneoffpayments"
+  
+- title: Refunds
+  url: "coming-soon/#refunds"
+  
+mutual_ssl_title : Mutual SSL flow
+openid_title: OpenID Connect flow

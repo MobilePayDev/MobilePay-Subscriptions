@@ -363,7 +363,7 @@ When the **Agreement** between **Merchant** and MobilePay **User** is establishe
 |**amount**            |number(0.00)| required |*The requested amount to be paid.*|>= 0.00, decimals separated with a dot.|
 |**due_date**          |date        | required |*Payment due date. Must be at least 8 days in the future, otherwise the __Subscription Payment__ will be declined.*|ISO date format: yyyy-MM-dd|
 |**next_payment_date** |date        |          |*Next __Subscription Payment's__ due date, to be shown to the user in the __Agreement__ details.*|ISO date format: yyyy-MM-dd|
-|**external_id**       |string      | required |*The identifier of a specific payment in the external merchant's system. Maximum length is 30 characters*||
+|**external_id**       |string      | required |*The identifier of a specific payment in the external merchant's system. Maximum length is 30 characters*||
 |**description**       |string(60)  | required |*Additional information of the __Subscription Payment__.*||
 
 <a name="subscription-payments_response"></a>The `POST /api/merchants/me/paymentrequests` service returns HTTP 202 - Accepted response if at least one payment is provided in the request payload.
@@ -428,6 +428,7 @@ Once the payment status changes from *Pending* to *Executed, Declined, Rejected*
 |Declined  |When the **Agreement** was canceled by merchant or by system | Any time during the 8 day period when user is presented with the Pending payment in the MobilePay activity list.  |Declined  |Declined by system: Agreement was canceled. | 50005 | 
 |Rejected  |When the **Agreement** was canceled by user | Any time during the 8 day period when user is presented with the Pending payment in the MobilePay activity list.  |Rejected  |Declined by system: Agreement was canceled. | 50005 | 
 |Declined  |A catch-all error code when payment was declined by core system.| Right after the payment request was received. |Declined  | Declined by system. | 50006 | 
+|Declined  |Declined due to user status.| Right after the payment request was received. |Declined  | Declined due to user status. | 50009 | 
 
 ##### <a name="subscription-payments_state"></a>Payment state diagram
 
@@ -442,7 +443,7 @@ Once the payment status changes from *Pending* to *Executed, Declined, Rejected*
 |**amount**  	 |number(0.00)|Amount withdrawn from the MobilePay user.             ||
 |**currency**  	 |string      |Amount currency (agreement's currency)                ||
 |**payment_date**|date        |Date of the batch when the payment was executed.      |ISO 8601 UTC date: YYYY-MM-DD|
-|**external_id** |string      |Payment ID on the merchant's side. Maximum length is 30 characters                   ||
+|**external_id** |string      |Payment ID on the merchant's side. Maximum length is 30 characters                   ||
 
 
 ##### <a name="subscription-payments_callback-example"></a>Payment callback body example
