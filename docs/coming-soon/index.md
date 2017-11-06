@@ -100,6 +100,28 @@ _CorrelationId_ is an optional _[Guid](https://en.wikipedia.org/wiki/Globally_un
 ```console
 $ curl --header 'CorrelationId: 37b8450b-579b-489d-8698-c7800c65934c' --url https://<mobile-pay-root>/api/merchants/me/agreements
 ```
+## <a name="general-notes_provider-list"></a>Getting a list of subscription providers
+
+After getting an access token, you will be able to list subscription providers associated with that merchant by calling `GET /api/merchants/me`, which will return a list of all subscription providers, associated with that merchant.
+
+##### <a name="subscription-payments_response-example"></a>HTTP 200 Response body example
+```json
+[
+  {
+    "Id": "a863d62e-d53b-4651-9b7b-c80792ee1343",
+    "SubscriptionProviders": [
+      {
+        "SubscriptionProviderId": "b45afee5-703c-4136-8f60-162fc01709df",
+        "Name": "Name of your subscription product",
+        "HomepageUrl": "https://merchant.dk",
+        "CustomerServiceEmail": "customerservice@merchant.dk",
+        "SelfServicePortalUrl": "https://merchant.dk/self-service",
+        "FaqUrl": "https://merchant.dk/faq"
+      }
+    ]
+  }
+]
+```
 
 ## <a name="general-notes_provider-update"></a>Updating subscription provider
 
