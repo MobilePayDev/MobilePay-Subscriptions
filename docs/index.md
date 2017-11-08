@@ -25,6 +25,13 @@ You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-
 
 MobilePay Subscriptions is a full-fledged HTTPS REST api using JSON as request/response communication media.
 
+We provide examples of API calls in this document. In these examples the host is defined as `<mobile-pay-root>`. Depending on the environment, our host is as shown in the table below:
+
+|Environment  |Host                              |
+|:------------|:---------------------------------|
+|Production   |`https://api.mobilepay.dk`        |
+|Sandbox      |`https://api.sandbox.mobilepay.dk`|
+
 All dates and time-stamps use the ISO 8601 format: date format - `YYYY-MM-DD`, date-time format - `YYYY-MM-DDTHH:mm:ssZ`.
 
 Amounts are enquoted with double quotation marks using `0.00` format, decimals separated with a dot.
