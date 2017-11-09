@@ -11,7 +11,6 @@ Our MobilePay Subscriptions REST api enables you to:
 
 Here are the countries where you can sign up and receive **Subscription Payments**:
 - Denmark 
-- Norway 
 - Finland 
 
 ### <a name="overview_onboarding"></a>Merchant onboarding
