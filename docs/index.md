@@ -519,14 +519,15 @@ Use the `PATCH /api/merchants/me/paymentrequests/{paymentId}` endpoint to decrea
 ***
 ## <a name="oneoffpayments"></a>One-Off Payments
 
-As of `1.1` version, you are able to:
+You are able to:
 * Create agreements with an initial payment.
 * Request arbitrary one-off payments on an existing agreement. These must be manually confirmed by the user. 
 
 Note:  Subscription payments are charged automatically, while one-off are charged when the customer manually swipes accept. OneOff payment does not affect the frequency and grace period. So if you create an agreement with a OneOff, you can request the first subscriptions payment whenever you want. You can also request a OneOff on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. But if you do it on an existing agreement, the user has to swipe to accept the payment. When you create an agreement with a OneOff, and the user accepts the agreement, the payment will be processed and executed right away. OneOff is an instant payment, and it is not subject to the 8 day rule. 
 
 
-#### <a name="oneoffpayments_request-new-agreement"></a>Request One-Off Payment With a New Agreement
+#### <a name="oneoffpayments_request-new-agreement"></a>Request One-Off Payment With a New Subscriptions Agreement
+Use this when the user wants to setup an agreement and you want to charge upfront, i.e. a newspaper subscription. It starts to be effective from the moment the money is payed. It is initiated by user, which is why a redirect needs to happen, so that the user can accept it.  
 
 Add a `one_off_payment` property to the `POST /api/merchants/me/agreements?api-version=1.1` request payload if you want the agreement being activated only when the user is successfully charged an initial subscription amount.
 
@@ -590,6 +591,7 @@ Add a `one_off_payment` property to the `POST /api/merchants/me/agreements?api-v
 ```
 
 #### <a name="oneoffpayments_existing-agreement"></a>Request One-off Payment on an Existing Agreement
+Use this when your customer has an active subscription agreement, and he wants to order extra services / roducts. i.e. on top of iTunes subscriptions to rent a movie. It needs to be initiated by the user, and a redirect needs to happen for the user to accept it. 
 
 Use a `POST /api/merchants/me/agreements/{agreementId}/oneoffpayments?api-version=1.1` endpoint in order to charge your customer one time for extra services. 
 
