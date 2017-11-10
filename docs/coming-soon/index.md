@@ -611,7 +611,7 @@ __One-off Payment__ will expire in 1 day if it is not accepted or rejected by th
 |:-----------------------------|:---------|:---------|:----------------------------------------------------------------|:-----------|
 |**amount**       |number(0.00)|required  |*__One-off Payment__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
 |**description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
-|**external_id**  |string      |          |*__One-off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
+|**external_id**  |string      |required   |*__One-off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
 |**links**        |string      |required  |*Link relation of the __One-off Payment__ creation sequence. Must contain 1 value for user redirect.*||
 |**links[].rel**  |string      |required  |*Link relation type.*|user-redirect|
 |**links[].href** |string      |required  |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
