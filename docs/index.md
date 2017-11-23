@@ -526,11 +526,11 @@ You are able to:
 
 
 
-![](assets/images/1-Subscriptions-one-off-connecting.PNG)
-![](assets/images/2-Subscriptions-One-Off-PayNow.PNG)
-![](assets/images/3-Subscription-one-off-The-Amount-will-be-drawn.PNG)
-![](assets/images/4-Subscriptions-One-Off-Youre-now-paying.PNG)
-![](assets/images/5-Subscription-one-off-Køb venter gennemførsel.PNG)
+![](assets/images/1-Subscriptions-one-off-connecting_210x373.png)
+![](assets/images/2-Subscriptions-One-Off-PayNow_210x373.png)
+![](assets/images/3-Subscription-one-off-The-Amount-will-be-drawn_210x373.png)
+![](assets/images/4-Subscriptions-One-Off-Youre-now-paying_210x373.png)
+![](assets/images/5-Subscription-one-off-Køb venter gennemførsel_210x373.png)
 
 Note:  Subscription payments are charged automatically, while one-off are charged when the customer manually swipes accept. OneOff payment does not affect the frequency and grace period. So if you create an agreement with a OneOff, you can request the first subscriptions payment whenever you want. You can also request a OneOff on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. But if you do it on an existing agreement, the user has to swipe to accept the payment. When you create an agreement with a OneOff, and the user accepts the agreement, the payment will be processed and executed right away. OneOff is an instant payment, and it is not subject to the 8 day rule. 
 
