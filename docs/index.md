@@ -271,6 +271,8 @@ The table below shows possible *status*, *status_text* and *status_code* values 
 |Canceled  |_Merchant canceled an Active agreement_      |*cancel-callback*  |Canceled|Agreement canceled by merchant|40003|
 |Canceled  |_System canceled an Active agreement because user was Deleted_ |*cancel-callback*  |Canceled|Agreement canceled by system|40004|
 
+User can't cancel agreement if Reserved payment exists.
+
 ##### <a name="agreements_state-diagram"></a>Agreement state diagram
 
 ![](assets/images/RecurringPayments_AgreementStateDiagram.png)
@@ -665,7 +667,8 @@ When you receive a callback about successfully reserved payment, now it's time t
 
 In case you weren't able to deliver goods or any other problem occur, you can always cancel one-off payment until it's not captured or expired. You can do that by making a call to `DELETE /api/merchants/me/agreements/{agreementId}/oneoffpayments/{paymentId}?api-version=1.1` endpoint. If the HTTP response is '204 - No Content', it means that one-off payment request/reservation was canceled.
 
-It is **mandatory** for the merchant to Capture or Cancel one-off payment if it was reserved on a customer account.
+It is **mandatory** for the merchant to Capture or Cancel one-off payment if it was reserved on a customer account. 	
+
 
 ***
 ## <a name="refunds"></a>Refunds
