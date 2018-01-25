@@ -221,7 +221,7 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |**plan**              |string(30)  |required |*Short __Agreement__ information text, that will be displayed on the __Agreement__ screen. (examples: "Basic" / "Premium").*||
 |**description**       |string(60)  |          |*Additional information provided by the merchant to the user, that will be displayed on the __Agreement__ screen.*||
 |**next_payment_date** |date        |          |*The date of the first scheduled __Payment Request__. This will be displayed on the __Agreement__ creation screen and on the __Agreement__ details screen if first payment date > current date.*|ISO date format: yyyy-MM-dd|
-|**frequency**         |int         |required |*Frequency of __Payment Requests__. This value will be used to divide the amount of days in a year to get a frequency in days (e.g. 365 / 12 = 30.4 - approx. every month.)*|1, 2, 4, 12, 26, 52|
+|**frequency**         |int         |required |*Frequency of __Payment Requests__. This value will be used to divide the amount of days in a year to get a frequency in days (e.g. 365 / 12 = 30.4 - approx. every month.)*|1, 2, 4, 12, 26|
 |**external_id**       |string      |required |*__Agreement__ identifier on the merchant's side. This will be included in the request body of the success / cancel callback.*||
 |**expiration_timeout_minutes**|int |required |*Agreement expiration timeout in minutes.*|Min: 5, max: 20160 (2 weeks)|
 |**links**             |string      |required |*Link relation of the __Agreement__ creation sequence. Must contain 3 values for user redirect, success callback and cancel-callback links.*||
@@ -399,7 +399,8 @@ The response body containts two lists:
 
 #### <a name="subscription-payments_frequency"></a>Frequency of Payment Requests
  The merchant can send a payment max 32 days prior due date, and at at least 8 days before due date. 
- Valid values are 1, 2, 4, 12, 26, 52.
+ Valid values are 1, 2, 4, 12, 26. This means that the bi-weekly payment (26) is the most frequent. 
+When you are requesting a payment, you need to keep the 8 day rule. The user can have a single pending payment on due date. E.g. User can have 3 pending payments but the DueDate of those payments should be different. 
  * **Due Date** Payments cannot be created with the same Due Date. 
 * **Multiple Recurring payments**  Multiple recurring payment requests can be created within period [32 before Due Date >= Payment Request Date >= 8 before Due Date]
 * **Next Payment Date** If there are multiple pending payments, Next Payment Date is the one closest to Today()
