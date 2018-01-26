@@ -578,7 +578,7 @@ Add a `one_off_payment` property to the `POST /api/merchants/me/agreements?api-v
 |**one_off_payment**              |object      |          |*__One-Off Payment__ details.*||
 |**one_off_payment.amount**       |number(0.00)|required  |*__One-Off Payment__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
 |**one_off_payment.description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
-|**one_off_payment.external_id**  |string      |required          |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
+|**one_off_payment.external_id**  |string(30)      |required          |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
 
 <a name="oneoffpayments_response-new"></a>In this case the response of `POST /api/merchants/me/agreements?api-version=1.1` will contain additional `one_off_payment_id` value - id of the newly requested **One-Off Payment**.
 
