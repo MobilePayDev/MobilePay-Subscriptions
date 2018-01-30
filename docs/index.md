@@ -615,7 +615,7 @@ Use a `POST /api/merchants/me/agreements/{agreementId}/oneoffpayments?api-versio
 }
 ```
 
-__One-off Payment__ will expire in 1 day if it is not accepted or rejected by the user during that time.
+__One-off Payment__ will expire in 1 day if it is not accepted or rejected by the user during that time. 
 
 ##### <a name="oneoffpayments_request-parameters"></a>Request parameters
 
@@ -667,7 +667,7 @@ When you receive a callback about successfully reserved payment, now it's time t
 
 In case you weren't able to deliver goods or any other problem occur, you can always cancel one-off payment until it's not captured or expired. You can do that by making a call to `DELETE /api/merchants/me/agreements/{agreementId}/oneoffpayments/{paymentId}?api-version=1.1` endpoint. If the HTTP response is '204 - No Content', it means that one-off payment request/reservation was canceled.
 
-It is **mandatory** for the merchant to Capture or Cancel one-off payment if it was reserved on a customer account. 	
+It is **mandatory** for the merchant to Capture or Cancel one-off payment if it was reserved on a customer account. You need to do so within 14 days
 
 
 ***
