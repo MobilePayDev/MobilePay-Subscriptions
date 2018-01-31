@@ -736,7 +736,7 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
 |New Status|Condition|When to expect|Callback *status*  | Callback *status_text* | Callback *status_code* |
 |----------|---------|--------------|-------------------|------------------------|------------------------|
 |Issued    |_The **Refund** was successfully issued_| Right after the refund request was received |Issued  | |  |
-|Declined  |_If **Payment** is fully refunded_           | Right after the refund was requested |Declined    |Payment is fully refunded. | 60001 |
+|Declined  |_If **Payment** is already fully refunded_           | Right after the refund was requested |Declined    |Payment is already fully refunded. | 60001 |
 |Declined  |_If the total sum of previous **Refunds** exceed the original payment amount_           | Right after the refund was requested |Declined  |The total sum of previous **Refunds** cannot exceed the original payment amount.| 60002 | 
 |Declined  |_When **Refund** was declined by system_          | Right after the refund was requested |Declined  |Payment was not found.| 60003 | 
 |Declined  |_When **Refund** was declined by system_           | Right after the refund was requested |Declined  |Payment cannot be refunded.| 60004 | 
