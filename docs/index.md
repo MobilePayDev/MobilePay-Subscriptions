@@ -263,7 +263,7 @@ The table below shows possible *status*, *status_text* and *status_code* values 
 
 |New Status|Condition|URL| Callback *status* | Callback *status_text* |Callback *status_code*|
 |----------|---------|---|-------------------|------------------------|----------------------|
-|Accepted  |_User swiped to accept the Agreement_        |*success-callback* |Active  | |0|
+|Accepted  |_User swiped to accept the Agreement_        |*success-callback* |Accepted  | |0|
 |Rejected  |_User tapped the Cancel button during the signup_              |*cancel-callback*  |Rejected|Agreement rejected by user|40000|
 |Expired   |_User did not do anything during the agreement timeout period._|*cancel-callback*  |Expired |Pending agreement expired|40001|
 |Canceled  |_User canceled an Active agreement_          |*cancel-callback*  |Canceled|Agreement canceled by user|40002|
