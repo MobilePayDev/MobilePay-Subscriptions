@@ -213,16 +213,16 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 
 #### <a name="agreements_paramters"></a>Request parameters
 
-|Parameter             |Type        |Required  |Description                                                      |Valid values|
-|:---------------------|:-----------|:---------|:----------------------------------------------------------------|:-----------|
-|**amount**            |number(0.00)|          |*__Agreement__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
+|Parameter             |Type        |Required |Description                                                      |Valid values|
+|:---------------------|:-----------|:--------|:----------------------------------------------------------------|:-----------|
+|**amount**            |number(0.00)|         |*__Agreement__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
 |**currency**          |string(3)   |required |*The __Agreement__ currency code, that will be displayed for the use in the MobilePay app. Currency and country_code must match a valid pair of: DKK->DK, EUR->FI.*|DKK, EUR|
 |**country_code**      |string(2)   |required |*Country code, which will be used to differentiate between MobilePay DK and FI apps.*|DK, FI|
 |**plan**              |string(30)  |required |*Short __Agreement__ information text, that will be displayed on the __Agreement__ screen. (examples: "Basic" / "Premium").*||
-|**description**       |string(60)  |          |*Additional information provided by the merchant to the user, that will be displayed on the __Agreement__ screen.*||
-|**next_payment_date** |date        |          |*The date of the first scheduled __Payment Request__. This will be displayed on the __Agreement__ creation screen and on the __Agreement__ details screen if first payment date > current date.*|ISO date format: yyyy-MM-dd|
-|**frequency**         |int         |required |*Frequency of __Payment Requests__. This value will be used to divide the amount of days in a year to get a frequency in days (e.g. 365 / 12 = 30.4 - approx. every month.)*|1, 2, 4, 12, 26|
-|**external_id**       |string      |required |*__Agreement__ identifier on the merchant's side. This will be included in the request body of the success / cancel callback.*||
+|**description**       |string(60)  |         |*Additional information provided by the merchant to the user, that will be displayed on the __Agreement__ screen.*||
+|**next_payment_date** |date        |         |*The date of the first scheduled __Payment Request__. This will be displayed on the __Agreement__ creation screen and on the __Agreement__ details screen if first payment date > current date.*|ISO date format: yyyy-MM-dd|
+|**frequency**         |int         |         |*Frequency of __Payment Requests__. This value will be used to divide the amount of days in a year to get a frequency in days (e.g. 365 / 12 = 30.4 - approx. every month.). If not provided will default to 12.*|1, 2, 4, 12, 26|
+|**external_id**       |string      |         |*__Agreement__ identifier on the merchant's side. This will be included in the request body of the success / cancel callback.*||
 |**expiration_timeout_minutes**|int |required |*Agreement expiration timeout in minutes.*|Min: 5, max: 20160 (2 weeks)|
 |**links**             |string      |required |*Link relation of the __Agreement__ creation sequence. Must contain 3 values for user redirect, success callback and cancel-callback links.*||
 |**links[].rel**       |string      |required |*Link relation type.*|user-redirect, success-callback, cancel-callback|
@@ -581,8 +581,8 @@ Add a `one_off_payment` property to the `POST /api/merchants/me/agreements?api-v
 |:--------------------------------|:-----------|:---------|:----------------------------------------------------------------|:-----------|
 |**one_off_payment**              |object      |          |*__One-Off Payment__ details.*||
 |**one_off_payment.amount**       |number(0.00)|required  |*__One-Off Payment__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
-|**one_off_payment.description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
-|**one_off_payment.external_id**  |string(30)      |required          |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
+|**one_off_payment.description**  |string(60)  |          |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
+|**one_off_payment.external_id**  |string(30)  |required  |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
 
 <a name="oneoffpayments_response-new"></a>In this case the response of `POST /api/merchants/me/agreements?api-version=1.1` will contain additional `one_off_payment_id` value - id of the newly requested **One-Off Payment**.
 
@@ -627,7 +627,7 @@ __One-off Payment__ will expire in 1 day if it is not accepted or rejected by th
 |:-----------------------------|:---------|:---------|:----------------------------------------------------------------|:-----------|
 |**amount**       |number(0.00)|required  |*__One-off Payment__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
 |**description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
-|**external_id**  |string      |          |*__One-off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
+|**external_id**  |string      |required  |*__One-off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
 |**links**        |string      |required  |*Link relation of the __One-off Payment__ creation sequence. Must contain 1 value for user redirect.*||
 |**links[].rel**  |string      |required  |*Link relation type.*|user-redirect|
 |**links[].href** |string      |required  |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
