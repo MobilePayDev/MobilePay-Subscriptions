@@ -530,6 +530,10 @@ You are able to:
 
 Note:  Subscription payments are charged automatically, while one-off are charged when the customer manually swipes accept. OneOff payment does not affect the frequency and grace period. So if you create an agreement with a OneOff, you can request the first subscriptions payment whenever you want. You can also request a OneOff on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. But if you do it on an existing agreement, the user has to swipe to accept the payment. When you create an agreement with a OneOff, and the user accepts the agreement, the payment will be processed and executed right away. OneOff is an instant payment, and it is not subject to the 8 day rule. 
 
+If you create a OneOff payment, it will have the state requested. If the user then is not able to accept it, due to blocked card or so, it will expire after 1 day. You will receive a callback for that. The payment will be requested, to give the user the option to change card, but it will never be reserved if the user cannot accept it.
+
+If an agreement was requested with a OneOff, and the user cannot accept it, the agreement will never be created. Because the user must accept the OneOff and the agreement at the same time. Therefore, you have to start again if the agreement request expires. But again, the user have the option to change card and accept the agreement.
+
 
 #### <a name="oneoffpayments_request-new-agreement"></a>Request One-Off Payment With a New Subscriptions Agreement
 Use this when the user wants to setup an agreement and you want to charge upfront, i.e. a newspaper subscription. It starts to be effective from the moment the money is payed. It is initiated by user, which is why a redirect needs to happen, so that the user can accept it.  
