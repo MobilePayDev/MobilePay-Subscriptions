@@ -37,7 +37,6 @@ All dates and time-stamps use the ISO 8601 format: date format - `YYYY-MM-DD`, d
 Amounts are enquoted with double quotation marks using `0.00` format, decimals separated with a dot.
 
 When doing `POST`, `PATCH` or `PUT` requests, `Content-Type: application/json` HTTP header must be provided.
-
 ```console 
 $ curl --request POST --header 'Content-Type: application/json' --url https://<mobile-pay-root>/resource --data '{}'
 ```
@@ -64,7 +63,7 @@ Generate two certificates for Sandbox and Production environments:
 >* Sandbox: set environment to Sandbox.
 >* Production: leave environment blank.
 
-Send the generated *.cer (or *.crt, if you use OpenSSL) files to [help@mobilepay.dk](mailto:help@mobilepay.dk) and store the *.pfx file in a secure private key storage on your end. Note: Please zip the certificate, as our e-mail server is quite sensitive. 
+Send the generated *.cer (or *.crt, if you use OpenSSL) files to [developer@mobilepay.dk](mailto:developer@mobilepay.dk) and store the *.pfx file in a secure private key storage on your end. Note: Please zip the certificate, as our e-mail server is quite sensitive. 
 
 ##### <a name="client-certificate_makecert"></a>Using makecert.exe to generate client certificate
 ```
