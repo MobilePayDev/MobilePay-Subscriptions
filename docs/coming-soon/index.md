@@ -30,6 +30,16 @@ Integrators are the same as __Clients__ in the OAuth 2.0 protocol. The first thi
 If the merchant grants consent, an authorization code is returned which the __Client__ must exchange for an id token, an access token and a refresh token. The refresh token is used to refresh ended sessions without asking for merchant consent again. This means that if the __Client__ receives an answer from the api gateway saying that the access token is invalid, the refresh token is exchanged for a new access token and refresh token. <br /> <br />
 An example of how to use OpenID connect in C# can be found [here](https://github.com/MobilePayDev/MobilePay-Invoice/tree/master/ClientExamples).
 
+
+### <a name="supported-endpoints"></a> Supported Endpoints 
+Find the supported endpoints in the links below 
+
+|Environment | Links                               |
+|-----------|------------------------------------------|
+|Sandbox    |https://api.sandbox.mobilepay.dk/merchant-authentication-openidconnect/.well-known/openid-configuration        |
+|Production   |https://api.mobilepay.dk/merchant-authentication-openidconnect/.well-known/openid-configuration      |
+
+
 In order to authenticate to the API, all requests to the API must contain at least three authentication headers:
 1. `x-ibm-client-id`
 2. `x-ibm-client-secret`  
@@ -39,7 +49,7 @@ In order to authenticate to the API, all requests to the API must contain at lea
 $ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
 ```
 ### <a name="openid-flow"></a>OpenID flow
-[![](../assets/images/OpenId%20flow.png)](../assets/images/OpenId%20flow.png)
+[![](../assets/images/OpenId%20flow.png)](../assets/images/openid_flow_0.png)
 
 ### <a name="openid-connect-libraries"></a>Implementing OpenID Connect protocol
 
