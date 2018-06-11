@@ -1,18 +1,18 @@
 
 ## <a name="overview"></a> Overview 
 
-Billing your customers has never been easier before. This document explains how to make a technical integration to the MobilePay Subscription product. The audience for this document is either technical integrators acting on behalf of merchants, or merchant creating their own integrations. You can find more information on our <a href="https://developer.mobilepay.dk/subscriptions-main">Developer Portal</a>.
+Billing your customers has never been easier before. This document explains how to make a technical integration to the MobilePay Subscription product. The audience for this document is either technical integrators acting on behalf of merchants. You can find more information on our <a href="https://developer.mobilepay.dk/subscriptions-main">Developer Portal</a>.
 
 Our MobilePay Subscriptions REST api enables you to:
 
 1. Establish and manage **Agreements** between you, the **Merchant**, and MobilePay **Users**.
 2. Create monthly **Subscription Payments** in relation to an established **Agreement** and get notified about the status via REST callbacks. **Subscription Payments** are requested 8 days before the actual booking date - no manual user confirmation required!
 
-### <a name="overview_available"></a>Where is Subscription Payments available ?
-
-Here are the countries where you can sign up and receive **Subscription Payments**:
-- Denmark 
-- Finland 
+Related links:
+- You can read more about the product [here](https://developer.mobilepay.dk/subscriptions-main).
+- Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/node/1272).
+- More information about integration steps is [here](https://developer.mobilepay.dk/subscriptions-getting-started).
+- Integration is based on common standard OpenID Connect. You can find more [here](https://developer.mobilepay.dk/products/openid). An example of how to use OpenID connect in C# can be found [here](https://github.com/MobilePayDev/MobilePay-Invoice/tree/master/ClientExamples). You can find links to the official Hybrid Flow [here](https://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth).   
 
 ### <a name="overview_onboarding"></a>Merchant onboarding
 
