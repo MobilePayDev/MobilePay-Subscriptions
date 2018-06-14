@@ -403,18 +403,15 @@ The response body containts two lists:
 ```
 
 #### <a name="subscription-payments_frequency"></a>Frequency of Payment Requests
-We have five frequency intervals: 1, 2, 4, 12 or 26. Furthermore, each frequency interval has different grace periods. These periods are listed below:
-
-|Frequency|Grace period|Description |
-|---------|------------|------------|
-|**1**    |  30        |If payments occur once a year, allow payments to be requested 30 days before due date.|
-|**2**    |  30        |If payments occur once every 6 months, allow payments to be requested 30 days before due date.|
-|**4**    |  15        |If payments occur every 3 months, allow payments to be requested 15 days before due date.|
-|**12**   |  8         |If payments occur every month, allow payments to be requested 8 days before due date.|
-|**26**   |  8         |If payments occur bi-weekly, allow payments to be requested 8 days before due date.|
-
-##### <a name="subscription-payments_grace-example"></a>Example of a Grace Period
-For example: if you have a customer where the frequency of an agreement is set to 4, that means  365 / 4 = 91.25 (approximately payment requests every 3rd month). You can actually request the payment 3months – 15 days due to this grace period. The grace period entails that, the merchant can send Payment Requests a bit earlier than normally. Without the grace period, the merchant could only send new payment requests precisely when 3 months have passed. MobilePay has done it possible to send the payment 15 days before the actual due date.
+ The merchant can send a payment max 32 days prior due date, and at at least 8 days before due date. 
+ Valid values are 1, 2, 4, 12, 26. This means that the bi-weekly payment (26) is the most frequent. 
+When you are requesting a payment, you need to keep the 8 day rule. The user can have a single pending payment on due date. E.g. User can have 3 pending payments but the DueDate of those payments should be different. 
+ * **Due Date** Payments cannot be created with the same Due Date. 
+* **Multiple Recurring payments**  Multiple recurring payment requests can be created within period [32 before Due Date >= Payment Request Date >= 8 before Due Date]
+* **Next Payment Date** If there are multiple pending payments, Next Payment Date is the one closest to Today()
+ 
+##### <a name="subscription-payments_grace-example"></a>Example of Frequency
+For example: if you have a customer where the frequency of an agreement is set to 4, that means  365 / 4 = 91.25 (approximately payment requests every 3rd month).
 
 #### Payment screens
 
