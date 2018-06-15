@@ -246,7 +246,12 @@ The link can be used in two ways:
 2. E-mail the generated link to the user. Once the user clicks on the link, the MobilePay app will be opened to activate the *Pending* **Agreement**. In this case, it is recommended to set the *expiration_timeout_minutes* to a higher value (10080 - a week, 20160 - two weeks). Note, that the link will be valid only until the user accepts the agreement or a timeout occurs. 
 #### Agreement creation
 
-[![](assets/images/RecurringPayments_DualDevice.png)](assets/images/RecurringPayments_DualDevice.png)
+#### <a name="agreements_creation_in_landing_page"></a>New agreement creation in landing page
+
+[![](assets/images/RecurringPayments_Agreement_landing_page.png)](assets/images/RecurringPayments_Agreement_landing_page.png)
+
+#### <a name="agreements_creation_in_app"></a>New agreement creation in APP
+
 [![](assets/images/RecurringPayments_SingleDevice.png)](assets/images/RecurringPayments_SingleDevice.png)
 
 #### <a name="agreements_callback"></a>Callbacks
