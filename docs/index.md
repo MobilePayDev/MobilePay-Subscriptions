@@ -203,6 +203,9 @@ Once the user is given to choose the payment method on the merchant's signup flo
 }
 ```
 
+Mobile_phone_number is not required. Neither for agreement creation, or one-off creation. If you choose to add it, the phone number will be prefilled on our landing page. So that the user will not have to type the phone number on the landing page, which makes it more convenient for the user, if you add mobile_phone_number. 
+
+
 The *Pending* **Agreement**, if not activated, will expire within the value, provided in the _expiration_timeout_minutes_.
 
 #### <a name="agreements_paramters"></a>Request parameters
@@ -221,6 +224,8 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |**links**             |string      |required |*Link relation of the __Agreement__ creation sequence. Must contain 3 values for user redirect, success callback and cancel-callback links.*||
 |**links[].rel**       |string      |required |*Link relation type.*|user-redirect, success-callback, cancel-callback|
 |**links[].href**      |string      |required |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
+
+
 
 <a name="agreements_response"></a>
 The response of `POST /api/merchants/me/agreements` contains two values: a unique *id* of the newly created *Pending* **Agreement** and a link *rel* = *mobile-pay*.
@@ -534,6 +539,8 @@ If you create a OneOff payment, it will have the state requested. If the user th
 If an agreement was requested with a OneOff, and the user cannot accept it, the agreement will never be created. Because the user must accept the OneOff and the agreement at the same time. Therefore, you have to start again if the agreement request expires. But again, the user have the option to change card and accept the agreement.
 
 
+
+
 #### <a name="oneoffpayments_request-new-agreement"></a>Request One-Off Payment With a New Subscriptions Agreement
 Use this when the user wants to setup an agreement and you want to charge upfront, i.e. a newspaper subscription. It starts to be effective from the moment the money is payed. It is initiated by user, which is why a redirect needs to happen, so that the user can accept it.  
 
@@ -599,7 +606,7 @@ Add a `one_off_payment` property to the `POST /api/merchants/me/agreements?api-v
 ```
 
 #### <a name="oneoffpayments_existing-agreement"></a>Request One-off Payment on an Existing Agreement
-Use this when your customer has an active subscription agreement, and he wants to order extra services / roducts. i.e. on top of iTunes subscriptions to rent a movie. It needs to be initiated by the user, and a redirect needs to happen for the user to accept it. 
+Use this when your customer has an active subscription agreement, and he wants to order extra services / products. i.e. on top of iTunes subscriptions to rent a movie. It needs to be initiated by the user, and a redirect needs to happen for the user to accept it. 
 
 Use a `POST /api/merchants/me/agreements/{agreementId}/oneoffpayments?api-version=1.1` endpoint in order to charge your customer one time for extra services. 
 
@@ -608,7 +615,6 @@ Use a `POST /api/merchants/me/agreements/{agreementId}/oneoffpayments?api-versio
   "amount": "80",
   "external_id": "OOP00348",
   "description": "Pay now for additional goods",
-  "mobile_phone_number": "4511100118",
   "links": [
     {
       "rel": "user-redirect",
