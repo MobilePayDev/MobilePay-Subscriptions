@@ -213,6 +213,9 @@ Once the user is given to choose the payment method on the merchant's signup flo
   "mobile_phone_number": "4511100118"
 }
 ```
+Mobile_phone_number is not required. Neither for agreement creation, or one-off creation. If you choose to add it, the phone number will be prefilled on our landing page. So that the user will not have to type the phone number on the landing page, which makes it more convenient for the user, if you add mobile_phone_number.
+
+
 
 The *Pending* **Agreement**, if not activated, will expire within the value, provided in the _expiration_timeout_minutes_.
 
