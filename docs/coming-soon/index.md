@@ -602,12 +602,13 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
 
 Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` endpoint in order to charge your customer one time for extra services. 
 
+
+
 ```json
 {
   "amount": "80",
   "external_id": "OOP00348",
   "description": "Pay now for additional goods",
-  "mobile_phone_number": "4511100118",
   "links": [
     {
       "rel": "user-redirect",
