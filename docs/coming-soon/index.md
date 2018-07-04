@@ -684,7 +684,8 @@ Use the `POST /api/providers/{providerId}/agreements/{agreementId}/payments/{pay
 ```json
 {
     "amount": "10.99",
-    "status_callback_url" : "https://example.com"
+    "status_callback_url" : "https://example.com",
+    "external_id": "ABC123"
 }
 ```
 
@@ -694,6 +695,7 @@ Use the `POST /api/providers/{providerId}/agreements/{agreementId}/payments/{pay
 |----------------------|------------|----------|-----------------------------------------------------------------|------------|
 |**amount**            |number(0.01)| required |*The requested amount to be returned.*|>= 0.01, decimals separated with a dot.|
 |**status_callback_url**  |string| required |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
+|**external_id**  |string| optional |*Refund's identifier on the merchant’s side. This will be included in the request body of the refund callback.*||
 
 <a name="refunds_response"></a>
 The `POST /api/providers/{providerId}/agreements/{agreementId}/payments/{paymentId}/refunds` service returns HTTP 202 and the response contains single value: a unique *id* of the newly created **Refund**.
@@ -719,7 +721,8 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
     "currency" : "DKK",
     "status" : "Issued",
     "status_text" : null,
-    "status_code" : 0
+    "status_code" : 0,
+    "external_id": "ABC123"
 }
 ```
 ##### <a name="refunds_callback-response"></a>Refund callback response example
