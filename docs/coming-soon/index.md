@@ -683,7 +683,7 @@ Use the `POST /api/providers/{providerId}/agreements/{agreementId}/payments/{pay
 
 ```json
 {
-    "amount": "10.99",
+    "amount": 10.99,
     "status_callback_url" : "https://example.com",
     "external_id": "ABC123"
 }
@@ -693,7 +693,7 @@ Use the `POST /api/providers/{providerId}/agreements/{agreementId}/payments/{pay
 
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |----------------------|------------|----------|-----------------------------------------------------------------|------------|
-|**amount**            |number(0.01)| required |*The requested amount to be returned.*|>= 0.01, decimals separated with a dot.|
+|**amount**            |number(0.01)| optional |*The requested amount to be returned.*|>= 0.01, decimals separated with a dot. If not specified, payment will be fully refunded.|
 |**status_callback_url**  |string| required |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
 |**external_id**  |string| optional |*Refund's identifier on the merchant’s side. This will be included in the request body of the refund callback.*||
 
@@ -703,7 +703,10 @@ The `POST /api/providers/{providerId}/agreements/{agreementId}/payments/{payment
 ##### <a name="refunds_response-example"></a>HTTP 202 Response body example
 ```json
 {
-    "id": "263cfe92-9f8e-4829-8b96-14a5e53c9041"
+    "id": "263cfe92-9f8e-4829-8b96-14a5e53c9041",
+    "amount": 10.99,
+    "status_callback_url": "http://example.com",
+    "external_id": "ABC123"
 }
 ```
 
