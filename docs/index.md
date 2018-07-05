@@ -690,8 +690,9 @@ Use the `POST /api/merchants/me/agreements/{agreementId}/payments/{paymentId}/re
 
 ```json
 {
-    "amount": "10.99",
-    "status_callback_url" : "https://example.com"
+    "amount": 10.99,
+    "status_callback_url": "https://example.com",
+    "external_id": "ABC123"
 }
 ```
 
@@ -699,8 +700,9 @@ Use the `POST /api/merchants/me/agreements/{agreementId}/payments/{paymentId}/re
 
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |----------------------|------------|----------|-----------------------------------------------------------------|------------|
-|**amount**            |number(0.01)| required |*The requested amount to be returned.*|>= 0.01, decimals separated with a dot.|
-|**status_callback_url**  |string| required |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
+|**amount**            |number(0.01)| optional |*The requested amount to be returned.*|>= 0.01, decimals separated with a dot. If not specified, payment will be fully refunded.|
+|**status_callback_url**  |string| required |*Link relation hyperlink reference.*|valid url|
+|**external_id**  |string| optional |*Refund's identifier on the merchant’s side. This will be included in the request body of the refund callback.*||
 
 <a name="refunds_response"></a>
 The `POST /api/merchants/me/agreements/{agreementId}/payments/{paymentId}/refunds` service returns HTTP 202 and the response contains single value: a unique *id* of the newly created **Refund**.
@@ -708,7 +710,10 @@ The `POST /api/merchants/me/agreements/{agreementId}/payments/{paymentId}/refund
 ##### <a name="refunds_response-example"></a>HTTP 202 Response body example
 ```json
 {
-    "id": "263cfe92-9f8e-4829-8b96-14a5e53c9041"
+    "id": "263cfe92-9f8e-4829-8b96-14a5e53c9041",
+    "amount": 10.99,
+    "status_callback_url": "http://example.com",
+    "external_id": "ABC123"
 }
 ```
 
@@ -726,7 +731,8 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
     "currency" : "DKK",
     "status" : "Issued",
     "status_text" : null,
-    "status_code" : 0
+    "status_code" : 0,
+    "external_id": "ABC123"
 }
 ```
 ##### <a name="refunds_callback-response"></a>Refund callback response example
