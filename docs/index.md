@@ -203,7 +203,9 @@ Once the user is given to choose the payment method on the merchant's signup flo
 }
 ```
 
-Mobile_phone_number is not required. Neither for agreement creation, or one-off creation. If you choose to add it, the phone number will be prefilled on our landing page. So that the user will not have to type the phone number on the landing page, which makes it more convenient for the user, if you add mobile_phone_number. 
+mobile_phone_number is not a required parameter. Neither for agreement creation, or one-off creation. If you choose to add it, the phone number will be prefilled on our landing page. So that the user will not have to type the phone number on the landing page, which makes it more convenient for the user, if you add mobile_phone_number. 
+
+Frequency is not a required parameter. Frequency provides informational value to the customer, so the customer can see in the app, how many times they can expect to pay the merchant. The frequency does not impact, how often you can send payments. If the merchant knows how often they will be sending Subscription Payments, e.g monthly. If you are withdrawing bi-weekly, then you enter that frequency. However, if you do not know how many times you’ll be withdrawing, then it is recommended that you do not enter information in that parameter. 
 
 
 The *Pending* **Agreement**, if not activated, will expire within the value, provided in the _expiration_timeout_minutes_.
