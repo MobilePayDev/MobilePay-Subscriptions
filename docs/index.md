@@ -8,7 +8,7 @@ Billing your customers has never been easier before. This document explains how 
 
 Related links:
 - You can read more about the product [here](https://developer.mobilepay.dk/subscriptions-main).
-- Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/node/1272).
+- Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/product).
 - More information about integration steps is [here](https://developer.mobilepay.dk/subscriptions-getting-started).
 
 
