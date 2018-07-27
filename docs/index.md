@@ -203,10 +203,14 @@ Once the user is given to choose the payment method on the merchant's signup flo
 }
 ```
 `mobile_phone_number`
-mobile_phone_number is not a required parameter, but we recommend you to use it, because then the phone number is pre-filled on our landing page, which means that the user will not have to type the phone number on the page.
+It is not a required parameter, but we recommend you to use it, because then the phone number is pre-filled on our landing page, which means that the user will not have to type the phone number on the page, and therefore more convenient. 
 
 `frequency`
-frequency is not a required parameter. Frequency provides informational value to the customer, so the customer can see in the app, how many times they can expect to pay Subscription Payment. The frequency does not impact, how often the merchant can send payments. If the merchant knows how often they will be sending Subscription Payments, e.g monthly, then it is recommended to fill out frequency. However, if the merchant does not know how many times they will be withdrawing, then it is recommended that the merchant does not enter information in that parameter. 
+It is not a required parameter. `frequency` provides informational value to the customer, so the customer can see in the app, how many times they can expect to pay Subscription Payment. The `frequency` does not impact, how often the merchant can send payments. If the merchant knows how often they will be sending Subscription Payments, e.g monthly, then it is recommended to fill out `frequency`. However, if the merchant does not know how many times they will be withdrawing, then it is recommended that the merchant does not enter information in  `frequency`. 
+
+`external_id`
+It is meant as a unique identifier, which shouldn’t change. On MobilePay side, we have the `agreement_id`, which never changes, regardless of what happens to the agreement. `agreement_id` is the counterpart to the `external_id` on your side. It should stay the same, so MobilePay can trace the full history of the agreement. The customer can see the "external_id" in the app.
+Our recommendation is, that the `external_id` is their `agreement_id` or reference with you. Therefore, it is more clear for the user. In addition, if they have more than one Subscriptions agreement with you, they should be able to see which Subscriptions agreement is connected to which  agreement.
 
 
 The *Pending* **Agreement**, if not activated, will expire within the value, provided in the _expiration_timeout_minutes_.
