@@ -228,7 +228,7 @@ Detailed info on the non-required parameters:
 It is not a required parameter, but we recommend you to use it, because then the phone number is pre-filled on our landing page, which means that the user will not have to type the phone number on the page, and therefore more convenient. 
 
 `frequency`
-It is not a required parameter. `frequency` provides informational value to the customer, so the customer can see in the app, how many times they can expect to pay Subscription Payment. The `frequency` does not impact, how often the merchant can send payments. If the merchant knows how often they will be sending Subscription Payments, e.g monthly, then it is recommended to fill out `frequency`. However, if the merchant does not know how many times they will be withdrawing, then it is recommended that the merchant does not enter information in  `frequency`. 
+It is not a required parameter. `frequency` provides informational value to the customer, so the customer can see in the app, how many times they can expect to pay Subscription Payment. The `frequency` does not impact, how often the merchant can send payments. If the merchant knows how often they will be sending Subscription Payments, e.g. monthly, then it is recommended to fill out `frequency`. If not provided, the frequency will be set to 12. 
 
 `external_id`
 It is meant as a unique identifier, which shouldn’t change. On MobilePay side, we have the `agreement_id`, which never changes, regardless of what happens to the agreement. `agreement_id` is the counterpart to the `external_id` on your side. It should stay the same, so MobilePay can trace the full history of the agreement. The customer can see the "external_id" in the app.
