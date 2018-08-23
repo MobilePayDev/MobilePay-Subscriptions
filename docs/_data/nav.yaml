@@ -37,7 +37,7 @@ openid_flow:
   url: "index#refunds"
 
 release_notes:
-- title: Subscriptions Integrator 1.1.0
+- title: Subscriptions Integrator 1.1
   comment: (In progress. Available in Sandbox)
   url: "release_notes"
   
