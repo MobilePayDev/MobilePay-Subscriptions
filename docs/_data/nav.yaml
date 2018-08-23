@@ -2,7 +2,7 @@ mutual_ssl_flow :
 - title: Overview
   url: "mutual_ssl_flow#overview"
 
-- title: General notes
+- title: General Notes
   url: "mutual_ssl_flow#general-notes"
 
 - title: Agreements
@@ -21,7 +21,7 @@ openid_flow:
 - title: Overview
   url: "index#overview"
 
-- title: General notes
+- title: General Notes
   url: "index#general-notes"
 
 - title: Agreements
@@ -35,6 +35,12 @@ openid_flow:
   
 - title: Refunds
   url: "index#refunds"
+
+release_notes:
+- title: Subscriptions Integrator 1.1.0
+  comment: (In progress. Available in Sandbox)
+  url: "release_notes"
   
-mutual_ssl_title : Mutual SSL flow
-openid_title: OpenID Connect flow
+mutual_ssl_title : Mutual SSL Flow
+openid_title: OpenID Connect Flow
+release_notes_title: Release Notes
