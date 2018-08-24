@@ -10,6 +10,7 @@ ETA in production is **October 2018**.
 * [Add invoice details to subscription payment.](#payment)
 * [Add invoice details to one-off payment on an existing agreement.](#oopexistingagreement)
 * [Add invoice details to one-off payment with a new agreement.](#oopnewagreement)
+* [Examples of generated invoice PDF files](#pdfexamples)
 
 <br/>
 ### <a name="payment"/> Add invoice details to subscription payment
@@ -251,6 +252,16 @@ POST /api/providers/{providerId}/agreements
 |`buyer_order_number`||`string`|The buyer order number for the invoice used externally by the merchant.|
 |`comment`||`string`|Additional information to the consumer.|
 
-<div class="note">
 <strong>Note:</strong> All <code>decimal</code> values should be >0 and decimals (no more than 2 digits) should be separated with a dot.
-</div>
+
+
+
+### <a name="pdfexamples"/> PDF invoice examples
+
+These are the examples of how your data will look like to user in the MobilePay, when it is generated to PDF file.
+
+Danish example:
+[![](assets/images/InvoicesExamples/InvoiceExampleDK.jpg)](assets/images/InvoicesExamples/InvoiceExampleDK.jpg)
+
+Finnish example:
+[![](assets/images/InvoicesExamples/InvoiceExampleFI.jpg)](assets/images/InvoicesExamples/InvoiceExampleFI.jpg)
