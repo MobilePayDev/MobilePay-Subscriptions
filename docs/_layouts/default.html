@@ -15,15 +15,20 @@
     <div class="wrapper">
       <header>
         <h1>{{ site.title | default: site.github.repository_name }}</h1>
-        <h3>{{ site.data.nav.mutual_ssl_title }}</h3>
-   {% for item in site.data.nav.mutual_ssl_flow %}
-      <p class="view"><a href="{{ site.base_url }}{{ item.url }}">{{ item.title }}</a></p>
-   {% endfor %}
-
         <h3 class="mt20">{{ site.data.nav.openid_title }}</h3>
-   {% for item in site.data.nav.openid_flow %}
-      <p class="view"><a href="{{ site.base_url }}{{ item.url }}">{{ item.title }}</a></p>
-   {% endfor %}
+      {% for item in site.data.nav.openid_flow %}
+        <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
+      {% endfor %}
+
+        <h3 class="mt20">{{ site.data.nav.mutual_ssl_title }}</h3>
+      {% for item in site.data.nav.mutual_ssl_flow %}
+        <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
+      {% endfor %}
+
+        <h3 class="mt20">{{ site.data.nav.release_notes_title }}</h3>
+      {% for item in site.data.nav.release_notes %}
+        <p class="view"><a href="{{ item.url }}">{{ item.title }}</a> <br><span class='menu-item-comment'>{{ item.comment }}</span></p>
+      {% endfor %}
       </header>
       <section>
 

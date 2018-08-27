@@ -1,39 +1,46 @@
-mutual_ssl_flow :
+mutual_ssl_flow : 
 - title: Overview
-  url: "#overview"
+  url: "mutual_ssl_flow#overview"
 
-- title: General notes
-  url: "#general-notes"
+- title: General Notes
+  url: "mutual_ssl_flow#general-notes"
 
 - title: Agreements
-  url: "#agreements"
+  url: "mutual_ssl_flow#agreements"
 
 - title: Subscription Payments
-  url: "#subscription-payments"
+  url: "mutual_ssl_flow#subscription-payments"
 
 - title: One-Off Payments
-  url: "#oneoffpayments"
+  url: "mutual_ssl_flow#oneoffpayments"
   
 - title: Refunds
-  url: "#refunds"
-openid_flow : 
-- title: Overview
-  url: "coming-soon/#overview"
+  url: "mutual_ssl_flow#refunds"
 
-- title: General notes
-  url: "coming-soon/#general-notes"
+openid_flow:
+- title: Overview
+  url: "index#overview"
+
+- title: General Notes
+  url: "index#general-notes"
 
 - title: Agreements
-  url: "coming-soon/#agreements"
+  url: "index#agreements"
 
 - title: Subscription Payments
-  url: "coming-soon/#subscription-payments"
+  url: "index#subscription-payments"
 
 - title: One-Off Payments
-  url: "coming-soon/#oneoffpayments"
+  url: "index#oneoffpayments"
   
 - title: Refunds
-  url: "coming-soon/#refunds"
+  url: "index#refunds"
+
+release_notes:
+- title: Subscriptions Integrator 1.1
+  comment: (In progress. Available in Sandbox)
+  url: "release_notes"
   
-mutual_ssl_title : Mutual SSL flow
-openid_title: OpenID Connect flow
+mutual_ssl_title : Mutual SSL Flow
+openid_title: OpenID Connect Flow
+release_notes_title: Release Notes
