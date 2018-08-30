@@ -49,7 +49,7 @@ In order to authenticate to the API, all requests to the API must contain at lea
 $ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
 ```
 ### <a name="openid-flow"></a>OpenID flow
-[![](../assets/images/OpenId%20flow.png)](../assets/images/openid_flow_0.png)
+[![](assets/images/OpenId%20flow.png)](../assets/images/openid_flow_0.png)
 
 ### <a name="openid-connect-libraries"></a>Implementing OpenID Connect protocol
 
@@ -261,7 +261,7 @@ The link can be used in two ways:
 
 #### Agreement creation
 
-[![](../assets/images/RecurringPayments_SingleDevice.png)](assets/images/RecurringPayments_SingleDevice.png)
+[![](assets/images/RecurringPayments_SingleDevice.png)](assets/images/RecurringPayments_SingleDevice.png)
 
 #### <a name="agreements_callback"></a>Callbacks
 
@@ -417,7 +417,7 @@ For example: if you have a customer where the frequency of an agreement is set t
 
 #### Payment screens
 
-[![](../assets/images/RecurringPayments_Details.png)](assets/images/RecurringPayments_Details.png)
+[![](assets/images/RecurringPayments_Details.png)](assets/images/RecurringPayments_Details.png)
 
 #### <a name="subscription-payments_callbacks"></a>Callbacks
 
