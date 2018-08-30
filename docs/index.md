@@ -49,7 +49,7 @@ In order to authenticate to the API, all requests to the API must contain at lea
 $ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
 ```
 ### <a name="openid-flow"></a>OpenID flow
-[![](assets/images/OpenId%20flow.png)](../assets/images/openid_flow_0.png)
+[![](assets/images/OpenId%20flow.png)](assets/images/openid_flow_0.png)
 
 ### <a name="openid-connect-libraries"></a>Implementing OpenID Connect protocol
 
@@ -168,7 +168,7 @@ Use one of these endpoints to set REST callback authentication scheme and creden
 
 In case the REST callback failed, 8 retries will be made using the [exponential back-off algorithm](https://en.wikipedia.org/wiki/Exponential_backoff), where N - next retry time, c - retry attempt number, R - second retry time in seconds (1st retry is an exception and is done after 5 seconds):
 
-![](../assets/images/RecurringPayments_ExponentialBackoff.gif)
+![](assets/images/RecurringPayments_ExponentialBackoff.gif)
 
 * 1st retry – 5 seconds
 * 2nd retry – 10 minutes after 1st retry
@@ -280,7 +280,7 @@ The table below shows possible *status*, *status_text* and *status_code* values 
 
 ##### <a name="agreements_state-diagram"></a>Agreement state diagram
 
-![](../assets/images/RecurringPayments_AgreementStateDiagram.png)
+![](assets/images/RecurringPayments_AgreementStateDiagram.png)
 
 ##### <a name="agreements_callback-properties"></a>Other callback properties
 
@@ -335,20 +335,20 @@ When the **Agreement** activation is complete or canceled, the user will be navi
 
 #### <a name="agreements_creation-diagram"></a>Agreement creation sequence diagram
 
-![](../assets/images/RecurringPayments_CreateAgreement.png)
+![](assets/images/RecurringPayments_CreateAgreement.png)
 
 
 #### <a name="agreements_cancel-diagram"></a>When merchant cancels agreement - sequence diagram
 
-![](../assets/images/RecurringPayments_CancelAgreement_Merchant.png)
+![](assets/images/RecurringPayments_CancelAgreement_Merchant.png)
 
 #### <a name="agreements_cancel-pending-diagram"></a>When user cancels a Pending agreement during signup - sequence diagram
 
-![](../assets/images/RecurringPayments_CancelAgreement_User_Signup.png)
+![](assets/images/RecurringPayments_CancelAgreement_User_Signup.png)
 
 #### <a name="agreements_cancel-active-diagram"></a>When user cancels an Active agreement - sequence diagram
 
-![](../assets/images/RecurringPayments_CancelAgreement_User.png)
+![](assets/images/RecurringPayments_CancelAgreement_User.png)
 
 * * *
 
@@ -451,7 +451,7 @@ Once the payment status changes from *Pending* to *Executed, Declined, Rejected*
 
 ##### <a name="subscription-payments_state"></a>Payment state diagram
 
-![](../assets/images/RecurringPayments_PaymentStateDiagram.png)
+![](assets/images/RecurringPayments_PaymentStateDiagram.png)
 
 ##### <a name="subscription-payments_callback-properties"></a>Other callback properties
 
@@ -663,7 +663,7 @@ Once the one-off payment status changes from *Requested* to *Reserved*, *Rejecte
 
 #### <a name="oneoffpayments_state"></a>One-off payment state diagram
 
-![](../assets/images/RecurringPayments_OneOffPaymentStateDiagram.png)
+![](assets/images/RecurringPayments_OneOffPaymentStateDiagram.png)
 
 #### <a name="oneoffpayments_capture"></a>Capture Reserved One-Off Payment
 
@@ -756,5 +756,5 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
 <a name="refunds_screens"></a>
 Refund screens within mobile application:
 
-![](../assets/images/Refund_0162.PNG)
-![](../assets/images/Refund_0163.PNG)
+![](assets/images/Refund_0162.PNG)
+![](assets/images/Refund_0163.PNG)
