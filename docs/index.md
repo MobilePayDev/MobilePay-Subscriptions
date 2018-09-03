@@ -760,4 +760,4 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
 Refund screens within mobile application:
 
 ![]assets/images/RefundCVI.PNG)
-![](assets/images/Refund_0163.PNG)
+![](assets/images/RefundCVI.PNG)
