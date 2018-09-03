@@ -758,6 +758,4 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
 
 <a name="refunds_screens"></a>
 Refund screens within mobile application:
-
-![]assets/images/RefundCVI.PNG)
-![](assets/images/RefundCVI.PNG)
+![](assets/images/RefundCVI.png)
