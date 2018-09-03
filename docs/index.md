@@ -678,8 +678,9 @@ It is **mandatory** for the merchant to Capture or Cancel one-off payment if it 
 ***
 ## <a name="refunds"></a>Refunds
 
-**Full refund** - 100% of the amount paid is returned to the payer.<br />
-**Partial refund** - An amount up to the net (the amount the merchant received) will be returned to the payer. Multiple partial refunds can be made.
+**Full refund** - 100% of the amount paid is returned to the payer.If the amount is not specified, the payment will be fully refunded
+<br />
+**Partial refund** - An amount up to the net (the amount the merchant received) will be returned to the payer. Multiple partial refunds can be made.If the amount is specified, it has to be less than or equal to the amount payed. No refund otherwise. A payment can be refunded partially several times, until the amount is 0 (zero). 
 
 MP Subscriptions recurring or one-off payment refund CANNOT be made without original payment. Payment ID must be the same for both actions.
 
