@@ -681,6 +681,8 @@ It is **mandatory** for the merchant to Capture or Cancel one-off payment if it 
 **Full refund** - 100% of the amount paid is returned to the payer.<br />
 **Partial refund** - An amount up to the net (the amount the merchant received) will be returned to the payer. Multiple partial refunds can be made.
 
+MP Subscriptions recurring or one-off payment refund CANNOT be made without original payment. Payment ID must be the same for both actions.
+
 #### <a name="refunds_request"></a>Request a Refund
 Use the `POST /api/providers/{providerId}/agreements/{agreementId}/payments/{paymentId}/refunds` endpoint to request a **Refund**.
 
