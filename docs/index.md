@@ -757,5 +757,7 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
 |Declined  |_A catch-all error code when **Refund** was declined by core system._           | Right after the refund was requested |Declined  |Refund was declined by system.| 60005 | 
 
 <a name="refunds_screens"></a>
+
 Refund screens within mobile application:
+
 ![](assets/images/RefundCVI.png)
