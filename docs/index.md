@@ -352,6 +352,8 @@ When the **Agreement** activation is complete or canceled, the user will be navi
 
 * * *
 
+<span style="color:red">Important!</span> Once agreement is canceled all _Requested_ OneOff and upcoming agreement payments are canceled.
+
 ## <a name="subscription-payments"></a>Subscription Payments
 
 When the **Agreement** between **Merchant** and MobilePay **User** is established, use the `POST /api/providers/{providerId}/paymentrequests` endpoint to en-queue **Subscription Payments**. This service accepts a JSON array of individual **Subscription Payments** to be processed asynchronously. Notice that the **Subscription Payments** payload does not contain a currency code - this will be fetched from the **Agreement** using the provided *agreement_id*.
