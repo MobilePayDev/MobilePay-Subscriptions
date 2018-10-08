@@ -3,7 +3,7 @@
 <div class='post-date'>23 August 2018</div>
 
 We are excited to announce **Subscriptions Integrator 1.1** that is already available in [Sandbox](https://sandbox-developer.mobilepay.dk/).<br>
-ETA in production is **October 2018**.
+ETA in production is **December 2018**.
 <br/><br/>
 
 ##### Highlights
