@@ -449,6 +449,9 @@ Once the payment status changes from *Pending* to *Executed, Declined, Rejected*
 |Declined  |When the due date before rule is violated | Right after the payment request was received. |Declined  | Due date of the payment must be at least 8 days in the future. | 50011 |
 |Declined  |When the due date ahead rule is violated | Right after the payment request was received. |Declined  | Due date must be no more than 32 days in the future. | 50012 |
 
+There are validation rules; however, the payments are not validated until they have been created in our system. Therefore, even though you get a response with pending payments, they may not be valid.  When you make a payment request, we will validate the request itself, but not the individual payments. So it only validates if you have the required parameters with the correct types. So the response you get for the payment request, does not say if the payment is pending, but if the payment creation is pending. Then the payments are processed in our system, and they will either be requested (valid) or declined (invalid). Moreover, you will receive a callback to inform whether payments are requested or declined. This will be sent to your payment status callback  
+
+
 ##### <a name="subscription-payments_state"></a>Payment state diagram
 
 ![](assets/images/RecurringPayments_PaymentStateDiagram.png)
