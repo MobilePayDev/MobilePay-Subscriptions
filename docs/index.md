@@ -10,9 +10,17 @@ Our MobilePay Subscriptions REST api enables you to:
 
 Related links:
 - You can read more about the product [here](https://developer.mobilepay.dk/subscriptions-main).
-- Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/node/1272).
+- Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/product).
 - More information about integration steps is [here](https://developer.mobilepay.dk/subscriptions-getting-started).
-- Integration is based on common standard OpenID Connect. You can find more [here](https://developer.mobilepay.dk/products/openid). An example of how to use OpenID connect in C# can be found [here](https://github.com/MobilePayDev/MobilePay-Invoice/tree/master/ClientExamples). You can find links to the official Hybrid Flow [here](https://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth).   
+
+### QuickStart: follow our QuickStart to start building your integration
+
+- More information about integration steps are [here](https://developer.mobilepay.dk/invoice-getting-started)
+- Pick an OpenID Connect library: we recommend <a href="https://github.com/IdentityModel/IdentityModel.OidcClient2">Certified C#/NetStandard OpenID Connect Client Library for native mobile/desktop Applications</a> 
+- Read the FAQ's for OpenID Connect <a href="https://developer.mobilepay.dk/faq/integrator">here</a>
+- Integration is based on common standard OpenID Connect. You can find more [here](https://developer.mobilepay.dk/products/openid). 
+- You can find links to the official Hybrid Flow [here](https://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth).   
+- See the video tutorial here [here](https://developer.mobilepay.dk/products/openid/video)
 
 ### <a name="overview_onboarding"></a>Merchant onboarding
 
