@@ -267,9 +267,13 @@ The link can be used in two ways:
 1. Redirect the user automatically using the HTTP response **302** or **303**. Once the user is redirected, the MobilePay app will be opened to activate the *Pending* **Agreement**. In this case, it is recommended to set the *expiration_timeout_minutes* value to 5 minutes.
 2. E-mail the generated link to the user. Once the user clicks on the link, the MobilePay app will be opened to activate the *Pending* **Agreement**. In this case, it is recommended to set the *expiration_timeout_minutes* to a higher value (10080 - a week, 20160 - two weeks). Note, that the link will be valid only until the user accepts the agreement or a timeout occurs. 
 
-#### Agreement creation
+#### New agreement creation in landing page
 
-[![](assets/images/RecurringPayments_SingleDevice.png)](assets/images/RecurringPayments_SingleDevice.png)
+[![](assets/images/RecurringPayments_Agreement_landing_page.png)](assets/images/RecurringPayments_Agreement_landing_page.png)
+
+#### New agreement creation in APP
+
+[![](assets/images/RecurringPayments_Agreement_app.png)](assets/images/RecurringPayments_Agreement_app.png)
 
 #### <a name="agreements_callback"></a>Callbacks
 
@@ -672,6 +676,10 @@ __One-off Payment__ will expire in 1 day if it is not accepted or rejected by th
  
 * The *id* value can be used on the merchant's back-end system to map a one-off payment with a specific Subscription agreement on the merchant's side, and subsequently to capture a requested **One-Off Payment** when MobilePay user accepts it. 
 * The link *rel = mobile-pay* hyperlink reference must be used to redirect the user automatically using an HTTP response 302 or 303. Once the user is redirected, the MobilePay app will be opened to confirm the __One-off Payment__.
+
+##### <a name="oneoffpayments_screens"></a>One-Off payment screens
+
+[![](assets/images/One-off-flows.png)](assets/images/One-off-flows.png)
 
 ##### <a name="oneoffpayments_callback"></a>Callbacks
 
