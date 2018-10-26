@@ -265,7 +265,7 @@ The link can be used in two ways:
 
 #### <a name="agreements_creation_in_app"></a>New agreement creation in APP
 
-[![](assets/images/RecurringPayments_SingleDevice.png)](assets/images/RecurringPayments_SingleDevice.png)
+[![](assets/images/RecurringPayments_Agreement_landing_app.png)](assets/images/RecurringPayments_Agreement_landing_app.png)
 
 #### <a name="agreements_callback"></a>Callbacks
 
@@ -552,8 +552,6 @@ You are able to:
 * Create agreements with an initial payment.
 * Request arbitrary one-off payments on an existing agreement. These must be manually confirmed by the user. 
 
-![](assets/images/OnnOff-all.png) 
-
 Note:  Subscription payments are charged automatically, while one-off are charged when the customer manually swipes accept. OneOff payment does not affect the frequency and grace period. So if you create an agreement with a OneOff, you can request the first subscriptions payment whenever you want. You can also request a OneOff on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. But if you do it on an existing agreement, the user has to swipe to accept the payment. When you create an agreement with a OneOff, and the user accepts the agreement, the payment will be processed and executed right away. OneOff is an instant payment, and it is not subject to the 8 day rule. 
 
 If you create a OneOff payment, it will have the state requested. If the user then is not able to accept it, due to blocked card or so, it will expire after 1 day. You will receive a callback for that. The payment will be requested, to give the user the option to change card, but it will never be reserved if the user cannot accept it.
@@ -675,6 +673,10 @@ __One-off Payment__ will expire in 1 day if it is not accepted or rejected by th
  
 * The *id* value can be used on the merchant's back-end system to map a one-off payment with a specific Subscription agreement on the merchant's side, and subsequently to capture a requested **One-Off Payment** when MobilePay user accepts it. 
 * The link *rel = mobile-pay* hyperlink reference must be used to redirect the user automatically using an HTTP response 302 or 303. Once the user is redirected, the MobilePay app will be opened to confirm the __One-off Payment__.
+
+##### <a name="oneoffpayments_screens"></a>One-Off payment screens
+
+[![](assets/images/One-off-flows.png)](assets/images/One-off-flows.png)
 
 ##### <a name="oneoffpayments_callback"></a>Callbacks
 
