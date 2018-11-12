@@ -131,6 +131,10 @@ $ curl --header 'CorrelationId: 37b8450b-579b-489d-8698-c7800c65934c' --url http
 
 After getting an access token, you will be able to list subscription providers associated with that merchant by calling `GET /api/merchants/me`, which will return a list of all subscription providers, associated with that merchant.
 
+Providers represents your customer (which is a MobilePay Merchant). `providerId` represents a particular subscription provider. 
+
+For example, if a single merchant has several brands, then each brand would be a subscription provider. Currently, a merchant grants you permission to all their subscription providers. 
+
 ##### <a name="subscription-payments_response-example"></a>HTTP 200 Response body example
 ```json
 [
