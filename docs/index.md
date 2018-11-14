@@ -384,6 +384,18 @@ When the **Agreement** between **Merchant** and MobilePay **User** is establishe
     }
 ]
 ```
+* * *
+
+#### <a name="subscription-payments_function"></a>How do Subscription Payments function? 
+
+* You can send your payments to us max *32 days* prior due date and min *8 days* prior due date
+* The MobilePay user will be able to see Payments in the app 8 days before due date 
+* If a payment changes status e.g. declined by users, a callback on the specific payment will be made
+* On due date we process the payments starting from 02.00. If some payments are declined we will then try again approx. every 2. hour up until 23:59 
+* User will get at notification approx. at 08.30 that we can not process payment and that he/her can complete the payment manually (by swiping) 
+* On 23:59 we will decline the transaction and revert back with a callback  
+* Subscriptions payments are collected automatically, so there is no need for the customer to swipe. 
+
 
 #### <a name="subscription-payments_request-parameters"></a>Request parameters
 
