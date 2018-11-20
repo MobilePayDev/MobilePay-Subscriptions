@@ -558,7 +558,9 @@ If you create a OneOff payment, it will have the state requested. If the user th
 
 If an agreement was requested with a OneOff, and the user cannot accept it, the agreement will never be created. Because the user must accept the OneOff and the agreement at the same time. Therefore, you have to start again if the agreement request expires. But again, the user have the option to change card and accept the agreement.
 
+User cannot cancel the agreement with pending payment reservation, only the merchant can do so. 
 
+By cancelling the agreement with a pending payment reservation, then the merchant also automatically cancels the reservation
 
 
 #### <a name="oneoffpayments_request-new-agreement"></a>Request One-Off Payment With a New Subscriptions Agreement
