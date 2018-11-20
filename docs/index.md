@@ -579,6 +579,9 @@ You are able to:
 
 Note:  Subscription payments are charged automatically, while one-off are charged when the customer manually swipes accept. OneOff payment does not affect the frequency and grace period. So if you create an agreement with a OneOff, you can request the first subscriptions payment whenever you want. You can also request a OneOff on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. But if you do it on an existing agreement, the user has to swipe to accept the payment. When you create an agreement with a OneOff, and the user accepts the agreement, the payment will be processed and executed right away. OneOff is an instant payment, and it is not subject to the 8 day rule. 
 
+User cannot cancel the agreement with pending payment reservation, only the merchant can do so. 
+
+By cancelling the agreement with a pending payment reservation, then the merchant also automatically cancels the reservation
 
 #### <a name="oneoffpayments_request-new-agreement"></a>Request One-Off Payment With a New Agreement
 
