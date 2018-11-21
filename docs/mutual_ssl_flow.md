@@ -47,7 +47,7 @@ $ curl --url https://<mobile-pay-root>/resource?api-version=1.1 --request POST -
 All requests to the API must contain a client certificate and at least two authentication headers - `x-ibm-client-id` and `x-ibm-client-secret` in order to authenticate to the API.
 
 ```console
-$ curl --cert /path/to/cert.pem --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
+$ curl --cert /path/to/cert.pfx --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
 ```
 
 ##### <a name="client-certificate"></a>Client certificate for mutual SSL
