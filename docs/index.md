@@ -38,14 +38,26 @@ Integrators are the same as __Clients__ in the OAuth 2.0 protocol. The first thi
 If the merchant grants consent, an authorization code is returned which the __Client__ must exchange for an id token, an access token and a refresh token. The refresh token is used to refresh ended sessions without asking for merchant consent again. This means that if the __Client__ receives an answer from the api gateway saying that the access token is invalid, the refresh token is exchanged for a new access token and refresh token. <br /> <br />
 An example of how to use OpenID connect in C# can be found [here](https://github.com/MobilePayDev/MobilePay-Invoice/tree/master/ClientExamples).
 
+When user clicks on this button, merchant must do back-end call to   
+[`"/authorize"`](https://developer.mobilepay.dk/products/openid/authorizeo) endpoint for initiating  authentication flow. You need to wait for the response by listening on the redirect URI and get the Authorization Code. Our system will re-direct the merchant back to your system also using the redirect URL. 
+ 
+In short - The flow is described in the following 4 steps:
 
-### <a name="supported-endpoints"></a> Supported Endpoints 
-Find the supported endpoints in the links below 
+Step 1: Call /connect/authorize to initiate user login and consent
 
-|Environment | Links                               |
-|-----------|------------------------------------------|
-|Sandbox    |https://api.sandbox.mobilepay.dk/merchant-authentication-openidconnect/.well-known/openid-configuration        |
-|Production   |https://api.mobilepay.dk/merchant-authentication-openidconnect/.well-known/openid-configuration      |
+Step 2: Wait for the response by listening on the redirect URI and get the authorization code 
+
+Step 3: Exchange the authorization code for tokens using /connect/token
+
+Step 4: Keep the session alive by using the refresh token
+
+### OpenID configuration endpoints 
+Find the configuration links below:
+
+|Environment | Links |
+|------------|-------|
+|Sandbox    | Denmark <a href="https://sandprod-admin.mobilepay.dk/account/.well-known/openid-configuration">https://sandprod-admin.mobilepay.dk/account/.well-known/openid-configuration</a> <br> Finland <a href="https://sandprod-admin.mobilepay.fi/account/.well-known/openid-configuration">https://sandprod-admin.mobilepay.fi/account/.well-known/openid-configuration</a> |
+|Production  | Denmark <a href="https://admin.mobilepay.dk/account/.well-known/openid-configuration">https://admin.mobilepay.dk/account/.well-known/openid-configuration</a> <br> Finland <a href="https://admin.mobilepay.fi/account/.well-known/openid-configuration">https://admin.mobilepay.fi/account/.well-known/openid-configuration</a>|
 
 
 In order to authenticate to the API, all requests to the API must contain at least three authentication headers:
