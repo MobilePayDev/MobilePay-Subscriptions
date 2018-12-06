@@ -32,6 +32,9 @@ You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-
 ### <a name="openid-connect"></a>OpenID Connect
 When the merchant is onboarded, he has a user in MobilePay that is able to manage which products the merchant wishes to use. Not all merchants have the technical capabilities to make integrations to MobilePay, instead they may need to go through applications whith these capabilities.  The OpenID Connect protocol is a simple identity layer on top of the OAuth 2.0 protocol. 
 
+[![](assets/images/OpenIdflowWithFIandAuthorize.png)](assets/images/OpenIdflowWithFIandAuthorize.png)
+
+      
 **Client:**
 In order for this to work, the merchant must grant consent to an application(__Client__) with these capabilities.
 The client is the application that is attempting to get access to the user's account.  The client needs to get consent from the user before it can do so. This consent is granted through mechanism in the [OpenID Connect](http://openid.net/connect/) protocol suite. <br />
