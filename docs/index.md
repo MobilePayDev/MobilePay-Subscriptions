@@ -71,7 +71,8 @@ In order to authenticate to the API, all requests to the API must contain at lea
 $ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
 ```
 ### <a name="openid-flow"></a>OpenID flow
-[![](assets/images/OpenIdFlowWithFiandAuthorize.png)](assets/images/OpenIdFlowWithFiandAuthorize.png)
+
+![](assets/images/OpenIdFlowWithFiandAuthorize.png)
       
 
 ### <a name="openid-connect-libraries"></a>Implementing OpenID Connect protocol
