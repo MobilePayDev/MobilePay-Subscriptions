@@ -388,7 +388,8 @@ When the **Agreement** activation is complete or canceled, the user will be navi
 
 ## <a name="subscription-payments"></a>Subscription Payments
 
-When the **Agreement** between **Merchant** and MobilePay **User** is established, use the `POST /api/providers/{providerId}/paymentrequests` endpoint to en-queue **Subscription Payments**. This service accepts a JSON array of individual **Subscription Payments** to be processed asynchronously. Notice that the **Subscription Payments** payload does not contain a currency code - this will be fetched from the **Agreement** using the provided *agreement_id*.
+When the **Agreement** between **Merchant** and MobilePay **User** is established, use the `POST /api/providers/{providerId}/paymentrequests` endpoint to en-queue **Subscription Payments**. This service accepts a JSON array of individual **Subscription Payments** to be processed asynchronously. You can batch payment requests into payloads of maximum 2000 payments. We allow merchants to bundle multiple payment requests into a single HTTP request.
+Notice that the **Subscription Payments** payload does not contain a currency code - this will be fetched from the **Agreement** using the provided *agreement_id*.
 
 ```json
 [
@@ -404,7 +405,7 @@ When the **Agreement** between **Merchant** and MobilePay **User** is establishe
 ```
 * * *
 
-#### <a name="subscription-payments_function"></a>How do Subscription Payments function? 
+#### <a name="subscription-payments_function"></a>How do Subscription Payments work? 
 
 * You can send your payments to us max *32 days* prior due date and min *8 days* prior due date
 * The MobilePay user will be able to see Payments in the app 8 days before due date 
@@ -467,7 +468,17 @@ For example: if you have a customer where the frequency of an agreement is set t
 
 #### <a name="subscription-payments_callbacks"></a>Callbacks
 
-Once the payment status changes from *Pending* to *Executed, Declined, Rejected* or *Failed*, a callback will be done to the callback address, which is configurable via `PATCH /api/providers/{providerId}` with path value `/payment_status_callback_url`. 
+Once the payment status changes from *Pending* to *Executed, Declined, Rejected* or *Failed*, a callback will be done to the callback address, which is configurable via `PATCH /api/providers/{providerId}` with path value `/payment_status_callback_url`.
+
+We are sending callbacks in two ways:
+
+1) A batch that runs every 2 mins. It contains Subscription payments with status: Declined/Rejected/Failed/Executed/OneOff_Expired. So in theory, there is a possible delay of 2 mins. 
+2) Right after the user made an action. It contains OneOff_Reserved/OneOff_Rejected.
+
+Every two minutes we take up to 1000 events (notifications about payment state), group them by merchant and make the calls. Therefore, as for merchant you should get up to 1 call every two minutes.
+
+We will post the integrator or merchant a callback, and expect a HTTP 2xx response. If not we will retry 8 times.
+
 
 ```json
 [
