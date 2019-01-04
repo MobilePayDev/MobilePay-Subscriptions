@@ -472,8 +472,8 @@ Once the payment status changes from *Pending* to *Executed, Declined, Rejected*
 
 We are sending callbacks in two ways:
 
-1) A batch that runs every 2 mins. It contains Subscription payments with status: Declined/Rejected/Failed/Executed/OneOff_Expired. So in theory, there is a possible delay of 2 mins.
-2) Right after the user made an action. It contains OneOff_Reserved/OneOff_Rejected.
+1. A batch that runs every 2 mins. It contains Subscription payments with status: Declined/Rejected/Failed/Executed/OneOff_Expired. So in theory, there is a possible delay of 2 mins.
+2. Right after the user made an action. It contains OneOff_Reserved/OneOff_Rejected.
 
 Every two minutes we take up to 1000 events (notifications about payment state), group them by merchant and make the calls. Therefore, as for merchant you should get up to 1 call every two minutes.
 
