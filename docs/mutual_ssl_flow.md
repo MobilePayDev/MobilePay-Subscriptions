@@ -256,7 +256,25 @@ The response of `POST /api/merchants/me/agreements` contains two values: a uniqu
 The link can be used in two ways:
 
 1. Redirect the user automatically using the HTTP response **302** or **303**. Once the user is redirected, the MobilePay app will be opened to activate the *Pending* **Agreement**. In this case, it is recommended to set the *expiration_timeout_minutes* value to 5 minutes.
-2. E-mail the generated link to the user. Once the user clicks on the link, the MobilePay app will be opened to activate the *Pending* **Agreement**. In this case, it is recommended to set the *expiration_timeout_minutes* to a higher value (10080 - a week, 20160 - two weeks). Note, that the link will be valid only until the user accepts the agreement or a timeout occurs. 
+2. E-mail the generated link to the user. Once the user clicks on the link, the MobilePay app will be opened to activate the *Pending* **Agreement**. In this case, it is recommended to set the *expiration_timeout_minutes* to a higher value (10080 - a week, 20160 - two weeks). Note, that the link will be valid only until the user accepts the agreement or a timeout occurs.
+
+#### Update existing Agreement Request
+
+Use the `PATCH /api/merchants/me/agreements/{agreementId}` endpoint to change agreement request parameters. Its request must match the rules of [RFC 6902 JSON Patch standards](https://tools.ietf.org/html/rfc6902).
+
+- Available operations: **replace**
+- Available properties: **amount**, **plan**, **description**, **next_payment_date**, **frequency**, **external_id**, **success-callback**, **cancel-callback**
+
+```json
+[
+    {
+        "value": "10.01",
+        "path": "/amount",
+        "op": "replace"
+    }
+]
+```
+
 #### Agreement creation
 
 #### <a name="agreements_creation_in_landing_page"></a>New agreement creation in landing page
@@ -265,7 +283,7 @@ The link can be used in two ways:
 
 #### <a name="agreements_creation_in_app"></a>New agreement creation in APP
 
-[![](assets/images/RecurringPayments_Agreement_landing_app.png)](assets/images/RecurringPayments_Agreement_landing_app.png)
+[![](assets/images/RecurringPayments_Agreement_app.png)](assets/images/RecurringPayments_Agreement_app.png)
 
 #### <a name="agreements_callback"></a>Callbacks
 
