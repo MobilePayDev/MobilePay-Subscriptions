@@ -165,7 +165,11 @@ For example, if a single merchant has several brands, then each brand would be a
         "HomepageUrl": "https://merchant.dk",
         "CustomerServiceEmail": "customerservice@merchant.dk",
         "SelfServicePortalUrl": "https://merchant.dk/self-service",
-        "FaqUrl": "https://merchant.dk/faq"
+        "FaqUrl": "https://merchant.dk/faq",
+        "Status": "Enabled" || "Pending",
+        "Address": "Your address line",
+        "ZipCode": "1234",
+        "City": "City"
       }
     ]
   }
