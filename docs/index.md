@@ -165,7 +165,11 @@ For example, if a single merchant has several brands, then each brand would be a
         "HomepageUrl": "https://merchant.dk",
         "CustomerServiceEmail": "customerservice@merchant.dk",
         "SelfServicePortalUrl": "https://merchant.dk/self-service",
-        "FaqUrl": "https://merchant.dk/faq"
+        "FaqUrl": "https://merchant.dk/faq",
+        "Status": "Enabled" || "Pending",
+        "Address": "Your address line",
+        "ZipCode": "1234",
+        "City": "City"
       }
     ]
   }
@@ -287,7 +291,24 @@ The response of `POST /api/providers/{providerId}/agreements` contains two value
 The link can be used in two ways:
 
 1. Redirect the user automatically using the HTTP response **302** or **303**. Once the user is redirected, the MobilePay app will be opened to activate the *Pending* **Agreement**. In this case, it is recommended to set the *expiration_timeout_minutes* value to 5 minutes.
-2. E-mail the generated link to the user. Once the user clicks on the link, the MobilePay app will be opened to activate the *Pending* **Agreement**. In this case, it is recommended to set the *expiration_timeout_minutes* to a higher value (10080 - a week, 20160 - two weeks). Note, that the link will be valid only until the user accepts the agreement or a timeout occurs. 
+2. E-mail the generated link to the user. Once the user clicks on the link, the MobilePay app will be opened to activate the *Pending* **Agreement**. In this case, it is recommended to set the *expiration_timeout_minutes* to a higher value (10080 - a week, 20160 - two weeks). Note, that the link will be valid only until the user accepts the agreement or a timeout occurs.
+
+#### Update existing Agreement Request
+
+Use the `PATCH /api/merchants/me/agreements/{agreementId}` endpoint to change agreement request parameters. Its request must match the rules of [RFC 6902 JSON Patch standards](https://tools.ietf.org/html/rfc6902).
+
+- Available operations: **replace**
+- Available properties: **amount**, **plan**, **description**, **next_payment_date**, **frequency**, **external_id**, **success-callback**, **cancel-callback**
+
+```json
+[
+    {
+        "value": "10.01",
+        "path": "/amount",
+        "op": "replace"
+    }
+]
+```
 
 #### New agreement creation in landing page
 
