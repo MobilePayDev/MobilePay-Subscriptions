@@ -36,9 +36,11 @@ openid_flow:
 - title: Refunds
   url: "index#refunds"
 
+- title: Invoices
+  url: "index#invoices"
+
 release_notes:
 - title: Subscriptions Integrator 1.1
-  comment: (In progress. Available in Sandbox)
   url: "release_notes"
   
 mutual_ssl_title : Mutual SSL Flow
