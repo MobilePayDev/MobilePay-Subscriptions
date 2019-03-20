@@ -528,6 +528,9 @@ We will post the integrator or merchant a callback, and expect a HTTP 2xx respon
 |Declined  |When the due date ahead rule is violated | Right after the payment request was received. |Declined  | Due date must be no more than 32 days in the future. | 50012 |
 
 
+
+
+
 ![](assets/images/PaymentStates.PNG)
 
 There are validation rules; however, the payments are not validated until they have been created in our system. Therefore, even though you get a response with pending payments, they may not be valid.  When you make a payment request, we will validate the request itself, but not the individual payments. So it only validates if you have the required parameters with the correct types. So the response you get for the payment request, does not say if the payment is pending, but if the payment creation is pending. Then the payments are processed in our system, and they will either be requested (valid) or declined (invalid). Moreover, you will receive a callback to inform whether payments are requested or declined. This will be sent to your payment status callback  
@@ -540,7 +543,11 @@ The process on failed payments the DueDate is as follows:
 
 •	18:00 20:00 22:30 - hiccups keep running throughout the day. Once done, a notification about completion is returned. Merchant is informed about successful payments and user about failed payment, 
  
+`Suspended` 
 
+It means that the you can not withdraw the money from the customers payment card, and then the payment gets suspended. It tries 6 times during the duedate. There can be various reasons why it can he suspended. If the problem persists, and there is not sufficient funds on the customers card, or/and if the card is expired or/and blocked, then the payment will fail. Suspended is a status internally for MobilePay to mark hiccupped payments, which is why it is not a part of the callback table above. 
+
+Solution : MobilePay sends the customer a push notification, if there was an error with the card, in order to catch errors. If there were insufficient funds on the customers card, we also push the customer to execute the payment manually. The Merchant should contact the customer, and have it cleared out with the customer. 
 ##### <a name="subscription-payments_state"></a>Payment state diagram
 
 ![](assets/images/RecurringPayments_PaymentStateDiagram.png)
