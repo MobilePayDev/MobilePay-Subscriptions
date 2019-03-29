@@ -11,7 +11,7 @@ Related links:
 - Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/product).
 - More information about integration steps is [here](https://developer.mobilepay.dk/subscriptions-getting-started).
 
- ### Deprecated API 
+### <a name="deprecated"></a> Deprecated
 This API is `deprecated `, so we recommend you use the Subscriptions API that uses OAuth 2.0 protocol for authentication and authorization and contains endpoints needed to implement MobilePay Subscriptions in your system. 
 As an existing subscriptions merchant, you can already now migrate from SSL to OpenID Connect. The SSL API version is scheduled for complete retirement, once all merchants have migrated.
 
@@ -21,9 +21,6 @@ The deadline of migrating to OpenID Connect is 01-01-2020.
 
 Please contact us at developer@mobilepay.dk if you have any questions or need technical assistance.
 
-### <a name="overview_onboarding"></a>Merchant onboarding
-
-You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-dk/Pages/mobilepay.aspx">www.MobilePay.dk</a> or the MobilePay Business Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the technical integration. The environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Developer Portal </a> 
 
 ## <a name="general-notes"></a> General notes 
 
