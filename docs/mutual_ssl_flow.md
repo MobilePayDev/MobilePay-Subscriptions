@@ -2,9 +2,11 @@
 layout: default
 ---
 
-## <a name="overview"></a> Overview - MobilePay Subscriptions 
+## <a name="overview"></a> Overview - MobilePay Subscriptions  [A deprecated API]
 
-Billing your customers has never been easier before. This document explains how to make a technical integration to the **MobilePay Subscriptions** product. The audience for this document is either technical integrators acting on behalf of merchants, or merchant creating their own integrations. You can find more information on our <a href="https://developer.mobilepay.dk/subscriptions-main">Developer Portal</a>.
+Billing your customers has never been easier before. This document explains how to make a technical integration to the **MobilePay Subscriptions** product. The audience for this document is either technical integrators acting on behalf of merchants, or merchant creating their own integrations. You can find more information on our <a href="https://developer.mobilepay.dk/subscriptions-main">Developer Portal</a>. 
+
+This API is `deprecated `, so we recommend you use the Subscriptions API that uses OAuth 2.0 protocol for authentication and authorization and contains endpoints needed to implement MobilePay Subscriptions in your system. 
 
 Related links:
 - You can read more about the product [here](https://developer.mobilepay.dk/subscriptions-main).
