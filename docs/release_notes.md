@@ -6,8 +6,6 @@ Invoices are now available for Subscriptions payments. [Add invoice details to s
 
 <div class='post-date'>31 October 2018</div>
 
-Due to other priorities we had to postpone ETA to **January 2019**.
-<br/>
 
 <div class='post-date'>23 August 2018</div>
 
