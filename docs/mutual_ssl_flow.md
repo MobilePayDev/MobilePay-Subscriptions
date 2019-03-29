@@ -13,14 +13,13 @@ Related links:
 
  ### Deprecated API 
 This API is `deprecated `, so we recommend you use the Subscriptions API that uses OAuth 2.0 protocol for authentication and authorization and contains endpoints needed to implement MobilePay Subscriptions in your system. 
-
 As an existing subscriptions merchant, you can already now migrate from SSL to OpenID Connect. The SSL API version is scheduled for complete retirement, once all merchants have migrated.
 
 The technical reason for deprecation the SSL is that OpenID Connect supports our increasing focus on ensuring high security. We are not going to release new functionality or integrate new merchants using SSL.
 
 The deadline of migrating to OpenID Connect is 01-01-2020.
 
-Please contact us at developer@mobilepay.dk if you have any questions or need technical assistance going from SSL to OIDC.
+Please contact us at developer@mobilepay.dk if you have any questions or need technical assistance.
 
 ### <a name="overview_onboarding"></a>Merchant onboarding
 
