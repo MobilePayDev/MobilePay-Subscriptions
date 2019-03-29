@@ -6,13 +6,21 @@ layout: default
 
 Billing your customers has never been easier before. This document explains how to make a technical integration to the **MobilePay Subscriptions** product. The audience for this document is either technical integrators acting on behalf of merchants, or merchant creating their own integrations. You can find more information on our <a href="https://developer.mobilepay.dk/subscriptions-main">Developer Portal</a>. 
 
-This API is `deprecated `, so we recommend you use the Subscriptions API that uses OAuth 2.0 protocol for authentication and authorization and contains endpoints needed to implement MobilePay Subscriptions in your system. 
-
 Related links:
 - You can read more about the product [here](https://developer.mobilepay.dk/subscriptions-main).
 - Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/product).
 - More information about integration steps is [here](https://developer.mobilepay.dk/subscriptions-getting-started).
 
+ ### Deprecated API 
+This API is `deprecated `, so we recommend you use the Subscriptions API that uses OAuth 2.0 protocol for authentication and authorization and contains endpoints needed to implement MobilePay Subscriptions in your system. 
+
+As an existing subscriptions merchant, you can already now migrate from SSL to OpenID Connect. The SSL API version is scheduled for complete retirement, once all merchants have migrated.
+
+The technical reason for deprecation the SSL is that OpenID Connect supports our increasing focus on ensuring high security. We are not going to release new functionality or integrate new merchants using SSL.
+
+The deadline of migrating to OpenID Connect is 01-01-2020.
+
+Please contact us at developer@mobilepay.dk if you have any questions or need technical assistance going from SSL to OIDC.
 
 ### <a name="overview_onboarding"></a>Merchant onboarding
 
