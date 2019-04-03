@@ -335,8 +335,7 @@ The table below shows possible *status*, *status_text* and *status_code* values 
 
 ##### <a name="agreements_state-diagram"></a>Agreement state diagram
 
-![](assets/images/RecurringPayments_AgreementStateDiagram.png)
-
+![](assets/images/RecurringPayments_AgreementStateDiagram2final.png)
 ##### <a name="agreements_callback-properties"></a>Other callback properties
 
 |Name            |Type        |Description                                           |Format|
