@@ -310,8 +310,8 @@ User can't cancel agreement if Reserved payment exists.
 
 ##### <a name="agreements_state-diagram"></a>Agreement state diagram
 
-![](assets/images/RecurringPayments_AgreementStateDiagram2.png)
-      
+![](assets/images/RecurringPayments_AgreementStateDiagram2final.png)
+            
 ##### <a name="agreements_callback-properties"></a>Other callback properties
 
 |Name            |Type        |Description                                           |Format|
