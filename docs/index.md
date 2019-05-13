@@ -244,9 +244,12 @@ Once the user is given to choose the payment method on the merchant's signup flo
   "country_code": "DK",
   "plan": "Basic",
   "expiration_timeout_minutes": 5,
-  "mobile_phone_number": "4511100118"
+  "mobile_phone_number": "4511100118",
+  "retention_period_hours": 0,
+  "disable_notification_management": false,
 }
 ```
+
 Mobile_phone_number is not required. Neither for agreement creation, or one-off creation. If you choose to add it, the phone number will be prefilled on our landing page. So that the user will not have to type the phone number on the landing page, which makes it more convenient for the user, if you add mobile_phone_number.
 
 
@@ -258,14 +261,16 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |:---------------------|:-----------|:---------|:----------------------------------------------------------------|:-----------|
 |**amount**            |number(0.00)|          |*__Agreement__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
-|**currency**          |string(3)   |required |*The __Agreement__ currency code, that will be displayed for the use in the MobilePay app. Currency and country_code must match a valid pair of: DKK->DK, NOK->NO, EUR->FI.*|DKK, NOK, EUR|
-|**country_code**      |string(2)   |required |*Country code, which will be used to differentiate between MobilePay DK, NO and FI apps.*|DK, NO, FI|
+|**currency**          |string(3)   |required |*The __Agreement__ currency code, that will be displayed for the use in the MobilePay app. Currency and country_code must match a valid pair of: DKK->DK, EUR->FI.*|DKK, EUR|
+|**country_code**      |string(2)   |required |*Country code, which will be used to differentiate between MobilePay DK and FI apps.*|DK, FI|
 |**plan**              |string(30)  |required |*Short __Agreement__ information text, that will be displayed on the __Agreement__ screen. (examples: "Basic" / "Premium").*||
 |**description**       |string(60)  |          |*Additional information provided by the merchant to the user, that will be displayed on the __Agreement__ screen.*||
 |**next_payment_date** |date        |          |*The date of the first scheduled __Payment Request__. This will be displayed on the __Agreement__ creation screen and on the __Agreement__ details screen if first payment date > current date.*|ISO date format: yyyy-MM-dd|
-|**frequency**         |int         |required |*Frequency of __Payment Requests__. This value will be used to divide the amount of days in a year to get a frequency in days (e.g. 365 / 12 = 30.4 - approx. every month.)*|1, 2, 4, 12 or 26|
-|**external_id**       |string      |          |*__Agreement__ identifier on the merchant's and integrators side. This will be included in the request body of the success / cancel callback.  The external_id should be unique to the agreement. Two different agreements should not have the same external_id *||
+|**frequency**         |int         |required |*Frequency of __Payment Requests__. This value will be used to divide the amount of days in a year to get a frequency in days (e.g. 365 / 12 = 30.4 - approx. every month, 365 - daily and 0 -flexible.)*|1, 2, 4, 12, 26, 52, 365, 0|
+|**external_id**       |string      |          |*__Agreement__ identifier on the merchant's and integrators side. This will be included in the request body of the success / cancel callback.  The external_id should be unique to the agreement. Two different agreements should not have the same external_id*||
 |**expiration_timeout_minutes**|int |required |*Agreement expiration timeout in minutes.*|Min: 5, max: 20160 (2 weeks)|
+|**retention_period_hours**|int||*Before retention period has passed User will not be able to Cancel an agreement*|Min: 0(default), max: 24 hours|
+|**disable_notification_management**|boolean||*Prevents User from disabling PUSH notifications*|Default **false**|
 |**links**             |string      |required |*Link relation of the __Agreement__ creation sequence. Must contain 3 values for user redirect, success callback and cancel-callback links.*||
 |**links[].rel**       |string      |required |*Link relation type.*|user-redirect, success-callback, cancel-callback|
 |**links[].href**      |string      |required |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
@@ -391,7 +396,6 @@ When the **Agreement** activation is complete or canceled, the user will be navi
 
 ![](assets/images/RecurringPayments_CreateAgreement.png)
 
-
 #### <a name="agreements_cancel-diagram"></a>When merchant cancels agreement - sequence diagram
 
 ![](assets/images/RecurringPayments_CancelAgreement_Merchant.png)
@@ -423,18 +427,18 @@ Notice that the **Subscription Payments** payload does not contain a currency co
     }
 ]
 ```
+
 * * *
 
 #### <a name="subscription-payments_function"></a>How do Subscription Payments work? 
 
-* You can send your payments to us max *32 days* prior due date and min *8 days* prior due date
-* The MobilePay user will be able to see Payments in the app 8 days before due date 
-* If a payment changes status e.g. declined by users, a callback on the specific payment will be made
-* On due date we process the payments starting from 02.00. If some payments are declined we will then try again approx. every 2. hour up until 23:59 
-* User will get at notification approx. at 08.30 that we can not process payment and that he/her can complete the payment manually (by swiping) 
-* On 23:59 we will decline the transaction and revert back with a callback  
-* Subscriptions payments are collected automatically, so there is no need for the customer to swipe. 
-
+- You can send your payments to us max *32 days* prior due date and min *8 days* prior due date
+- The MobilePay user will be able to see Payments in the app 8 days before due date
+- If a payment changes status e.g. declined by users, a callback on the specific payment will be made
+- On due date we process the payments starting from 02.00. If some payments are declined we will then try again approx. every 2. hour up until 23:59
+- User will get at notification approx. at 08.30 that we can not process payment and that he/her can complete the payment manually (by swiping)
+- On 23:59 we will decline the transaction and revert back with a callback  
+- Subscriptions payments are collected automatically, so there is no need for the customer to swipe.
 
 #### <a name="subscription-payments_request-parameters"></a>Request parameters
 
@@ -454,8 +458,8 @@ The response body containts two lists:
 * **pending_payments** - a map of newly generated Subscription payment ID and the external ID, that where accepted for processing and now are in a _Pending_ state.
 * **rejected_payments** - a list of rejected payments. This can only occur if any of the mandatory fields are missing or do not conform to the format rule. Business logic validations are done asynchronously in the back-end (for example, checking if due-date conforms to 8 day rule).
 
-
 ##### <a name="subscription-payments_response-example"></a>HTTP 202 Response body example
+
 ```json
 {
     "pending_payments": [{
@@ -472,15 +476,16 @@ The response body containts two lists:
 ```
 
 #### <a name="subscription-payments_frequency"></a>Frequency of Payment Requests
- The merchant can send a payment max 32 days prior due date, and at at least 8 days before due date. 
- Valid values are 1, 2, 4, 12, 26. This means that the bi-weekly payment (26) is the most frequent. 
-When you are requesting a payment, you need to keep the 8 day rule. The user can have a single pending payment on due date. E.g. User can have 3 pending payments but the DueDate of those payments should be different. 
- * **Due Date** Payments cannot be created with the same Due Date. 
-* **Multiple Recurring payments**  Multiple recurring payment requests can be created within period [32 before Due Date >= Payment Request Date >= 8 before Due Date]
-* **Next Payment Date** If there are multiple pending payments, Next Payment Date is the one closest to Today()
- 
+
+ The merchant can send a payment max 32 days prior due date, and at at least 8 days before due date. Valid values are 1, 2, 4, 12, 26, 52, 365, 0. This means that the daily payment (365) is the most frequent. When you are requesting a payment, you need to keep the 8 day rule. The user can have a single pending payment on due date. E.g. User can have 3 pending payments but the DueDate of those payments should be different.
+
+- **Due Date** Payments cannot be created with the same Due Date.
+- **Multiple Recurring payments**  Multiple recurring payment requests can be created within period [32 before Due Date >= Payment Request Date >= 8 before Due Date].
+- **Next Payment Date** If there are multiple pending payments, Next Payment Date is the one closest to Today().
+
 ##### <a name="subscription-payments_grace-example"></a>Example of Frequency
-For example: if you have a customer where the frequency of an agreement is set to 4, that means  365 / 4 = 91.25 (approximately payment requests every 3rd month).
+
+For example: if you have a customer where the frequency of an agreement is set to 4, that means  365 / 4 = 91.25 (approximately payment requests every 3rd month), if agreement frequency is set to 52, then 365 / 52 (payment requests every week) and in case frequency is set to 0 - payment can be requested in flexible recurrence.
 
 #### Payment screens
 
