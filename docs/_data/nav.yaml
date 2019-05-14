@@ -1,48 +1,55 @@
-mutual_ssl_flow : 
-- title: Overview
-  url: "mutual_ssl_flow#overview"
+overview_title: Overview
+overview_url: "index"
 
-- title: General Notes
-  url: "mutual_ssl_flow#general-notes"
+general_notes_title: General Notes
+general_notes_url: "general_notes"
 
-- title: Agreements
-  url: "mutual_ssl_flow#agreements"
+subscription_providers_title: Subscription providers
+subscription_providers_url: "subscription_providers"
+agreement_title: Agreement
+agreement_url: "agreement"
+agreement:
+- title: Create & Update
+  url: "agreement#requests"
+- title: Callbacks
+  url: "agreement#callbacks"
 
-- title: Subscription Payments
-  url: "mutual_ssl_flow#subscription-payments"
+payments_title: Subscription payments
+payments_url: "payments"
+payments:
+- title: Create & Update
+  url: "payments#requests"
+- title: Callbacks
+  url: "payments#callbacks"
 
-- title: One-Off Payments
-  url: "mutual_ssl_flow#oneoffpayments"
-  
-- title: Refunds
-  url: "mutual_ssl_flow#refunds"
+oneoffs_title: One-off payments
+oneoffs_url: "oneoffs"
+oneoffs:
+- title: Create & Update
+  url: "oneoffs#requests"
+- title: Callbacks
+  url: "oneoffs#callbacks"
+- title: Capture
+  url: "oneoffs#capture"
 
-openid_flow:
-- title: Overview
-  url: "index#overview"
+refund_title: Refund
+refund_url: "refund"
+refund:
+- title: Create
+  url: "refund#requests"
+- title: Callbacks
+  url: "refund#callbacks"
 
-- title: General Notes
-  url: "index#general-notes"
+invoice_title: Invoice
+invoice_url: "invoice"
+invoice:
+- title: "Requests"
+  url: "invoice#requests"
+- title: "PDF invoice examples"
+  url: "invoice#pdf_examples"
 
-- title: Agreements
-  url: "index#agreements"
+release_notes_title: Release notes
+release_notes_url: "release_notes"
 
-- title: Subscription Payments
-  url: "index#subscription-payments"
-
-- title: One-Off Payments
-  url: "index#oneoffpayments"
-  
-- title: Refunds
-  url: "index#refunds"
-
-- title: Invoices
-  url: "index#invoices"
-
-release_notes:
-- title: Subscriptions Integrator 1.1
-  url: "release_notes"
-  
-mutual_ssl_title : Mutual SSL Flow
-openid_title: OpenID Connect Flow
-release_notes_title: Release Notes
+mutual_ssl_title: Mutual SSL Flow (DEPRECATED)
+mutual_ssl_url: mutual_ssl_flow

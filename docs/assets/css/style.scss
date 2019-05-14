@@ -3,6 +3,10 @@
 
 @import "{{ site.theme }}";
 
+body {
+    padding: 0px;
+}
+
 p>code, li>code {
     border-radius: 3px;
     border: 1px solid #ccc;
@@ -37,6 +41,13 @@ header .mt20 {
     margin-top:20px;
 }
 
+header .mt5 {
+    margin-top:5px;
+}
+
+header h2, header h3, header h4, header h5, header h6 {
+    margin-bottom: 5px;
+}
 .menu-item-comment {
     font-size: 11px;
     color:red;
