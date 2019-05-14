@@ -2,7 +2,7 @@
 
 You are able to:
 * Create agreements with an initial payment.
-* Request arbitrary one-off payments on an existing agreement. These must be manually confirmed by the user. 
+* Request arbitrary one-off payments on an existing agreement.
 
 Note:  Subscription payments are charged automatically, while one-off are charged when the customer manually swipes accept. OneOff payment does not affect the frequency and grace period. So if you create an agreement with a OneOff, you can request the first subscriptions payment whenever you want. You can also request a OneOff on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. But if you do it on an existing agreement, the user has to swipe to accept the payment. When you create an agreement with a OneOff, and the user accepts the agreement, the payment will be processed and executed right away. OneOff is an instant payment, and it is not subject to the 8 day rule. 
 
@@ -89,7 +89,8 @@ Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments`
       "rel": "user-redirect",
       "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
     }
-  ]
+  ],
+  "auto_reserve": true
 }
 ```
 
@@ -105,6 +106,7 @@ __One-off Payment__ will expire in 1 day if it is not accepted or rejected by th
 |**links**        |string      |required  |*Link relation of the __One-off Payment__ creation sequence. Must contain 1 value for user redirect.*||
 |**links[].rel**  |string      |required  |*Link relation type.*|user-redirect|
 |**links[].href** |string      |required  |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
+    |**auto_reserve** |boolean      |optional |*When this field is set to __true__, we will attempt to automatically reserve the payment without user's interaction. If you do not wish payment to be automatically reserved, you can omit this field or set it to __false__.*|true/false|
 
 <a name="oneoffpayments_response-existing"></a>The response of `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` contains two values: a unique *id* of the newly requested **One-Off Payment** and a link *rel* = *mobile-pay*.
 
@@ -123,9 +125,13 @@ __One-off Payment__ will expire in 1 day if it is not accepted or rejected by th
 * The *id* value can be used on the merchant's back-end system to map a one-off payment with a specific Subscription agreement on the merchant's side, and subsequently to capture a requested **One-Off Payment** when MobilePay user accepts it. 
 * The link *rel = mobile-pay* hyperlink reference must be used to redirect the user automatically using an HTTP response 302 or 303. Once the user is redirected, the MobilePay app will be opened to confirm the __One-off Payment__.
 
-##### <a name="oneoffpayments_screens"></a>One-Off payment screens
+#### <a name="oneoffpayments_screens"></a>One-Off payment screens
 
-[![](assets/images/One-off-flows.png)](assets/images/One-off-flows.png)
+[![](assets/images/One-off-flows.svg)](assets/images/One-off-flows.svg)
+
+When `auto_reserve` field is set to __true__:
+
+[![](assets/images/One-off-flows-without-swipe.svg)](assets/images/One-off-flows-without-swipe.svg)
 
 #### <a name="oneoffpayments_callback"></a>Callbacks
 
