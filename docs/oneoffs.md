@@ -1,0 +1,154 @@
+## <a name="oneoffpayments"></a>One-Off Payments
+
+You are able to:
+* Create agreements with an initial payment.
+* Request arbitrary one-off payments on an existing agreement. These must be manually confirmed by the user. 
+
+Note:  Subscription payments are charged automatically, while one-off are charged when the customer manually swipes accept. OneOff payment does not affect the frequency and grace period. So if you create an agreement with a OneOff, you can request the first subscriptions payment whenever you want. You can also request a OneOff on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. But if you do it on an existing agreement, the user has to swipe to accept the payment. When you create an agreement with a OneOff, and the user accepts the agreement, the payment will be processed and executed right away. OneOff is an instant payment, and it is not subject to the 8 day rule. 
+
+User cannot cancel the agreement with pending payment reservation, only the merchant can do so. 
+
+By cancelling the agreement with a pending payment reservation, then the merchant also automatically cancels the reservation
+
+#### <a name="requests"></a>Request One-Off Payment With a New Agreement
+
+Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreements` request payload if you want the agreement being activated only when the user is successfully charged an initial subscription amount.
+
+```json
+{
+  "external_id": "AGGR00068",
+  "amount": "10",
+  "currency": "DKK",
+  "description": "Monthly subscription",
+  "next_payment_date": "2017-03-09",
+  "frequency": 12,
+  "links": [
+    {
+      "rel": "user-redirect",
+      "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
+    },
+    {
+      "rel": "success-callback",
+      "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
+    },
+    {
+      "rel": "cancel-callback",
+      "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
+    }
+  ],
+  "country_code": "DK",
+  "plan": "Basic",
+  "expiration_timeout_minutes": 5,
+  "mobile_phone_number": "4511100118",
+  "one_off_payment": 
+    {
+      "amount": "80",
+      "external_id": "OOP00348",
+      "description": "Down payment for our services"
+    }
+}
+```
+
+*Newly added request parameters*
+
+|Parameter                        |Type        |Required  |Description                                                      |Valid values|
+|:--------------------------------|:-----------|:---------|:----------------------------------------------------------------|:-----------|
+|**one_off_payment**              |object      |          |*__One-Off Payment__ details.*||
+|**one_off_payment.amount**       |number(0.00)|required  |*__One-Off Payment__ amount, which will be displayed for the user in the MobilePay app.*|> 0.00, decimals separated with a dot.|
+|**one_off_payment.description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
+|**one_off_payment.external_id**  |string(30) |required |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
+
+<a name="oneoffpayments_response-new"></a>In this case the response of `POST /api/providers/{providerId}/agreements` will contain additional `one_off_payment_id` value - id of the newly requested **One-Off Payment**.
+
+```json
+{
+  "id": "1b08e244-4aea-4988-99d6-1bd22c6a5b2c",
+  "one_off_payment_id": "2a5dd31f-32c1-4517-925f-9c60ba19f8ca",
+  "links": [
+    {
+      "rel": "mobile-pay",
+      "href": "https://<mobile-pay-landing-page>/?flow=agreement&id=1b08e244-4aea-4988-99d6-1bd22c6a5b2c&redirectUrl=https%3a%2f%2fwww.example.com%2fredirect&countryCode=DK&mobile=4511100118"
+    }
+  ]
+}
+```
+
+#### <a name="oneoffpayments_existing-agreement"></a>Request One-off Payment on an Existing Agreement
+
+Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` endpoint in order to charge your customer one time for extra services. 
+
+
+
+```json
+{
+  "amount": "80",
+  "external_id": "OOP00348",
+  "description": "Pay now for additional goods",
+  "links": [
+    {
+      "rel": "user-redirect",
+      "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
+    }
+  ]
+}
+```
+
+__One-off Payment__ will expire in 1 day if it is not accepted or rejected by the user during that time.
+
+##### <a name="oneoffpayments_request-parameters"></a>Request parameters
+
+|Parameter                     |Type      |Required  |Description                                                      |Valid values|
+|:-----------------------------|:---------|:---------|:----------------------------------------------------------------|:-----------|
+|**amount**       |number(0.00)|required  |*__One-off Payment__ amount, which will be displayed for the user in the MobilePay app.*|> 0.00, decimals separated with a dot.|
+|**description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
+|**external_id**  |string      |required   |*__One-off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
+|**links**        |string      |required  |*Link relation of the __One-off Payment__ creation sequence. Must contain 1 value for user redirect.*||
+|**links[].rel**  |string      |required  |*Link relation type.*|user-redirect|
+|**links[].href** |string      |required  |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
+
+<a name="oneoffpayments_response-existing"></a>The response of `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` contains two values: a unique *id* of the newly requested **One-Off Payment** and a link *rel* = *mobile-pay*.
+
+```json
+{
+  "id": "07b70fdd-a300-460d-9ba1-aee2c8bb4b63",
+  "links": [
+    {
+      "rel": "mobile-pay",
+      "href": "https://<mobile-pay-landing-page>/?flow=agreement&id=1b08e244-4aea-4988-99d6-1bd22c6a5b2c&oneOffPaymentId=07b70fdd-a300-460d-9ba1-aee2c8bb4b63&redirectUrl=https%3a%2f%2fwww.example.com%2fredirect&countryCode=DK&mobile=4511100118"
+    }
+  ]
+}
+```
+ 
+* The *id* value can be used on the merchant's back-end system to map a one-off payment with a specific Subscription agreement on the merchant's side, and subsequently to capture a requested **One-Off Payment** when MobilePay user accepts it. 
+* The link *rel = mobile-pay* hyperlink reference must be used to redirect the user automatically using an HTTP response 302 or 303. Once the user is redirected, the MobilePay app will be opened to confirm the __One-off Payment__.
+
+##### <a name="oneoffpayments_screens"></a>One-Off payment screens
+
+[![](assets/images/One-off-flows.png)](assets/images/One-off-flows.png)
+
+#### <a name="oneoffpayments_callback"></a>Callbacks
+
+Once the one-off payment status changes from *Requested* to *Reserved*, *Rejected* or *Expired*, a callback will be done to the callback address, which is configurable via `PATCH /api/providers/{providerId}` with path value `/payment_status_callback_url`. The same way as with [callbacks](../#subscription-payments_callbacks) for regular payment requests.
+
+|New Status|Condition|When to expect|Callback *status*  | Callback *status_text* | Callback *status_code* |
+|----------|---------|--------------|-------------------|------------------------|------------------------|
+|Reserved  |_The one-off payment was accepted by user and money is reserved for you on his card. You can now capture the money._| After user accepts the requested one-off payment. |Reserved| Payment successfully reserved. | 0 |
+|Rejected  |_User rejected one-off payment request in MobilePay._ | Right after user rejects one-off payment. |Rejected  |Rejected by user.| 50001 |
+|Expired   |_One-off payment was neither accepted, nor rejected by user._| 1 day after you requested one-off payment |Expired|Expired by system.| 50008 |
+
+#### <a name="oneoffpayments_state"></a>One-off payment state diagram
+
+![](assets/images/RecurringPayments_OneOffPaymentStateDiagram.png)
+
+#### <a name="capture"></a>Capture Reserved One-Off Payment
+
+When you receive a callback about successfully reserved payment, now it's time to capture your money. You can do that by making a call to `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments/{paymentId}/capture` endpoint. If the HTTP response is `204 - No Content`, it means that the money was transfered to your account.
+
+#### <a name="oneoffpayments_cancel"></a>Cancel One-Off Payment Request/Reservation
+
+In case you weren't able to deliver goods or any other problem occur, you can always cancel one-off payment until it's not captured or expired. You can do that by making a call to `DELETE /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments/{paymentId}` endpoint. If the HTTP response is '204 - No Content', it means that one-off payment request/reservation was canceled.
+
+It is **mandatory** for the merchant to Capture or Cancel one-off payment if it was reserved on a customer account.
+
+***
