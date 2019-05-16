@@ -35,8 +35,8 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentreque
 
 #### <a name="subscription-payments_function"></a>How do Subscription Payments work? 
 
-- You can send your payments to us max *32 days* prior due date and min *8 days* prior due date
-- The MobilePay user will be able to see Payments in the app 8 days before due date
+- You can send your payments to us max *32 days* prior due date and min *1 day* prior due date
+- The MobilePay user will be able to see Payments in the app 1 day before due date
 - If a payment changes status e.g. declined by users, a callback on the specific payment will be made
 - On due date we process the payments starting from 02.00. If some payments are declined we will then try again approx. every 2. hour up until 23:59
 - User will get at notification approx. at 08.30 that we can not process payment and that he/her can complete the payment manually (by swiping)
@@ -49,7 +49,7 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentreque
 |----------------------|------------|----------|-----------------------------------------------------------------|------------|
 |**agreement_id**      |guid        | required |*The Subscription __Agreement__ identifier that maps a __Merchant__ to a MobilePay __User__.*||
 |**amount**            |number(0.00)| required |*The requested amount to be paid.*|> 0.00, decimals separated with a dot.|
-|**due_date**          |date        | required |*Payment due date. Must be at least 8 days in the future, otherwise the __Subscription Payment__ will be declined.*|ISO date format: yyyy-MM-dd|
+|**due_date**          |date        | required |*Payment due date. Must be at least 1 day in the future, otherwise the __Subscription Payment__ will be declined.*|ISO date format: yyyy-MM-dd|
 |**next_payment_date** |date        |          |*Next __Subscription Payment's__ due date, to be shown to the user in the __Agreement__ details.*|ISO date format: yyyy-MM-dd|
 |**external_id**       |string      | required |*The identifier of a specific payment in the external merchant's system. Maximum length is 30 characters*||
 |**description**       |string(60)  | required |*Additional information of the __Subscription Payment__.*||
@@ -59,7 +59,7 @@ The `POST /api/providers/{providerId}/paymentrequests` service returns HTTP 202 
 
 The response body containts two lists:
 * **pending_payments** - a map of newly generated Subscription payment ID and the external ID, that where accepted for processing and now are in a _Pending_ state.
-* **rejected_payments** - a list of rejected payments. This can only occur if any of the mandatory fields are missing or do not conform to the format rule. Business logic validations are done asynchronously in the back-end (for example, checking if due-date conforms to 8 day rule).
+* **rejected_payments** - a list of rejected payments. This can only occur if any of the mandatory fields are missing or do not conform to the format rule. Business logic validations are done asynchronously in the back-end (for example, checking if due-date conforms to 1 day rule).
 
 ##### <a name="subscription-payments_response-example"></a>HTTP 202 Response body example
 
@@ -80,7 +80,7 @@ The response body containts two lists:
 
 #### <a name="subscription-payments_frequency"></a>Frequency of Payment Requests
 
- The merchant can send a payment max 32 days prior due date, and at at least 8 days before due date. Valid values are 1, 2, 4, 12, 26, 52, 365, 0. This means that the daily payment (365) is the most frequent. When you are requesting a payment, you need to keep the 8 day rule. The user can have a single pending payment on due date. E.g. User can have 3 pending payments but the DueDate of those payments should be different.
+ The merchant can send a payment max 32 days prior due date, and at least 1 day before due date. Valid values are 1, 2, 4, 12, 26, 52, 365, 0. This means that the daily payment (365) is the most frequent. When you are requesting a payment, you need to keep the 1 day rule. The user can have a single pending payment on due date. E.g. User can have 3 pending payments but the DueDate of those payments should be different.
 
 - **Due Date** Payments cannot be created with the same Due Date.
 - **Multiple Recurring payments**  Multiple recurring payment requests can be created within period [32 before Due Date >= Payment Request Date >= 8 before Due Date].
@@ -122,16 +122,16 @@ We will post the integrator or merchant a callback, and expect a HTTP 2xx respon
 |----------|---------|--------------|-------------------|------------------------|------------------------|
 |Executed  |_The payment was successfully executed on the due-date_| After 03:15 in the morning of the due-date |Executed  | | 0 |
 |Failed    |_Payment failed to execute during the due-date._| After 23:59 of the due-date |Failed    | | 50000 |
-|Rejected  |_User rejected the Pending payment in MobilePay_       | Any time during the 8 day period when user is presented with the Pending payment in the MobilePay activity list. |Rejected  |Rejected by user.| 50001 | 
-|Declined  |_Merchant declined the Pending payment via the API_       | Any time during the 8 day period when user is presented with the Pending payment in the MobilePay activity list. |Declined  |Declined by merchant.| 50002 | 
+|Rejected  |_User rejected the Pending payment in MobilePay_       | Any time during the 1 day period when user is presented with the Pending payment in the MobilePay activity list. |Rejected  |Rejected by user.| 50001 | 
+|Declined  |_Merchant declined the Pending payment via the API_       | Any time during the 1 day period when user is presented with the Pending payment in the MobilePay activity list. |Declined  |Declined by merchant.| 50002 | 
 |Declined  |_**Agreement** is not in Active state._                | Right after the payment request was received. |Declined  |Declined by system: Agreement is not "Active" state.| 50003 | 
 |Declined  |_If the **Agreement's** frequency period has not passed since the last *Pending* or *Executed* **Payment Request** for that Agreement. Monthly agreements have a 1 week tolerance level._| Right after the payment request was received. |Declined  |Declined by system: Another payment is already due.| 50004 | 
-|Declined  |When the **Agreement** was canceled by merchant or by system | Any time during the 8 day period when user is presented with the Pending payment in the MobilePay activity list.  |Declined  |Declined by system: Agreement was canceled. | 50005 | 
-|Rejected  |When the **Agreement** was canceled by user | Any time during the 8 day period when user is presented with the Pending payment in the MobilePay activity list.  |Rejected  |Declined by system: Agreement was canceled. | 50005 | 
+|Declined  |When the **Agreement** was canceled by merchant or by system | Any time during the 1 day period when user is presented with the Pending payment in the MobilePay activity list.  |Declined  |Declined by system: Agreement was canceled. | 50005 | 
+|Rejected  |When the **Agreement** was canceled by user | Any time during the 1 day period when user is presented with the Pending payment in the MobilePay activity list.  |Rejected  |Declined by system: Agreement was canceled. | 50005 | 
 |Declined  |A catch-all error code when payment was declined by core system.| Right after the payment request was received. |Declined  | Declined by system. | 50006 | 
 |Declined  |Declined due to user status.| Right after the payment request was received. |Declined  | Declined due to user status. | 50009 | 
 |Declined  |When the **Agreement** does not exist| Right after the payment request was received. |Declined  | Agreement does not exist. | 50010 |
-|Declined  |When the due date before rule is violated | Right after the payment request was received. |Declined  | Due date of the payment must be at least 8 days in the future. | 50011 |
+|Declined  |When the due date before rule is violated | Right after the payment request was received. |Declined  | Due date of the payment must be at least 1 day in the future. | 50011 |
 |Declined  |When the due date ahead rule is violated | Right after the payment request was received. |Declined  | Due date must be no more than 32 days in the future. | 50012 |
 
 

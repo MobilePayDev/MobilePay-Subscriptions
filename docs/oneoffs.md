@@ -4,7 +4,7 @@ You are able to:
 * Create agreements with an initial payment.
 * Request arbitrary one-off payments on an existing agreement.
 
-Note: One-off payments are charged when the customer manually swipes accept or `auto_reserve` field was set to __true__ when one-off payment was requested. One-off payment does not affect the frequency and grace period. So if you create an agreement with a one-off payment, you can request the first subscription payment whenever you want. You can also request a one-off payment on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. When you create an agreement with a one-off payment, and the user accepts the agreement, the payment will be processed and executed right away. One-off payment is an instant payment, and it is not subject to the 8 day rule. 
+Note: One-off payments are charged when the customer manually swipes accept or `auto_reserve` field was set to __true__ when one-off payment was requested. One-off payment does not affect the frequency and grace period. So if you create an agreement with a one-off payment, you can request the first subscription payment whenever you want. You can also request a one-off payment on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. When you create an agreement with a one-off payment, and the user accepts the agreement, the payment will be processed and executed right away.
 
 User cannot cancel the agreement with pending payment reservation, only the merchant can do so. 
 
@@ -94,7 +94,7 @@ Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments`
 }
 ```
 
-__One-off Payment__ will expire in 1 day if it is not accepted or rejected by the user during that time.
+__One-off Payment__ will expire in 1 day if it is not accepted or rejected by the user during that time or automatic reservation failed and user didn't take any action afterwards.
 
 ##### <a name="oneoffpayments_request-parameters"></a>Request parameters
 
@@ -123,7 +123,7 @@ __One-off Payment__ will expire in 1 day if it is not accepted or rejected by th
 ```
  
 * The *id* value can be used on the merchant's back-end system to map a one-off payment with a specific Subscription agreement on the merchant's side, and subsequently to capture a requested **One-Off Payment** when MobilePay user accepts it. 
-* The link *rel = mobile-pay* hyperlink reference must be used to redirect the user automatically using an HTTP response 302 or 303. Once the user is redirected, the MobilePay app will be opened to confirm the __One-off Payment__.
+* The link *rel = mobile-pay* hyperlink reference must be used to redirect the user automatically using an HTTP response 302 or 303. Once the user is redirected, the MobilePay app will be opened to confirm the __One-off Payment__. This applies only if `auto_reserve` field is omitted or set to __false__.
 
 #### <a name="oneoffpayments_screens"></a>One-Off payment screens
 
@@ -139,13 +139,13 @@ Once the one-off payment status changes from *Requested* to *Reserved*, *Rejecte
 
 |New Status|Condition|When to expect|Callback *status*  | Callback *status_text* | Callback *status_code* |
 |----------|---------|--------------|-------------------|------------------------|------------------------|
-|Reserved  |_The one-off payment was accepted by user and money is reserved for you on his card. You can now capture the money._| After user accepts the requested one-off payment. |Reserved| Payment successfully reserved. | 0 |
+|Reserved  |_The one-off payment was accepted by user or was automatically reserved with `auto_reserve` flag and money is reserved for you on his card. You can now capture the money._| Right after payment was successfully reserved. |Reserved| Payment successfully reserved. | 0 |
 |Rejected  |_User rejected one-off payment request in MobilePay._ | Right after user rejects one-off payment. |Rejected  |Rejected by user.| 50001 |
-|Expired   |_One-off payment was neither accepted, nor rejected by user._| 1 day after you requested one-off payment |Expired|Expired by system.| 50008 |
+|Expired   |_1. One-off payment was neither accepted, nor rejected by user.<br/> 2. User didn't any action after automatic reservation failed._| 1 day after you requested one-off payment |Expired|Expired by system.| 50008 |
 
 #### <a name="oneoffpayments_state"></a>One-off payment state diagram
 
-![](assets/images/RecurringPayments_OneOffPaymentStateDiagram.png)
+![](assets/images/One-Off-state-diagram.png)
 
 #### <a name="capture"></a>Capture Reserved One-Off Payment
 
