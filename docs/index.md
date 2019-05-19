@@ -67,10 +67,7 @@ Find the configuration links below:
       
 
 ### <a name="openid-connect-libraries"></a>Implementing OpenID Connect protocol
-
-Although the protocol is not that complicated, there is no need to implement it yourself! There are many OpenID Connect certified libraries for different platforms, so you just have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs).
-
-
+There are many OpenID Connect certified libraries for different platforms, so you just have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs).
 
 In order to authenticate to the API, all requests to the API must contain at least three authentication headers:
 1. `x-ibm-client-id`
