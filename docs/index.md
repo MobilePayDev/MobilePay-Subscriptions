@@ -9,16 +9,6 @@ Our MobilePay Subscriptions REST api enables you to:
 2. Create **Subscription Payments** in relation to an established **Agreement** and get notified about the status via REST callbacks. **Subscription Payments** are requested 1 day before the actual booking date - no manual user confirmation required!
 
 
-### QuickStart: follow our QuickStart to start building your integration
-
-- More information about integration steps are  [here](https://developer.mobilepay.dk/subscriptions-main)
-- Read the FAQ's for Subscriptions <a href="https://developer.mobilepay.dk/faq/subscriptions">here</a>
-- Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/product).
-- Pick an OpenID Connect library: we recommend <a href="https://github.com/IdentityModel/IdentityModel.OidcClient2">Certified C#/NetStandard OpenID Connect Client Library for native mobile/desktop Applications</a> 
-- FAQ's for OpenID Connect <a href="https://developer.mobilepay.dk/faq/integrator">here</a>
-- Integration is based on common standard OpenID Connect. You can find more [here](https://developer.mobilepay.dk/developersupport/openid/). 
-- Video tutorial here [here](https://developer.mobilepay.dk/products/openid/video)
-
 ### <a name="overview_onboarding"></a>Merchant onboarding
 
 You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-dk/Pages/mobilepay.aspx">www.MobilePay.dk</a> or the MobilePay  Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the API . The Sandbox environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Developer Portal </a> 
@@ -62,10 +52,18 @@ Find the configuration links below:
 |Sandbox    | Denmark <a href="https://sandprod-admin.mobilepay.dk/account/.well-known/openid-configuration">https://sandprod-admin.mobilepay.dk/account/.well-known/openid-configuration</a> <br> Finland <a href="https://sandprod-admin.mobilepay.fi/account/.well-known/openid-configuration">https://sandprod-admin.mobilepay.fi/account/.well-known/openid-configuration</a> |
 |Production  | Denmark <a href="https://admin.mobilepay.dk/account/.well-known/openid-configuration">https://admin.mobilepay.dk/account/.well-known/openid-configuration</a> <br> Finland <a href="https://admin.mobilepay.fi/account/.well-known/openid-configuration">https://admin.mobilepay.fi/account/.well-known/openid-configuration</a>|
 
-### <a name="openid-flow"></a>OpenID flow
 
 ![](assets/images/OpenIdFlowWithFiandAuthorize.png)
       
+### QuickStart: follow our QuickStart to start building your integration
+
+- More information about integration steps are  [here](https://developer.mobilepay.dk/subscriptions-main)
+- Read the FAQ's for Subscriptions <a href="https://developer.mobilepay.dk/faq/subscriptions">here</a>
+- Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/product).
+- Pick an OpenID Connect library: we recommend <a href="https://github.com/IdentityModel/IdentityModel.OidcClient2">Certified C#/NetStandard OpenID Connect Client Library for native mobile/desktop Applications</a> 
+- FAQ's for OpenID Connect <a href="https://developer.mobilepay.dk/faq/integrator">here</a>
+- Integration is based on common standard OpenID Connect. You can find more [here](https://developer.mobilepay.dk/developersupport/openid/). 
+- Video tutorial here [here](https://developer.mobilepay.dk/products/openid/video)
 
 ### <a name="openid-connect-libraries"></a>Implementing OpenID Connect protocol
 There are many OpenID Connect certified libraries for different platforms, so you just have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs).
