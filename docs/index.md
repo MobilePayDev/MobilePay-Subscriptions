@@ -11,7 +11,7 @@ Our MobilePay Subscriptions REST api enables you to:
 
 ### <a name="overview_onboarding"></a>Merchant onboarding
 
-You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-dk/Pages/mobilepay.aspx">www.MobilePay.dk</a> or the MobilePay  Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the API . The Sandbox environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Developer Portal </a> 
+You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-dk/Pages/mobilepay.aspx">www.MobilePay.dk</a> or the MobilePay  Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the API. The Sandbox environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Sandbox Developer Portal </a> 
 
 ## <a name="general-notes_authentication"></a>Authentication 
 
