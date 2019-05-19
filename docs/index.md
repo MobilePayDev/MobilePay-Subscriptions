@@ -61,15 +61,6 @@ Find the configuration links below:
 |Sandbox    | Denmark <a href="https://sandprod-admin.mobilepay.dk/account/.well-known/openid-configuration">https://sandprod-admin.mobilepay.dk/account/.well-known/openid-configuration</a> <br> Finland <a href="https://sandprod-admin.mobilepay.fi/account/.well-known/openid-configuration">https://sandprod-admin.mobilepay.fi/account/.well-known/openid-configuration</a> |
 |Production  | Denmark <a href="https://admin.mobilepay.dk/account/.well-known/openid-configuration">https://admin.mobilepay.dk/account/.well-known/openid-configuration</a> <br> Finland <a href="https://admin.mobilepay.fi/account/.well-known/openid-configuration">https://admin.mobilepay.fi/account/.well-known/openid-configuration</a>|
 
-
-In order to authenticate to the API, all requests to the API must contain at least three authentication headers:
-1. `x-ibm-client-id`
-2. `x-ibm-client-secret`  
-3. `Authorization` 
-
-```console
-$ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
-```
 ### <a name="openid-flow"></a>OpenID flow
 
 ![](assets/images/OpenIdFlowWithFiandAuthorize.png)
@@ -79,3 +70,13 @@ $ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: clien
 
 Although the protocol is not that complicated, there is no need to implement it yourself! There are many OpenID Connect certified libraries for different platforms, so you just have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs).
 
+
+
+In order to authenticate to the API, all requests to the API must contain at least three authentication headers:
+1. `x-ibm-client-id`
+2. `x-ibm-client-secret`  
+3. `Authorization` 
+
+```console
+$ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
+```
