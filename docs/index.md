@@ -11,7 +11,6 @@ Our MobilePay Subscriptions REST api enables you to:
 Related links:
 - You can read more about the product [here](https://developer.mobilepay.dk/subscriptions-main).
 - Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/product).
-- More information about integration steps is [here](https://developer.mobilepay.dk/subscriptions-getting-started).
 
 ### QuickStart: follow our QuickStart to start building your integration
 
@@ -19,18 +18,17 @@ Related links:
 - Pick an OpenID Connect library: we recommend <a href="https://github.com/IdentityModel/IdentityModel.OidcClient2">Certified C#/NetStandard OpenID Connect Client Library for native mobile/desktop Applications</a> 
 - Read the FAQ's for Subscriptions <a href="https://developer.mobilepay.dk/faq/subscriptions">here</a>
 - Read the FAQ's for OpenID Connect <a href="https://developer.mobilepay.dk/faq/integrator">here</a>
-- Integration is based on common standard OpenID Connect. You can find more [here](https://developer.mobilepay.dk/products/openid). 
-- You can find links to the official Hybrid Flow [here](https://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth).   
+- Integration is based on common standard OpenID Connect. You can find more [here](https://developer.mobilepay.dk/developersupport/openid/). 
 - See the video tutorial here [here](https://developer.mobilepay.dk/products/openid/video)
 
 ### <a name="overview_onboarding"></a>Merchant onboarding
 
-You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-dk/Pages/mobilepay.aspx">www.MobilePay.dk</a> or the MobilePay Business Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the technical integration. The environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Developer Portal </a> 
+You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-dk/Pages/mobilepay.aspx">www.MobilePay.dk</a> or the MobilePay  Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the API . The Sandbox environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Developer Portal </a> 
 
 ## <a name="general-notes_authentication"></a>Authentication 
 
 ### <a name="openid-connect"></a>OpenID Connect
-When the merchant is onboarded, he has a user in MobilePay that is able to manage which products the merchant wishes to use. Not all merchants have the technical capabilities to make integrations to MobilePay, instead they may need to go through applications whith these capabilities.  The OpenID Connect protocol is a simple identity layer on top of the OAuth 2.0 protocol. 
+When the merchant is onboarded, he has a user in MobilePay that is able to manage which products the merchant wishes to use. 
 
 [![](assets/images/OpenIdflowWithFIandAuthorize.png)](assets/images/OpenIdflowWithFIandAuthorize.png)
 
