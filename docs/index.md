@@ -1,25 +1,23 @@
 
 ## <a name="overview"></a> Overview 
 
-Billing your customers has never been easier before. This document explains how to make a technical integration to the MobilePay Subscription product. The audience for this document is either technical integrators acting on behalf of merchants or merchants themselves. You can find more information on our <a href="https://developer.mobilepay.dk/subscriptions-main">Developer Portal</a>.
+Billing your customers has never been easier before. This document explains how to make a technical integration to the MobilePay Subscription API. The audience for this document is either technical integrators acting on behalf of merchants or merchants themselves. You can find more information on our <a href="https://developer.mobilepay.dk/subscriptions-main">Developer Portal</a>.
 
 Our MobilePay Subscriptions REST api enables you to:
 
 1. Establish and manage **Agreements** between you, the **Merchant**, and MobilePay **Users**.
 2. Create **Subscription Payments** in relation to an established **Agreement** and get notified about the status via REST callbacks. **Subscription Payments** are requested 1 day before the actual booking date - no manual user confirmation required!
 
-Related links:
-- You can read more about the product [here](https://developer.mobilepay.dk/subscriptions-main).
-- Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/product).
 
 ### QuickStart: follow our QuickStart to start building your integration
 
-- More information about integration steps are [here](https://developer.mobilepay.dk/invoice-getting-started)
-- Pick an OpenID Connect library: we recommend <a href="https://github.com/IdentityModel/IdentityModel.OidcClient2">Certified C#/NetStandard OpenID Connect Client Library for native mobile/desktop Applications</a> 
+- More information about integration steps are  [here](https://developer.mobilepay.dk/subscriptions-main)
 - Read the FAQ's for Subscriptions <a href="https://developer.mobilepay.dk/faq/subscriptions">here</a>
-- Read the FAQ's for OpenID Connect <a href="https://developer.mobilepay.dk/faq/integrator">here</a>
+- Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/product).
+- Pick an OpenID Connect library: we recommend <a href="https://github.com/IdentityModel/IdentityModel.OidcClient2">Certified C#/NetStandard OpenID Connect Client Library for native mobile/desktop Applications</a> 
+- FAQ's for OpenID Connect <a href="https://developer.mobilepay.dk/faq/integrator">here</a>
 - Integration is based on common standard OpenID Connect. You can find more [here](https://developer.mobilepay.dk/developersupport/openid/). 
-- See the video tutorial here [here](https://developer.mobilepay.dk/products/openid/video)
+- Video tutorial here [here](https://developer.mobilepay.dk/products/openid/video)
 
 ### <a name="overview_onboarding"></a>Merchant onboarding
 
