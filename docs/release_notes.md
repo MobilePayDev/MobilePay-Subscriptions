@@ -7,7 +7,7 @@
     [![](assets/images/DeleteAgreement.png)](assets/images/DeleteAgreement.png)
 
   - Agreement **disable_notification_management** push notification. Merchant can set if their customer should be able to manage push notifications for an agreement or not. If the merchant choses so, then the push notification is not displayed when signing new agreement and when browsing agreement information. This parameter is not required, and the default value is 'false' [See more](https://github.com/MobilePayDev/MobilePay-Subscriptions/blob/master/docs/agreement.md#request-parameters).
-  [![](assets/images/pushnotification.png)](assets/images/pushnotification.png)
+  [![](assets/images/Disable_notification_management1.png)
 
   - Agreement frequency. We are now able to handle more agreement frequency parameters. Merchant can set new frequency: *daily*, *weekly*, or *flexible*. [See more](https://github.com/MobilePayDev/MobilePay-Subscriptions/blob/master/docs/agreement.md#request-parameters).
   
