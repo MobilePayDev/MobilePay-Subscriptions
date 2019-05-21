@@ -7,7 +7,7 @@
   - Agreement **disable_notification_management** push notification. Merchant can set if their customer should be able tp manage push notifications for an agreement or not. If the merchant choses so, then the push notification is not displayed when signing new agreement and when browsing agreement information. 
   [![](assets/images/pushnotification.png)](assets/images/pushnotification.png)
 
-  - Agreement frequency. Merchant can set new frequency: *daily*, *weekly*, or *flexible*. [See more](agreement#request-parameters).
+  - Agreement frequency. We are not able to handle more agreement frequency parameters. Merchant can set new frequency: *daily*, *weekly*, or *flexible*. [See more](agreement#request-parameters).
   
   Payments 
 - Subscription payment 8 days rule validation on payment creation is changed to 1 day.
