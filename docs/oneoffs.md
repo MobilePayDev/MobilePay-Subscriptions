@@ -106,7 +106,7 @@ __One-off Payment__ will expire in 1 day if it is not accepted or rejected by th
 |**links**        |string      |required  |*Link relation of the __One-off Payment__ creation sequence. Must contain 1 value for user redirect.*||
 |**links[].rel**  |string      |required  |*Link relation type.*|user-redirect|
 |**links[].href** |string      |required  |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
-    |**auto_reserve** |boolean      |optional |*When this field is set to __true__, we will attempt to automatically reserve the payment without user's interaction. If you do not wish payment to be automatically reserved, you can omit this field or set it to __false__.*|true/false|
+|**auto_reserve** |boolean     |optional  |*When this field is set to __true__, we will attempt to automatically reserve the payment without user's interaction. If you do not wish payment to be automatically reserved, you can omit this field or set it to __false__.*|true/false|
 
 <a name="oneoffpayments_response-existing"></a>The response of `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` contains two values: a unique *id* of the newly requested **One-Off Payment** and a link *rel* = *mobile-pay*.
 
