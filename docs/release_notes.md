@@ -3,7 +3,7 @@
 <div class='post-date'>14 May 2019</div>
 
 - New Agreement parameters introduced for Merchants:
-  - Agreement **retention_period_hours**. Merchant can set for how long agreement can't be Cancelled by the user, after the user accepted the agreement, for up to 24 hours. This is an advantage in relation to street sales and when/if merchants offer cheaper prices, if the customer establishes a subscription agreement with the merchant. 
+  - Agreement **retention_period_hours**. Merchant can set for how long agreement can't be Cancelled by the user, after the user accepted the agreement, for up to 24 hours. This is an advantage in relation to street sales and when/if merchants offer cheaper prices, if the customer establishes a subscription agreement with the merchant. Before retention period has passed, then the cusomer will not be able to Cancel an agreement	
   - Agreement **disable_notification_management** push notification. Merchant can set if their customer should be able tp manage push notifications for an agreement or not. If the merchant choses so, then the push notification is not displayed when signing new agreement and when browsing agreement information. 
   [![](assets/images/pushnotification.png)](assets/images/pushnotification.png)
 
