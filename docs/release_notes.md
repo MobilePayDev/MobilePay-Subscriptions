@@ -5,6 +5,8 @@
 - New Agreement parameters introduced for Merchants:
   - Agreement **retention_period_hours**. Merchant can set for how long agreement can't be Cancelled by the user, after the user accepted the agreement, for up to 24 hours. This is an advantage in relation to street sales and when/if merchants offer cheaper prices, if the customer establishes a subscription agreement with the merchant. 
   - Agreement **disable_notification_management** push notification. Merchant can set if user can manage push notifications for this agreement.If the merchant choses so, then the push notification is not displayed when signing new agreement and when browsing agreement information. 
+  [![](assets/images/Android notiffications toggle.jpg)](assets/images/Android notiffications toggle.jpg)
+
   - Agreement frequency. Merchant can set new frequency: *daily*, *weekly*, or *flexible*. [See more](agreement#request-parameters).
   
   Payments 
