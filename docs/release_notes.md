@@ -1,4 +1,4 @@
-# Subscriptions Integrator 1.1 Release Notes
+# Subscriptions API Release Notes
 
 <div class='post-date'>14 May 2019</div>
 
