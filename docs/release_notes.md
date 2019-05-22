@@ -12,6 +12,7 @@
   - Agreement frequency. We are now able to handle more agreement frequency parameters. Merchant can set new frequency: *daily*, *weekly*, or *flexible*. [See more](https://github.com/MobilePayDev/MobilePay-Subscriptions/blob/master/docs/agreement.md#request-parameters).
   
  # Payments 
+ 
 - Subscription payment 8 days rule validation on payment creation is changed to 1 day.
 - One-off without confirmation. Merchant can send one-off payment, which MobilePay will attempt to automatically reserve, without user's confirmation. Existing functionality of one-off with confirmation will still be available. Updated request can be found [here](https://github.com/MobilePayDev/MobilePay-Subscriptions/blob/master/docs/oneoffs.md#request-one-off-payment-on-an-existing-agreement).
 
