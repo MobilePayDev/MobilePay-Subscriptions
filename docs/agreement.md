@@ -37,7 +37,6 @@ Once the user is given to choose the payment method on the merchant's signup flo
 `mobile_phone_number` is not required. Neither for agreement creation, or one-off creation. If you choose to add it, the phone number will be prefilled on our landing page. So that the user will not have to type the phone number on the landing page, which makes it more convenient for the user, if you add `mobile_phone_number`.
 
 
-
 The *Pending* **Agreement**, if not activated, will expire within the value, provided in the `expiration_timeout_minutes`.
 
 #### <a name="agreements_paramters"></a>Request parameters
@@ -106,6 +105,10 @@ Use the `PATCH /api/merchants/me/agreements/{agreementId}` endpoint to change ag
 #### New agreement creation in APP
 
 [![](assets/images/RecurringPayments_Agreement_app.png)](assets/images/RecurringPayments_Agreement_app.png)
+
+#### Agreement screen with and without amount parameter 
+[![](assets/images/Agreementamount.png)](assets/images/Agreementamount.png)
+
 
 #### <a name="agreements_callback"></a>Callbacks
 
