@@ -37,6 +37,7 @@ Once the user is given to choose the payment method on the merchant's signup flo
 `mobile_phone_number` is not required. Neither for agreement creation, or one-off creation. If you choose to add it, the phone number will be prefilled on our landing page. So that the user will not have to type the phone number on the landing page, which makes it more convenient for the user, if you add `mobile_phone_number`.
 
 
+
 The *Pending* **Agreement**, if not activated, will expire within the value, provided in the `expiration_timeout_minutes`.
 
 #### <a name="agreements_paramters"></a>Request parameters
@@ -178,6 +179,10 @@ In case of technical errors (HTTP response is not 2xx), we will try to re-POST t
 ```
 
 When the **Agreement** activation is complete or canceled, the user will be navigated to the link *rel = user-redirect* to finalize the signup.
+
+*rel = user-redirect*  should be a webpage, that awaits the callbacks and then takes appropriate action, depending on if the agreement was accepted or not. Based on the callback, you will redirect the user to the right place. Most merchants navigate the customer to a self-service overview, where the agreement is pending, and once the merchant receives the callback, then the merchant can update the status. Most merchants have a general page, that says “thank you for your order/support”, and then it informs about the next step. It is triggered immediately after purchase, letting customers know that their order and agreement has been received and created
+
+
 
 #### <a name="agreements_creation-diagram"></a>Agreement creation sequence diagram
 
