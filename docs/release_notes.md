@@ -1,5 +1,10 @@
 # Subscriptions API Release Notes
 
+<div class='post-date'>30 May 2019</div>
+
+- New Refund callback Status Code introduced - **60007**. This allows to better inform merchants abount Refund limitations for instant transfer payments. An updated Status Code table can be found [here](refund#callbacks).
+
+
 <div class='post-date'>14 May 2019</div>
 
  New Agreement parameters introduced for Merchants:
