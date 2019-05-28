@@ -8,14 +8,16 @@ Our MobilePay Subscriptions REST api enables you to:
 1. Establish and manage **Agreements** between you, the **Merchant**, and MobilePay **Users**.
 2. Create **Subscription Payments** in relation to an established **Agreement** and get notified about the status via REST callbacks. **Subscription Payments** are requested 1 day before the actual booking date - no manual user confirmation required!
 
-- Read the FAQ's for Subscriptions <a href="https://developer.mobilepay.dk/faq/subscriptions">here</a>
-- Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/subscriptions-main).
+[![](assets/images/subscriptionsvisiblebutton.jpg)](assets/images/subscriptionsvisiblebutton.jpg)
+
 
 
 ### <a name="overview_onboarding"></a>Merchant onboarding
 
 You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-dk/Pages/mobilepay.aspx">www.MobilePay.dk</a> or the MobilePay  Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the API. The Sandbox environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Sandbox Developer Portal </a> 
 You can use the Subscriptions API in test mode, which does not affect your live data or interact with the banking networks. 
+- Read the FAQ's for Subscriptions <a href="https://developer.mobilepay.dk/faq/subscriptions">here</a>
+- Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/subscriptions-main).
 
 ## <a name="general-notes_authentication"></a>Authentication 
 
