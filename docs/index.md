@@ -8,7 +8,6 @@ Our MobilePay Subscriptions REST api enables you to:
 1. Establish and manage **Agreements** between you, the **Merchant**, and MobilePay **Users**.
 2. Create **Subscription Payments** in relation to an established **Agreement** and get notified about the status via REST callbacks. **Subscription Payments** are requested 1 day before the actual booking date - no manual user confirmation required!
 
-[![](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)
 
 
 ### <a name="overview_onboarding"></a>Merchant onboarding
@@ -80,3 +79,4 @@ In order to authenticate to the API, all requests to the API must contain at lea
 ```console
 $ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
 ```
+[![](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)
