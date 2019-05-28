@@ -107,6 +107,10 @@ Use the `PATCH /api/merchants/me/agreements/{agreementId}` endpoint to change ag
 
 [![](assets/images/RecurringPayments_Agreement_app.png)](assets/images/RecurringPayments_Agreement_app.png)
 
+#### Agreement screen with and without amount parameter 
+[![](assets/images/Agreementamount.png)](assets/images/Agreementamount.png)
+
+
 #### <a name="agreements_callback"></a>Callbacks
 
 When the **Agreement's** status changes from *Pending* we will do a callback to the merchant's system (see the sequence diagram below).
@@ -175,6 +179,10 @@ In case of technical errors (HTTP response is not 2xx), we will try to re-POST t
 ```
 
 When the **Agreement** activation is complete or canceled, the user will be navigated to the link *rel = user-redirect* to finalize the signup.
+
+*rel = user-redirect*  should be a webpage, that awaits the callbacks and then takes appropriate action, depending on if the agreement was accepted or not. Based on the callback, you will redirect the user to the right place. Most merchants navigate the customer to a self-service overview, where the agreement is pending, and once the merchant receives the callback, then the merchant can update the status. Most merchants have a general page, that says “thank you for your order/support”, and then it informs about the next step. It is triggered immediately after purchase, letting customers know that their order and agreement has been received and created
+
+
 
 #### <a name="agreements_creation-diagram"></a>Agreement creation sequence diagram
 

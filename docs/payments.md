@@ -19,7 +19,7 @@ Notice that the **Subscription Payments** payload does not contain a currency co
 
 #### <a name="subscription-payments_update-existing"></a>Update existing Payment Request
 
-Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentrequests/{paymentId}` endpoint to decrease the requested amount to be paid.
+Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentrequests/{paymentId}` endpoint to decrease the requested amount to be paid. It is possible to decrease the amount. However, it is not possible to increase it. If you have sent a payment request with a too high amount by mistake, you then can delete that payment request, and send another payment request with the correct amount. 
 
 ```json
 [
@@ -36,6 +36,7 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentreque
 #### <a name="subscription-payments_function"></a>How do Subscription Payments work? 
 
 - You can send your payments to us max *32 days* prior due date and min *1 day* prior due date
+- We recommend that you send the payments before 00:00:00 so that you are sure that it will be included in our payment processing.
 - The MobilePay user will be able to see Payments in the app from 8 days to 1 day before due date
 - If a payment changes status e.g. declined by users, a callback on the specific payment will be made
 - On due date we process the payments starting from 02.00. If some payments are declined we will then try again approx. every 2. hour up until 23:59
