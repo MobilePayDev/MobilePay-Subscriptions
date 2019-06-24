@@ -39,10 +39,11 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentreque
 - We recommend that you send the payments before 00:00:00 so that you are sure that it will be included in our payment processing.
 - The MobilePay user will be able to see Payments in the app from 8 days to 1 day before due date
 - If a payment changes status e.g. declined by users, a callback on the specific payment will be made
-- On due date we process the payments starting from 02.00. If some payments are declined we will then try again approx. every 2. hour up until 23:59
+- On due date we process the payments starting from 02.00. If some payments are declined we will then try again approx. every 2. hour up until 23:59. Payments are executed in a nightly job. 
 - User will get at notification approx. at 08.30 that we can not process payment and that he/her can complete the payment manually (by swiping)
 - On 23:59 we will decline the transaction and revert back with a callback  
 - Subscriptions payments are collected automatically, so there is no need for the customer to swipe.
+- Reserve and Capture is managed by MobilePay. 
 
 #### <a name="subscription-payments_request-parameters"></a>Request parameters
 
