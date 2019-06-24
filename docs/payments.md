@@ -84,7 +84,7 @@ The response body containts two lists:
  The merchant can send a payment max 32 days prior due date, and at least 1 day before due date. Valid values are 1, 2, 4, 12, 26, 52, 365, 0. This means that the daily payment (365) is the most frequent. When you are requesting a payment, you need to keep the 1 day rule. The user can have a single pending payment on due date. E.g. User can have 3 pending payments but the DueDate of those payments should be different.
 
 - **Due Date** Payments cannot be created with the same Due Date.
-- **Multiple Recurring payments**  Multiple recurring payment requests can be created within period [32 before Due Date >= Payment Request Date >= 8 before Due Date].
+- **Multiple Recurring payments**  Multiple recurring payment requests can be created within period [32 before Due Date >= Payment Request Date >= 1 before Due Date].
 - **Next Payment Date** If there are multiple pending payments, Next Payment Date is the one closest to Today().
 
 ##### <a name="subscription-payments_grace-example"></a>Example of Frequency
