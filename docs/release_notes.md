@@ -1,5 +1,10 @@
 # Subscriptions API Release Notes
 
+<div class='post-date'>2 Jul 2019</div>
+
+- New parameter added into payment request - `grace_period_days` which lets merchants to configure how many days we will try to complete unsuccessful payment. More information can be found [here](payments#requests).
+
+
 <div class='post-date'>30 May 2019</div>
 
 - New Refund callback Status Code introduced - **60007**. This allows to better inform merchants abount Refund limitations for instant transfer payments. An updated Status Code table can be found [here](refund#callbacks).
