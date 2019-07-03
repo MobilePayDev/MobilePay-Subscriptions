@@ -12,7 +12,8 @@ Notice that the **Subscription Payments** payload does not contain a currency co
         "due_date": "2017-03-09",
         "next_payment_date": "2017-04-09",
         "external_id": "PMT000023",
-        "description": "Monthly payment"
+        "description": "Monthly payment",
+        "grace_period_days": 3
     }
 ]
 ```
@@ -39,8 +40,8 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentreque
 - We recommend that you send the payments before 00:00:00 so that you are sure that it will be included in our payment processing.
 - The MobilePay user will be able to see Payments in the app from 8 days to 1 day before due date
 - If a payment changes status e.g. declined by users, a callback on the specific payment will be made
-- On due date we process the payments starting from 02.00. If some payments are declined we will then try again approx. every 2. hour up until 23:59. Payments are executed in a nightly job. 
-- User will get at notification approx. at 08.30 that we can not process payment and that he/her can complete the payment manually (by swiping)
+- On due date we process the payments starting from 02:00. If some payments weren't successfully completed, we will then try again approx. every 2 hours. When `grace_period_days` field is not set or is set to __1__, we will keep retrying to complete the payment up until 23:59 of the same day. When `grace_period_days` is set to more than __1__, we will be trying to complete the payment for specified number of days.
+- User will get at notification approx. at 08:30 that we cannot process the payment and that they can complete it manually (by swiping). Notification will be sent every day on the same time for the whole grace period if `grace_period_days` is specified.
 - On 23:59 we will decline the transaction and revert back with a callback  
 - Subscriptions payments are collected automatically, so there is no need for the customer to swipe.
 - Reserve and Capture is managed by MobilePay. 
@@ -55,6 +56,7 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentreque
 |**next_payment_date** |date        |          |*Next __Subscription Payment's__ due date, to be shown to the user in the __Agreement__ details.*|ISO date format: yyyy-MM-dd|
 |**external_id**       |string      | required |*The identifier of a specific payment in the external merchant's system. Maximum length is 30 characters*||
 |**description**       |string(60)  | required |*Additional information of the __Subscription Payment__.*||
+|**grace_period_days** |int  | optional |*Number of days to keep retrying the payment if it was not successful.*|1, 2, 3|
 
 <a name="subscription-payments_response"></a>
 The `POST /api/providers/{providerId}/paymentrequests` service returns HTTP 202 - Accepted response if at least one payment is provided in the request payload.
@@ -123,7 +125,7 @@ We will post the integrator or merchant a callback, and expect a HTTP 2xx respon
 |New Status|Condition|When to expect|Callback *status*  | Callback *status_text* | Callback *status_code* |
 |----------|---------|--------------|-------------------|------------------------|------------------------|
 |Executed  |_The payment was successfully executed on the due-date_| After 03:15 in the morning of the due-date |Executed  | | 0 |
-|Failed    |_Payment failed to execute during the due-date._| After 23:59 of the due-date |Failed    | | 50000 |
+|Failed    |_Payment failed to execute during the due-date or at the end of grace period._| After 23:59 of the due-date, or the last day of grace period. |Failed    | | 50000 |
 |Rejected  |_User rejected the Pending payment in MobilePay_       | Any time during the 8-1 days period when user is presented with the Pending payment in the MobilePay activity list. |Rejected  |Rejected by user.| 50001 | 
 |Declined  |_Merchant declined the Pending payment via the API_       | Any time during the 8-1 days period when user is presented with the Pending payment in the MobilePay activity list. |Declined  |Declined by merchant.| 50002 | 
 |Declined  |_**Agreement** is not in Active state._                | Right after the payment request was received. |Declined  |Declined by system: Agreement is not "Active" state.| 50003 | 
@@ -151,10 +153,12 @@ The process on failed payments the DueDate is as follows:
 •	13:30 Second hiccup is run at 13:30 on the due date. Once done, a notification about completion is returned. Merchant is informed about successful payments and user about failed payment.
 
 •	18:00 20:00 22:30 - hiccups keep running throughout the day. Once done, a notification about completion is returned. Merchant is informed about successful payments and user about failed payment, 
+
+> Note: The flow will be processed for the number of days that can specified in `grace_period_days`, otherwise the flow will be processed once. Merchant will be notified about failed payment on the last day of grace period.
  
 `Suspended` 
 
-It means that the you can not withdraw the money from the customers payment card, and then the payment gets suspended. It tries 6 times during the duedate. There can be various reasons why it can he suspended. If the problem persists, and there is not sufficient funds on the customers card, or/and if the card is expired or/and blocked, then the payment will fail. Suspended is a status internally for MobilePay to mark hiccupped payments, which is why it is not a part of the callback table above. 
+It means that the you can not withdraw the money from the customers payment card, and then the payment gets suspended. There can be various reasons why it can he suspended. If the problem persists, and there is not sufficient funds on the customers card, or/and if the card is expired or/and blocked, then the payment will fail. Suspended is a status internally for MobilePay to mark hiccupped payments, which is why it is not a part of the callback table above. 
 
 Solution : MobilePay sends the customer a push notification, if there was an error with the card, in order to catch errors. If there were insufficient funds on the customers card, we also push the customer to execute the payment manually. The Merchant should contact the customer, and have it cleared out with the customer. 
 ##### <a name="subscription-payments_state"></a>Payment state diagram
