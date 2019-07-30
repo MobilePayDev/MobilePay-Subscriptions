@@ -64,9 +64,9 @@ Find the configuration links below:
 
 - More information about integration steps are  [here](https://developer.mobilepay.dk/subscriptions-main)
 - Pick an OpenID Connect library: we recommend <a href="https://github.com/IdentityModel/IdentityModel.OidcClient2">Certified C#/NetStandard OpenID Connect Client Library for native mobile/desktop Applications</a> 
-- FAQ's for OpenID Connect <a href="https://developer.mobilepay.dk/faq/integrator">here</a>
+- FAQ's for OpenID Connect <a href="https://developer.mobilepay.dk/faq/oidc">here</a>
 - Integration is based on common standard OpenID Connect. You can find more [here](https://developer.mobilepay.dk/developersupport/openid/). 
-- Video tutorial here [here](https://developer.mobilepay.dk/products/openid/video)
+- Video tutorial here [here](https://developer.mobilepay.dk/developersupport/openid/tutorial)
 
 ### <a name="openid-connect-libraries"></a>Implementing OpenID Connect protocol
 There are many OpenID Connect certified libraries for different platforms, so you just have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs).
