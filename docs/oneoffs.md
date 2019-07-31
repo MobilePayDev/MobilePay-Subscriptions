@@ -4,7 +4,7 @@ You are able to:
 * Create agreements with an initial payment.
 * Request arbitrary one-off payments on an existing agreement.
 
-Note: One-off payments are charged when the customer manually swipes accept or `auto_reserve` field was set to __true__ when one-off payment was requested.  Merchants who wants to use this feature, must apply for this in regards to the onboarding of Subscriptions.
+Note: One-off payments are charged when the customer manually swipes accept or `auto_reserve` field was set to __true__ when one-off payment was requested.  Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions.
 
 One-off payment does not affect the frequency and grace period. So if you create an agreement with a one-off payment, you can request the first subscription payment whenever you want. You can also request a one-off payment on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. When you create an agreement with a one-off payment, and the user accepts the agreement, the payment will be created and reserved.
 
