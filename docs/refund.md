@@ -86,8 +86,6 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
 |Declined  |_When **Refund** was declined by system._           | Right after the refund was requested |Declined  |Cannot refund payments that are older than 30 days.| 60006 |
 |Declined  |_When **Refund** was declined by system._           | Right after the refund was requested |Declined  |Cannot refund instantly transferred payments.| 60007 |
 
-<a name="refunds_screens"></a>
-
-Refund screens within mobile application:
+##### <a name="refunds_screens"></a> Refund screens within mobile application
 
 ![](assets/images/newRefund.png)
