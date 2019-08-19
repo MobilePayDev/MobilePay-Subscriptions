@@ -51,7 +51,7 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
 }
 ```
 
-*Newly added request parameters*
+#### <a name="oneoff_request-parameters"></a> Newly added request parameters
 
 |Parameter                        |Type        |Required  |Description                                                      |Valid values|
 |:--------------------------------|:-----------|:---------|:----------------------------------------------------------------|:-----------|
