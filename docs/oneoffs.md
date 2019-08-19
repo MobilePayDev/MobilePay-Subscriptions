@@ -137,7 +137,7 @@ When `auto_reserve` field is set to __true__:
 
 #### <a name="oneoffpayments_callback"></a>Callbacks
 
-Once the one-off payment status changes from *Requested* to *Reserved*, *Rejected* or *Expired*, a callback will be done to the callback address, which is configurable via `PATCH /api/providers/{providerId}` with path value `/payment_status_callback_url`. The same way as with [callbacks](payments#callbacks) for regular payment requests.
+Once the one-off payment status changes from *Requested* to *Reserved*, *Rejected* or *Expired*, a callback will be done to the callback address, which is configurable via `PATCH /api/providers/{providerId}` with path value `/payment_status_callback_url`. The same way as with [callbacks](https://github.com/MobilePayDev/MobilePay-Subscriptions/blob/master/docs/payments.md#callbacks) for regular payment requests.
 
 |New Status|Condition|When to expect|Callback *status*  | Callback *status_text* | Callback *status_code* |
 |----------|---------|--------------|-------------------|------------------------|------------------------|
