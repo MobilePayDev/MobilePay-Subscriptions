@@ -37,6 +37,7 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentreque
 #### <a name="subscription-payments_function"></a>How do Subscription Payments work? 
 
 - You can send your payments to us max *32 days* prior due date and min *1 day* prior due date
+- The customer needs to have 1 day to evaluate the payment 
 - We recommend that you send the payments before 00:00:00 so that you are sure that it will be included in our payment processing.
 - The MobilePay user will be able to see Payments in the app from 8 days to 1 day before due date
 - If a payment changes status e.g. declined by users, a callback on the specific payment will be made
