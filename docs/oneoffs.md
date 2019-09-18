@@ -4,9 +4,11 @@ You are able to:
 * Create agreements with an initial payment.
 * Request arbitrary one-off payments on an existing agreement.
 
-Note: One-off payments are charged when the customer manually swipes accept or `auto_reserve` field was set to __true__ when one-off payment was requested.  Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions.
+Note: One-off payments are charged when the customer manually swipes accept or `auto_reserve` field was set to __true__ when one-off payment was requested.  
 
-One-off payment does not affect the frequency and grace period. So if you create an agreement with a one-off payment, you can request the first subscription payment whenever you want. You can also request a one-off payment on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. When you create an agreement with a one-off payment, and the user accepts the agreement, the payment will be created and reserved.
+Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions.
+
+One-off payment does not affect the frequency and grace period. So if you create an agreement with a one-off payment, you can request the first subscription payment whenever you want. You can also request a one-off payment on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. When you create an agreement with a one-off payment, and the user accepts the agreement, the payment will be created and reserved. 
 
 User cannot cancel the agreement with pending payment reservation, only the merchant can do so. 
 
@@ -51,7 +53,7 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
 }
 ```
 
-#### <a name="oneoff_request-parameters"></a> Newly added request parameters
+#### <a name="oneoff_request-parameters"></a> Request parameters
 
 |Parameter                        |Type        |Required  |Description                                                      |Valid values|
 |:--------------------------------|:-----------|:---------|:----------------------------------------------------------------|:-----------|
@@ -144,6 +146,24 @@ Once the one-off payment status changes from *Requested* to *Reserved*, *Rejecte
 |Reserved  |_The one-off payment was accepted by user or was automatically reserved with `auto_reserve` flag and money is reserved for you on his card. You can now capture the money._| Right after payment was successfully reserved. |Reserved| Payment successfully reserved. | 0 |
 |Rejected  |_User rejected one-off payment request in MobilePay._ | Right after user rejects one-off payment. |Rejected  |Rejected by user.| 50001 |
 |Expired   |_1. One-off payment was neither accepted, nor rejected by user.<br/> 2. User didn't any action after automatic reservation failed._| 1 day after you requested one-off payment |Expired|Expired by system.| 50008 |
+
+##### <a name="oneoffpayments_callback-example"></a> One-off callback body example
+```json
+[
+    {
+        "agreement_id": "8380f9e4-10a6-4f6d-b2f4-cdb7f80a4d7f",
+        "payment_id": "022a08d8-73c6-4393-aeda-d0c8ae5172a5",
+        "amount": "19.45",
+        "currency": "DKK",
+        "payment_date": "2019-09-18",
+        "status": "Reserved",
+        "status_text": "Payment successfully reserved.",
+        "status_code": 0,
+        "external_id": "3280100",
+        "payment_type": "OneOff"
+    }
+]
+```
 
 #### <a name="oneoffpayments_state"></a>One-off payment state diagram
 
