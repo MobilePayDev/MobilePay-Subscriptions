@@ -150,34 +150,6 @@ The table below shows possible *status*, *status_text* and *status_code* values 
 }
 ```
 
-##### <a name="agreements_callback-response-propterties"></a>Agreement callback response properties
-
-|Name               |Description|
-|-------------------|-----------|
-|**agreement_id**   |Subscription agreement ID on the MobilePay side.|
-|**status_code**    |Status code on merchant's system|
-|**status_text**    |Description of the status.|
-|**transaction_id** |Unique identifier of the transaction on the merchant's system.|
-
-*status_code* can have the following values:
-* 0 - success (*HTTP response 200 - OK*)
-* 1xxx - validation error (*HTTP response 400 - Bad Request*) 
-* 2xxx - business error  (*HTTP response 400 - Bad Request*)
-* 3xxx - technical error  (*HTTP response 500 - Internal Server Error*)
-
-The callback response properties are optional.
-In case of technical errors (HTTP response is not 2xx), we will try to re-POST the callback.
-
-##### <a name="agreements_callback-response-example"></a>Agreement callback response example
-```json
-{
-    "agreement_id" : "63679ab7-cc49-4f75-80a7-86217fc105ea",
-    "status_code" : "3000",
-    "status_text" : "Server is down",
-    "transaction_id" : "63679ab7-cc49-4f75-80a7-86217fc105ea"
-}
-```
-
 When the **Agreement** activation is complete or canceled, the user will be navigated to the link *rel = user-redirect* to finalize the signup.
 
 *rel = user-redirect*  should be a webpage, that awaits the callbacks and then takes appropriate action, depending on if the agreement was accepted or not. Based on the callback, you will redirect the user to the right place. Most merchants navigate the customer to a self-service overview, where the agreement is pending, and once the merchant receives the callback, then the merchant can update the status. Most merchants have a general page, that says “thank you for your order/support”, and then it informs about the next step. It is triggered immediately after purchase, letting customers know that their order and agreement has been received and created
