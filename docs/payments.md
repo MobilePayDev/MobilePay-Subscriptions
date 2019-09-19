@@ -196,37 +196,4 @@ Solution : MobilePay sends the customer a push notification, if there was an err
 ]
 ```
 
-##### <a name="subscription-payments_callback-response-properties"></a>Payment callback response properties
-
-An array containing the following properties.
-
-|Name               |Description|
-|-------------------|-----------|
-|**payment_id**     |Subscription payment ID on the MobilePay side.|
-|**status_code**    |Status code on merchant's system|
-|**status_text**    |Description of the status.|
-|**transaction_id** |Unique identifier of the transaction on the merchant's system.|
-
-*status_code* can have the following values:
-* 0 - success (*HTTP response 200 - OK*)
-* 1xxx - validation error (*HTTP response 400 - Bad Request*) 
-* 2xxx - business error  (*HTTP response 400 - Bad Request*)
-* 3xxx - technical error  (*HTTP response 500 - Internal Server Error*)
-
-The callback response properties are optional.
-In case of technical errors (HTTP response is not 2xx), we will try to re-POST the callback.
-
-##### <a name="subscription-payments_callback-response-example"></a>Payment callback response example
-```json
-[
-    {
-        "payment_id" : "63679ab7-cc49-4f75-80a7-86217fc105ea",
-        "status_code" : "3000",
-        "status_text" : "Server is down.",
-        "transaction_id" : "63679ab7-cc49-4f75-80a7-86217fc105ea"
-    }
-]
-```
-
-
 ***
