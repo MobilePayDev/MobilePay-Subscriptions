@@ -177,6 +177,7 @@ Solution : MobilePay sends the customer a push notification, if there was an err
 |**currency**  	 |string      |Amount currency (agreement's currency)                ||
 |**payment_date**|date        |Date of the batch when the payment was executed.      |ISO 8601 UTC date: YYYY-MM-DD|
 |**external_id** |string      |Payment ID on the merchant's side. Maximum length is 30 characters                   ||
+|**payment_type**|string      |Indicates whether it is Regular subscription payment or one-off payment.|_Regular_ or _OneOff_|
 
 
 ##### <a name="subscription-payments_callback-example"></a>Payment callback body example
@@ -191,7 +192,8 @@ Solution : MobilePay sends the customer a push notification, if there was an err
         "status" : "Rejected",
         "status_text" : "Rejected by user.",
         "status_code" : "50001",
-        "external_id" : "SFPMT134560"
+        "external_id" : "SFPMT134560",
+        "payment_type" : "Regular"
     }
 ]
 ```
