@@ -177,6 +177,6 @@ The enduserser cannot cancel the agreement with pending payment reservation, onl
 
 By cancelling the agreement with a pending payment reservation, then the merchant also automatically cancels the reservation
 
-It is **mandatory** for the merchant to Capture or Cancel one-off payment if it was reserved on a customer account.
+It is **mandatory** for the merchant to Capture or Cancel one-off payment if it was reserved on a customer account. It results in bad enduser experience, if the amount is reserved on the customers account for too long, without them receiving their product. It might also result in increased calls to support unit. 
 
 ***
