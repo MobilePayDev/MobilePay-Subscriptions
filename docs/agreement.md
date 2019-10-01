@@ -160,7 +160,7 @@ When the **Agreement** activation is complete or canceled, the user will be navi
 
 ![](assets/images/RecurringPayments_CreateAgreement.png)
 
-#### <a name="agreements_cancel-diagram"></a>When merchant cancels agreement - sequence diagram
+#### <a name="agreements_cancel-diagram"></a>When merchant cancels agreement - sequence diagram 
 
 ![](assets/images/RecurringPayments_CancelAgreement_Merchant.png)
 
