@@ -6,13 +6,9 @@ You are able to:
 
 Note: One-off payments are charged when the customer manually swipes accept or `auto_reserve` field was set to __true__ when one-off payment was requested.  
 
-Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions.
+Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions. Merchants cannot use this feature without pre-approved
 
 One-off payment does not affect the frequency and grace period. So if you create an agreement with a one-off payment, you can request the first subscription payment whenever you want. You can also request a one-off payment on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. When you create an agreement with a one-off payment, and the user accepts the agreement, the payment will be created and reserved. 
-
-User cannot cancel the agreement with pending payment reservation, only the merchant can do so. 
-
-By cancelling the agreement with a pending payment reservation, then the merchant also automatically cancels the reservation
 
 #### <a name="requests"></a>Request One-Off Payment With a New Agreement
 
@@ -176,6 +172,10 @@ When you receive a callback about successfully reserved payment, now it's time t
 #### <a name="oneoffpayments_cancel"></a>Cancel One-Off Payment Request/Reservation
 
 In case you weren't able to deliver goods or any other problem occur, you can always cancel one-off payment until it's not captured or expired. You can do that by making a call to `DELETE /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments/{paymentId}` endpoint. If the HTTP response is '204 - No Content', it means that one-off payment request/reservation was canceled.
+
+The enduserser cannot cancel the agreement with pending payment reservation, only the merchant can do so. 
+
+By cancelling the agreement with a pending payment reservation, then the merchant also automatically cancels the reservation
 
 It is **mandatory** for the merchant to Capture or Cancel one-off payment if it was reserved on a customer account.
 
