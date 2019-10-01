@@ -169,6 +169,10 @@ Once the one-off payment status changes from *Requested* to *Reserved*, *Rejecte
 
 When you receive a callback about successfully reserved payment, now it's time to capture your money. You can do that by making a call to `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments/{paymentId}/capture` endpoint. If the HTTP response is `204 - No Content`, it means that the money was transfered to your account.
 
+You can capture a payment only once for an order, and the payment can't be more than the order's authorized amount. This means that your customers can't add to an existing order. If they want to add more products after an order has been placed, then they need to make a new order.
+
+
+
 #### <a name="oneoffpayments_cancel"></a>Cancel One-Off Payment Request/Reservation
 
 In case you weren't able to deliver goods or any other problem occur, you can always cancel one-off payment until it's not captured or expired. You can do that by making a call to `DELETE /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments/{paymentId}` endpoint. If the HTTP response is '204 - No Content', it means that one-off payment request/reservation was canceled.
