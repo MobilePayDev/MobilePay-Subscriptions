@@ -6,7 +6,7 @@ You are able to:
 
 Note: One-off payments are charged when the customer manually swipes accept or `auto_reserve` field was set to __true__ when one-off payment was requested.  
 
-Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions. Merchants cannot use this feature without pre-approved
+Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions. Merchants cannot use this feature without being pre-approved to do so. 
 
 One-off payment does not affect the frequency and grace period. So if you create an agreement with a one-off payment, you can request the first subscription payment whenever you want. You can also request a one-off payment on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. When you create an agreement with a one-off payment, and the user accepts the agreement, the payment will be created and reserved. 
 
@@ -142,6 +142,12 @@ Once the one-off payment status changes from *Requested* to *Reserved*, *Rejecte
 |Reserved  |_The one-off payment was accepted by user or was automatically reserved with `auto_reserve` flag and money is reserved for you on his card. You can now capture the money._| Right after payment was successfully reserved. |Reserved| Payment successfully reserved. | 0 |
 |Rejected  |_User rejected one-off payment request in MobilePay._ | Right after user rejects one-off payment. |Rejected  |Rejected by user.| 50001 |
 |Expired   |_1. One-off payment was neither accepted, nor rejected by user.<br/> 2. User didn't any action after automatic reservation failed._| 1 day after you requested one-off payment |Expired|Expired by system.| 50008 |
+
+#### <a name="oneoffpayments_callbackagreement"></a>Callbacks about OneOff and Agreement 
+
+You will get callbacks about the payment to your callback address. Moreover, you will get callbacks about the agreement to either success or failure url, that you have set upon agreement creation. However, you will not get callbacks for either, before their status changes. So you should expect a callback when the agreement is *accepted* / *rejected* / *expired* and a callback when the OneOff is either accepted/rejected/expired.
+
+
 
 ##### <a name="oneoffpayments_callback-example"></a> One-off callback body example
 ```json
