@@ -159,7 +159,7 @@ This way, the merchant knows, which order the *rel = user-redirect*  should hand
 
 #### <a name="agreements_creation-diagram"></a>Agreement creation sequence diagram
 
-![](assets/images/RecurringPayments_CreateAgreement.png)
+![](assets/images/RecurringPayments_CreateAgreementV2.png)
 
 #### <a name="agreements_cancel-diagram"></a>When merchant cancels agreement - sequence diagram 
 
