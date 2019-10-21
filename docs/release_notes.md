@@ -34,8 +34,9 @@ New functionality will be available for all users from APP version 4.12.0.
 
 <div class='post-date'>16 January 2019</div>
 
-Invoices are now available for Subscriptions payments. [Add invoice details to subscription payment.](invoice)
-The merchant can link or attach a pdf to the customer. This makes it easy for the merchant to have the invoice available to the customer. 
+[Add invoice details to subscription payment.](invoice)
+Invoices are now available for subscription payments.
+Merchants can send details, which we will use to generate a PDF and show it to customers in the app. This makes easy for merchants to have invoices available to customers.
 
 <div class='post-date'>23 August 2018</div>
 
