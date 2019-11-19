@@ -52,7 +52,7 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |**external_id**       |string      |          |*__Agreement__ identifier on the merchant's and integrators side. This will be included in the request body of the success / cancel callback.  The external_id should be unique to the agreement. Two different agreements should not have the same external_id*||
 |**expiration_timeout_minutes**|int |required |*Agreement expiration timeout in minutes.*|Min: 1, max: 20160 (2 weeks)|
 |**retention_period_hours**|int||*Before retention period has passed User will not be able to Cancel an agreement*|Min: 0(default), max: 24 hours|
-|**disable_notification_management**|boolean||*If true user will not be presented with notification parameter, therefor will not be able to turn it on.*|Default **false**|
+|**disable_notification_management**|boolean||*If true user will not be presented with notification parameter, therefor will not be able to enable notifications.*|Default **false**|
 |**links**             |string      |required |*Link relation of the __Agreement__ creation sequence. Must contain 3 values for user redirect, success callback and cancel-callback links.*||
 |**links[].rel**       |string      |required |*Link relation type.*|user-redirect, success-callback, cancel-callback|
 |**links[].href**      |string      |required |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
