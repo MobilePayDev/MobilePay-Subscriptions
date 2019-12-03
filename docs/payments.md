@@ -145,7 +145,8 @@ We will post the integrator or merchant a callback, and expect a HTTP 2xx respon
 
 #### Payment Validation
 
-There are validation rules; however, the payments are not validated until they have been created in our system. Therefore, even though you get a response with pending payments, they may not be valid.  When you make a payment request, we will validate the request itself, but not the individual payments. So it only validates if you have the required parameters with the correct types. So the response you get for the payment request, does not say if the payment is pending, but if the payment creation is pending. Then the payments are processed in our system, and they will either be requested (valid) or declined (invalid). Moreover, you will receive a callback to inform whether payments are requested or declined. This will be sent to your payment status callback  
+There are validation rules, that are applied asynchronously to each individual payment after you send an API request . Therefore, even though you get a response with pending payments, they may not be valid.  When you make a payment request, we will validate the request body itself, but we won't apply business rules to individual payments. So it only validates if you have the required parameters with the correct types. So the response you get for the payment request, does not say if the payment is pending, but if the payment creation is pending. Then the payments are processed in our system, and they will either be requested (valid) or declined (invalid).
+You will receive a callback if certain business rules are not met and payment is declined. This will be sent to your payment status callback url. 
 
 #### Failed Payments
 
