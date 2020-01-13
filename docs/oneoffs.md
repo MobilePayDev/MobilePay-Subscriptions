@@ -187,7 +187,7 @@ You can capture a payment only once for an order, and the payment can't be more 
 
 In case you weren't able to deliver goods or any other problem occur, you can always cancel one-off payment until it's not captured or expired. You can do that by making a call to `DELETE /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments/{paymentId}` endpoint. If the HTTP response is '204 - No Content', it means that one-off payment request/reservation was canceled.
 
-The enduserser cannot cancel the agreement with pending payment reservation, only the merchant can do so. 
+The enduser cannot cancel the agreement with a pending payment reservation, only the merchant can do so. 
 
 By cancelling the agreement with a pending payment reservation, then the merchant also automatically cancels the reservation
 
