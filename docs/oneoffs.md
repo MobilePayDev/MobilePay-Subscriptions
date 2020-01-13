@@ -79,7 +79,8 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
 
 #### <a name="oneoffpayments_existing-agreement"></a>Request One-off Payment on an Existing Agreement
 
-Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` endpoint in order to charge your customer one time for extra services. 
+Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` endpoint in order to charge your customer one time for extra services.  Use case: When the customer has an active agreement and wants to order extra services/products. The customer initiates this flow, and the customer needs to swipe. The merchant needs to capture the payment, to avoid that the payment will end up as being expired. It is not possible to capture expired payments.  
+
 
 
 
