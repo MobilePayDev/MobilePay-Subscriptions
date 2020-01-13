@@ -1,7 +1,7 @@
 
 ## <a name="general-notes_provider-list"></a>Getting a list of subscription providers
 
-After getting an access token, you will be able to list subscription providers associated with that merchant by calling `GET /api/merchants/me`, which will return a list of all subscription providers, associated with that merchant. Before using MobilePay Subscriptions, the merchant must have at least one Subscriptions provider which can be created via MobilePay Portal Denmark or Finland. Each subscriptions provider contains its own address information, homepage url and etc. The merchant is the customer company and the Invoice Issuer is the actual service provider name under which they send subscriptions payments invoices
+After getting an access token, you will be able to list subscription providers associated with that merchant by calling `GET /api/merchants/me`, which will return a list of all subscription providers, associated with that merchant. Before using MobilePay Subscriptions, the merchant must have at least one Subscriptions provider which can be created via MobilePay Portal Denmark or Finland. Each subscriptions provider contains its own address information, homepage url and etc. The merchant is the customer company and the SubscriptionsProvider ID is the actual service provider name under which they send subscriptions payments  
 
 Providers represents your customer (which is a MobilePay Merchant). `providerId` represents a particular subscription provider. 
 
