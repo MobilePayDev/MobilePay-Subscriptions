@@ -173,7 +173,7 @@ You will get callbacks about the payment to your callback address. Moreover, you
 
 #### <a name="oneoffpayments_state"></a>One-off payment state diagram
 
-![](assets/images/One-Off-state-diagram.png)
+![](assets/images/One-Off-state-diagram1.png)
 
 #### <a name="capture"></a>Capture Reserved One-Off Payment
 
