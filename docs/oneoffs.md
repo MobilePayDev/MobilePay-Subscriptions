@@ -6,7 +6,7 @@ You are able to:
 
 Note: One-off payments are charged when the customer manually swipes accept or `auto_reserve` field was set to __true__ when one-off payment was requested.  
 
-One-off payment does not affect the frequency and grace period. So if you create an agreement with a one-off payment, you can request the first subscription payment whenever you want. You can also request a one-off payment on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. When you create an agreement with a one-off payment, and the user accepts the agreement, the payment will be created and reserved. 
+One-off payment does not affect the frequency and grace period. So if you create an agreement with a one-off payment, you can request the first subscription payment whenever you want. You can also request a one-off payment on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. When you create an agreement with a one-off payment, and the user accepts the agreement, the payment will be created and reserved. Capture and Reserve is handled by the Merchant. 
 
 
 #### <a name="autoreserve"></a>Auto reserve
@@ -99,7 +99,7 @@ Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments`
 }
 ```
 
-__One-off Payment__ will expire in 1 day if it is not accepted or rejected by the user during that time or automatic reservation failed and user didn't take any action afterwards.
+__One-off Payment__ will expire in 1 day if it is not accepted or rejected by the user during that time or automatic reservation failed and user didn't take any action afterwards. The merchant will receive a callback when the One-Off Payment is expired. 
 
 ##### <a name="oneoffpayments_request-parameters"></a>Request parameters
 
