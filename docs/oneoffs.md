@@ -192,7 +192,13 @@ The enduser cannot cancel the agreement with a pending payment reservation, only
 
 By cancelling the agreement with a pending payment reservation, then the merchant also automatically cancels the reservation
 
-It is **mandatory** for the merchant to Capture or Cancel one-off payment if it was reserved on a customer account. It results in bad end-user experience, if the amount is reserved on the customer’s account for too long, without them receiving their product. It might also result in increased calls to support unit, which is to be avoided at all cost.
+
+#### <a name="oneoffpayments_expiredpayment"></a> Expired one-off 
+It is **mandatory** for the merchant to Capture or Cancel one-off payment if it was reserved on a customer account. 
+
+We encourage you to capture as soon as a service is rendered or order shipped. It results in bad end-user experience, if the amount is reserved on the customer’s account for too long, as the customer can see the amount on their bank statement. 
+
+Uncaptured one-off payments expire after 14 days. 
 
 
 ***
