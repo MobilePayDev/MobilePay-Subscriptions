@@ -144,7 +144,7 @@ The table below shows possible *status*, *status_text* and *status_code* values 
     "status_text" : "Canceled by user",
     "status_code" : "40000",
     "external_id" : "SF0000568",
-    "timestamp" : "2016-09-29T09:50:39Z"
+    "timestamp" : "2020-01-01T12:34:56+00:00"
 }
 ```
 ##### <a name="user-redirect"></a>user-redirect
