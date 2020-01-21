@@ -1,5 +1,5 @@
 ## <a name="refunds"></a>Refunds
-This functionality is used to refund previously captured one-off payments or subscriptions payments. A refund transaction can be made up to 30 days after payment execution.
+This functionality is used to refund previously captured one-off payments or subscriptions payments. A refund transaction can be made up to 30 days after payment execution. Refunds are not restricted by agreement status. Refunds can be made on a cancelled agreement. As long as the payment is successful and no older than 30 days, then it should work
 
 
 **Full refund** - 100% of the amount paid is returned to the payer.If the amount is not specified, the payment will be fully refunded
