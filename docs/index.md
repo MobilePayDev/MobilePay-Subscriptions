@@ -15,7 +15,7 @@ Our MobilePay Subscriptions REST api enables you to:
 You enroll to the Subscriptions Production via <a href="https://mobilepay.dk/da-dk/Pages/mobilepay.aspx">www.MobilePay.dk</a> or the MobilePay  Administration portal. Then you get access to the MobilePay Sandbox environment, where you can test the API. The Sandbox environment is located on <a href="https://sandbox-developer.mobilepay.dk/">The Sandbox Developer Portal </a> 
 You can use the Subscriptions API in test mode, which does not affect your live data or interact with the banking networks. 
 - Read the FAQ's for Subscriptions <a href="https://developer.mobilepay.dk/faq/subscriptions">here</a>
-- Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/subscriptions-main).
+- Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/product).
 
 ## <a name="general-notes_authentication"></a>Authentication 
 
@@ -70,11 +70,13 @@ Find the configuration links below:
 
 ### <a name="openid-connect-libraries"></a>Implementing OpenID Connect protocol
 There are many OpenID Connect certified libraries for different platforms, so you just have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs).
-
-In order to authenticate to the API, all requests to the API must contain at least three authentication headers:
+To be able to use and connect to the API there are few requirements. In order to authenticate to the API, all requests to the API must contain at least three authentication headers:
 1. `x-ibm-client-id`
 2. `x-ibm-client-secret`  
 3. `Authorization` 
+
+Creating an app in MobilePay Developer Portal will create a `x-ibm-client-id` and `x-ibm-client-secret` that should be used in all calls to the MobilePay Subscriptions API  
+
 
 ```console
 $ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
