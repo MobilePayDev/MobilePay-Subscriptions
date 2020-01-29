@@ -17,6 +17,8 @@ You can use the Subscriptions API in test mode, which does not affect your live 
 - Read the FAQ's for Subscriptions <a href="https://developer.mobilepay.dk/faq/subscriptions">here</a>
 - Billing your customers with MobilePay Subscriptions is easy using our [API](https://developer.mobilepay.dk/product).
 
+Once you sign-up you'll receive a welcome email containing everything you need to  get going right away. While we encourage you to start exploring our API right away, we highly recommend getting in touch with us at developer@mobilepay.dk before you go too far down your integration path. MobilePay has dedicated technical resources available to help you plan and build the right integration, avoid pitfalls, and get live as quickly as possible.
+
 ## <a name="general-notes_authentication"></a>Authentication 
 
 ### <a name="openid-connect"></a>OpenID Connect
