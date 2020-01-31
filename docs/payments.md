@@ -167,8 +167,7 @@ It means that the you can not withdraw the money from the customers payment card
 Solution : MobilePay sends the customer a push notification, if there was an error with the card, in order to catch errors. If there were insufficient funds on the customers card, we also push the customer to execute the payment manually. The Merchant should contact the customer, and have it cleared out with the customer. 
 ##### <a name="subscription-payments_state"></a>Payment state diagram
 
-![](assets/images/RecurringPayments_PaymentStateDiagram.png)
-
+![](assets/images/Recurring_payment_states.jpg)
 ##### <a name="subscription-payments_callback-properties"></a>Other callback properties
 
 |Name            |Type        |Description                                           |Format|
