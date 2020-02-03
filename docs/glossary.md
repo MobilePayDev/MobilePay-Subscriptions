@@ -5,13 +5,16 @@
 |------|-------------|
 | Agreement| An agreement in which merchant can provide subscription service. |
 | Agreement_id         | Subscription payment ID on the MobilePay side. MobilePay generates the agreement_id. It does not change regardless of what happens to the agreement. agreement_id is the counterpart to the external_id on your side.|
+| API| Application Programming interface. |
 | Client | Client is used interchangeably for the application that calls the MobilePay Subscriptions API. Client is often used when only discussing the software.|
 | Customer        | The customer is the user who wants to pay for goods and services with MobilePay Subscriptions. |
 | Capture          | Capture is the process by which payments are secured once the payment has been authorized, i.e. a reservation has been made. Merchant handles Capture & Reserve for OneOff payments. When Merchant or Integrator receives a callback about successfully reserved payment, then it’s time to capture the money. MobilePay handles Capture & Reserve for Subscription payments |
 | Description          | Additional information provided by the merchant to the user, that will be displayed on the Agreement screen. This is visible on the payment screen, so ensure that the information provided makes sense towards the Customer. |
 | External_id                |  Agreement ID on the merchant’s side. It is meant as a unique identifier, chosen by the merchant, which shouldn’t change. It should stay the same, so we can trace the full history of the agreement. It is included in the request body of the success and cancel callback. Two different agreements should not have the same external_id  |
+| JSON                |   JSON is the short form for Javascript Object Notation and is a text-based information format that follows Javascript object syntax.  |
 | Merchant         | The merchant is the company that wants to receive payments for goods and services from MobliePay users.|
 | Reservation     | A reservation is a pre-authorization which guarantees that the user has sufficient funds to pay for the given transaction. Uncaptured one-off payments expire after 14 days. |
+| REST     |  It stands for "Representational State Transfer". |
 | Payment_id        |  Subscription payment ID on the MobilePay side. MobilePay generates the agreement_id. It is a GUID|
 | Payment - Subscription        | A payment request from the merchant, which is used Merchant needs to charge periodic payment. The customer does not need to swipe to accept agreement. |
 |Payment - OneOff| Customer action performed in order to initiate payment. The customer can create agreements with an initial OneOff payment, for example when the user wants to set up an agreement and you want to charge upfront. or request a OneOff payment on an existing agreement|
