@@ -1,4 +1,5 @@
 
+
 # Glossary of Terms
 
 | Term | Description |
@@ -20,11 +21,11 @@
 | REST     |  It stands for "Representational State Transfer". |
 | retention_period_hours     |  Merchant can set for how long agreement can’t be cancelled by the user, after the user accepted the agreement, for up to 24 hours. |
 | Pagination_state        |  is a key, that indicates, how many pages have already been collected, and which pages are the next. With every request, you will receive a pagination_state, that you should use in the subsequent request.|
-| Payment_id        |  Subscription payment ID on the MobilePay side. MobilePay generates the agreement_id. It is a GUID|
-| Payment - Subscription        | A payment request from the merchant, which is used Merchant needs to charge periodic payment. The customer does not need to swipe to accept agreement. |
+| Payment_id        |  Subscription payment ID on the MobilePay side. MobilePay generates the agreement_id. |
+| Payment - Subscription        | A payment request from the merchant, which is used Merchant needs to charge periodic payment. The customer does not need to swipe to accept the payment. |
 |Payment - OneOff| Customer action performed in order to initiate payment. The customer can create agreements with an initial OneOff payment, for example when the user wants to set up an agreement and you want to charge upfront. or request a OneOff payment on an existing agreement|
 | Payment_status_callback_url         | You need to configure the payment_status_callback_url before you start to send payment requests.Once the payment or agreement changes state, a callback will be done to the callback address.  You will not receive callbacks from MobilePay, unless you have set the payment_status_callback. It does not need to be whitelisted at MobilePay side.|
-| SubscriptionProviderId   | The SubscriptionsProvider ID is the actual service provider name under which they send subscriptions payments. Each subscriptions provider contains its own address information, homepage url and etc. For example, if a single merchant has several brands, each brand would be a subscription provider. Merchant can create new Subscriptions Provider on https://admin.mobilepay.dk/ In DK it is called 'betalingssted' | 
+| SubscriptionProviderId   | The SubscriptionsProvider ID is the actual service provider name. Each subscriptions provider contains its own address information, homepage url and etc. For example, if a single merchant has several brands, each brand would be a subscription provider. Merchant can create new Subscriptions Provider on https://admin.mobilepay.dk/ In DK it is called 'betalingssted' | 
 | Integrator    | The company that develops the client and calls the MobilePay Subscriptions API on behalf of the merchant. Sometimes the merchant acts as integrator.  |
 | VAT-number   | In Denmark, this is the CVR-number. In Finland, this is the Y-tunnus. Both refer to the official business ID.| 
 
