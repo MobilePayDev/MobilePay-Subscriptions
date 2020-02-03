@@ -53,3 +53,6 @@ release_notes_url: "release_notes"
 
 mutual_ssl_title: Mutual SSL Flow (DEPRECATED)
 mutual_ssl_url: mutual_ssl_flow
+
+glossary_title: Glossary
+glossary_url: "glossary"
