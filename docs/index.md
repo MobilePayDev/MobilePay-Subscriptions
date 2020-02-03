@@ -8,7 +8,7 @@ Our MobilePay Subscriptions REST api enables you to:
 1. Establish and manage **Agreements** between you, the **Merchant**, and MobilePay **Users**.
 2. Create **Subscription Payments** in relation to an established **Agreement** and get notified about the status via REST callbacks. **Subscription Payments** are requested 1 day before the actual booking date - no manual user confirmation required!
 
-
+This document does not include detailed specification of the endpoints, responses and response codes. This information can be found in the API section of the Developer Portal.
 
 ### <a name="overview_onboarding"></a>Merchant onboarding
 
