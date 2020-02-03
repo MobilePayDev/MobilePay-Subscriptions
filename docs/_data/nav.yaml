@@ -4,6 +4,9 @@ overview_url: "index"
 general_notes_title: General Notes
 general_notes_url: "general_notes"
 
+general_notes_title: Authentication
+general_notes_url: "authentication"
+
 subscription_providers_title: Subscription providers
 subscription_providers_url: "subscription_providers"
 agreement_title: Agreement
