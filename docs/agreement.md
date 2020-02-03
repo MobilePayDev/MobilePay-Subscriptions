@@ -106,8 +106,7 @@ Use the `PATCH /api/merchants/me/agreements/{agreementId}` endpoint to change ag
 [![](assets/images/RecurringPayments_Agreement_app.png)](assets/images/RecurringPayments_Agreement_app.png)
 
 #### Agreement screen with and without amount parameter 
-[![](assets/images/Agreementamount.png)](assets/images/Agreementamount.png)
-
+[![](assets/images/Agreementamount.png)](assets/images/Appscreen.png)
 
 #### <a name="agreements_callback"></a>Callbacks
 
