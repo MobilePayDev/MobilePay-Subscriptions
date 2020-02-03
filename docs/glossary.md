@@ -1,5 +1,6 @@
 
 
+
 # Glossary of Terms
 
 | Term | Description |
@@ -7,6 +8,7 @@
 | Agreement| An agreement in which merchant can provide subscription service to sell to Customers. |
 | Agreement_id         | Subscription payment ID on the MobilePay side. MobilePay generates the agreement_id. It does not change regardless of what happens to the agreement. agreement_id is the counterpart to the external_id on your side.|
 | API| Application Programming interface. |
+| Callback | Once a payment status change happens, a callback will be done to the payment_status_callback_url |
 | Client | Client is used interchangeably for the application that calls the MobilePay Subscriptions API. Client is often used when only discussing the software.|
 | Customer        | The customer is the user who wants to pay for goods and services with MobilePay Subscriptions. |
 | Capture          | Capture is the process by which payments are secured once the payment has been authorized, i.e. a reservation has been made. Merchant handles Capture for OneOff payments.  |
