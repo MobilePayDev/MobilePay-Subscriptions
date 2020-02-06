@@ -104,7 +104,7 @@ Use the `PATCH /api/merchants/me/agreements/{agreementId}` endpoint to change ag
 
 #### New agreement creation in APP
 
-[![](assets/images/RecurringPayments_Agreement_app.png)](assets/images/new_agreement_ from_app.jpg)
+[![](assets/images/new_agreement_ from_app.jpg)](assets/images/new_agreement_ from_app.jpg)
 
 #### Agreement screen with and without amount parameter 
 [![](assets/images/Appscreen.png)](assets/images/Appscreen.png)
