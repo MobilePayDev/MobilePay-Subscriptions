@@ -28,7 +28,7 @@
 | Payment - Subscription        | A payment request from the merchant, which is used when the Merchant needs to charge for periodic payment. The customer does not need to swipe to accept the payment. |
 |Payment - OneOff| Customer action performed in order to initiate payment. The customer can create agreements with an initial OneOff payment, for example when the user wants to set up an agreement and you want to charge upfront. or request a OneOff payment on an existing agreement|
 | Payment_status_callback_url         | You need to configure the payment_status_callback_url before you start to send payment requests.Once the payment or agreement changes state, a callback will be done to the callback address.  You will not receive callbacks from MobilePay, unless you have set the payment_status_callback. It does not need to be whitelisted at MobilePay side.|
-| SubscriptionProvider   | The SubscriptionsProvider is the actual service provider name. Each subscriptions provider contains its own address information, homepage url and etc. For example, if a single merchant has several brands, each brand would be a subscription provider. Merchant can create new Subscriptions Provider on https://admin.mobilepay.dk/ In DK it is called 'betalingssted' | 
+| SubscriptionProvider   | The SubscriptionsProvider is the actual service provider name. Each subscriptions provider contains its own address information, homepage url and etc. For example, if a single merchant has several brands, each brand would be a subscription provider. Merchant can create new Subscriptions Provider on https://admin.mobilepay.dk/  | 
 | VAT-number   | In Denmark, this is the CVR-number. In Finland, this is the Y-tunnus. Both refer to the official business ID.| 
 
 
