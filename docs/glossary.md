@@ -22,7 +22,7 @@
 | MobilePay Admin Portal         | The merchant orders the product on the [https://admin.mobilepay.dk/](Portal) |
 | Reservation     | A reservation is a pre-authorization which guarantees that the user has sufficient funds to pay for the given transaction. Uncaptured one-off payments expire after 14 days. |
 | REST     |  It stands for "Representational State Transfer". |
-| retention_period_hours     |  Merchant can set for how long agreement can’t be cancelled by the user, after the user accepted the agreement, for up to 24 hours. |
+| retention_period_hours     |  Merchant can set for how long agreement can not be cancelled by the user, after the user accepted the agreement, for up to 24 hours. |
 | Pagination_state        |  is a key, that indicates, how many pages have already been collected, and which pages are the next. With every request, you will receive a pagination_state, that you should use in the subsequent request.|
 | Payment_id        |  Subscription payment ID on the MobilePay side. MobilePay generates the agreement_id. |
 | Payment - Subscription        | A payment request from the merchant, which is used when the Merchant needs to charge for periodic payment. The customer does not need to swipe to accept the payment. |
