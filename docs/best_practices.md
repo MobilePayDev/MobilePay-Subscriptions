@@ -15,7 +15,9 @@ Your API integration should always check the HTTP response code to ensure correc
 
 
 ## External_id
-External_id's are not required to be unique however this is highly recommended. However, if the ``external_id`` in not unique the mapping could be more cluttered on merchant side. We recommend that the ``external_id`` for a payment should be associated with the specified ``orderId`` on merchant side. We recommend that the ``external_id`` for an Agreenebt should be associated with the specified customer number on merchant side. 
+External_id's are not required to be unique however this is highly recommended. However, if the ``external_id`` in not unique the mapping could be more cluttered on merchant side. 
+We recommend that the ``external_id`` for a payment should be associated with the specified ``orderId`` on merchant side. 
+We recommend that the ``external_id`` for an Agreement should be associated with the specified customer number on merchant side. 
 
 ## Capture or cancellation of old reservations
 All reservations should be captured or cancelled as soon as possible practically. If an error occurs that result in either cancellation or capture being impossible the client is responsible for persisting which payments should be captured at a later stage. We encourage you to capture as soon as a service is rendered or order shipped. It results in bad end-user experience, if the amount is reserved on the customer’s account for too long, as the customer can see the amount on their bank statement.
