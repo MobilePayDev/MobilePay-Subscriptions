@@ -150,9 +150,9 @@ Once the one-off payment status changes from *Requested* to *Reserved*, *Rejecte
 
 #### <a name="oneoffpayments_callbackagreement"></a>Callbacks about OneOff and Agreement 
 
-You will get callbacks about the payment to your callback address. Moreover, you will get callbacks about the agreement to either success or failure url, that you have set upon agreement creation. However, you will not get callbacks for either, before their status changes. So you should expect a callback when the agreement is *accepted* / *rejected* / *expired* and a callback when the OneOff is either accepted/rejected/expired.
+You will get callbacks about the payment to your callback address. Moreover, you will get callbacks about the agreement to either success or failure url, that you have set upon agreement creation. However, you will not get callbacks for either, before their status changes. So you should expect a callback when the agreement is *accepted* / *rejected* / *expired* and a callback when the OneOff is either `accepted`/`rejected`/`expired`.
 
-
+The response for agreement creation on the other hand, consist of both agreement and OneOff.
 
 ##### <a name="oneoffpayments_callback-example"></a> One-off callback body example
 ```json
