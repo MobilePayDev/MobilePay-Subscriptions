@@ -1,5 +1,11 @@
 ## <a name="general-notes_authentication"></a>Authentication 
 
+
+### Authorization
+
+The MobilePay API Gateway is ensuring the authentication of all Subscriptions API requests. 
+
+
 ### <a name="openid-connect"></a>OpenID Connect
 When the merchant is onboarded, he has a user in MobilePay that is able to manage which products the merchant wishes to use. 
 
@@ -26,8 +32,7 @@ Integrators and merchants are the same as __Clients__ in the OAuth 2.0 protocol.
 If the merchant grants consent, an authorization code is returned which the __Client__ must exchange for an id token, an access token and a refresh token. The refresh token is used to refresh ended sessions without asking for merchant consent again. This means that if the __Client__ receives an answer from the api gateway saying that the access token is invalid, the refresh token is exchanged for a new access token and refresh token. <br /> <br />
 An example of how to use OpenID connect in C# can be found [here](https://github.com/MobilePayDev/MobilePay-Invoice/tree/master/ClientExamples).
 
-When user clicks on this button, merchant must do back-end call to   
-[`"/authorize"`](https://developer.mobilepay.dk/developersupport/openid/authorize/) endpoint for initiating  authentication flow. You need to wait for the response by listening on the redirect URI and get the Authorization Code. Our system will re-direct the merchant back to your system also using the redirect URL. 
+When user clicks on this button, merchant must do back-end call to  [`"/authorize"`](https://developer.mobilepay.dk/developersupport/openid/authorize/) endpoint for initiating  authentication flow. You need to wait for the response by listening on the redirect URI and get the Authorization Code. Our system will re-direct the merchant back to your system also using the redirect URL. 
  
 
 ### OpenID configuration endpoints 
@@ -62,4 +67,11 @@ Creating an app in MobilePay Developer Portal will create a `x-ibm-client-id` an
 ```console
 $ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
 ```
+### Communication Security
+
+The MobilePay Subscriptions API uses TLS for communication security and data integrity (secure channel between the client and the 
+backend). The API currently uses TLS 1.2. It is the integrator's responsibility to plan for an upgrade to TLS 1.3, when
+TLS 1.2 is deprecated. 
+
+
 [![](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)
