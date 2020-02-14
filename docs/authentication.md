@@ -74,7 +74,7 @@ backend). The API currently uses TLS 1.2. It is the integrator's responsibility 
 TLS 1.2 is deprecated. 
 
 ### IP Address 
-
+Currently, our network utilizes the global IP range 212.93.32.0/19.
 As an external party, you might need to modify your firewall rules to allow traffic from  212.93.32.0/19 and 185.218.228.0/22 . Otherwise our traffic may be blocked, and our services stop working.
 
 [![](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)](assets/images/Preview-MP-logo-and-type-horizontal-blue.png)
