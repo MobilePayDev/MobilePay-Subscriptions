@@ -11,7 +11,7 @@ When the merchant is onboarded via https://admin.mobilepay.dk/, and has ordered 
 [![](assets/images/OpenIdflowWithFIandAuthorize.png)](assets/images/OpenIdflowWithFIandAuthorize.png)
 
       
-**The flow:**
+**The OpenID Connect flow:**
 
 In short - The flow is described in the following 5 steps:
 
@@ -53,7 +53,7 @@ Find the configuration links below:
 - Integration is based on common standard OpenID Connect. You can find more [here](https://developer.mobilepay.dk/developersupport/openid/). 
 - Video tutorial [here](https://developer.mobilepay.dk/developersupport/openid/tutorial)
 
-### <a name="openid-connect-libraries"></a>Implementing OpenID Connect protocol
+### <a name="openid-connect-libraries"></a>Implementing OpenID Connect  
 There are many OpenID Connect certified libraries for different platforms, so you just have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs).
 To be able to use and connect to the API there are few requirements. In order to authenticate to the API, all requests to the API must contain at least three authentication headers:
 1. `x-ibm-client-id`
@@ -66,13 +66,13 @@ Creating an app in MobilePay Developer Portal will create a `x-ibm-client-id` an
 ```console
 $ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
 ```
-### Communication Security
+## <a name="communication_security"></a> TLS - Communication Security 
 
 The MobilePay Subscriptions API uses TLS for communication security and data integrity (secure channel between the client and the 
 backend). The API currently uses TLS 1.2. It is the integrator's responsibility to plan for an upgrade to TLS 1.3, when
 TLS 1.2 is deprecated. 
 
-### IP Address 
+## <a name="ip_address"></a> IP Address 
 Currently, our network utilizes the global IP range 212.93.32.0/19.
 As an external party, you might need to modify your firewall rules to allow traffic from  212.93.32.0/19 and 185.218.228.0/22 . Otherwise our traffic may be blocked, and our services stop working.
 
