@@ -1,6 +1,6 @@
 
 
-## Get started
+## <a name="getstarted"></a> Get started
 
  1. **Read API documentation**. You'll find it in the  [APIs menu](https://developer.mobilepay.dk/product). *The API documentation provides insight into the structure of the API and will help you determine the best approach for integration as well as provide details on typical use cases.*
 
