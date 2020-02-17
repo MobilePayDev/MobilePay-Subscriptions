@@ -1,61 +1,92 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>{{ site.title | default: site.github.repository_name }} by {{ site.github.owner_name }}</title>
 
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <title>{{ site.title | default: site.github.repository_name }} by {{ site.github.owner_name }}</title>
+
+        <link rel="stylesheet"
+            href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+        <meta name="viewport" content="width=device-width">
+        <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>{{ site.title | default: site.github.repository_name }}</h1>
-        <h4 class="mt5"><a href="{{ site.data.nav.overview_url }}">{{ site.data.nav.overview_title }}</a></h3>
-        <h4 class="mt5"><a href="{{ site.data.nav.general_notes_url }}">{{ site.data.nav.general_notes_title }}</a></h3>
-        <h4 class="mt5"><a href="{{ site.data.nav.authentication_url }}">{{ site.data.nav.authentication_title }}</a></h3>
-        <h4 class="mt5"><a href="{{ site.data.nav.subscription_providers_url }}">{{ site.data.nav.subscription_providers_title }}</a></h3>
-        <h4 class="mt5"><a href="{{ site.data.nav.agreement_url }}">{{ site.data.nav.agreement_title }}</a></h3>
-      {% for item in site.data.nav.agreement %}
-        <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
-      {% endfor %}
-        <h4 class="mt5"><a href="{{ site.data.nav.payments_url }}">{{ site.data.nav.payments_title }}</a></h3>
-      {% for item in site.data.nav.payments %}
-        <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
-      {% endfor %}
-        <h4 class="mt5"><a href="{{ site.data.nav.oneoffs_url }}">{{ site.data.nav.oneoffs_title }}</a></h3>
-      {% for item in site.data.nav.oneoffs %}
-        <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
-      {% endfor %}
-        <h4 class="mt5"><a href="{{ site.data.nav.refund_url }}">{{ site.data.nav.refund_title }}</a></h3>
-      {% for item in site.data.nav.refund %}
-        <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
-      {% endfor %}
-        <h4 class="mt5"><a href="{{ site.data.nav.invoice_url }}">{{ site.data.nav.invoice_title }}</a></h3>
-        <h4 class="mt5"><a href="{{ site.data.nav.release_notes_url }}">{{ site.data.nav.release_notes_title }}</a></h3>
-        <h4 class="mt5"><a href="{{ site.data.nav.mutual_ssl_url }}">{{ site.data.nav.mutual_ssl_title }}</a></h3>
-        <h4 class="mt5"><a href="{{ site.data.nav.glossary_url }}">{{ site.data.nav.glossary_title }}</a></h3>
-      </header>
-      <section>
+    </head>
 
-      {{ content }}
+    <body>
+        <div class="wrapper">
+            <header>
+                <h1>{{ site.title | default: site.github.repository_name }}</h1>
+                <h4 class="mt5"><a href="{{ site.data.nav.overview_url }}">{{ site.data.nav.overview_title }}</a></h3>
+                    <h4 class="mt5"><a
+                            href="{{ site.data.nav.general_notes_url }}">{{ site.data.nav.general_notes_title }}</a>
+                        </h3>
+                        <h4 class="mt5"><a
+                                href="{{ site.data.nav.authentication_url }}">{{ site.data.nav.authentication_title }}</a>
+                            </h3>
+                            <h4 class="mt5"><a
+                                    href="{{ site.data.nav.subscription_providers_url }}">{{ site.data.nav.subscription_providers_title }}</a>
+                                </h3>
+                                <h4 class="mt5"><a
+                                        href="{{ site.data.nav.agreement_url }}">{{ site.data.nav.agreement_title }}</a>
+                                    </h3>
+                                    {% for item in site.data.nav.agreement %}
+                                    <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
+                                    {% endfor %}
+                                    <h4 class="mt5"><a
+                                            href="{{ site.data.nav.payments_url }}">{{ site.data.nav.payments_title }}</a>
+                                        </h3>
+                                        {% for item in site.data.nav.payments %}
+                                        <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
+                                        {% endfor %}
+                                        <h4 class="mt5"><a
+                                                href="{{ site.data.nav.oneoffs_url }}">{{ site.data.nav.oneoffs_title }}</a>
+                                            </h3>
+                                            {% for item in site.data.nav.oneoffs %}
+                                            <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
+                                            {% endfor %}
+                                            <h4 class="mt5"><a
+                                                    href="{{ site.data.nav.refund_url }}">{{ site.data.nav.refund_title }}</a>
+                                                </h3>
+                                                {% for item in site.data.nav.refund %}
+                                                <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
+                                                {% endfor %}
+                                                <h4 class="mt5"><a
+                                                        href="{{ site.data.nav.invoice_url }}">{{ site.data.nav.invoice_title }}</a>
+                                                    </h3>
+                                                    <h4 class="mt5"><a
+                                                            href="{{ site.data.nav.release_notes_url }}">{{ site.data.nav.release_notes_title }}</a>
+                                                        </h3>
+                                                        <h4 class="mt5"><a
+                                                                href="{{ site.data.nav.mutual_ssl_url }}">{{ site.data.nav.mutual_ssl_title }}</a>
+                                                            </h3>
+                                                            <h4 class="mt5"><a
+                                                                    href="{{ site.data.nav.glossary_url }}">{{ site.data.nav.glossary_title }}</a>
+                                                                </h3>
+                                                                <h4 class="mt5"><a
+                                                                    href="{{ site.data.nav.get_started_url }}">{{ site.data.nav.get_started_title }}</a>
+                                                                </h3>
+            </header>
+            <section>
 
-      </section>
-    </div>
-    <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
-    {% if site.google_analytics %}
+                {{ content }}
+
+            </section>
+        </div>
+        <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
+        {% if site.google_analytics %}
         <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
             ga('create', '{{ site.google_analytics }}', 'auto');
             ga('send', 'pageview');
         </script>
-    {% endif %}
-  </body>
+        {% endif %}
+    </body>
+
 </html>
