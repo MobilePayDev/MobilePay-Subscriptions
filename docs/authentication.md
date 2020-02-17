@@ -3,8 +3,7 @@
 
 ### Authorization
 
-The MobilePay API Gateway is ensuring the authentication of all Subscriptions API requests. 
-
+The MobilePay API Gateway is ensuring the authentication of all Subscriptions API requests. All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
 ### <a name="openid-connect"></a>OpenID Connect
 When the merchant is onboarded via https://admin.mobilepay.dk/, and has ordered Subscriptions, then you can continue with OIDC.  
