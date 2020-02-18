@@ -17,4 +17,11 @@
 ### Step 3 - Authentication
 
 ----------
-Once you have obtained credentials via zip file, set a redirect URI and received test data, you can start implementing the OpenID Connect flow. Read more about OpenID Connect and the process [here](https://mobilepaydev.github.io/MobilePay-Subscriptions/authentication)
+Once you have 
+
+ - [ ] 1. Received OIDC credentials via zip file
+ - [ ] 2. Received testmerchant 
+ - [ ] 3. Have a whitelisted redirect_uri   
+
+ you can start implementing the OpenID Connect flow. Read more about OpenID Connect and the process [here](https://mobilepaydev.github.io/MobilePay-Subscriptions/authentication)
+
