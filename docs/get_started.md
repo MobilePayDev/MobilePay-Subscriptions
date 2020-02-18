@@ -17,9 +17,11 @@
 ----------
 Once you have 
 
- - [ ] 1. Received OIDC credentials via zip file
+ - [ ] 1. Received OIDC credentials via zip file. 
  - [ ] 2. Received testmerchant 
- - [ ] 3. Have a whitelisted redirect_uri   
+ - [ ] 3. Have a whitelisted `redirect_uri`   
 
  you can start implementing the OpenID Connect flow. Read more about OpenID Connect and the process [here](https://mobilepaydev.github.io/MobilePay-Subscriptions/authentication)
+ 
+ If you have any questions, please write to developer@mobilepay.dk
 
