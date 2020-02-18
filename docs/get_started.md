@@ -17,7 +17,7 @@
 ----------
 Once you have 
 
- - [ ] 1. Received OIDC credentials via zip file. 
+ - [ ] 1. Received OIDC credentials via zip file. The zip file is locked with a password. DeveloperSupport will provide the password via text message, due to security reasons.
  - [ ] 2. Received testmerchant 
  - [ ] 3. Have a whitelisted `redirect_uri`   
 
