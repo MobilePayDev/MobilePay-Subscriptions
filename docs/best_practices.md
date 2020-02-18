@@ -39,7 +39,18 @@ The API documentation provides insight into the structure of the API and will he
 ## <a name="Versioning"></a> Versioning
 
 When we make backwards-incompatible changes to the API, we release new, dated versions.  Read our API upgrades guide to see our API changelog and to learn more about backwards compatibility. If you’re running an older version of the API, upgrade to the latest version to take advantage of new functionality or to streamline responses so the API is faster for you. 
-**API Change Info**
+## <a name="apichange"></a>  API Change Info
 
  - We will notify customers of API changes. You can sign up to receive emails of API changes, as well as other MobilePay Subscriptions news on our Developer Portal [here](https://developer.mobilepay.dk/news/all) 
  - Release Notes are publicly available  [here](https://mobilepaydev.github.io/MobilePay-Subscriptions/release_notes)
+ 
+**Breaking changes**
+
+The following types of changes qualify as breaking changes:
+
+ - Removal of a field
+ - Change of a field from non-mandatory to mandatory
+ - Addition of new validation rules
+ - Modification of the data type of a field (for example, array of IDs converted to array of objects)
+ - Modification of throttling of requests
+ - Reduction in the number of objects returned by responses
