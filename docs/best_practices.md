@@ -38,7 +38,7 @@ The API documentation provides insight into the structure of the API and will he
 
 ## <a name="Versioning"></a> Versioning
 
-When we make backwards-incompatible changes to the API, we release new, dated versions.  Read our API upgrades guide to see our API changelog and to learn more about backwards compatibility. If you’re running an older version of the API, upgrade to the latest version to take advantage of new functionality or to streamline responses so the API is faster for you. 
+When we make backwards-incompatible changes to the API, we release new, dated versions.  If you’re running an older version of the API, upgrade to the latest version to take advantage of new functionality or to streamline responses so the API is faster for you. 
 ## <a name="apichange"></a>  API Change Info
 
  - We will notify customers of API changes. You can sign up to receive emails of API changes, as well as other MobilePay Subscriptions news on our Developer Portal [here](https://developer.mobilepay.dk/news/all) 
