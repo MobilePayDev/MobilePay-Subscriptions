@@ -1,5 +1,5 @@
 
-# <a name="best_practices"></a> Best Practices
+# <a name="api_principles"></a> Api principles
 
 This section is an overview over best practices when integrating to MobilePay Subscriptions. The purpose of these best practices is to optimize the customer and merchant experience, to reduce errors and to keep the integration as simple as possible without reducing customer and merchant experience.  
 
