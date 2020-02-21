@@ -109,8 +109,20 @@ In case the REST callback failed, 8 retries will be made using the [exponential 
 * * *
 
 
+##  Handling payments that require additonal action
+
+Sometimes, when a customer’s subscription comes due, the payment fails. The customer might have canceled their card, the card might have expired, or the payment might be declined by the card issuer for some other reason. Suddenly, life is less good.
+
+Fortunately, MobilePay Subscriptions helps the merchant in this situation. We send push notifications to customers smartphone. When a payment requires additional steps, such as customer authentication or exchange of card, the customer will be notified via push notifications. Upon receiving the push notification, the customer is pushed to complete the required action. For details on which push notifications, the customer might receive, read more here.
+
+However, if you have specific design requirements for customizing emails’ trigger conditions, content, or other details, you are more than welcome to do that on your side. It could be beneficial to make customized system that automatically notifies your customers when a subscription payment fails. You know your customer, and you can further target the message.
+
+## 2. grace_period_days
+
+When a payment failed, we will automatically retry, if you have configured `grace_period_days` in the payment request. `grace_period_days` lets merchants to configure how many days MobilePay will try to complete unsuccessful payment. It is optional to use `grace_period_days`. We can try for maximum 3 days. On due date we process the payments starting from 02:00. If some payments weren't successfully completed, we will then try again approx. every 2 hours. When `grace_period_days` field is not set or is set to 1, we will keep retrying to complete the payment up until 23:59 of the same day. When `grace_period_days` is set to more than 1, we will be trying to complete the payment for specified number of days. 
+
 ## <a name="external_id"></a> External_id
-External_id's are not required to be unique however this is highly recommended. However, if the ``external_id`` in not unique the mapping could be more cluttered on merchant side. 
+When utilizing callbacks, it is important that you evaluate your usage of ``external_id``, as it will be included in the request body of the refund callback, as well in the reference number and bank statement. External_id's are not required to be unique however this is highly recommended. However, if the ``external_id`` in not unique the mapping could be more cluttered on merchant side. 
 We recommend that the ``external_id`` for a payment should be associated with the specified ``orderId`` on merchant side. 
 We recommend that the ``external_id`` for an Agreement should be associated with the specified customer number on merchant side. 
 
@@ -126,7 +138,7 @@ It is possible to get information on a OneOff payment using ``GET /api/providers
 Always test your initial API integration, as well as any subsequent updates, in the sandbox Testing environment. Doing so will allow you to identify any unexpected behavior in a safe environment before migrating to Production, where bugs in your code may have a real cost impact.  
 
 
-### <a name="apichange"></a>  API Change Info
+## <a name="apichange"></a> Subscriptions API Change Info
 
 When we make backwards-incompatible changes to the API, we release new, dated versions.  If you’re running an older version of the API, upgrade to the latest version to take advantage of new functionality or to streamline responses so the API is faster for you. 
 
