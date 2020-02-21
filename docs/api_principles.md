@@ -1,7 +1,7 @@
 
 # <a name="api_principles"></a> Api principles
 
-This section is an overview over best practices when integrating to MobilePay Subscriptions. The purpose of these best practices is to optimize the customer and merchant experience, to reduce errors and to keep the integration as simple as possible without reducing customer and merchant experience.  
+This is a preliminary list of architectural principles. The API documentation provides insight into the structure of the API and will help you determine the best approach for integration as well as provide details on typical use cases. Read through the reference to find information and examples for the calls  
 
 ## <a name="general-notes"></a> General notes 
 
@@ -125,14 +125,10 @@ It is possible to get information on a OneOff payment using ``GET /api/providers
 
 Always test your initial API integration, as well as any subsequent updates, in the sandbox Testing environment. Doing so will allow you to identify any unexpected behavior in a safe environment before migrating to Production, where bugs in your code may have a real cost impact.  
 
-### <a name="read_the_docs"></a> Read the documentation  
 
-The API documentation provides insight into the structure of the API and will help you determine the best approach for integration as well as provide details on typical use cases. Read through the reference to find information and examples for the calls  
-
-## <a name="Versioning"></a> Versioning
+### <a name="apichange"></a>  API Change Info
 
 When we make backwards-incompatible changes to the API, we release new, dated versions.  If you’re running an older version of the API, upgrade to the latest version to take advantage of new functionality or to streamline responses so the API is faster for you. 
-## <a name="apichange"></a>  API Change Info
 
  - We will notify customers of API changes. You can sign up to receive emails of API changes, as well as other MobilePay Subscriptions news on our Developer Portal [here](https://developer.mobilepay.dk/news/all) 
  - Release Notes are publicly available  [here](https://mobilepaydev.github.io/MobilePay-Subscriptions/release_notes)
