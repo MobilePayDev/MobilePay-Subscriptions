@@ -1,5 +1,9 @@
 # Subscriptions API Release Notes
 
+<div class='post-date'>24 Feb 2019</div>
+
+- Updated **GET /api/providers/{providerId}/agreements** endpoint documentation. Removing obsolete **paginationState** argument and replacing with **pageNumber**.
+
 <div class='post-date'>2 Jul 2019</div>
 
 - New parameter added into payment request - `grace_period_days` which lets merchants to configure how many days we will try to complete unsuccessful payment. More information can be found [here](payments#requests).
