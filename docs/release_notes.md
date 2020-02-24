@@ -2,7 +2,7 @@
 
 <div class='post-date'>24 Feb 2019</div>
 
-- Updated **GET /api/providers/{providerId}/agreements** endpoint documentation. Removing obsolete **paginationState** argument and replacing with **pageNumber**.
+- Updated `GET /api/providers/{providerId}/agreements` endpoint documentation. Removing obsolete **paginationState** argument and replacing with **pageNumber**.
 
 <div class='post-date'>2 Jul 2019</div>
 
