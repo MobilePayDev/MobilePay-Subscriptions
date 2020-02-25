@@ -10,9 +10,10 @@ One-off payment does not affect the frequency and grace period. So if you create
 
 
 #### <a name="autoreserve"></a>Auto reserve
- The one-off payment without swipe is sent directly to app. There is no landing page. If the payment is successful, then a push message is shown that the One-off without swipe/confirmation was successful. 
+ The one-off payment without swipe is sent directly to app. There is no landing page. If the payment is successful, then a push message is shown that the One-off without swipe/confirmation was successful. One Off without swipe is valid for One-Offs without new agreement. 
 
-It is already a reservation receipt. When using one-off without swipe, the sliding part is omited. in this case, everything goes very fast. Then merchant can capture. There might be issues with card, nemID and the user will get a push message about the failed payment. until then it is just a reserved payment. If the card is expired, we need to tell the user that. If it is failed, it can have a time gap. One Off without swipe is valid for One-Offs without new agreement. 
+When using one-off without swipe, the sliding part is omited. Please note, that there might be issues with card, nemID and the user will get a push message about the failed payment. But until then, it is just a reserved payment. Therefore, there is a possibility of a time gap.  
+
 
 Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions. Merchants cannot use this feature without being pre-approved to do so.
 
