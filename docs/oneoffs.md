@@ -10,9 +10,23 @@ One-off payment does not affect the frequency and grace period. So if you create
 
 
 #### <a name="autoreserve"></a>Auto reserve
+ The one-off payment without swipe is sent directly to app. There is no landing page. If the payment is successful, then a push message is shown that the One-off without swipe/confirmation was successful. 
 
-Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions. Merchants cannot use this feature without being pre-approved to do so. 
 
+Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions. Merchants cannot use this feature without being pre-approved to do so.
+
+#### <a name="oneoffpayments_usernotifications"></a> User notifications
+
+
+|Description|When|Text| Buttons | Depends on these Notification settings  |Type|
+|----------|---------|---|-------------------|------------------------|----------------------|
+|**Dual Device only:** One-off payment on existing agreement   | When customer is purchasing on existing agreement.  |Godkend betaling på [Amount] [Currency] til [Merchant]  | **Text**: Vis **Navigation**: Payment Overview |OS, App|OneOff|
+|One-off without swipe   | When One-off without swipe/confirmation was successful  | Betalt [Amount] [Currency] til [Merchant Name]  |**Text**: Vis **Navigation**:  Reservation receipt or Success receipt |OS, App| One-off
+|One-off without swipe/confirmation was **NOT** successful  | When One-off without swipe/confirmation was NOT successful  | Vi kunne ikke gennemføre din betaling til [Merchant]  |**Text**: Vis **Navigation**:  One-off confirmation screen |OS, App| One-off
+
+If the user has turned of Push Notifications, then the only way the user can see the payment is by opening the in activity list or agreement payments.
+
+***
 
 #### <a name="requests"></a>Request One-Off Payment With a New Agreement
 
@@ -200,5 +214,3 @@ We encourage you to capture as soon as a service is rendered or order shipped. I
 
 Uncaptured one-off payments expire after 14 days. 
 
-
-***
