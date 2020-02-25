@@ -12,7 +12,7 @@ One-off payment does not affect the frequency and grace period. So if you create
 #### <a name="autoreserve"></a>Auto reserve
  The one-off payment without swipe is sent directly to app. There is no landing page. If the payment is successful, then a push message is shown that the One-off without swipe/confirmation was successful. 
 
-It is already a reservation receipt. When using one-off without swipe, the sliding part is omited. in this case, everything goes very fast. Then merchant can capture. There might be issues with card, nemID and the user will get a push message about the failed payment. until then it is just a reserved payment. If the card is expired, we need to tell the user that. If it is failed, it can have a time gap. 
+It is already a reservation receipt. When using one-off without swipe, the sliding part is omited. in this case, everything goes very fast. Then merchant can capture. There might be issues with card, nemID and the user will get a push message about the failed payment. until then it is just a reserved payment. If the card is expired, we need to tell the user that. If it is failed, it can have a time gap. One Off without swipe is valid for One-Offs without new agreement. 
 
 Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions. Merchants cannot use this feature without being pre-approved to do so.
 
@@ -29,7 +29,7 @@ If the user has turned of Push Notifications, then the only way the user can see
 
 ***
 
-#### <a name="requests"></a>Request One-Off Payment With a New Agreement
+## <a name="requests"></a>Request One-Off Payment With a New Agreement
 
 Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreements` request payload if you want the agreement being activated only when the user is successfully charged an initial subscription amount.
 
@@ -92,9 +92,9 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
 }
 ```
 
-#### <a name="oneoffpayments_existing-agreement"></a>Request One-off Payment on an Existing Agreement
+### <a name="oneoffpayments_existing-agreement"></a>Request One-off Payment on an Existing Agreement
 
-Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` endpoint in order to charge your customer one time for extra services.  Use case: When the customer has an active agreement and wants to order extra services/products. The customer initiates this flow, and the customer needs to swipe. The merchant needs to capture the payment, to avoid that the payment will end up as being expired. It is not possible to capture expired payments.  
+Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` endpoint in order to charge your customer one time for extra services.  Use case: When the customer has an active agreement and wants to order extra services/products. The customer initiates this flow, and the customer needs to swipe in the MobilePay app. The merchant needs to capture the payment, to avoid that the payment will end up as being expired. It is not possible to capture expired payments.  
 
 
 
