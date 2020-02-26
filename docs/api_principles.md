@@ -39,10 +39,6 @@ The following types of changes qualify as breaking changes:
  
  ##  Handling payments that require additonal action
 
-Sometimes, when a customer’s subscription comes due, the payment fails. The customer might have canceled their card, the card might have expired, or the payment might be declined by the card issuer for some other reason. Suddenly, life is less good.
-
-Fortunately, MobilePay Subscriptions helps the merchant in this situation. We send push notifications to customers smartphone. When a payment requires additional steps, such as customer authentication or exchange of card, the customer will be notified via push notifications. Upon receiving the push notification, the customer is pushed to complete the required action. For details on which push notifications, the customer might receive, read more here.
-
 However, if you have specific design requirements for customizing emails’ trigger conditions, content, or other details, you are more than welcome to do that on your side. It could be beneficial to make customized system that automatically notifies your customers when a subscription payment fails. You know your customer, and you can further target the message.
 
 ## 2. grace_period_days
