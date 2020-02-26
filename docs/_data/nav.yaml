@@ -62,3 +62,11 @@ glossary_url: "glossary"
 
 get_started_title: Get Started
 get_started_url: "get_started"
+
+api_principles_title: API Principles
+api_principles_url: "api_principles"
+api_principles:
+- title: Error Handling
+  url: "api_principles#error_handling"
+- title: API Change 
+  url: "api_principles#apichange"
