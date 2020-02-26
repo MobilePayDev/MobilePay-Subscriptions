@@ -160,11 +160,7 @@ The process on failed payments the DueDate is as follows:
 
 > Note: The flow will be processed for the number of days that can specified in `grace_period_days`, otherwise the flow will be processed once. Merchant will be notified about failed payment on the last day of grace period.
  
-`Suspended` 
 
-It means that the you can not withdraw the money from the customers payment card, and then the payment gets suspended. There can be various reasons why it can he suspended. If the problem persists, and there is not sufficient funds on the customers card, or/and if the card is expired or/and blocked, then the payment will fail. Suspended is a status internally for MobilePay to mark hiccupped payments, which is why it is not a part of the callback table above. 
-
-Solution : MobilePay sends the customer a push notification, if there was an error with the card, in order to catch errors. If there were insufficient funds on the customers card, we also push the customer to execute the payment manually. The Merchant should contact the customer, and have it cleared out with the customer. 
 ##### <a name="subscription-payments_state"></a>Payment state diagram
 
 ![](assets/images/Recurring_payment_states.jpg)
@@ -214,4 +210,9 @@ As a MobilePay app user, the user can be informed about payment issues, dependin
 |Payment failed  | When payment is in hiccup state  | Vi kunne ikke gennemføre din betaling til [Merchant]  |**Text**: Vis **Navigation**: Agreement payments|OS, App| Subscription Payments
 
 
+`Suspended` 
+
+It means that the you can not withdraw the money from the customers payment card, and then the payment gets suspended. There can be various reasons why it can he suspended. If the problem persists, and there is not sufficient funds on the customers card, or/and if the card is expired or/and blocked, then the payment will fail. Suspended is a status internally for MobilePay to mark hiccupped payments, which is why it is not a part of the callback table above. 
+
+Solution : MobilePay sends the customer a push notification, if there was an error with the card, in order to catch errors. If there were insufficient funds on the customers card, we also push the customer to execute the payment manually. The Merchant should contact the customer, and have it cleared out with the customer. 
 ***
