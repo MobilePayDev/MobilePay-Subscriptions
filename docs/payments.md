@@ -202,12 +202,16 @@ Solution : MobilePay sends the customer a push notification, if there was an err
 
 As a MobilePay app user, the user can be informed about payment issues, depending on how the user has configured their Push Notification settings.  Push Notifications window: 08:30 - 22:00 DK time. We send push notifications to customers smartphone. When a payment requires additional steps, such as customer authentication or exchange of card, the customer will be notified via push notifications. Upon receiving the push notification, the customer is prompted to complete the required action.
 
+
+
 |Description|When|Text| Buttons | Depends on these Notification settings  |Type|
 |----------|---------|---|-------------------|------------------------|----------------------|
 |**Expired card:** Card is expired or about to expire before the due date.   |_8 -1 days before the due date, 08:30_        |For at betale til [Merchant] skal du opdatere dine kortinformationer.  |**Text**: Opdater **Navigation**: Agreement Payments  |  OS, App|Subscription Payments|
 |**General Reminder**   |_One day before the due date at 08:30_              |I morgen betales [Amount] [Currency] til [Merchant]  | **Text**: Vis **Navigation**: Payment Overview|OS, App|Subscription Payments|
-| **Daily limit exceeded** increase to NemID  | When customer has exceeded daily limit       |Din daglige beløbsgrænse er nået - klik her for at forhøje den  | **Text**: Fortsæt **Navigation**: Agreement Payments|OS, App|Subscription Payments|
+| Daily limit exceeded, increase to NemID  | When customer has exceeded daily limit       |Din daglige beløbsgrænse er nået - klik her for at forhøje den  | **Text**: Fortsæt **Navigation**: Agreement Payments|OS, App|Subscription Payments|
 |Attached payment card is expired, the customer should change the card  |When the card is expired  | Vi kan ikke gennemføre din betaling - dit betalingskort er udløbet  | **Text**: Skift dit betalingskort **Navigation**: Agreement Payments|OS, App|Subscription Payments|
 |Payment in other hiccup state - user can approve manually.   | When payment is in hiccup state. Other issues with Payment card, blocked, insufficient funds  | Vi kan ikke gennemføre din betaling - klik her for at hjælpe os  |**Text**: Vis **Navigation**: Agreement payments|OS, App| Subscription Payments
-|**Payment failed**  | When payment is in hiccup state  | Vi kunne ikke gennemføre din betaling til [Merchant]  |**Text**: Vis **Navigation**: Agreement payments|OS, App| Subscription Payments
+|Payment failed  | When payment is in hiccup state  | Vi kunne ikke gennemføre din betaling til [Merchant]  |**Text**: Vis **Navigation**: Agreement payments|OS, App| Subscription Payments
+
+
 ***
