@@ -109,7 +109,27 @@ In case the REST callback failed, 8 retries will be made using the [exponential 
 * * *
 
 
-##  Handling payments that require additonal action
+
+
+## <a name="apichange"></a> Subscriptions API Change Info
+
+When we make backwards-incompatible changes to the API, we release new, dated versions.  If you’re running an older version of the API, upgrade to the latest version to take advantage of new functionality or to streamline responses so the API is faster for you. 
+
+ - We will notify customers of API changes. You can sign up to receive emails of API changes, as well as other MobilePay Subscriptions news on our Developer Portal [here](https://developer.mobilepay.dk/news/all) 
+ - Release Notes are publicly available  [here](https://mobilepaydev.github.io/MobilePay-Subscriptions/release_notes)
+ 
+**Breaking changes**
+
+The following types of changes qualify as breaking changes:
+
+ - Removal of a field
+ - Change of a field from non-mandatory to mandatory
+ - Addition of new validation rules
+ - Modification of the data type of a field (for example, array of IDs converted to array of objects)
+ - Modification of throttling of requests
+ - Reduction in the number of objects returned by responses
+ 
+ ##  Handling payments that require additonal action
 
 Sometimes, when a customer’s subscription comes due, the payment fails. The customer might have canceled their card, the card might have expired, or the payment might be declined by the card issuer for some other reason. Suddenly, life is less good.
 
@@ -130,21 +150,3 @@ We recommend that the ``external_id`` for an Agreement should be associated with
 
 All reservations should be captured or cancelled as soon as possible practically. If an error occurs that result in either cancellation or capture being impossible the client is responsible for persisting which payments should be captured at a later stage. We encourage you to capture as soon as a service is rendered or order shipped. It results in bad end-user experience, if the amount is reserved on the customer’s account for too long, as the customer can see the amount on their bank statement.
 
-
-## <a name="apichange"></a> Subscriptions API Change Info
-
-When we make backwards-incompatible changes to the API, we release new, dated versions.  If you’re running an older version of the API, upgrade to the latest version to take advantage of new functionality or to streamline responses so the API is faster for you. 
-
- - We will notify customers of API changes. You can sign up to receive emails of API changes, as well as other MobilePay Subscriptions news on our Developer Portal [here](https://developer.mobilepay.dk/news/all) 
- - Release Notes are publicly available  [here](https://mobilepaydev.github.io/MobilePay-Subscriptions/release_notes)
- 
-**Breaking changes**
-
-The following types of changes qualify as breaking changes:
-
- - Removal of a field
- - Change of a field from non-mandatory to mandatory
- - Addition of new validation rules
- - Modification of the data type of a field (for example, array of IDs converted to array of objects)
- - Modification of throttling of requests
- - Reduction in the number of objects returned by responses
