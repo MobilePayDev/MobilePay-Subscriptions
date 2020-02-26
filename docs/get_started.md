@@ -1,5 +1,6 @@
 
 
+
 ## <a name="getstarted"></a> Get started
 
  1. **Read API documentation**. You'll find it in the  [APIs menu](https://developer.mobilepay.dk/product). *The API documentation provides insight into the structure of the API and will help you determine the best approach for integration as well as provide details on typical use cases.*
@@ -12,12 +13,12 @@
 -  Subscriptions
 -  Subscriptions User Simulation
 
-### Step 3 - Authentication
+### Step 2 - Authentication
 
 ----------
 Once you have 
 
- - [ ] 1. Received OIDC credentials via zip file. The zip file is locked with a password. DeveloperSupport will provide the password via text message, due to security reasons.
+ - [ ] 1. Received OIDC credentials via zip file. The zip file will be sent via e-mail. The zip file is locked with a password. DeveloperSupport will provide the password via text message, due to security reasons.
  - [ ] 2. Received testmerchant 
  - [ ] 3. Have a whitelisted `redirect_uri`   
 
@@ -25,3 +26,23 @@ Once you have
  
  If you have any questions, please write to developer@mobilepay.dk
 
+### Step 3 - Test
+
+----------
+
+ - [ ]  1. [ Create a new Agreement](https://mobilepaydev.github.io/MobilePay-Subscriptions/agreement#requests)  
+ - [ ] 2. Accept the Agreement*  
+  - [ ] 3. [Request a payment](https://mobilepaydev.github.io/MobilePay-Subscriptions/payments#requests)  
+ - [ ] 3. Decline the pending Subscriptions payment  
+ - [ ] 4. Request a new Subscriptions  payment and wait until due date for this to execute  
+ - [ ] 5. Cancel the Agreement once the Subscriptions payment has been executed
+ - [ ] 6. [Refund the Subscriptions Payment](https://mobilepaydev.github.io/MobilePay-Subscriptions/refund#requests)  
+ - [ ] 7. [Request OneOff payment](https://mobilepaydev.github.io/MobilePay-Subscriptions/oneoffs#requests)  
+ - [ ] 8. Cancel the reserved/requested OneOff payment  
+ - [ ] 10. [Request a new OneOff payment](https://mobilepaydev.github.io/MobilePay-Subscriptions/oneoffs#requests)  
+ - [ ] 9. Accept the OneOff payment*  
+ - [ ] 12. [Capture the OneOff payment](https://mobilepaydev.github.io/MobilePay-Subscriptions/oneoffs#capture)  
+
+You must also have a setup for handling cancelled orders, and cancel reserved payments
+
+----------
