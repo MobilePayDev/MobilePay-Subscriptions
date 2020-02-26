@@ -2,7 +2,7 @@
 
 <div class='post-date'>24 Feb 2019</div>
 
-- Updated `GET /api/providers/{providerId}/agreements` endpoint documentation. Removing obsolete **paginationState** argument and replacing with **pageNumber**.
+- Updated `GET /api/providers/{providerId}/agreements` endpoint documentation. Removing obsolete **paginationState** argument and replacing with **pageNumber**.  We recommend you always explicitly set the **pageSize** to ensure you know how many results per page you'll get.
 
 <div class='post-date'>2 Jul 2019</div>
 
