@@ -200,7 +200,7 @@ Solution : MobilePay sends the customer a push notification, if there was an err
 ```
 #### <a name="subscriptionpayments_usernotifications"></a> User notifications
 
-As a MobilePay app user, the user can be informed about payment issues, depending on how the user has configured their Push Notification settings.  Push Notifications window: 08:30 - 22:00 DK time.
+As a MobilePay app user, the user can be informed about payment issues, depending on how the user has configured their Push Notification settings.  Push Notifications window: 08:30 - 22:00 DK time. We send push notifications to customers smartphone. When a payment requires additional steps, such as customer authentication or exchange of card, the customer will be notified via push notifications. Upon receiving the push notification, the customer is prompted to complete the required action.
 
 |Description|When|Text| Buttons | Depends on these Notification settings  |Type|
 |----------|---------|---|-------------------|------------------------|----------------------|
