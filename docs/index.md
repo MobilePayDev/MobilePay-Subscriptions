@@ -1,4 +1,16 @@
+## <a name="general-notes"></a> General notes 
 
+MobilePay Subscriptions is a full-fledged HTTPS REST api using JSON as request/response communication media.
+
+All dates and time-stamps use the ISO 8601 format: date format - `YYYY-MM-DD`, date-time format - `YYYY-MM-DDTHH:mm:ssZ`.
+
+Amounts are enquoted with double quotation marks using `0.00` format, decimals separated with a dot.
+
+When doing `POST`, `PATCH` or `PUT` requests, `Content-Type: application/json` HTTP header must be provided.
+
+```console 
+$ curl --request POST --header 'Content-Type: application/json' --url https://<mobile-pay-root>/resource --data '{}'
+```
 ## <a name="overview"></a> Overview 
 
 Billing your customers has never been easier before. This document explains how to make a technical integration to the MobilePay Subscription API. The audience for this document is either technical integrators acting on behalf of merchants or merchants themselves. You can find more information on our <a href="https://developer.mobilepay.dk/subscriptions-main">Developer Portal</a>.
