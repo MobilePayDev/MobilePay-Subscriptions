@@ -130,13 +130,6 @@ We recommend that the ``external_id`` for an Agreement should be associated with
 
 All reservations should be captured or cancelled as soon as possible practically. If an error occurs that result in either cancellation or capture being impossible the client is responsible for persisting which payments should be captured at a later stage. We encourage you to capture as soon as a service is rendered or order shipped. It results in bad end-user experience, if the amount is reserved on the customer’s account for too long, as the customer can see the amount on their bank statement.
 
-## <a name="polling"></a>  Polling
-It is possible to get information on a OneOff payment using ``GET /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments``. 
-  
-## <a name="test_in_sandbox"></a>  Test your implementation in the Sandbox Testing environment
-
-Always test your initial API integration, as well as any subsequent updates, in the sandbox Testing environment. Doing so will allow you to identify any unexpected behavior in a safe environment before migrating to Production, where bugs in your code may have a real cost impact.  
-
 
 ## <a name="apichange"></a> Subscriptions API Change Info
 
