@@ -19,7 +19,7 @@ We recommend writing code that gracefully handles all possible API exceptions.
 
 
 
-## <a name="apichange"></a> Subscriptions API Change Info
+## <a name="apichange"></a>  API Change 
 
 When we make backwards-incompatible changes to the API, we release new, dated versions.  If you’re running an older version of the API, upgrade to the latest version to take advantage of new functionality or to streamline responses so the API is faster for you. 
 
