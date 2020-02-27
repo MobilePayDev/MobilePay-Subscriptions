@@ -12,48 +12,7 @@ When doing `POST`, `PATCH` or `PUT` requests, `Content-Type: application/json` H
 $ curl --request POST --header 'Content-Type: application/json' --url https://<mobile-pay-root>/resource --data '{}'
 ```
 
-# <a name="general-notes_errors"></a>Errors
-
-You might encounter the following HTTP errors:
-
-1. `400 - Bad Request` , if request data is invalid.
->    
-    ```json
-    {
-        "error": "BadRequest",
-        "error_description": {
-            "message": "request.Name is required",
-            "error_type": "InputError",
-            "correlation_id": "f4b02597-32cc-420f-a468-942307e89a97"
-        }
-    }
-    ```
-2. `404 - Not Found` with no response body, if the resource (agreement or payment) is not found.
-
-3. `412 - Precondition Failed` , if business validation rule was violated.
->    
-    ```json
-    {
-        "error": "PreconditionFailed",
-        "error_description": {
-            "message": "Duplicate payment.",
-            "error_type": "PreconditionError",
-            "correlation_id": "f4b02597-32cc-420f-a468-942307e89a97"
-        }
-    }
-    ```
-4. `500 - Internal Server Error` , if something really bad has happened.
->    
-    ```json
-    {
-        "error": "InternalServerError",
-        "error_description": {
-            "message": "An error occurred, please try again or contact the administrator.",
-            "error_type": "ServerError",
-            "correlation_id": "f4b02597-32cc-420f-a468-942307e89a97"
-        }
-    }
-    ```
+ 
 
 #### <a name="general-notes_correlation"></a>REST request correlation
 
