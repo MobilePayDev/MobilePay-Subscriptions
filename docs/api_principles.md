@@ -69,6 +69,7 @@ When we make backwards-incompatible changes to the API, we release new, dated ve
  - Release Notes are publicly available  [here](https://mobilepaydev.github.io/MobilePay-Subscriptions/release_notes)
  
 **Breaking changes**
+Our services change continually as we add new features, but we do our best to create stability so that the applications our clients build on top of our API can adapt gracefully as well. MobilePay will establish an appropriate timeline and regular communication with the API consumers to ensure that merchants and integrators migrate to the new version.
 
 The following types of changes qualify as breaking changes:
 
@@ -78,6 +79,14 @@ The following types of changes qualify as breaking changes:
  - Modification of the data type of a field (for example, array of IDs converted to array of objects)
  - Modification of throttling of requests
  - Reduction in the number of objects returned by responses
+ 
+EXAMPLES OF NON-BREAKING CHANGES
+The following types of changes do not qualify as breaking changes. Please note that this list is not exhaustive; these are just some examples of non-breaking changes.
+
+ - Addition of a new non-mandatory field
+ - Addition of a new service 
+ - Deprecation of a field without removing it 
+ - Change in order of fields in an object, objects in an array, and so on
 
 ## <a name="external_id"></a> External_id
 When utilizing callbacks, it is important that you evaluate your usage of ``external_id``, as it will be included in the request body of the refund callback, as well in the reference number and bank statement. External_id's are not required to be unique however this is highly recommended. However, if the ``external_id`` in not unique the mapping could be more cluttered on merchant side. 
