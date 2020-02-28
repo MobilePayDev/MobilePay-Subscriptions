@@ -69,6 +69,7 @@ When we make backwards-incompatible changes to the API, we release new, dated ve
  - Release Notes are publicly available  [here](https://mobilepaydev.github.io/MobilePay-Subscriptions/release_notes)
  
 **Breaking changes**
+
 Our services change continually as we add new features, but we do our best to create stability so that the applications our clients build on top of our API can adapt gracefully as well. MobilePay will establish an appropriate timeline and regular communication with the API consumers to ensure that merchants and integrators migrate to the new version.
 
 The following types of changes qualify as breaking changes:
@@ -83,6 +84,7 @@ The following types of changes qualify as breaking changes:
  - Changing error types
  
 **Examples of non-breaking changes**
+
 The following types of changes do not qualify as breaking changes. Please note that this list is not exhaustive; these are just some examples of non-breaking changes.
 
  - Addition of a new non-mandatory field
