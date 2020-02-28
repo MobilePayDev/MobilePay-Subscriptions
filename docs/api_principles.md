@@ -63,7 +63,6 @@ You might encounter the following HTTP errors:
 
 ## <a name="apichange"></a>  API Change 
 
-When we make backwards-incompatible changes to the API, we release new, dated versions.  If you’re running an older version of the API, upgrade to the latest version to take advantage of new functionality or to streamline responses so the API is faster for you. 
 
  - We will notify Merchants of breaking API changes. You can sign up to receive emails of API changes, as well as other MobilePay Subscriptions news on our Developer Portal [here](https://developer.mobilepay.dk/news/all) 
  - Release Notes are publicly available  [here](https://mobilepaydev.github.io/MobilePay-Subscriptions/release_notes) and sorted by date, so you can easily see the newest updates. 
