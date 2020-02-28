@@ -93,6 +93,7 @@ The following types of changes do not qualify as breaking changes. Please note t
  - Change in order of fields in an object, objects in an array, and so on
  
  
+ 
 ## API Version Status
 
  -  **Active:** An active API version is the most current and fully supported API. It is the recommended version to use by everyone. 
