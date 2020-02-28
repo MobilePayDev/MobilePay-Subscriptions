@@ -80,7 +80,7 @@ The following types of changes qualify as breaking changes:
  - Modification of throttling of requests
  - Reduction in the number of objects returned by responses
  
-EXAMPLES OF NON-BREAKING CHANGES
+** Examples of non-breaking changes**
 The following types of changes do not qualify as breaking changes. Please note that this list is not exhaustive; these are just some examples of non-breaking changes.
 
  - Addition of a new non-mandatory field
