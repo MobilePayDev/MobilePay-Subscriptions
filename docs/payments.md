@@ -173,7 +173,7 @@ The process on failed payments the DueDate is as follows:
 |**amount**  	 |number(0.00)|Amount withdrawn from the MobilePay user.             ||
 |**currency**  	 |string      |Amount currency (agreement's currency)                ||
 |**payment_date**|date        |Date of the batch when the payment was executed.      |ISO 8601 UTC date: YYYY-MM-DD|
-|**external_id** |string      |Payment ID on the merchant's side. Maximum length is 30 characters                   ||
+|**external_id** |string      |Payment ID on the merchant's side. Maximum length is 64 characters                   ||
 |**payment_type**|string      |Indicates whether it is Regular subscription payment or one-off payment.|_Regular_ or _OneOff_|
 
 
