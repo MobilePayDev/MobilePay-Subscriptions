@@ -55,7 +55,7 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentreque
 |**amount**            |number(0.00)| required |*The requested amount to be paid.*|> 0.00, decimals separated with a dot.|
 |**due_date**          |date        | required |*Payment due date. Must be at least 1 day in the future, otherwise the __Subscription Payment__ will be declined.*|ISO date format: yyyy-MM-dd|
 |**next_payment_date** |date        |          |*Next __Subscription Payment's__ due date, to be shown to the user in the __Agreement__ details.*|ISO date format: yyyy-MM-dd|
-|**external_id**       |string      | required |*The identifier of a specific payment in the external merchant's system. Maximum length is 30 characters*||
+|**external_id**       |string      | required |*The identifier of a specific payment in the external merchant's system. Maximum length is 64 characters*||
 |**description**       |string(60)  | required |*Additional information of the __Subscription Payment__.*||
 |**grace_period_days** |int  | optional |*Number of days to keep retrying the payment if it was not successful.*|1, 2, 3|
 
