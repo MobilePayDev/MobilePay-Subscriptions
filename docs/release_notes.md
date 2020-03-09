@@ -1,5 +1,10 @@
 # Subscriptions API Release Notes
 
+<div class='post-date'>27 Feb 2019</div>
+
+- Increased length of `external_id` for Subscriptions Payments. Maximum length is 64 characters  
+
+
 <div class='post-date'>24 Feb 2019</div>
 
 - Updated `GET /api/providers/{providerId}/agreements` endpoint documentation. Removing obsolete **paginationState** argument and replacing with **pageNumber**.  We recommend you always explicitly set the **pageSize** to ensure you know how many results per page you'll get.
