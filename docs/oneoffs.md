@@ -163,10 +163,11 @@ Once the one-off payment status changes from *Requested* to *Reserved*, *Rejecte
 |Reserved  |_The one-off payment was accepted by user or was automatically reserved with `auto_reserve` flag and money is reserved for you on his card. You can now capture the money._| Right after payment was successfully reserved. |Reserved| Payment successfully reserved. | 0 |
 |Rejected  |_User rejected one-off payment request in MobilePay._ | Right after user rejects one-off payment. |Rejected  |Rejected by user.| 50001 |
 |Expired   |_1. One-off payment was neither accepted, nor rejected by user.<br/> 2. User didn't any action after automatic reservation failed._| 1 day after you requested one-off payment |Expired|Expired by system.| 50008 |
+|Requested   |_The automatic reservation of one-off payment failed. User action is needed._| Right after the automatic reservation has failed |Requested|Automatic reservation failed. User action is needed.| 50013 |
 
 #### <a name="oneoffpayments_callbackagreement"></a>Callbacks about OneOff and Agreement 
 
-You will get callbacks about the payment to your callback address. Moreover, you will get callbacks about the agreement to either success or failure url, that you have set upon agreement creation. However, you will not get callbacks for either, before their status changes. So you should expect a callback when the agreement is *accepted* / *rejected* / *expired* and a callback when the OneOff is either `accepted`/`rejected`/`expired`.
+You will get callbacks about the payment to your callback address. Moreover, you will get callbacks about the agreement to either success or failure url, that you have set upon agreement creation. However, unless one-off payment automatic reservation fails, you will not get callbacks for either, before their status changes. So you should expect a callback when the agreement is *accepted* / *rejected* / *expired* and a callback when the OneOff is either `accepted`/`rejected`/`expired`. If one-off payment automatic reserve failes, then the status of the one-off payment will not change, but a callback about the event will be sent.
 
 The response for agreement creation on the other hand, consist of both agreement and OneOff.
 
