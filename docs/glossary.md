@@ -8,7 +8,7 @@
 | Term | Description |
 |------|-------------|
 | Agreement| An agreement in which merchant can provide subscription service to sell to Customers. |
-| Agreement_id         | Subscription payment ID on the MobilePay side. MobilePay generates the agreement_id. It does not change regardless of what happens to the agreement. agreement_id is the counterpart to the external_id on your side.|
+| Agreement_id         | Subscription agreement ID on the MobilePay side. MobilePay generates the agreement_id. It does not change regardless of what happens to the agreement. agreement_id is the counterpart to the external_id on your side. Before requesting subscription payment, an agreement should be created. |
 | API| Application Programming interface. |
 | App| In order to create a new app in the Developer Portal, you go to **> My Apps > Create new app** to register a new application. When you create the app, it autogenerates client-id and client-secret, that you will include in the authorization header when calling the api.   |
 | Callback | Once a payment status change happens, a callback will be done to the payment_status_callback_url. We send callbacks in sandbox and production environemtn.  |
