@@ -64,7 +64,8 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
     {
       "amount": "80",
       "external_id": "OOP00348",
-      "description": "Down payment for our services"
+      "description": "Down payment for our services",
+      "expiration_timeout_minutes": "1440"
     }
 }
 ```
@@ -112,7 +113,8 @@ Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments`
       "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
     }
   ],
-  "auto_reserve": true
+  "auto_reserve": true,
+  "expiration_timeout_minutes": "1440"
 }
 ```
 
