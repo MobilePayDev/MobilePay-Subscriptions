@@ -64,7 +64,8 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
     {
       "amount": "80",
       "external_id": "OOP00348",
-      "description": "Down payment for our services"
+      "description": "Down payment for our services",
+      "expiration_timeout_minutes": "1440"
     }
 }
 ```
@@ -76,7 +77,8 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
 |**one_off_payment**              |object      |          |*__One-Off Payment__ details.*||
 |**one_off_payment.amount**       |number(0.00)|required  |*__One-Off Payment__ amount, which will be displayed for the user in the MobilePay app.*|> 0.00, decimals separated with a dot.|
 |**one_off_payment.description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
-|**one_off_payment.external_id**  |string(30) |required |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
+|**one_off_payment.external_id**  |string(30)  |required  |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
+|**one_off_payment.expiration_timeout_minutes**|int|optional|*__One-Off Payment__ expiration timeout in minutes.*|Min: 1, max: 20160 (2 weeks), default: 1440 (24 hours)|
 
 <a name="oneoffpayments_response-new"></a>In this case the response of `POST /api/providers/{providerId}/agreements` will contain additional `one_off_payment_id` value - id of the newly requested **One-Off Payment**.
 
@@ -111,11 +113,13 @@ Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments`
       "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
     }
   ],
-  "auto_reserve": true
+  "auto_reserve": true,
+  "expiration_timeout_minutes": "1440"
 }
 ```
 
-__One-off Payment__ will expire in 1 day if it is not accepted or rejected by the user during that time or automatic reservation failed and user didn't take any action afterwards. The merchant will receive a callback when the One-Off Payment is expired. 
+__One-off Payment__ will expire in 1 day (by default) if it is not accepted or rejected by the user during that time or automatic reservation failed and user didn't take any action afterwards. The merchant will receive a callback when the One-Off Payment is expired.
+Custom expiration time ranging from 1 minute to 2 weeks can be specified by providing `expiration_timeout_minutes` field.
 
 ##### <a name="oneoffpayments_request-parameters"></a>Request parameters
 
@@ -128,6 +132,7 @@ __One-off Payment__ will expire in 1 day if it is not accepted or rejected by th
 |**links[].rel**  |string      |required  |*Link relation type.*|user-redirect|
 |**links[].href** |string      |required  |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
 |**auto_reserve** |boolean     |optional  |*When this field is set to __true__, we will attempt to automatically reserve the payment without user's interaction. If you do not wish payment to be automatically reserved, you can omit this field or set it to __false__.*|true/false|
+|**expiration_timeout_minutes**|int|optional|*__One-Off Payment__ expiration timeout in minutes.*|Min: 1, max: 20160 (2 weeks), default: 1440 (24 hours)|
 
 <a name="oneoffpayments_response-existing"></a>The response of `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` contains two values: a unique *id* of the newly requested **One-Off Payment** and a link *rel* = *mobile-pay*.
 
