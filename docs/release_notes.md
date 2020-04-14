@@ -2,7 +2,7 @@
 
 <div class='post-date'>09 Apr 2020</div>
 
-- Added ability to set `expiration_timeout_minutes` parameter for one-off payments. It can be done when requesting one-off payment or when requesting agreement with one-off payment.
+- Added ability to set `expiration_timeout_minutes` parameter for one-off payments. It can be done when requesting one-off payment or when requesting agreement with one-off payment. It is optional to `expiration_timeout_minutes`. Min: 1, max: 20160 (2 weeks), default: 1440 (24 hours)
 
 
 <div class='post-date'>27 Feb 2020</div>
