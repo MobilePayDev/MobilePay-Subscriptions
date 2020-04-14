@@ -1,5 +1,10 @@
 # Subscriptions API Release Notes
 
+<div class='post-date'>09 Apr 2020</div>
+
+- Added ability to set `expiration_timeout_minutes` parameter for one-off payments. It can be done when requesting one-off payment or when requesting agreement with one-off payment.
+
+
 <div class='post-date'>27 Feb 2020</div>
 
 - Increased length of `external_id` for Subscriptions Payments. Maximum length is 64 characters  
