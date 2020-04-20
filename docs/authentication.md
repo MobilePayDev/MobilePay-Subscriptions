@@ -29,7 +29,7 @@ The merchant must grant consent to Client_.   This consent is granted through me
 [Step 5: Follow Best Practice](https://developer.mobilepay.dk/developersupport/openid/bestpractice/) 
 
  
-An example of how to use OpenID connect in C# can be found [here](https://github.com/MobilePayDev/MobilePay-Invoice/tree/master/ClientExamples).
+An example of how to use OpenID connect in C# can be found [here](https://github.com/MobilePayDev/MobilePay-Subscriptions/tree/master/docs/ClientExamples).
 
 
 
