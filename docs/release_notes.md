@@ -1,5 +1,59 @@
 # Subscriptions API Release Notes
 
+<div class='post-date'>20 Apr 2020</div>
+
+- Addded support for agreement cancelation redirect Url. For new agreements use endpoint `POST /api/providers/{providerId}/agreements` with `cancel-redirect` link. A new link allows agreement to be cancelled in merchant environmnet.
+
+- Currently feature is available to test in SandProd.
+
+#### <a name="requests"></a>Sample create agreement request
+```json
+{
+  "external_id": "AGGR00068",
+  "amount": "10",
+  "currency": "DKK",
+  "description": "Monthly subscription",
+  "next_payment_date": "2017-03-09",
+  "frequency": 12,
+  "links": [
+    {
+      "rel": "user-redirect",
+      "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
+    },
+    {
+      "rel": "success-callback",
+      "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
+    },
+    {
+      "rel": "cancel-callback",
+      "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
+    },
+        {
+      "rel": "cancel-redirect",
+      "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
+    }
+  ],
+  "country_code": "DK",
+  "plan": "Basic",
+  "expiration_timeout_minutes": 5,
+  "mobile_phone_number": "4511100118",
+  "retention_period_hours": 0,
+  "disable_notification_management": false,
+}
+```
+
+In order to updated existing agreements use `PATCH /api/merchants/me/agreements/{agreementId}` endpoint with payload:
+
+```json
+[
+    {
+        "value": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c",
+        "path": "/cancel-redirect",
+        "op": "replace"
+    }
+]
+```
+
 <div class='post-date'>09 Apr 2020</div>
 
 - Added ability to set `expiration_timeout_minutes` parameter for one-off payments. It can be done when requesting one-off payment or when requesting agreement with one-off payment. It is optional to `expiration_timeout_minutes`. Min: 1, max: 20160 (2 weeks), default: 1440 (24 hours)
