@@ -102,6 +102,11 @@ Use the `PATCH /api/merchants/me/agreements/{agreementId}` endpoint to change ag
 
 [![](assets/images/SUBS_New_Agreement_WEB_Flow.png)](assets/images/SUBS_New_Agreement_WEB_Flow.png)
 
+#### Existing Deleted agreement
+
+[![](assets/images/Existing_Deleted_agreement.jpg)](assets/images/Existing_Deleted_agreement.jpg)
+
+ 
 
 #### New agreement creation in APP
 
