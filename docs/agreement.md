@@ -100,7 +100,8 @@ Use the `PATCH /api/merchants/me/agreements/{agreementId}` endpoint to change ag
 
 #### New agreement creation in landing page
 
-[![](assets/images/RecurringPayments_Agreement_landing_page.png)](assets/images/RecurringPayments_Agreement_landing_page.png)
+[![](assets/images/SUBS_New_Agreement_WEB_Flow.png)](assets/images/SUBS_New_Agreement_WEB_Flow.png)
+
 
 #### New agreement creation in APP
 
