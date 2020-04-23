@@ -9,11 +9,13 @@ Note: One-off payments are charged when the customer manually swipes accept or `
 One-off payment does not affect the frequency and grace period. So if you create an agreement with a one-off payment, you can request the first subscription payment whenever you want. You can also request a one-off payment on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. When you create an agreement with a one-off payment, and the user accepts the agreement, the payment will be created and reserved. Capture and Reserve is handled by the Merchant. 
 
 
-#### <a name="autoreserve"></a>Auto reserve
- The one-off payment without swipe is sent directly to app. There is no landing page. If the payment is successful, then a push message is shown that the One-off without swipe/confirmation was successful. One Off without swipe is valid for One-Offs without new agreement. 
+#### <a name="autoreserve"></a>OneOff with Auto reserve
+ The one-off payment without swipe is sent directly to the MobilePay app. There is no MobilePay landing page. If the payment is successful, then a push message is shown that the One-off without swipe/confirmation was successful. One Off without swipe is valid for One-Offs without new agreement. 
 
 When using one-off without swipe, the sliding part is omited. Please note, that there might be issues with card, nemID and the user will get a push message about the failed payment. But until then, it is just a reserved payment. Therefore, there is a possibility of a time gap.  
 
+* 	Merchant can send one-off payment, which MobilePay will attempt to automatically reserve, without user’s confirmation.
+*  **Value**: The customer does not need to swipe and the payment experience is seamless
 
 Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions. Merchants cannot use this feature without being pre-approved to do so.
 
