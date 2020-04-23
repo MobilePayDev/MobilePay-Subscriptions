@@ -33,6 +33,9 @@ If the user has turned of Push Notifications, then the only way the user can see
 ***
 
 ## <a name="requests"></a>Request One-Off Payment With a New Agreement
+You are able to:
+* Create agreements with an initial One-Off payment.
+* Use this when the customer does not have an agreement already, and you need the customer to create an agreement and simultaneously pay for the service/product. 
 
 Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreements` request payload if you want the agreement being activated only when the user is successfully charged an initial subscription amount.
 
