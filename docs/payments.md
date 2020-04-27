@@ -97,8 +97,9 @@ For example: if you have a customer where the frequency of an agreement is set t
 
 #### Payment screens
 
-[![](assets/images/RecurringPayments_Details.png)](assets/images/RecurringPayments_Details.png)
+[![](assets/images/Agreement_payments.jpg)](assets/images/Agreement_payments.jpg)
 
+ 
 #### <a name="subscription-payments_callbacks"></a>Callbacks
 
 Once the payment status changes from *Pending* to *Executed, Declined, Rejected* or *Failed*, a callback will be done to the callback address, which is configurable via `PATCH /api/providers/{providerId}` with path value `/payment_status_callback_url`.
