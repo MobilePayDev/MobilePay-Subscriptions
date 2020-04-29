@@ -153,9 +153,10 @@ The table below shows possible *status*, *status_text* and *status_code* values 
     "timestamp" : "2020-01-01T12:34:56+00:00"
 }
 ```
-##### <a name="user-redirect"></a>user-redirect
+## <a name="user-redirect"></a>user-redirect
 
 When the **Agreement** activation is complete or canceled, the user will be navigated to the link *rel = user-redirect* to finalize the signup.
+Please ensure that your usage of user-redirect is well implemented at the merchant side. When the Agreement activation is completed or canceled, the user will be navigated to the link rel = user-redirect to finalize the signup. 
 
 *rel = user-redirect*  should be a webpage, that awaits the callbacks and then takes appropriate action, depending on if the agreement was accepted or not. Based on the callback, you will redirect the user to the right place. Most merchants navigate the customer to a self-service overview, where the agreement is pending, and once the merchant receives the callback, then the merchant can update the status. Most merchants have a general page, that says “thank you for your order/support”, and then it informs about the next step. It is triggered immediately after purchase, letting customers know that their order and agreement has been received and created
 
