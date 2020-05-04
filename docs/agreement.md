@@ -58,7 +58,8 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |**links[].rel**       |string      |required |*Link relation type.*|user-redirect, success-callback, cancel-callback|
 |**links[].href**      |string      |required |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
 
-<a name="agreements_response"></a>
+#### <a name="agreements_response"></a> Agreements response
+
 The response of `POST /api/providers/{providerId}/agreements` contains two values: a unique *id* of the newly created *Pending* **Agreement** and a link *rel* = *mobile-pay*.
 
 ```json
