@@ -104,7 +104,10 @@ New functionality will be available for all users from APP version 4.12.0.
 
 [Add invoice details to subscription payment.](invoice)
 Invoices are now available for subscription payments.
-Merchants can send details, which we will use to generate a PDF and show it to customers in the app. This makes easy for merchants to have invoices available to customers.
+Merchants can send details, which we will use to generate a PDF and show it to customers in the app. This makes easy for merchants to have invoices available to customers. For technical questions about integrating via OpenID Connect, refer to the Integration docs on the Developer Portal [Here](https://developer.mobilepay.dk/faq/oidc). The deadline for migrating to OpenID Connect is 01-01-2020
+
+ 
+
 
 <div class='post-date'>23 August 2018</div>
 
