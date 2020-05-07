@@ -79,8 +79,8 @@ In order to updated existing agreements use `PATCH /api/merchants/me/agreements/
 
 
 <div class='post-date'>14 May 2019</div>
-
- New Agreement parameters introduced for Merchants:
+ 
+ # New Agreement parameters introduced for Merchants:
 
 - Agreement `disable_notification_management` push notification. Merchant can set if their customer should be able to manage push notifications for an agreement or not. If the merchant choses so, then the push notification is not displayed when signing new agreement and when browsing agreement information. This parameter is not required, and the default value is 'false' [See more](https://github.com/MobilePayDev/MobilePay-Subscriptions/blob/master/docs/agreement.md#request-parameters)
   ![](assets/images/Disable_notification_management1.png)
@@ -99,6 +99,9 @@ In order to updated existing agreements use `PATCH /api/merchants/me/agreements/
 
 
 New functionality will be available for all users from APP version 4.12.0.
+
+We have deprecated Subscriptions (Mutual SSL) 2.0.11.We are not going to release new functionality to those, who are using Mutual SSL. The features are available for those, who have integrated using OpenID Connect
+
 
 <div class='post-date'>16 January 2019</div>
 
