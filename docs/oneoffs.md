@@ -28,7 +28,7 @@ Merchants who wants to use  `auto_reserve` field  feature, must apply for this i
 |One-off without swipe   | When One-off without swipe/confirmation was successful  | Betalt [Amount] [Currency] til [Merchant Name]  |**Text**: Vis **Navigation**:  Reservation receipt or Success receipt |OS, App| One-off
 |One-off without swipe/confirmation was **NOT** successful  | When One-off without swipe/confirmation was NOT successful  | Vi kunne ikke gennemføre din betaling til [Merchant]  |**Text**: Vis **Navigation**:  One-off confirmation screen |OS, App| One-off
 
-If the user has turned of Push Notifications, then the only way the user can see the payment is by opening the in activity list or agreement payments. If the payment fails, and if push messages is also turned off, then a one-off confirmation screen after log in (until session expires) is by displayed for the endcustomer.
+If the user has turned of Push Notifications, then the only way the user can see the payment is by opening the in activity list or agreement payments. 
 
 
 ***
@@ -164,6 +164,11 @@ Custom expiration time ranging from 1 minute to 2 weeks can be specified by prov
 When `auto_reserve` field is set to __true__:
 
 [![](assets/images/One-off-flows-without-swipe.svg)](assets/images/One-off-flows-without-swipe.svg)
+
+* Failed `auto_reserve` OneOff  : If the payment fails, and if push messages is also turned off, then a one-off confirmation screen after log in (until session expires) is by displayed for the User. The user can retry the payment from the  Confirmation screen. 
+
+* Successful `auto_reserve` OneOff  : If the payment is successful, then the user is presented with a reservation receipt.
+
 
 #### <a name="oneoffpayments_callback"></a>Callbacks
 
