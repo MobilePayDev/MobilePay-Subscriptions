@@ -9,7 +9,7 @@ Note: One-off payments are charged when the customer manually swipes accept or `
 One-off payment does not affect the frequency and grace period. So if you create an agreement with a one-off payment, you can request the first subscription payment whenever you want. You can also request a one-off payment on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. When you create an agreement with a one-off payment, and the user accepts the agreement, the payment will be created and reserved. Capture and Reserve is handled by the Merchant. 
 
 
-#### <a name="autoreserve"></a>OneOff with Auto reserve
+## <a name="autoreserve"></a>Flow - OneOff with Auto reserve
  The one-off payment without swipe is sent directly to the MobilePay app. There is no MobilePay landing page. If the payment is successful, then a push message is shown that the One-off without swipe/confirmation was successful. One Off without swipe is valid for One-Offs without new agreement. 
 
 When using one-off without swipe, the sliding part is ommited. There might still be issues with card, nemID and the user will get a push message about the failed payment. But until then, it is  a reserved payment. Therefore, there is a possibility of a time gap.  
@@ -33,7 +33,7 @@ If the user has turned of Push Notifications, then the only way the user can see
 
 ***
 
-## <a name="requests"></a>Request One-Off Payment With a New Agreement
+## <a name="requests"></a>Flow - Request One-Off Payment With a New Agreement
 You are able to:
 * Create agreements with an initial One-Off payment.
 * Use this when the customer does not have an agreement already, and you need the customer to create an agreement and simultaneously pay for the service/product. 
@@ -101,7 +101,7 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
 }
 ```
 
-### <a name="oneoffpayments_existing-agreement"></a>Request One-off Payment on an Existing Agreement
+## <a name="oneoffpayments_existing-agreement"></a>Flow - Request One-off Payment on an Existing Agreement
 
 Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` endpoint in order to charge your customer one time for extra services.  Use case: When the customer has an active agreement and wants to order extra services/products. The customer initiates this flow, and the customer needs to swipe in the MobilePay app. The merchant needs to capture the payment, to avoid that the payment will end up as being expired. It is not possible to capture expired payments.  
 
