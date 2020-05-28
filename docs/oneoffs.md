@@ -12,7 +12,7 @@ One-off payment does not affect the frequency and grace period. So if you create
 #### <a name="autoreserve"></a>OneOff with Auto reserve
  The one-off payment without swipe is sent directly to the MobilePay app. There is no MobilePay landing page. If the payment is successful, then a push message is shown that the One-off without swipe/confirmation was successful. One Off without swipe is valid for One-Offs without new agreement. 
 
-When using one-off without swipe, the sliding part is omited. Please note, that there might be issues with card, nemID and the user will get a push message about the failed payment. But until then, it is just a reserved payment. Therefore, there is a possibility of a time gap.  
+When using one-off without swipe, the sliding part is ommited. There might still be issues with card, nemID and the user will get a push message about the failed payment. But until then, it is  a reserved payment. Therefore, there is a possibility of a time gap.  
 
 * 	Merchant can send one-off payment, which MobilePay will attempt to automatically reserve, without user’s confirmation.
 *  **Value**: The customer does not need to swipe and the payment experience is seamless
