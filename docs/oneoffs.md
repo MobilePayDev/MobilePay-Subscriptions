@@ -1,39 +1,19 @@
 ## <a name="oneoffpayments"></a>One-Off Payments
 
+There are 3 flows a customer can pay for a product or a service with One-Off payments. 
 You are able to:
-* Create agreements with an initial payment.
-* Request arbitrary one-off payments on an existing agreement.
+* Flow 1: Create Agreements with an initial Payment.
+* Flow 2: Customer can initiate and request arbitrary One-Off Payment payments on their existing Agreement.
+* Flow 3: Merchants can send One-Off payment, which MobilePay will attempt to automatically reserve, without user’s confirmation
 
 Note: One-off payments are charged when the customer manually swipes accept or `auto_reserve` field was set to __true__ when one-off payment was requested.  
 
 One-off payment does not affect the frequency and grace period. So if you create an agreement with a one-off payment, you can request the first subscription payment whenever you want. You can also request a one-off payment on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. When you create an agreement with a one-off payment, and the user accepts the agreement, the payment will be created and reserved. Capture and Reserve is handled by the Merchant. 
-
-
-## <a name="autoreserve"></a>Flow - OneOff with Auto reserve
- The one-off payment without swipe is sent directly to the MobilePay app. There is no MobilePay landing page. If the payment is successful, then a push message is shown that the One-off without swipe/confirmation was successful. One Off without swipe is valid for One-Offs without new agreement. 
-
-When using one-off without swipe, the sliding part is ommited. There might still be issues with card, nemID and the user will get a push message about the failed payment. But until then, it is  a reserved payment. Therefore, there is a possibility of a time gap.  
-
-* 	Merchant can send one-off payment, which MobilePay will attempt to automatically reserve, without user’s confirmation.
-*  **Value**: The customer does not need to swipe and the payment experience is seamless
-
-Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions. Merchants cannot use this feature without being pre-approved to do so.
-
-#### <a name="oneoffpayments_usernotifications"></a> User notifications
-
-
-|Description|When|Text| Buttons | Depends on these Notification settings  |Type|
-|----------|---------|---|-------------------|------------------------|----------------------|
-|**Dual Device only:** One-off payment on existing agreement   | When customer is purchasing on existing agreement.  |Godkend betaling på [Amount] [Currency] til [Merchant]  | **Text**: Vis **Navigation**: Payment Overview |OS, App|OneOff|
-|One-off without swipe   | When One-off without swipe/confirmation was successful  | Betalt [Amount] [Currency] til [Merchant Name]  |**Text**: Vis **Navigation**:  Reservation receipt or Success receipt |OS, App| One-off
-|One-off without swipe/confirmation was **NOT** successful  | When One-off without swipe/confirmation was NOT successful  | Vi kunne ikke gennemføre din betaling til [Merchant]  |**Text**: Vis **Navigation**:  One-off confirmation screen |OS, App| One-off
-
-If the user has turned of Push Notifications, then the only way the user can see the payment is by opening the in activity list or agreement payments. 
-
+ 
 
 ***
 
-## <a name="requests"></a>Flow - Request One-Off Payment With a New Agreement
+## <a name="requests"></a>Flow 1- Request One-Off Payment With a New Agreement
 You are able to:
 * Create agreements with an initial One-Off payment.
 * Use this when the customer does not have an agreement already, and you need the customer to create an agreement and simultaneously pay for the service/product. 
@@ -101,9 +81,9 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
 }
 ```
 
-## <a name="oneoffpayments_existing-agreement"></a>Flow - Request One-off Payment on an Existing Agreement
+## <a name="oneoffpayments_existing-agreement"></a>Flow 2 - Request One-off Payment on an Existing Agreement
 
-Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` endpoint in order to charge your customer one time for extra services.  Use case: When the customer has an active agreement and wants to order extra services/products. The customer initiates this flow, and the customer needs to swipe in the MobilePay app. The merchant needs to capture the payment, to avoid that the payment will end up as being expired. It is not possible to capture expired payments.  
+Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` endpoint in order to charge your customer one time for extra services.  Use case: When the customer alreadu has an active agreement and wants to order extra services/products. It is customer initiated, and the customer needs to swipe in the MobilePay app. The Merchant needs to capture the payment, to avoid that the payment will end up as being expired. It is not possible to capture expired payments.  
 
 
 
@@ -126,6 +106,17 @@ Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments`
 
 __One-off Payment__ will expire in 1 day (by default) if it is not accepted or rejected by the user during that time or automatic reservation failed and user didn't take any action afterwards. The merchant will receive a callback when the One-Off Payment is expired.
 Custom expiration time ranging from 1 minute to 2 weeks can be specified by providing `expiration_timeout_minutes` field.
+
+## <a name="autoreserve"></a>Flow 3 - OneOff with Auto reserve
+ The one-off payment without swipe is sent directly to the MobilePay app. There is no MobilePay landing page. If the payment is successful, then a push message is shown that the One-off without swipe/confirmation was successful. One Off without swipe is valid for One-Offs without new agreement. 
+
+When using one-off without swipe, the sliding part is ommited. There might still be issues with card, nemID and the user will get a push message about the failed payment. But until then, it is  a reserved payment. Therefore, there is a possibility of a time gap.  
+
+* 	Merchant can send one-off payment, which MobilePay will attempt to automatically reserve, without user’s confirmation.
+*  **Value**: The customer does not need to swipe and the payment experience is seamless
+
+Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions. Merchants cannot use this feature without being pre-approved to do so.
+
 
 ##### <a name="oneoffpayments_request-parameters"></a>Request parameters
 
@@ -204,6 +195,17 @@ The response for agreement creation on the other hand, consist of both agreement
     }
 ]
 ```
+
+#### <a name="oneoffpayments_usernotifications"></a> User notifications
+
+
+|Description|When|Text| Buttons | Depends on these Notification settings  |Type|
+|----------|---------|---|-------------------|------------------------|----------------------|
+|**Dual Device only:** One-off payment on existing agreement   | When customer is purchasing on existing agreement.  |Godkend betaling på [Amount] [Currency] til [Merchant]  | **Text**: Vis **Navigation**: Payment Overview |OS, App|OneOff|
+|One-off without swipe   | When One-off without swipe/confirmation was successful  | Betalt [Amount] [Currency] til [Merchant Name]  |**Text**: Vis **Navigation**:  Reservation receipt or Success receipt |OS, App| One-off
+|One-off without swipe/confirmation was **NOT** successful  | When One-off without swipe/confirmation was NOT successful  | Vi kunne ikke gennemføre din betaling til [Merchant]  |**Text**: Vis **Navigation**:  One-off confirmation screen |OS, App| One-off
+
+If the user has turned of Push Notifications, then the only way the user can see the payment is by opening the in activity list or agreement payments. 
 
 #### <a name="oneoffpayments_state"></a>One-off payment state diagram
 
