@@ -2,7 +2,7 @@
 
 There are 3 flows a customer can pay for a product or a service with One-Off payments. 
 You are able to:
-* Flow 1: Create Agreements with an initial Payment.
+* Flow 1: Create Agreements with an initial One-Off Payment.
 * Flow 2: Customer can initiate and request arbitrary One-Off Payment payments on their existing Agreement.
 * Flow 3: Merchants can send One-Off payment, which MobilePay will attempt to automatically reserve, without user’s confirmation
 
@@ -14,8 +14,7 @@ One-off payment does not affect the frequency and grace period. So if you create
 ***
 
 ## <a name="requests"></a>Flow 1- Request One-Off Payment With a New Agreement
-You are able to:
-* Create agreements with an initial One-Off payment.
+ 
 * Use this when the customer does not have an agreement already, and you need the customer to create an agreement and simultaneously pay for the service/product. 
 
 Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreements` request payload if you want the agreement being activated only when the user is successfully charged an initial subscription amount.
@@ -83,7 +82,9 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
 
 ## <a name="oneoffpayments_existing-agreement"></a>Flow 2 - Request One-off Payment on an Existing Agreement
 
-Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` endpoint in order to charge your customer one time for extra services.  Use case: When the customer alreadu has an active agreement and wants to order extra services/products. It is customer initiated, and the customer needs to swipe in the MobilePay app. The Merchant needs to capture the payment, to avoid that the payment will end up as being expired. It is not possible to capture expired payments.  
+Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` endpoint in order to charge your customer one time for extra services.  
+
+Use case: When the customer alreadY has an active agreement and wants to order extra services/products. It is customer initiated, and the customer needs to swipe in the MobilePay app. The Merchant needs to capture the payment, to avoid that the payment will end up as being expired. It is not possible to capture expired payments.  
 
 
 
