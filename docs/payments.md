@@ -36,16 +36,18 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentreque
 
 ### <a name="subscription-payments_function"></a>How do Subscription Payments work? 
 
-- You can send your payments to us max *32 days* prior due date and min *1 day* prior due date
-- The customer needs to have 1 day to evaluate the payment 
+- You can send your payments to us max *32 days* prior due date and min *1 day* prior due date.  
+- The customer needs to have at least 1 day to evaluate the payment. The customer can evaluate the payment by opening the MobilePay app. In the activity list the customer is presented with the Pending payment. 
 - We recommend that you send the payments before 00:00:00 so that you are sure that it will be included in our payment processing.
-- The MobilePay user will be able to see Payments in the app from 8 days to 1 day before due date
+- The MobilePay user will be able to see Payments in the app from 8 days to 1 day before due date depending on when you sent the payment. 
 - If a payment changes status e.g. declined by users, a callback on the specific payment will be made
 - On due date we process the payments starting from 02:00. If some payments weren't successfully completed, we will then try again approx. every 2 hours. When `grace_period_days` field is not set or is set to __1__, we will keep retrying to complete the payment up until 23:59 of the same day. When `grace_period_days` is set to more than __1__, we will be trying to complete the payment for specified number of days.
 - User will get at notification approx. at 08:30 that we cannot process the payment and that they can complete it manually (by swiping). Notification will be sent every day on the same time for the whole grace period if `grace_period_days` is specified.
 - On 23:59 we will decline the transaction and revert back with a callback  
 - Subscriptions payments are collected automatically, so there is no need for the customer to swipe.
 - Reserve and Capture is managed by MobilePay. 
+
+Agreement disable_notification_management push notification. Merchant can set if their customer should be able to manage push notifications for an agreement or not. If the merchant choses so, then the push notification is not displayed when signing new agreement and when browsing agreement information. 
 
 #### <a name="subscription-payments_request-parameters"></a>Request parameters
 
