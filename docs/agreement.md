@@ -39,11 +39,11 @@ Once the user is given to choose the payment method on the merchant's signup flo
 
 The *Pending* **Agreement**, if not activated, will expire within the value, provided in the `expiration_timeout_minutes`.
 
-#### <a name="agreements_paramters"></a>Request parameters
+#### <a name="agreements_paramters"></a>Request parameters for Create agreement request
 
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |:---------------------|:-----------|:---------|:----------------------------------------------------------------|:-----------|
-|**amount**            |number(0.00)|          |*__Agreement__ amount, which will be displayed for the user in the MobilePay app.*|>= 0.00, decimals separated with a dot.|
+|**amount**            |number(0.00)|          |*__Agreement__ amount, which will be displayed on the __Agreement__ creation screen and on the __Agreement__ details screen .*|>= 0.00, decimals separated with a dot.|
 |**currency**          |string(3)   |required |*The __Agreement__ currency code, that will be displayed for the use in the MobilePay app. Currency and country_code must match a valid pair of: DKK->DK, EUR->FI.*|DKK, EUR|
 |**country_code**      |string(2)   |required |*Country code, which will be used to differentiate between MobilePay DK and FI apps.*|DK, FI|
 |**plan**              |string(30)  |required |*Short __Agreement__ information text, that will be displayed on the __Agreement__ screen in the app. (examples: "Basic" / "Premium").*||
