@@ -1,6 +1,6 @@
 # Subscriptions API Release Notes
 
-<div class='post-date'>20 Apr 2020</div>
+<div class='post-date'>25 May 2020</div>
 
 - Addded support for agreement cancelation redirect Url. For new agreements, use endpoint `POST /api/providers/{providerId}/agreements` with `cancel-redirect` link. A new link allows agreement to be cancelled in merchant own environmnet. Merchant should ensure easy access to information and support. By making it possible for customers to cancel the agreement in merchant own environment, you can get more control of your possible leaving customers. If `cancel-redirect` is used, then MobilePay redirects customer to merchant environment, and thus making Canceling funcionality not available for the user in the app.  MobilePay validates the link, as it should be https:// and not http://. The `cancel-redirect` is not mandatory, and merchant can only use `cancel-redirect` if they have a self-service environment.
 
