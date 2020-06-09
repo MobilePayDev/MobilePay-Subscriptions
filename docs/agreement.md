@@ -105,7 +105,7 @@ Use the `PATCH /api/merchants/me/agreements/{agreementId}` endpoint to change ag
 
 #### Existing Deleted agreement
 
-[![](assets/images/Existing_Deleted_agreement.jpg)](assets/images/Existing_Deleted_agreement.jpg)
+[![](assets/images/Existing_Deleted_agreement.png)](assets/images/Existing_Deleted_agreement.png)
 
  
 
