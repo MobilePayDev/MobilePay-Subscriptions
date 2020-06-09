@@ -179,6 +179,10 @@ This way, the merchant knows, which order the *rel = user-redirect*  should hand
 
 #### <a name="agreements_cancel-active-diagram"></a>When user cancels an Active agreement - sequence diagram
 
+<div class="note">
+<b>Note</b>: If <code>cancel-redirect</code> url is set on an agreement, then this flow is not relevant, because agreement cancellation is not possible in MobilePay app.
+</div>
+
 ![](assets/images/RecurringPayments_CancelAgreement_User.png)
 
 * * *
