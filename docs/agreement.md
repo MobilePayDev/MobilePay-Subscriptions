@@ -24,6 +24,10 @@ Once the user is given to choose the payment method on the merchant's signup flo
     {
       "rel": "cancel-callback",
       "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
+    },
+    {
+      "rel": "cancel-redirect",
+      "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
     }
   ],
   "country_code": "DK",
@@ -55,7 +59,7 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |**retention_period_hours**|int||*Before retention period has passed User will not be able to Cancel an agreement*|Min: 0(default), max: 24 hours|
 |**disable_notification_management**|boolean||*If true user will not be presented with notification parameter, therefor will not be able to enable notifications.*|Default **false**|
 |**links**             |string      |required |*Link relation of the __Agreement__ creation sequence. Must contain 3 values for user redirect, success callback and cancel-callback links.*||
-|**links[].rel**       |string      |required |*Link relation type.*|user-redirect, success-callback, cancel-callback|
+|**links[].rel**       |string      |required |*Link relation type.*|user-redirect, success-callback, cancel-callback, cancel-redirect|
 |**links[].href**      |string      |required |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
 
 #### <a name="agreements_response"></a> Agreements response
@@ -87,7 +91,7 @@ The link can be used in two ways:
 Use the `PATCH /api/merchants/me/agreements/{agreementId}` endpoint to change agreement request parameters. Its request must match the rules of [RFC 6902 JSON Patch standards](https://tools.ietf.org/html/rfc6902).
 
 - Available operations: **replace**
-- Available properties: **amount**, **plan**, **description**, **next_payment_date**, **frequency**, **external_id**, **success-callback**, **cancel-callback**, **cancel-redirect**,
+- Available properties: **amount**, **plan**, **description**, **next_payment_date**, **frequency**, **external_id**, **success-callback**, **cancel-callback**, **cancel-redirect**
 
 ```json
 [
