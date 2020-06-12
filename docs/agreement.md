@@ -130,7 +130,7 @@ The parameters below are visible in the MobilePay app on the **Agreement screen*
 |------|-------------|
 | amount| MobilePay recommends you include the amount, if the customer pays a fixed amount every month. However, omit this parameter if the customer pays a varied amount |
 | description         | Additional information provided by the merchant to the user|
-| next_payment_date| Information on when the customer should pay next time. Do not use`next_payment_date`, unless you know the concrete date for `next_payment_date` |
+| next_payment_date| Information on when the customer should pay next time. Do not use next_payment_date, unless you know the concrete date for next_payment_date |
 | disable_notification_management| Merchant can set if their customer should be able to manage push notifications for an agreement or not. If the merchant choses so, then the push notification is not displayed when signing new agreement and when browsing agreement information   |
  
  
