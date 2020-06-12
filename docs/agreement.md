@@ -125,12 +125,16 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}` endpoint to
 [![](assets/images/Requiredparametersfinal.png)](assets/images/Requiredparametersfinal.png)
 
 The parameters below are visible in the MobilePay app on the **Agreement screen** if they are used by the merchant. They are optional, and should only be used, if the merchant finds that they provide informative value to the customer.   
-| Parameter | UX Recommendation  |
+ 
+| Parameter |UX Recommendation  |
 |--|--|
-| `amount` | MobilePay recommends you include the `amount`, if the customer pays a fixed `amount` every month. However, omit this parameter if the customer pays a varied `amount`        |
-| `description`|  Additional information provided by the merchant to the user.|
-|`next_payment_date` |Information on when the customer should pay next time. Do not declare `next_payment_date`, unless you know the concrete date for `next_payment_date`.  
+| `amount` | MobilePay recommends you include the `amount`, if the customer pays a fixed `amount` every month. However, omit this parameter if the customer pays a varied `amount` |
+|`description`  | Additional information provided by the merchant to the user. |
+| `next_payment_date` |Information on when the customer should pay next time. Do not declare `next_payment_date`, unless you know the concrete date for `next_payment_date`.  |
 |`disable_notification_management`  | Merchant can set if their customer should be able to manage push notifications for an agreement or not. If the merchant choses so, then the push notification is not displayed when signing new agreement and when browsing agreement information. |
+|  |  |
+ 
+ 
 
 #### <a name="agreements_callback"></a>Callbacks
 
