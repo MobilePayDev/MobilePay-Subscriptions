@@ -122,7 +122,7 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}` endpoint to
 [![](assets/images/Appscreen.png)](assets/images/Appscreen.png)
 
 #### Agreement screen required and optional parameters
-[![](assets/images/requiredparametersfinal.png)](assets/images/requiredparametersfinal.png)
+[![](assets/images/Requiredparametersfinal.png)](assets/images/Requiredparametersfinal.png)
 
 #### <a name="agreements_callback"></a>Callbacks
 
