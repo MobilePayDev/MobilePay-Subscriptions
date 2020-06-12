@@ -47,7 +47,7 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |----------------------|------------|----------|-----------------------------------------------------------------|------------|
-|**amount**      |number(0.00)        |   |*_**Agreement**  amount, which will be displayed on the  **Agreement**  creation screen and on the  **Agreement**  details screen ._*|>= 0.00, decimals separated with a dot.|
+|**amount**      |number(0.00)        |   |**Agreement**  amount, which will be displayed on the  **Agreement**  creation screen and on the  **Agreement**  details screen ._*|>= 0.00, decimals separated with a dot.|
 |**currency**            |string(3)| required |_The  **Agreement**  currency code, that will be displayed for the use in the MobilePay app. Currency and country_code must match a valid pair of: DKK->DK, EUR->FI._|DKK, EUR|
 |**country_code**          |string(2)| required |_Country code, which will be used to differentiate between MobilePay DK and FI apps._|DK, FI|
 |**plan** |string(30) |required          |_Short  **Agreement**  information text, that will be displayed on the  **Agreement**  screen in the app. (examples: "Basic" / "Premium")._| |
