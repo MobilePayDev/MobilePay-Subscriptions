@@ -58,9 +58,9 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |**expiration_timeout_minutes** |int  |required  |_Agreement expiration timeout in minutes._|Min: 1, max: 20160 (2 weeks)|
 |**retention_period_hours** |int  |  |_Before retention period has passed User will not be able to Cancel an agreement_|Min: 0(default), max: 24 hours|
 |**disable_notification_management** |boolean  |  |*_If true user will not be presented with notification parameter, therefor will not be able to enable notifications_*|Default **false**|
-|**links** |string  | required |*_Link relation of the  **Agreement**  creation sequence. Must contain 3 values for user redirect, success callback and cancel-callback links._*| |
+|**links** |string  | required |*Link relation of the  **Agreement**  creation sequence. Must contain 3 values for user redirect, success callback and cancel-callback links.*| |
 |**links[].rel** |string  |required  |*Link relation type*|user-redirect, success-callback, cancel-callback, cancel-redirect|
-|**links[].href** |string  | required |*_Link relation hyperlink reference._*|https://<merchant's url>|
+|**links[].href** |string  | required |*Link relation hyperlink reference.*|https://<merchant's url>|
 
 
 #### <a name="agreements_response"></a> Agreements response
