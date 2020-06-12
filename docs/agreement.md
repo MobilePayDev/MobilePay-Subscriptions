@@ -121,6 +121,9 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}` endpoint to
 #### Agreement screen with and without amount parameter 
 [![](assets/images/Appscreen.png)](assets/images/Appscreen.png)
 
+#### Agreement screen required and optional parameters
+[![](assets/images/requiredparametersfinal.png)](assets/images/requiredparametersfinal.png)
+
 #### <a name="agreements_callback"></a>Callbacks
 
 When the **Agreement's** status changes from *Pending* we will do a callback to the merchant's system (see the sequence diagram below).
