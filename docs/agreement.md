@@ -118,22 +118,25 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}` endpoint to
 
 [![](assets/images/new_agreement_ from_app.jpg)](assets/images/new_agreement_ from_app.jpg)
 
-#### Agreement screen with and without amount parameter 
-[![](assets/images/Appscreen.png)](assets/images/Appscreen.png)
 
-#### Agreement screen required and optional parameters
+
+### Agreement screen required and optional parameters
+The purple parameters below are visible in the MobilePay app on the **Agreement screen** if they are used by the merchant. They are optional, and should only be used, if the merchant finds that they provide informative value to the customer.   
+
 [![](assets/images/Requiredparametersfinal.png)](assets/images/Requiredparametersfinal.png)
 
-The parameters below are visible in the MobilePay app on the **Agreement screen** if they are used by the merchant. They are optional, and should only be used, if the merchant finds that they provide informative value to the customer.   
  
 | Parameter| UX Recommendation|
 |------|-------------|
 | amount| MobilePay recommends you include the amount, if the customer pays a fixed amount every month. However, omit this parameter if the customer pays a varied amount. **Example**: Netflix  charges the same amount, for example 99kr every month. Netflix could include the amount. Whereas an electricity provider charges a varied amount, dependent on the customers usage of electricity. It would not make sense for the Electricity Provider to include the amount. |
-| description         | Additional information provided by the merchant to the user. **Example**:  |
+| description         | Additional information provided by the merchant to the user. It is up to the merchant what the information should contain, as long as it is within 60 characters  |
 | next_payment_date| Information on when the customer should pay next time. Do not use next_payment_date, unless you know the concrete date for next_payment_date |
 | disable_notification_management| Merchant can set if their customer should be able to manage push notifications for an agreement or not. If the merchant choses so, then the push notification is not displayed when signing new agreement and when browsing agreement information   |
+
+
  
- 
+#### Agreement screen with and without amount parameter 
+[![](assets/images/Appscreen.png)](assets/images/Appscreen.png)
 
 #### <a name="agreements_callback"></a>Callbacks
 
