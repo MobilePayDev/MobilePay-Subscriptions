@@ -45,7 +45,7 @@ In case the REST callback failed, 8 retries will be made using the [exponential 
 * 6th retry – 5h 10 minutes after 5th retry
 * 7th retry – 10h 30 minutes after 6th retry
 * 8th retry – 21h 10 minutes after 7th retry
-
+ 
 * * *
 
 ## <a name="overview"></a> Overview 
