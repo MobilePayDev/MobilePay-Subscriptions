@@ -31,7 +31,7 @@ Use one of these endpoints to set REST callback authentication scheme and creden
 
 #### <a name="general-notes_callback-retries"></a>REST callback retries
 
-Once the payment or agreement changes state, a callback will be done to the callback address, which is configurable via `PATCH /api/providers/{providerId}` with path value `/payment_status_callback_url`.
+Once the payment or agreement changes state, a callback will be done to the callback address, which is configurable via `PATCH /api/providers/{providerId}` with path value `/payment_status_callback_url`. Note that callbacks can only be delivered using ports 80 and 443.
 
 In case the REST callback failed, 8 retries will be made using the [exponential back-off algorithm](https://en.wikipedia.org/wiki/Exponential_backoff), where N - next retry time, c - retry attempt number, R - second retry time in seconds (1st retry is an exception and is done after 5 seconds):
 
