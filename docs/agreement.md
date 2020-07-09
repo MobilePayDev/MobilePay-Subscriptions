@@ -57,7 +57,7 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |**external_id** |string  |  |_**Agreement**  identifier on the merchant's and integrators side, which will be displayed for the user in the MobilePay app. When the user sends an e-mail from the app, the external_id is in the subject field. external_id will be included in the request body of the success / cancel callback. The external_id should be unique to the agreement. Two different agreements should not have the same external_id_|MinLength 1. MaxLength 64 |
 |**expiration_timeout_minutes** |int  |required  |_Agreement expiration timeout in minutes._|Min: 1, max: 20160 (2 weeks)|
 |**retention_period_hours** |int  |  |_Before retention period has passed User will not be able to Cancel an agreement_|Min: 0(default), max: 24 hours|
-|**disable_notification_management** |boolean  |  |*_If true user will not be presented with notification parameter, therefor will not be able to enable notifications_*|Default **false**|
+|**disable_notification_management** |boolean  |  |*If true user will not be presented with notification parameter, therefor will not be able to enable notifications. If false push parameter will be visible in signed agreements and push will be turned on by default. Parameter controls just push message which is sent 1 day in advance before recurring payment execution.*|Default **false**|
 |**links** |string  | required |*Link relation of the  **Agreement**  creation sequence. Must contain 3 values for user redirect, success callback and cancel-callback links.*| |
 |**links[].rel** |string  |required  |*Link relation type*|user-redirect, success-callback, cancel-callback, cancel-redirect|
 |**links[].href** |string  | required |*Link relation hyperlink reference.*|https://<merchant's url>|
@@ -131,7 +131,7 @@ The purple parameters below are visible in the MobilePay app on the **Agreement 
 | amount| MobilePay recommends you include the amount, if the customer pays a fixed amount every month. However, omit this parameter if the customer pays a varied amount. **Example**: Netflix  charges the same amount, for example 99kr every month. Netflix could include the amount. Whereas an electricity provider charges a varied amount, dependent on the customers usage of electricity. It would not make sense for the Electricity Provider to include the amount. |
 | description         | Additional information provided by the merchant to the user. It is up to the merchant what the information should contain, as long as it is within 60 characters  |
 | next_payment_date| Information on when the customer should pay next time. Do not use next_payment_date, unless you know the concrete date for next_payment_date |
-| disable_notification_management| Merchant can set if their customer should be able to manage push notifications for an agreement or not. If the merchant choses so, then the push notification is not displayed when signing new agreement and when browsing agreement information   |
+| disable_notification_management| Merchant can set if their customer should be able to manage push notifications for an agreement or not. If the merchant choses so (true), then the push notification is not displayed when signing new agreement and when browsing agreement information. If merchant leaves parameter as false, then push parameter will be visible in signed agreements and push will be turned on by default. Parameter controls just push message which is sent 1 day in advance before recurring payment execution.   |
 
 
  
