@@ -63,12 +63,10 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |**links[].href** |string  | required |*Link relation hyperlink reference.*|https://<merchant's url>|
 
 
-<div class="note">
-  <b>Note</b>: After new payment is created, agreement’s Next Payment Date property will be updated to the earliest date from these proporties:
+After new payment is created, agreement’s NextPaymentDate property will be updated to the earliest date from these proporties:
   * NextPaymentDate (agreement)
   * NextPaymentDate (payment)
   * DueDate (payment)
-</div>
 
 #### <a name="agreements_response"></a> Agreements response
 
