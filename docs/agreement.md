@@ -63,6 +63,10 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |**links[].href** |string  | required |*Link relation hyperlink reference.*|https://<merchant's url>|
 
 
+<div class="note">
+  <b>Note</b>: Next Payment Date property of Agreement will be set to newly created payment’s Next Payment Date property or Due Date property (whichever is set to an earlier date) if any of those properties are set to an earlier date than next upcoming payment of the agreement.
+</div>
+
 #### <a name="agreements_response"></a> Agreements response
 
 The response of `POST /api/providers/{providerId}/agreements` contains two values: a unique *id* of the newly created *Pending* **Agreement** and a link *rel* = *mobile-pay*.
