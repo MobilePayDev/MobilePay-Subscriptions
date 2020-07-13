@@ -64,7 +64,7 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 
 
 <div class="note">
-  <b>Note</b>: Next Payment Date property of Agreement will be set to newly created payment’s Next Payment Date property or Due Date property (whichever is set to an earlier date) if any of those properties are set to an earlier date than Due Date of the next upcoming payment of the agreement.
+  <b>Note</b>: After new payment is created, Agreement's <code>Next Payment Date</code> field will be updated to the earliest one from: Agreement <code>Next Payment Date</code>, Payment <code>Next Payment Date</code> or Payment <code>Due Date</code>.
 </div>
 
 #### <a name="agreements_response"></a> Agreements response
