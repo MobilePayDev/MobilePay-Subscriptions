@@ -26,9 +26,9 @@ When the merchant is onboarded via  [Production MobilePay Portal](https://admin.
 [![](assets/images/OpenIdflowWithFIandAuthorize.png)](assets/images/OpenIdflowWithFIandAuthorize.png)
 
       
-**The OpenID Connect flow:**
+**Implementing OpenID Connect**
 
-There are many OpenID Connect certified libraries for different platforms, so you just have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs).
+There are many OpenID Connect certified libraries for different platforms, so you have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs). we recommend <a href="https://github.com/IdentityModel/IdentityModel.OidcClient2">Certified C#/NetStandard OpenID Connect Client Library for native mobile/desktop Applications</a> 
 In short - The flow is described in the following 5 steps:
 
 [Step 1: Call /connect/authorize to initiate user login and consent](https://developer.mobilepay.dk/developersupport/openid/authorize/) 
@@ -87,7 +87,7 @@ Find the configuration links below:
 ### QuickStart: follow our QuickStart to start building your integration
 
 - More information about integration steps are  [here](https://developer.mobilepay.dk/subscriptions-main)
-- Pick an OpenID Connect library: we recommend <a href="https://github.com/IdentityModel/IdentityModel.OidcClient2">Certified C#/NetStandard OpenID Connect Client Library for native mobile/desktop Applications</a> 
+- Pick an OpenID Connect library: 
 - FAQ's for OpenID Connect <a href="https://developer.mobilepay.dk/faq/oidc">here</a>
 - Integration is based on common standard OpenID Connect. You can find more [here](https://developer.mobilepay.dk/developersupport/openid/). 
 - Video tutorial [here](https://developer.mobilepay.dk/developersupport/openid/tutorial)
