@@ -5,8 +5,24 @@
 
 The MobilePay API Gateway is ensuring the authentication of all Subscriptions API requests. All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
+# <a name="client_onboarding"></a>**Onboarding a Subscriptions client**
+
+1. **Read API documentation.** You will find it in the  [APIs menu](https://sandbox-developer.mobilepay.dk/product).  
+
+2.  **Log-in on the developer portal.** Go to [Sandbox developer portal](https://sandbox-developer.mobilepay.dk/) and log in with your credentials.
+
+ 3.  **Create an app in the developer portal.** Go to My Apps > Create new App to register a new application. You need to supply the `x-ibm-client-id` when calling APIs. You should always store the `x-ibm-client-id` in a secure location, and never reveal it publicly.  More details about the usage of `x-ibm-client-id` below in the authentication section. 
+
+4.  **Subscribe the app to APIs.**  Go to [APIs](https://sandbox-developer.mobilepay.dk/product) and subscribe to the following APIs:
+-  Subscriptions
+-  Subscriptions User Simulation
+ 
+ 5.  **Receive OAuth  Credentials via zip file.** The Credentials will be used when calling the token endpoint (described below) to generate an access token. The zip file will be sent via e-mail. The zip file is locked with a password. DeveloperSupport will provide the password via text message to ensure the password protected file and the password is not transmitted together. You will also receive a testuser to  [Sandbox MobilePay Portal](https://sandprod-admin.mobilepay.dk/)   
+
+Now you are ready to move on to the authentication section below.  
+
 ### <a name="openid-connect"></a>OpenID Connect
-When the merchant is onboarded via https://admin.mobilepay.dk/, and has ordered Subscriptions, then you can continue with OIDC.  
+When the merchant is onboarded via  [Production MobilePay Portal](https://admin.mobilepay.dk/), and has ordered Subscriptions, then you can continue with OIDC.  
 
 [![](assets/images/OpenIdflowWithFIandAuthorize.png)](assets/images/OpenIdflowWithFIandAuthorize.png)
 
