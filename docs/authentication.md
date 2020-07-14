@@ -3,7 +3,6 @@
 
 ### Authorization
 
-The MobilePay API Gateway is ensuring the authentication of all Subscriptions API requests. All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
 # <a name="client_onboarding"></a>**Onboarding a Subscriptions client**
 
@@ -94,6 +93,7 @@ Find the configuration links below:
 - Video tutorial [here](https://developer.mobilepay.dk/developersupport/openid/tutorial)
 
 ### <a name="openid-connect-libraries"></a>Implementing OpenID Connect  
+The MobilePay API Gateway is ensuring the authentication of all Subscriptions API requests. All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
 To be able to use and connect to the API there are few requirements. In order to authenticate to the API, all requests to the API must contain at least three authentication headers:
 1. `x-ibm-client-id`
