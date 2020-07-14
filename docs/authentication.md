@@ -29,6 +29,7 @@ When the merchant is onboarded via  [Production MobilePay Portal](https://admin.
       
 **The OpenID Connect flow:**
 
+There are many OpenID Connect certified libraries for different platforms, so you just have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs).
 In short - The flow is described in the following 5 steps:
 
 [Step 1: Call /connect/authorize to initiate user login and consent](https://developer.mobilepay.dk/developersupport/openid/authorize/) 
@@ -93,7 +94,7 @@ Find the configuration links below:
 - Video tutorial [here](https://developer.mobilepay.dk/developersupport/openid/tutorial)
 
 ### <a name="openid-connect-libraries"></a>Implementing OpenID Connect  
-There are many OpenID Connect certified libraries for different platforms, so you just have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs).
+
 To be able to use and connect to the API there are few requirements. In order to authenticate to the API, all requests to the API must contain at least three authentication headers:
 1. `x-ibm-client-id`
 2. `x-ibm-client-secret`  
