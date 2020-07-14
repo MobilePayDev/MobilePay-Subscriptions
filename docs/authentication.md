@@ -26,7 +26,7 @@ When the merchant is onboarded via  [Production MobilePay Portal](https://admin.
 [![](assets/images/OpenIdflowWithFIandAuthorize.png)](assets/images/OpenIdflowWithFIandAuthorize.png)
 
       
-**Implementing OpenID Connect**
+**5 steps**
 
 There are many OpenID Connect certified libraries for different platforms, so you have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs). we recommend <a href="https://github.com/IdentityModel/IdentityModel.OidcClient2">Certified C#/NetStandard OpenID Connect Client Library for native mobile/desktop Applications</a> 
 In short - The flow is described in the following 5 steps:
