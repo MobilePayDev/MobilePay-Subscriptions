@@ -48,7 +48,22 @@ The Merchant must grant consent through mechanism in the [OpenID Connect](http:/
 An example of how to use OpenID connect in C# can be found [here](https://github.com/MobilePayDev/MobilePay-Subscriptions/tree/master/docs/ClientExamples).
 
 
+# <a name="openid-connect-libraries"></a>Implementing OpenID Connect  
+The MobilePay API Gateway is ensuring the authentication of all Subscriptions API requests. All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
+To be able to use and connect to the API there are few requirements. In order to authenticate to the API, all requests to the API must contain at least three authentication headers:
+1. `x-ibm-client-id`
+2. `x-ibm-client-secret`  
+3. `Authorization` 
+
+Creating an app in MobilePay Developer Portal will create a `x-ibm-client-id` and `x-ibm-client-secret` that should be used in all calls to the MobilePay Subscriptions API  
+
+
+```console
+$ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
+```
+
+![](assets/images/OpenIdFlowWithFiandAuthorize.png)
 
 
 
@@ -82,30 +97,14 @@ Find the configuration links below:
 |Production  | Denmark <a href="https://admin.mobilepay.dk/account/.well-known/openid-configuration">https://admin.mobilepay.dk/account/.well-known/openid-configuration</a> <br> Finland <a href="https://admin.mobilepay.fi/account/.well-known/openid-configuration">https://admin.mobilepay.fi/account/.well-known/openid-configuration</a>|
 
 
-![](assets/images/OpenIdFlowWithFiandAuthorize.png)
       
-### QuickStart: follow our QuickStart to start building your integration
+#### QuickStart: follow our QuickStart to start building your integration
 
 - More information about integration steps are  [here](https://developer.mobilepay.dk/subscriptions-main)
-- Pick an OpenID Connect library: 
 - FAQ's for OpenID Connect <a href="https://developer.mobilepay.dk/faq/oidc">here</a>
 - Integration is based on common standard OpenID Connect. You can find more [here](https://developer.mobilepay.dk/developersupport/openid/). 
 - Video tutorial [here](https://developer.mobilepay.dk/developersupport/openid/tutorial)
 
-### <a name="openid-connect-libraries"></a>Implementing OpenID Connect  
-The MobilePay API Gateway is ensuring the authentication of all Subscriptions API requests. All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
-
-To be able to use and connect to the API there are few requirements. In order to authenticate to the API, all requests to the API must contain at least three authentication headers:
-1. `x-ibm-client-id`
-2. `x-ibm-client-secret`  
-3. `Authorization` 
-
-Creating an app in MobilePay Developer Portal will create a `x-ibm-client-id` and `x-ibm-client-secret` that should be used in all calls to the MobilePay Subscriptions API  
-
-
-```console
-$ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: client-id' --header 'x-ibm-client-secret: client-secret' --url https://<mobile-pay-root>/api/merchants/me/resource
-```
 
 
 ## <a name="communication_security"></a> TLS - Communication Security 
