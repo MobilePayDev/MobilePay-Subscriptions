@@ -35,15 +35,20 @@ Note: if you are still working on the integration in sandbox, you will use [Sand
 There are many OpenID Connect certified libraries, so you have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs). we recommend <a href="https://github.com/IdentityModel/IdentityModel.OidcClient2">Certified C#/NetStandard OpenID Connect Client Library </a> 
 The flow is described in the following 5 steps:
 
-1. **Call /connect/authorize to initiate user login and consent**  The Merchant must grant consent through mechanism in the OpenID Connect protocol suite. The Hybrid Flow should be initiated. For Subscriptions product the Client must request consent from the merchant using the `subscriptions` scope. You also need to specify `offline_access` scope, in order to get the refresh token. When user clicks on this button, merchant must do back-end call to  `"/authorize"` endpoint for initiating  authentication flow. Follow the guideline [here](https://developer.mobilepay.dk/developersupport/openid/authorize/) 
+1. **Call /connect/authorize to initiate user login and consent**  The Merchant must grant consent through mechanism in the OpenID Connect protocol suite. The Hybrid Flow should be initiated. For Subscriptions product the Client must request consent from the merchant using the `subscriptions` scope. You also need to specify `offline_access` scope, in order to get the refresh token. When user clicks on this button, merchant must do back-end call to  `"/authorize"` endpoint for initiating  authentication flow. 
+**Docs** [here](https://developer.mobilepay.dk/developersupport/openid/authorize/) 
 
-2. **Wait for the response by listening on the redirect URI and get the authorization code** You need to wait for the response by listening on the `redirect_url` and get the `authorization_code`. Our system will re-direct the merchant back to your system also using the `redirect_url`. Follow the guideline [here](https://developer.mobilepay.dk/developersupport/openid/getcode/) 
+2. **Wait for the response by listening on the redirect URI and get the authorization code** You need to wait for the response by listening on the `redirect_url` and get the `authorization_code`. Our system will re-direct the merchant back to your system also using the `redirect_url`. 
+**Docs** [here](https://developer.mobilepay.dk/developersupport/openid/getcode/) 
 
-3. **Exchange the authorization code for tokens using /connect/token** Once you got the `authorization_code`, you can use it to get `access_token` and `refresh_token` from the token endpoint. Follow the guideline [here](https://developer.mobilepay.dk/developersupport/openid/gettokens/) 
+3. **Exchange the authorization code for tokens using /connect/token** Once you got the `authorization_code`, you can use it to get `access_token` and `refresh_token` from the token endpoint. 
+**Docs** [here](https://developer.mobilepay.dk/developersupport/openid/gettokens/) 
 
-4. **Keep the session alive by using the refresh token** When the `access_token` expires, the `refresh_token` can be used to obtain a fresh `access_token` with the same permissions, without further involvement from a user. Follow the guideline [here](https://developer.mobilepay.dk/developersupport/openid/getrefreshtokens/) 
+4. **Keep the session alive by using the refresh token** When the `access_token` expires, the `refresh_token` can be used to obtain a fresh `access_token` with the same permissions, without further involvement from a user. 
+**Docs** [here](https://developer.mobilepay.dk/developersupport/openid/getrefreshtokens/) 
 
-5. **Follow Best Practice**  Follow the guideline [here](https://developer.mobilepay.dk/developersupport/openid/bestpractice/) 
+5. **Follow Best Practice**  Keeping credentials secure is important whether you're developing open source libraries, or in this case, an MobilePay API integration for your product. 
+**Docs** [here](https://developer.mobilepay.dk/developersupport/openid/bestpractice/) 
 
 [![](assets/images/OpenIdflowWithFIandAuthorize.png)](assets/images/OpenIdflowWithFIandAuthorize.png)
 
