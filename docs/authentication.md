@@ -4,7 +4,7 @@
 ### Authorization
 
 
-# <a name="client_onboarding"></a>**Onboarding a Subscriptions client**
+# <a name="client_onboarding"></a>**Part 1 : Onboarding a Subscriptions client**
 
 1. **Read API documentation.** You will find it in the  [APIs menu](https://sandbox-developer.mobilepay.dk/product).  
 
@@ -20,8 +20,8 @@
 
 Now you are ready to move on to the authentication section below.  
 
-### <a name="openid-connect"></a>OpenID Connect
-When the merchant is onboarded via  [Production MobilePay Portal](https://admin.mobilepay.dk/), and has ordered Subscriptions, then you can continue with OIDC.  
+### <a name="openid-connect"></a>Part 2 : OpenID Connect
+When the merchant is onboarded via  [Production MobilePay Portal](https://admin.mobilepay.dk/), and has ordered Subscriptions, then you can continue with OIDC. Note: if you are still working on the integration in sandbox, you will use [Sandbox MobilePay Portal](https://sandprod-admin.mobilepay.dk/)   
 
 [![](assets/images/OpenIdflowWithFIandAuthorize.png)](assets/images/OpenIdflowWithFIandAuthorize.png)
 
@@ -83,10 +83,6 @@ $ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: clien
 | response_mode       |   an Authorization Request parameter that informs the Authorization Server of the mechanism to be used for returning Authorization Response parameters from the Authorization_endpoint.|
 | state       |   We require the OAuth 2.0 `state` parameter on all requests to the /authorize endpoint in order to prevent cross-site request forgery (CSRF). he OAuth 2.0 specification [requires](https://tools.ietf.org/html/rfc6749#section-10.12) that clients protect their redirect URIs against CSRF by sending a value in the authorize request that binds the request to the user-agent's authenticated state.|
 
-
-
- 
- 
 
 ### OpenID configuration endpoints 
 Find the configuration links below:
