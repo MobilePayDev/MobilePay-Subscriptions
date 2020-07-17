@@ -28,7 +28,6 @@ When the merchant is onboarded via  [Production MobilePay Portal](https://admin.
 
 Note: if you are still working on the integration in sandbox, you will use [Sandbox MobilePay Portal](https://sandprod-admin.mobilepay.dk/) from step 5 in part 1.    
 
-[![](assets/images/OpenIdflowWithFIandAuthorize.png)](assets/images/OpenIdflowWithFIandAuthorize.png)
 
       
 # 5 steps to Implementing OpenID Connect 
@@ -39,17 +38,17 @@ The flow is described in the following 5 steps:
 1. **Step** [Call /connect/authorize to initiate user login and consent](https://developer.mobilepay.dk/developersupport/openid/authorize/) 
 The Merchant must grant consent through mechanism in the [OpenID Connect](http://openid.net/connect/) protocol suite. The [Hybrid Flow](http://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth) should be initiated. For __Subscriptions__ product the Client must request consent from the merchant using the `subscriptions` scope. You also need to specify `offline_access` scope, in order to get the refresh token. When user clicks on this button, merchant must do back-end call to  [`"/authorize"`](https://developer.mobilepay.dk/developersupport/openid/authorize/) endpoint for initiating  authentication flow. 
 
-2. **Step** [Wait for the response by listening on the redirect URI and get the authorization code](https://developer.mobilepay.dk/developersupport/openid/getcode/) 
+2. **Step** [Wait for the response by listening on the redirect URI and get the authorization code](https://developer.mobilepay.dk/developersupport/openid/getcode/) You need to wait for the response by listening on the redirect URI and get the Authorization Code. Our system will re-direct the merchant back to your system also using the redirect URL. 
 
-You need to wait for the response by listening on the redirect URI and get the Authorization Code. Our system will re-direct the merchant back to your system also using the redirect URL. 
+3. **Step**   [Exchange the authorization code for tokens using /connect/token](https://developer.mobilepay.dk/developersupport/openid/gettokens/) Once you got the Authorization Code, you can use it to get access and refresh tokens from the token endpoint. 
 
-3. **Step**   [Exchange the authorization code for tokens using /connect/token](https://developer.mobilepay.dk/developersupport/openid/gettokens/) 
-
-4. **Step**    [Keep the session alive by using the refresh token](https://developer.mobilepay.dk/developersupport/openid/getrefreshtokens/) 
+4. **Step**    [Keep the session alive by using the refresh token](https://developer.mobilepay.dk/developersupport/openid/getrefreshtokens/) When the access_token expires, the refresh_token can be used to obtain a fresh access_token with the same permissions, without further involvement from a user. 
 
 5. **Step**    [Follow Best Practice](https://developer.mobilepay.dk/developersupport/openid/bestpractice/) 
 
- 
+[![](assets/images/OpenIdflowWithFIandAuthorize.png)](assets/images/OpenIdflowWithFIandAuthorize.png)
+
+
 An example of how to use OpenID connect in C# can be found [here](https://github.com/MobilePayDev/MobilePay-Subscriptions/tree/master/docs/ClientExamples).
 
 
@@ -84,7 +83,7 @@ $ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: clien
 | fragment        |   Parameters are encoded in the URL fragment added to the `redirect_uri` when redirecting back to the client. We recommend using `response_mode=form_post`, to ensure the most secure transfer of tokens to your application. |
 | response_mode       |   an Authorization Request parameter that informs the Authorization Server of the mechanism to be used for returning Authorization Response parameters from the Authorization_endpoint.|
 | redirect_uri       |    MobilePay will redirect users to a registered  `redirect_uri`, in order to prevent redirection attacks where an authorization code or access token can be obtained by an attacker. The  `redirect_uri`  must be an https endpoint to prevent tokens from being intercepted during the authorization process. |
-| Refresh Token       |   Consent is agreed between the Resource Owner (customer) and the Client (TPP). It includes what data may be shared, what services may be performed on the Resource Owner's behalf|
+| Refresh Token       |   Consent is agreed between the Resource Owner (customer) and the Client (TPP). It includes what data may be shared, what services may be performed on the Resource Owner's behalf. refresh_tokens are long-lived. This means when a client gets one from a server, this token must be stored securely to keep it from being used by potential attackers. T|
 | response_mode       |   an Authorization Request parameter that informs the Authorization Server of the mechanism to be used for returning Authorization Response parameters from the Authorization_endpoint.|
 | state       |   We require the OAuth 2.0 `state` parameter on all requests to the /authorize endpoint in order to prevent cross-site request forgery (CSRF). he OAuth 2.0 specification [requires](https://tools.ietf.org/html/rfc6749#section-10.12) that clients protect their redirect URIs against CSRF by sending a value in the authorize request that binds the request to the user-agent's authenticated state.|
 
