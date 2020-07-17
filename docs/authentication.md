@@ -30,7 +30,7 @@ Note: if you are still working on the integration in sandbox, you will use [Sand
 
 
       
-# 5 steps to Implementing OpenID Connect 
+## 5 steps to Implementing OpenID Connect 
 
 There are many OpenID Connect certified libraries, so you have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs). we recommend <a href="https://github.com/IdentityModel/IdentityModel.OidcClient2">Certified C#/NetStandard OpenID Connect Client Library </a> 
 The flow is described in the following 5 steps:
