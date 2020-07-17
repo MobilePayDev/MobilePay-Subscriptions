@@ -1,9 +1,6 @@
 ## <a name="general-notes_authentication"></a>Authentication 
 
 
-### Authorization
-
-
 # <a name="client_onboarding"></a>**Part 1 : Onboarding a Subscriptions client**
 
 1. **Read API documentation.** You will find it in the  [APIs menu](https://sandbox-developer.mobilepay.dk/product).  
