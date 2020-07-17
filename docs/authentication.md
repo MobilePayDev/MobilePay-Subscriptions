@@ -16,10 +16,10 @@
 -  Subscriptions
 -  Subscriptions User Simulation
  
-5. **Receive OAuth  Credentials via zip file.** The Credentials will be used when calling the token endpoint (described below) to generate an access token. The zip file will be sent via e-mail. The zip file is locked with a password. DeveloperSupport will provide the password via text message to ensure the password protected file and the password is not transmitted together. You will also receive a testuser to  [Sandbox MobilePay Portal](https://sandprod-admin.mobilepay.dk/)
+5. **Receive OAuth  Credentials via zip file.** The Credentials will be used when calling the token endpoint (described below) to generate an `access token`. The zip file will be sent via e-mail. The zip file is locked with a password. DeveloperSupport will provide the password via text message to ensure the password protected file and the password is not transmitted together. You will also receive a testuser to  [Sandbox MobilePay Portal](https://sandprod-admin.mobilepay.dk/)
 
 
-6. **Send your redirect URI to developer@mobilepay.dk** The redirect_uri will be used once the user authenticates successfully. MobilePay will only redirect users to a registered redirect_uri, in order to prevent redirection attacks where an authorization code or access token can be obtained by an attacker. The redirect_uri must be an https endpoint to prevent tokens from being intercepted during the authorization process.MobilePay allows you to register multiple redirect_uri. You need to provide your own redirect_uri and send it to developer@mobilepay.dk so it can be whitelisted.   We will whitelist is as soon as we process your email request and we will confirm via e-mail, once it has been whitelisted.
+6. **Send your redirect URI to developer@mobilepay.dk** The `redirect_uri` will be used once the user authenticates successfully. MobilePay will only redirect users to a registered `redirect_uri`, in order to prevent redirection attacks where an `authorization_code` or `access_token` can be obtained by an attacker. The `redirect_uri` must be an https endpoint to prevent tokens from being intercepted during the authorization process. You need to provide your own `redirect_uri` and send it to developer@mobilepay.dk so it can be whitelisted. We will whitelist is as soon as we process your email request and we will confirm via e-mail, once it has been whitelisted.
 
 Now you are ready to move on to the authentication section below.  
 
