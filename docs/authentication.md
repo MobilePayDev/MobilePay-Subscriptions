@@ -8,15 +8,18 @@
 
 1. **Read API documentation.** You will find it in the  [APIs menu](https://sandbox-developer.mobilepay.dk/product).  
 
-2.  **Log-in on the developer portal.** Go to [Sandbox developer portal](https://sandbox-developer.mobilepay.dk/) and log in with your credentials.
+2. **Log-in on the developer portal.** Go to [Sandbox developer portal](https://sandbox-developer.mobilepay.dk/) and log in with your credentials.
 
- 3.  **Create an app in the developer portal.** Go to My Apps > Create new App to register a new application. You need to supply the `x-ibm-client-id` when calling APIs. You should always store the `x-ibm-client-id` in a secure location, and never reveal it publicly.  More details about the usage of `x-ibm-client-id` below in the authentication section. 
+3. **Create an app in the developer portal.** Go to My Apps > Create new App to register a new application. You need to supply the `x-ibm-client-id` when calling APIs. You should always store the `x-ibm-client-id` in a secure location, and never reveal it publicly.  More details about the usage of `x-ibm-client-id` below in the authentication section. 
 
-4.  **Subscribe the app to APIs.**  Go to [APIs](https://sandbox-developer.mobilepay.dk/product) and subscribe to the following APIs:
+4. **Subscribe the app to APIs.**  Go to [APIs](https://sandbox-developer.mobilepay.dk/product) and subscribe to the following APIs:
 -  Subscriptions
 -  Subscriptions User Simulation
  
- 5.  **Receive OAuth  Credentials via zip file.** The Credentials will be used when calling the token endpoint (described below) to generate an access token. The zip file will be sent via e-mail. The zip file is locked with a password. DeveloperSupport will provide the password via text message to ensure the password protected file and the password is not transmitted together. You will also receive a testuser to  [Sandbox MobilePay Portal](https://sandprod-admin.mobilepay.dk/)   
+5. **Receive OAuth  Credentials via zip file.** The Credentials will be used when calling the token endpoint (described below) to generate an access token. The zip file will be sent via e-mail. The zip file is locked with a password. DeveloperSupport will provide the password via text message to ensure the password protected file and the password is not transmitted together. You will also receive a testuser to  [Sandbox MobilePay Portal](https://sandprod-admin.mobilepay.dk/)
+
+
+6. **Send your redirect URI to developer@mobilepay.dk** The redirect_uri will be used once the user authenticates successfully. MobilePay will only redirect users to a registered redirect_uri, in order to prevent redirection attacks where an authorization code or access token can be obtained by an attacker. The redirect_uri must be an https endpoint to prevent tokens from being intercepted during the authorization process.MobilePay allows you to register multiple redirect_uri. You need to provide your own redirect_uri and send it to developer@mobilepay.dk so it can be whitelisted.   We will whitelist is as soon as we process your email request and we will confirm via e-mail, once it has been whitelisted.
 
 Now you are ready to move on to the authentication section below.  
 
@@ -35,9 +38,11 @@ The flow is described in the following 5 steps:
 
 [Step 1: Call /connect/authorize to initiate user login and consent](https://developer.mobilepay.dk/developersupport/openid/authorize/) 
 
-The Merchant must grant consent through mechanism in the [OpenID Connect](http://openid.net/connect/) protocol suite. The [Hybrid Flow](http://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth) should be initiated. For __Subscriptions__ product the Client must request consent from the merchant using the `subscriptions` scope. You also need to specify `offline_access` scope, in order to get the refresh token. When user clicks on this button, merchant must do back-end call to  [`"/authorize"`](https://developer.mobilepay.dk/developersupport/openid/authorize/) endpoint for initiating  authentication flow. You need to wait for the response by listening on the redirect URI and get the Authorization Code. Our system will re-direct the merchant back to your system also using the redirect URL. 
+The Merchant must grant consent through mechanism in the [OpenID Connect](http://openid.net/connect/) protocol suite. The [Hybrid Flow](http://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth) should be initiated. For __Subscriptions__ product the Client must request consent from the merchant using the `subscriptions` scope. You also need to specify `offline_access` scope, in order to get the refresh token. When user clicks on this button, merchant must do back-end call to  [`"/authorize"`](https://developer.mobilepay.dk/developersupport/openid/authorize/) endpoint for initiating  authentication flow. 
 
 [Step 2: Wait for the response by listening on the redirect URI and get the authorization code](https://developer.mobilepay.dk/developersupport/openid/getcode/) 
+
+You need to wait for the response by listening on the redirect URI and get the Authorization Code. Our system will re-direct the merchant back to your system also using the redirect URL. 
 
 [Step 3: Exchange the authorization code for tokens using /connect/token](https://developer.mobilepay.dk/developersupport/openid/gettokens/) 
 
