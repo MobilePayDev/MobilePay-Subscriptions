@@ -31,7 +31,7 @@ Note: if you are still working on the integration in sandbox, you will use [Sand
 [![](assets/images/OpenIdflowWithFIandAuthorize.png)](assets/images/OpenIdflowWithFIandAuthorize.png)
 
       
-# 5 steps
+# 5 steps to Implementing OpenID Connect 
 
 There are many OpenID Connect certified libraries, so you have to chose the one, that suits you best [from this list](http://openid.net/developers/certified/#RPLibs). we recommend <a href="https://github.com/IdentityModel/IdentityModel.OidcClient2">Certified C#/NetStandard OpenID Connect Client Library </a> 
 The flow is described in the following 5 steps:
@@ -53,7 +53,7 @@ You need to wait for the response by listening on the redirect URI and get the A
 An example of how to use OpenID connect in C# can be found [here](https://github.com/MobilePayDev/MobilePay-Subscriptions/tree/master/docs/ClientExamples).
 
 
-# <a name="openid-connect-libraries"></a>Implementing OpenID Connect  
+# <a name="openid-connect-libraries"></a> Authentication of API requests 
 The MobilePay API Gateway is ensuring the authentication of all Subscriptions API requests. All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
 To be able to use and connect to the API there are few requirements. In order to authenticate to the API, all requests to the API must contain at least three authentication headers:
