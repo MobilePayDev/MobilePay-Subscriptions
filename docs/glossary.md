@@ -3,6 +3,7 @@
 
 
 
+
 # Glossary of Terms
 
 | Term | Description |
@@ -22,8 +23,8 @@
 | Integrator    | The company that develops the client and calls the MobilePay Subscriptions API on behalf of the merchant. Sometimes the merchant acts as integrator.  |
 | JSON                |   JSON is the short form for Javascript Object Notation and is a text-based information format that follows Javascript object syntax.  |
 | Merchant         | The merchant is the company that wants to receive payments for goods and services from MobliePay users.|
-| MobilePay - Admin Portal         | The merchant orders the product on the [https://admin.mobilepay.dk/](Portal) |
-| MobilePay - Developer Portal          | The portal is used for app registration and gives developer access to tools and information they need to explore, test, and consume MobilePay api's. The Developer Portal in production is [https://developer.mobilepay.dk/](https://developer.mobilepay.dk/) and in Sandbox is [https://sandbox-developer.mobilepay.dk/](https://sandbox-developer.mobilepay.dk/)    
+| MobilePay - Admin Portal         | The merchant orders the product on MobilePay Portal in Production [https://admin.mobilepay.dk/](Portal) but in sandbox, you will provided with a sandbox test user [https://sandprod-admin.mobilepay.dk/](https://sandprod-admin.mobilepay.dk/) that is created by developer@mobilepay.dk |
+| MobilePay - Developer Portal          | The Developer Portal is used for app registration and gives developer access to tools and information they need to explore, test, and consume MobilePay api's. The Developer Portal in production is [https://developer.mobilepay.dk/](https://developer.mobilepay.dk/) and in Sandbox is [https://sandbox-developer.mobilepay.dk/](https://sandbox-developer.mobilepay.dk/)    
 | Reservation     | A reservation is a pre-authorization which guarantees that the user has sufficient funds to pay for the given transaction. Uncaptured one-off payments expire after 14 days. |
 | REST     |  It stands for "Representational State Transfer". |
 | retention_period_hours     |  Merchant can set for how long agreement can not be cancelled by the user, after the user accepted the agreement, for up to 24 hours. |
@@ -32,7 +33,7 @@
 |Payment - OneOff| Customer action performed in order to initiate payment. The customer can create agreements with an initial OneOff payment, for example when the user wants to set up an agreement and you want to charge upfront. or request a OneOff payment on an existing agreement|
 | Payment_status_callback_url         | You need to configure the payment_status_callback_url before you start to send payment requests.Once the payment or agreement changes state, a callback will be done to the callback address.  You will not receive callbacks from MobilePay, unless you have set the payment_status_callback. It does not need to be whitelisted at MobilePay side.|
 | ProviderID         | You need to deliver the ProviderID in the endpoints in the calls  as {providerId}. ProviderID represents a particular subscription provider.In order to get the ProviderID, you need to make  GET call to the Subscriptions API. You set the payment_status_callback_url for each providerID |
-| SubscriptionProvider   | The SubscriptionsProvider is the actual service provider name. Each subscriptions provider contains its own address information, homepage url and etc. For example, if a single merchant has several brands, each brand would be a subscription provider. Merchant can create new and update current Subscriptions Provider on https://admin.mobilepay.dk/  | 
+| SubscriptionProvider   | The SubscriptionsProvider is the actual service provider name. Each subscriptions provider contains its own address information, homepage url and etc. For example, if a single merchant has several brands, each brand would be a subscription provider. Merchant can create new and update current Subscriptions Provider on the MobilePay Portal in Production on https://admin.mobilepay.dk/   | 
 | VAT-number   | In Denmark, this is the CVR-number. In Finland, this is the Y-tunnus. Both refer to the official business ID.| 
 
 
