@@ -71,15 +71,15 @@ $ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: clien
 ![](assets/images/OpenIdFlowWithFiandAuthorize.png)
 
 
-
 # Glossary of OIDC terms 
 
 | Term | Description |
 |------|-------------|
 | Access Token | A token which is retrieved by the Client after a successful access authorization flow. The access token is used by the API to authenticate Clients.   |
 | Authorization Code         |  A short-lived code that is exchanged for an Access Token. A Client makes a Token Request by presenting its Authorization Grant (in the form of an Authorization Code) to the Token Endpoint using the grant_type value authorization_code.|
+| `x-ibm-client-id` and `x-ibm-client-secret`         |  Creating an app in MobilePay Developer Portal will create a `x-ibm-client-id` and `x-ibm-client-secret` and it should be used in all calls to the MobilePay Subscriptions API|
 | Client | Client is used interchangeably for the application that calls the MobilePay API. |
-| Client Credentials | According to ([RFC 6749](https://tools.ietf.org/html/rfc6749)), a client ID is required when you make an authorization request to an authorization server. They should be used, when during the OpenID flow (when getting/renewing access token), for example in /authorize and /token calls. Client ID and Client Secret for Authorization server will be provided in a password protected zip sent by [developer@mobilepay.dk](mailto:developer@mobilepay.dk)  |
+| Client Credentials | According to ([RFC 6749](https://tools.ietf.org/html/rfc6749)), a client ID is required when you make an authorization request to an authorization server. They should be used, when during the OpenID flow (when getting/renewing access token), for example in /authorize and /token calls. Client ID and Client Secret for Authorization server will be provided in a password protected zip sent by [developer@mobilepay.dk](mailto:developer@mobilepay.dk)     |
 | form_post        |   `response_mode=form_post` sends the token response as a form post. Authorization Response parameters are encoded as HTML form values that are auto-submitted in the User Agent, and thus are transmitted via the HTTP POST method to the Client, with the result parameters being encoded in the body using the application/x-www-form-urlencoded format.  |
 | fragment        |   Parameters are encoded in the URL fragment added to the `redirect_uri` when redirecting back to the client. We recommend using `response_mode=form_post`, to ensure the most secure transfer of tokens to your application. |
 | response_mode       |   an Authorization Request parameter that informs the Authorization Server of the mechanism to be used for returning Authorization Response parameters from the Authorization_endpoint.|
@@ -87,6 +87,7 @@ $ curl --header "Authorization: Bearer <token>" --header 'x-ibm-client-id: clien
 | Refresh Token       |   Consent is agreed between the Resource Owner (customer) and the Client (TPP). It includes what data may be shared, what services may be performed on the Resource Owner's behalf. refresh_tokens are long-lived. This means when a client gets one from a server, this token must be stored securely to keep it from being used by potential attackers. T|
 | response_mode       |   an Authorization Request parameter that informs the Authorization Server of the mechanism to be used for returning Authorization Response parameters from the Authorization_endpoint.|
 | state       |   We require the OAuth 2.0 `state` parameter on all requests to the /authorize endpoint in order to prevent cross-site request forgery (CSRF). he OAuth 2.0 specification [requires](https://tools.ietf.org/html/rfc6749#section-10.12) that clients protect their redirect URIs against CSRF by sending a value in the authorize request that binds the request to the user-agent's authenticated state.|
+
 
 
 ### OpenID configuration endpoints 
