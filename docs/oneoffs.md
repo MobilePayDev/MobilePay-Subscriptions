@@ -62,8 +62,15 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
 |**one_off_payment**              |object      |          |*__One-Off Payment__ details.*||
 |**one_off_payment.amount**       |number(0.00)|required  |*__One-Off Payment__ amount, which will be displayed for the user in the MobilePay app.*|> 0.00, decimals separated with a dot.|
 |**one_off_payment.description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
-|**one_off_payment.external_id**  |string(30)  |required  |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
+|**one_off_payment.external_id**  |string(64)*  |required  |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
 |**one_off_payment.expiration_timeout_minutes**|int|optional|*__One-Off Payment__ expiration timeout in minutes.*|Min: 1, max: 20160 (2 weeks), default: 1440 (24 hours)|
+
+<div class="note">
+    <strong>Note:</strong>
+    <p>
+        * Recommendation for "external_id" is to use up to 30 symbols. For instant transfers "external_id" is used as payment reference and will be truncated down to 30 symbols if it contains more. Truncated payment reference will be visible in bank statement.
+    </p>
+</div>
 
 <a name="oneoffpayments_response-new"></a>In this case the response of `POST /api/providers/{providerId}/agreements` will contain additional `one_off_payment_id` value - id of the newly requested **One-Off Payment**.
 
