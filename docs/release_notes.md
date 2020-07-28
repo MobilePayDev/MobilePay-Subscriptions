@@ -1,5 +1,8 @@
 # Subscriptions API Release Notes
 
+<div class='post-date'>09 July 2020</div>
+Extended payment_transaction_id the API responses with additional property. Note: this is not a breaking change. Removing or renaming properties, on the other hand, is a breaking change, which is not the case here. 
+
 <div class='post-date'>10 June 2020</div>
 The feature to attach `cancel-redirect` url to an agreement has been released. If this url is set, users, who want to cancel their agreement, will be redirected to your defined link only if they use MobilePay app version **4.22 or higher**.
 
