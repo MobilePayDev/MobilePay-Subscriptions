@@ -1,9 +1,12 @@
 # Subscriptions API Release Notes
 
-<div class='post-date'>09 July 2020</div>
-Extended payment_transaction_id the API responses with additional property. Note: this is not a breaking change. Removing or renaming properties, on the other hand, is a breaking change, which is not the case here. 
+<div class='post-date'>09 July 2020 - payment_transaction_id</div> 
+We received feature request to include Transaction ID for all payments: recurring; one-off; refund. By including the Transaction ID, It is easier to conduct reconciliation through the Transaction Reporting API. The Transaction ID is visible on the receipt screen. We have extended payment_transaction_id in all API responses with additional property.
 
-<div class='post-date'>10 June 2020</div>
+Note: this is not a breaking change. Removing or renaming properties, on the other hand, is a breaking change, which is not the case here. 
+
+
+<div class='post-date'>10 June 2020 - `cancel-redirect` </div>
 The feature to attach `cancel-redirect` url to an agreement has been released. If this url is set, users, who want to cancel their agreement, will be redirected to your defined link only if they use MobilePay app version **4.22 or higher**.
 
 <div class='post-date'>25 May 2020</div>
