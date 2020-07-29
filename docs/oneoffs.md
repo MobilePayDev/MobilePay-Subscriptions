@@ -55,7 +55,7 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
 }
 ```
 
-#### <a name="oneoff_request-parameters"></a> Request parameters
+#### <a name="agreement-request-parameters"></a> Request parameters
 
 |Parameter                        |Type        |Required  |Description                                                      |Valid values|
 |:--------------------------------|:-----------|:---------|:----------------------------------------------------------------|:-----------|
@@ -126,18 +126,25 @@ When using one-off without swipe, the sliding part is ommited. There might still
 Merchants who wants to use  `auto_reserve` field  feature, must apply for this in regards to the onboarding of Subscriptions. Merchants cannot use this feature without being pre-approved to do so.
 
 
-##### <a name="oneoffpayments_request-parameters"></a>Request parameters
+##### <a name="request-parameters"></a>Request parameters
 
 |Parameter                     |Type      |Required  |Description                                                      |Valid values|
 |:-----------------------------|:---------|:---------|:----------------------------------------------------------------|:-----------|
 |**amount**       |number(0.00)|required  |*__One-off Payment__ amount, which will be displayed for the user in the MobilePay app.*|> 0.00, decimals separated with a dot.|
 |**description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
-|**external_id**  |string      |required   |*__One-off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
+|**external_id**  |string(64)* |required   |*__One-off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
 |**links**        |string      |required  |*Link relation of the __One-off Payment__ creation sequence. Must contain 1 value for user redirect.*||
 |**links[].rel**  |string      |required  |*Link relation type.*|user-redirect|
 |**links[].href** |string      |required  |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
 |**auto_reserve** |boolean     |optional  |*When this field is set to __true__, we will attempt to automatically reserve the payment without user's interaction. If you do not wish payment to be automatically reserved, you can omit this field or set it to __false__.*|true/false|
 |**expiration_timeout_minutes**|int|optional|*__One-Off Payment__ expiration timeout in minutes.*|Min: 1, max: 20160 (2 weeks), default: 1440 (24 hours)|
+
+<div class="note">
+    <strong>Note:</strong>
+    <p>
+        * Recommendation for "external_id" is to use up to 30 symbols. For instant transfers "external_id" is used as payment reference and will be truncated down to 30 symbols if it contains more. Truncated payment reference will be visible in bank statement.
+    </p>
+</div>
 
 <a name="oneoffpayments_response-existing"></a>The response of `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` contains two values: a unique *id* of the newly requested **One-Off Payment** and a link *rel* = *mobile-pay*.
 

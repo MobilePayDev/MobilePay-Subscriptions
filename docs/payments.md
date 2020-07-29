@@ -49,7 +49,7 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentreque
 
 Agreement disable_notification_management push notification. Merchant can set if their customer should be able to manage push notifications for an agreement or not. If the merchant choses so, then the push notification is not displayed when signing new agreement and when browsing agreement information. 
 
-#### <a name="subscription-payments_request-parameters"></a>Request parameters
+#### <a name="request-parameters"></a>Request parameters
 
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |----------------------|------------|----------|-----------------------------------------------------------------|------------|

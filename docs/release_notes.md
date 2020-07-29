@@ -1,5 +1,8 @@
 # Subscriptions API Release Notes
 
+<div class='post-date'>28 July 2020 - external_id</div> 
+Due to restrictions in external systems we added recommendation to keep `external_id` up to 30 symbols for [subscription](payments#request-parameters) and [one-off](oneoffs#request-parameters) payment requests.
+
 <div class='post-date'>09 July 2020 - payment_transaction_id</div> 
 We received feature request to include Transaction ID for all payments: recurring; one-off; refund. By including the Transaction ID, It is easier to conduct reconciliation through the Transaction Reporting API. The Transaction ID is visible on the receipt screen. We have extended payment_transaction_id in all API responses with additional property.
 
