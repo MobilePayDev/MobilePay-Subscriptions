@@ -4,10 +4,9 @@
 Due to restrictions in external systems we added recommendation to keep `external_id` up to 30 symbols for [subscription](payments#request-parameters) and [one-off](oneoffs#request-parameters) payment requests.
 
 <div class='post-date'>09 July 2020 - payment_transaction_id</div> 
-We received feature request to include payment_transaction_id for all payments: recurring; one-off; refund. By including the payment_transaction_id, It is easier to conduct reconciliation through the Transaction Reporting API. The Transaction ID is visible on the receipt screen. Note, in the technical documentation it is called payment_transaction_id in all API responses with additional property.
+We received feature request to include payment_transaction_id for all payments: recurring; one-off; refund. By including the payment_transaction_id, It is easier to conduct reconciliation through the Transaction Reporting API. The payment_transaction_id  is visible on the receipt screen. Note, in the technical documentation it is called payment_transaction_id in all API responses with additional property.
 
-Note: this is not a breaking change. Removing or renaming properties, on the other hand, is a breaking change, which is not the case here. 
-
+Note: this is not a breaking change.
 
 <div class='post-date'>10 June 2020 - `cancel-redirect` </div>
 The feature to attach `cancel-redirect` url to an agreement has been released. If this url is set, users, who want to cancel their agreement, will be redirected to your defined link only if they use MobilePay app version **4.22 or higher**.
