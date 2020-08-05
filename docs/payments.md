@@ -173,7 +173,8 @@ The process on failed payments the DueDate is as follows:
 
 ##### <a name="subscription-payments_state"></a>Payment state diagram
 
-![](assets/images/Recurring_payment_states.jpg)
+![](assets/images/Recurring_payment_states2.jpg)
+
 ##### <a name="subscription-payments_callback-properties"></a>Other callback properties
 
 |Name            |Type        |Description                                           |Format|
