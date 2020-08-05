@@ -106,9 +106,8 @@ For example: if you have a customer where the frequency of an agreement is set t
 
 #### Payment screens
 
-[![](assets/images/Agreement_payments.jpg)](assets/images/Agreement_payments.jpg)
-
- 
+[![](assets/images/Agreement_payments.jpg)](assets/images/Agreement_payments_3_new.png)
+  
 #### <a name="subscription-payments_callbacks"></a>Callbacks
 
 Once the payment status changes from *Pending* to *Executed, Declined, Rejected* or *Failed*, a callback will be done to the callback address, which is configurable via `PATCH /api/providers/{providerId}` with path value `/payment_status_callback_url`. The `/payment_status_callback_url` should be a HTTPS. If you try to configure it to HTTP, you will get a bad request with the following error message: "The hyperlink reference must use https scheme"
