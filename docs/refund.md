@@ -14,6 +14,10 @@ Note: MP Subscriptions recurring or one-off payment refund CANNOT be made withou
 Note: Refunds CANNOT be made for **Instant** transfer payments. Only **Daily** transfer payment can be refunded.
 </div>
 
+<div class="note">
+Note: Refunds are sent to users receiving bank account, not the card/account the payment was done from.
+</div>
+
 #### <a name="requests"></a>Request a Refund
 Use the `POST /api/providers/{providerId}/agreements/{agreementId}/payments/{paymentId}/refunds` endpoint to request a **Refund**.
 
