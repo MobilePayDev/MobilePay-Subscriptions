@@ -8,7 +8,7 @@ You are able to:
 
 Note: One-off payments are charged when the customer manually swipes accept or `auto_reserve` field was set to __true__ when one-off payment was requested.  
 
-One-off payment does not affect the frequency and grace period. So if you create an agreement with a one-off payment, you can request the first subscription payment whenever you want. You can also request a one-off payment on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. When you create an agreement with a one-off payment, and the user accepts the agreement, the payment will be created and reserved. Capture and Reserve is handled by the Merchant. 
+One-off payment does not affect the frequency and grace period. So if you create an agreement with a one-off payment, you can request the first subscription payment whenever you want. You can also request a one-off payment on an existing agreement in between two subscriptions payments, and it will not be affected by the frequency. 
  
 
 ***
@@ -16,6 +16,8 @@ One-off payment does not affect the frequency and grace period. So if you create
 ## <a name="requests"></a>Flow 1- Request One-Off Payment With a New Agreement
  
 * Use this when the customer does not have an agreement already, and you need the customer to create an agreement and simultaneously pay for the service/product. 
+* When you create an agreement with a One-Off payment, and the user accepts the agreement, the payment will be created and reserved. 
+* Capture and Reserve is handled by the Merchant. 
 
 Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreements` request payload if you want the agreement being activated only when the user is successfully charged an initial subscription amount.
 
@@ -91,7 +93,9 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
 
 Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` endpoint in order to charge your customer one time for extra services.  
 
-Use case: When the customer alreadY has an active agreement and wants to order extra services/products. It is customer initiated, and the customer needs to swipe in the MobilePay app. The Merchant needs to capture the payment, to avoid that the payment will end up as being expired. It is not possible to capture expired payments.  
+* Use case: When the customer alreadY has an active agreement and wants to order extra services/products. It is customer initiated, and the customer needs to swipe in the MobilePay app. It is not possible to capture expired payments.  
+* Capture and Reserve is handled by the Merchant. The Merchant needs to capture the payment, to avoid that the payment will end up as being expired. It is dependent on the merchant use case, how fast the Merchant wants to capture the One-Off payment. For example, a hotel may reserve a payment, then move the money when the guest checks out. 
+
 
 
 
@@ -116,7 +120,8 @@ __One-off Payment__ will expire in 1 day (by default) if it is not accepted or r
 Custom expiration time ranging from 1 minute to 2 weeks can be specified by providing `expiration_timeout_minutes` field.
 
 ## <a name="autoreserve"></a>Flow 3 - OneOff with Auto reserve
- The one-off payment without swipe is sent directly to the MobilePay app. There is no MobilePay landing page. If the payment is successful, then a push message is shown that the One-off without swipe/confirmation was successful. One Off without swipe is valid for One-Offs without new agreement. 
+* The one-off payment without swipe is sent directly to the MobilePay app. There is no MobilePay landing page. If the payment is successful, then a push message is shown that the One-off without swipe/confirmation was successful. 
+* One Off without swipe is valid for One-Offs without new agreement. 
 
 When using one-off without swipe, the sliding part is ommited. There might still be issues with card, nemID and the user will get a push message about the failed payment. But until then, it is  a reserved payment. Therefore, there is a possibility of a time gap.  
 
