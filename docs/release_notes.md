@@ -1,4 +1,6 @@
 # Subscriptions API Release Notes
+<div class='post-date'>12 August 2020 - expiration_timeout_minutes</div> 
+Maximum `expiration_timeout_minutes` was increased from 2 weeks to 18 weeks for both [agreements](agreement#agreements_paramters) and [one-off](oneoffs#request-parameters) payment requests as well as [one-off with agreement](oneoffs#agreement-request-parameters) payment requests.
 
 <div class='post-date'>28 July 2020 - external_id</div> 
 Due to restrictions in external systems we added recommendation to keep `external_id` up to 30 symbols for [subscription](payments#request-parameters) and [one-off](oneoffs#request-parameters) payment requests.
