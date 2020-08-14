@@ -38,6 +38,7 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentreque
 
 - You can send your payments to us max *32 days* prior due date and min *1 day* prior due date.  
 - The customer needs to have at least 1 day to evaluate the payment. The customer can evaluate the payment by opening the MobilePay app. In the activity list the customer is presented with the Pending payment. 
+- For example: if you send the payment 1st of June before midnight, the earliest DueDate can be 3rd of June. The customer can see the payment in the MobilePay app from 2nd of June. 
 - We recommend that you send the payments before 00:00:00 so that you are sure that it will be included in our payment processing.
 - The MobilePay user will be able to see Payments in the app from 8 days to 1 day before due date depending on when you sent the payment. 
 - If a payment changes status e.g. declined by users, a callback on the specific payment will be made
