@@ -121,9 +121,9 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}` endpoint to
 
 #### New agreement creation in APP
 
-[![](assets/images/new_agreement_ from_app.jpg)](assets/images/new_agreement_ from_app.jpg)
+[![](assets/images/new_agreements_4.png)](assets/images/new_agreements_4.png)
 
-
+ 
 
 ### Agreement screen required and optional parameters
 The purple parameters below are visible in the MobilePay app on the **Agreement screen** if they are used by the merchant. They are optional, and should only be used, if the merchant finds that they provide informative value to the customer.   
