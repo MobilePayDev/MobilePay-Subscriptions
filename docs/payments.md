@@ -36,10 +36,10 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentreque
 
 ### <a name="subscription-payments_function"></a>How do Subscription Payments work? 
 
-- You can send your payments to us max *32 days* prior due date and min *1 day* prior due date. When creating new subscriptions payments, the Merchant is responsible for configuring the billing cycle so it matches their needs. We support both fixed dates (for example, the 1st of the next month) and variable dates. 
-- It is flexible to change how existing subscription payment is billed.
-- The customer needs to have at least 1 day to evaluate the payment. The customer can evaluate the payment by opening the MobilePay app. In the activity list the customer is presented with the Pending payment. 
+- *Billing Cycle*: You can send your payments to us max *32 days* prior due date and min *1 day* prior due date. When creating new subscriptions payments, the Merchant is responsible for configuring the billing cycle so it matches their and customers needs. We support both fixed dates (for example, the 1st of the next month) and variable dates. 
+- It is flexible to change when existing subscription payment is billed next time. The customer just needs to have at least 1 day to evaluate the payment. The customer can evaluate the payment by opening the MobilePay app. In the activity list the customer is presented with the Pending payment. 
 - For example: if you send the payment 1st of June before midnight, the earliest DueDate can be 3rd of June. The customer can see the payment in the MobilePay app from 2nd of June. 
+- *Amount* :  The Merchant decides the amount on each Payment Request. For example: electricity will vary to a certain extent, depending on how much electricity the customer is using, which is why an electric bill will fluctuate each month. You simply specify the amount each time you send a Payment Request. This is useful in cases where you want to charge your customers a granular amount based on their consumption of your service during the billing cycle, instead of explicitly setting a fixed amount. For example, Window Wash Company can use metered billing to offer a service where they wash their customer’s windows as needed, and charge at the end of the month for the total number of washes.
 - We recommend that you send the payments before 00:00:00 so that you are sure that it will be included in our payment processing.
 - The MobilePay user will be able to see Payments in the app from 8 days to 1 day before due date depending on when you sent the payment. 
 - If a payment changes status e.g. declined by users, a callback on the specific payment will be made to `/payment_status_callback_url`
