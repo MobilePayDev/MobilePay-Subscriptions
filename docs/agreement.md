@@ -113,13 +113,15 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}` endpoint to
 
 [![](assets/images/SUBS_New_Agreement_WEB_Flow.png)](assets/images/SUBS_New_Agreement_WEB_Flow.png)
 
+#### New agreement creation in APP
+
+[![](assets/images/new_agreements_4.png)](assets/images/new_agreements_4.png)
+
+
 #### Existing Deleted agreement
 
 [![](assets/images/Existing_Deleted_agreements_v3.png)](assets/images/Existing_Deleted_agreements_v3.png)
 
-#### New agreement creation in APP
-
-[![](assets/images/new_agreements_4.png)](assets/images/new_agreements_4.png)
 
  
 
