@@ -96,10 +96,10 @@ The response body containts two lists:
 
 #### <a name="subscription-payments_frequency"></a>Frequency of Payment Requests
 
- The merchant can send a payment max 32 days prior due date, and at least 1 day before due date. Valid values are 1, 2, 4, 12, 26, 52, 365, 0. This means that the daily payment (365) is the most frequent. When you are requesting a payment, you need to keep the 1 day rule. The user can have a single pending payment on due date. E.g. User can have 3 pending payments but the DueDate of those payments should be different.
+ The merchant can send a payment max 126 days prior due date, and at least 1 day before due date. Valid values are 1, 2, 4, 12, 26, 52, 365, 0. This means that the daily payment (365) is the most frequent. When you are requesting a payment, you need to keep the 1 day rule. The user can have a single pending payment on due date. E.g. User can have 3 pending payments but the DueDate of those payments should be different.
 
 - **Due Date** Payments cannot be created with the same Due Date.
-- **Multiple Recurring payments**  Multiple recurring payment requests can be created within period [32 before Due Date >= Payment Request Date >= 1 before Due Date].
+- **Multiple Recurring payments**  Multiple recurring payment requests can be created within period [126 before Due Date >= Payment Request Date >= 1 before Due Date].
 - **Next Payment Date** If there are multiple pending payments, Next Payment Date is the one closest to Today().
 
 ##### <a name="subscription-payments_grace-example"></a>Example of Frequency
@@ -148,7 +148,7 @@ We will post the integrator or merchant a callback, and expect a HTTP 2xx respon
 |Declined  |Declined due to user status.| Right after the payment request was received. |Declined  | Declined due to user status. | 50009 | 
 |Declined  |When the **Agreement** does not exist| Right after the payment request was received. |Declined  | Agreement does not exist. | 50010 |
 |Declined  |When the due date before rule is violated | Right after the payment request was received. |Declined  | Due date of the payment must be at least 1 day in the future. | 50011 |
-|Declined  |When the due date ahead rule is violated | Right after the payment request was received. |Declined  | Due date must be no more than 32 days in the future. | 50012 |
+|Declined  |When the due date ahead rule is violated | Right after the payment request was received. |Declined  | Due date must be no more than 126 days in the future. | 50012 |
 
 #### PaymentStates
 
