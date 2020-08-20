@@ -1,6 +1,6 @@
 # Subscriptions API Release Notes
 <div class='post-date'>20 August 2020 - payment-due-date</div> 
-Maximum `payment-due-date` was increased from 32 days to 126 days.
+Maximum `payment-due-date` was increased from 32 days to 126 days for [subscription](payments#subscription-payments_frequency)
 
 <div class='post-date'>12 August 2020 - expiration_timeout_minutes</div> 
 Maximum `expiration_timeout_minutes` was increased from 2 weeks (20160 minutes) to 18 weeks (181440 minutes) for both [agreements](agreement#agreements_paramters) and [one-off](oneoffs#request-parameters) payment requests as well as [one-off with agreement](oneoffs#agreement-request-parameters) payment requests.
