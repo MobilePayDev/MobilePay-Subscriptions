@@ -1,4 +1,7 @@
 # Subscriptions API Release Notes
+<div class='post-date'>26 August 2020 - frequency</div> 
+Default `frequency` for agreement was changed from 12 to 0.
+
 <div class='post-date'>20 August 2020 - payment-due-date</div> 
 Maximum `payment-due-date` was increased from 32 days to 126 days for [subscription](payments#subscription-payments_frequency) payment requests.
 
