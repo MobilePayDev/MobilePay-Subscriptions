@@ -1,7 +1,9 @@
 ## <a name="agreements"></a>Agreements
 
 An agreement is used to provide subscription service to sell to Customers.
-Once the user is given to choose the payment method on the merchant's signup flow, an additional "*Pay with MobilePay*" button should be shown for the user to be able to click on. When user clicks on this button, merchant's back-end system must call the `POST /api/providers/{providerId}/agreements` endpoint in order to create a *Pending* Subscription **Agreement**, which can only be activated by the MobilePay user through the app. The agreement is a prerequisite in order to send Subscription payments.  
+Once the user is given to choose the payment method on the merchant's signup flow, an additional "*Pay with MobilePay*" button should be shown for the user to be able to click on. When user clicks on this button, merchant's back-end system must call the `POST /api/providers/{providerId}/agreements` endpoint in order to create a *Pending* Subscription **Agreement**, which can only be activated by the MobilePay user through the app. The agreement is a prerequisite in order to send Subscription payments.  After agreement confirmation, user is redirected to merchant success page. If user did not manage to confirm agreement, the customer sees a timeout screen if they are on dual device. If they are on app, nothing is displayed.  
+
+
 
 #### <a name="requests"></a>Create agreement request
 ```json
@@ -39,7 +41,7 @@ Once the user is given to choose the payment method on the merchant's signup flo
 }
 ```
 
-`mobile_phone_number` is not required. Neither for agreement creation, or one-off creation. If you choose to add it, the phone number will be prefilled on our landing page. So that the user will not have to type the phone number on the landing page, which makes it more convenient for the user, if you add `mobile_phone_number`.
+`mobile_phone_number` is not required. Neither for agreement creation, or one-off creation. If you choose to add it, the phone number will be prefilled on our landing page. So that the user will not have to type the phone number on the landing page, which makes it more convenient for the user, if you add `mobile_phone_number`. We cannot enclose any phone number updates (if any) to the Merchant. We do not notify the merchant if the prefilled number was used / not used.
 
 The *Pending* **Agreement**, if not activated, will expire within the value, provided in the `expiration_timeout_minutes`.
 
