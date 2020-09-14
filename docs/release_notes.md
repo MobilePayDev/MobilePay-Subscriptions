@@ -1,6 +1,6 @@
 # Subscriptions API Release Notes
 <div class='post-date'>14 September 2020 - amount</div> 
-Added limit to payment and oneoffpayment amount for FI merchants to 2000.
+For FI merchants payment and one-off payment amount limit is 2000.
 
 <div class='post-date'>26 August 2020 - frequency</div> 
 Default `frequency` for agreement was changed from 12 to 0.
