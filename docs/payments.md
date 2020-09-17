@@ -108,7 +108,7 @@ For example: if you have a customer where the frequency of an agreement is set t
 
 #### Payment screens
 
-[![](assets/images/Agreement_payments.jpg)](assets/images/Agreement_payments_3_new.png)
+[![](assets/images/Agreement_payments_3_new.png)](assets/images/Agreement_payments_3_new.png)
   
 #### <a name="subscription-payments_callbacks"></a>Callbacks
 
