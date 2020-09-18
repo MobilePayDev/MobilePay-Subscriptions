@@ -62,7 +62,7 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
 |Parameter                        |Type        |Required  |Description                                                      |Valid values|
 |:--------------------------------|:-----------|:---------|:----------------------------------------------------------------|:-----------|
 |**one_off_payment**              |object      |          |*__One-Off Payment__ details.*||
-|**one_off_payment.amount**       |number(0.00)|required  |*__One-Off Payment__ amount, which will be displayed for the user in the MobilePay app.*|Min 0.00, Max (FI) 2000.00, decimals separated with a dot.|
+|**one_off_payment.amount**       |number(0.00)|required  |*__One-Off Payment__ amount, which will be displayed for the user in the MobilePay app.*|> 0.00, decimals separated with a dot.|
 |**one_off_payment.description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
 |**one_off_payment.external_id**  |string(64)*  |required  |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
 |**one_off_payment.expiration_timeout_minutes**|int|optional|*__One-Off Payment__ expiration timeout in minutes.*|Min: 1, max: 181440 (18 weeks), default: 1440 (24 hours)|
@@ -135,7 +135,8 @@ Merchants who wants to use  `auto_reserve` field  feature, must apply for this i
 
 |Parameter                     |Type      |Required  |Description                                                      |Valid values|
 |:-----------------------------|:---------|:---------|:----------------------------------------------------------------|:-----------|
-|**amount**       |number(0.00)|required  |*__One-off Payment__ amount, which will be displayed for the user in the MobilePay app.*|Min 0.00, Max (FI) 2000.00, decimals separated with a dot.|
+|**amount**       |number(0.00)|required  |*__One-off Payment__ amount, which will be displayed for the user in the MobilePay
+app.*|> 0.00, decimals separated with a dot.|
 |**description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
 |**external_id**  |string(64)* |required   |*__One-off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
 |**links**        |string      |required  |*Link relation of the __One-off Payment__ creation sequence. Must contain 1 value for user redirect.*||
