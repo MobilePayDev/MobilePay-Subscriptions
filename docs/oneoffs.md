@@ -135,8 +135,7 @@ Merchants who wants to use  `auto_reserve` field  feature, must apply for this i
 
 |Parameter                     |Type      |Required  |Description                                                      |Valid values|
 |:-----------------------------|:---------|:---------|:----------------------------------------------------------------|:-----------|
-|**amount**       |number(0.00)|required  |*__One-off Payment__ amount, which will be displayed for the user in the MobilePay
-app.*|> 0.00, decimals separated with a dot.|
+|**amount**       |number(0.00)|required  |*__One-off Payment__ amount, which will be displayed for the user in the MobilePay app.*|> 0.00, decimals separated with a dot.|
 |**description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
 |**external_id**  |string(64)* |required   |*__One-off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback.*||
 |**links**        |string      |required  |*Link relation of the __One-off Payment__ creation sequence. Must contain 1 value for user redirect.*||
