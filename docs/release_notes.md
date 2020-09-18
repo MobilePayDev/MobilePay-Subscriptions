@@ -1,4 +1,7 @@
 # Subscriptions API Release Notes
+<div class='post-date'>18 September 2020 - amount</div> 
+For DK merchants [payment](payments#request-parameters) amount limit is 60000.
+
 <div class='post-date'>14 September 2020 - amount</div> 
 For FI merchants [payment](payments#request-parameters) and [one-off payment](oneoffs) amount limit is 2000.
 
