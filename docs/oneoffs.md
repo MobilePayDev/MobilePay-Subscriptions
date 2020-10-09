@@ -178,9 +178,18 @@ When `auto_reserve` field is set to __true__:
 
 [![](assets/images/One-off-flows-without-swipe.svg)](assets/images/One-off-flows-without-swipe.svg)
 
+
 * Failed `auto_reserve` OneOff  : If the payment fails, and if push messages is also turned off, then a one-off confirmation screen after log in (until session expires) is by displayed for the User. The user can retry the payment from the  Confirmation screen. 
 
 * Successful `auto_reserve` OneOff  : If the payment is successful, then the user is presented with a reservation receipt.
+
+
+#### <a name="oneoffpayments_dualdevice"></a>Dual Device
+ 
+Initiating a purchase of a product/service from a desktop (the other device) should end-up as
+
+* one-off Payment Landing Page on Desktop and
+* a push directly to MobilePay (push notification)
 
 
 #### <a name="oneoffpayments_callback"></a>Callbacks
