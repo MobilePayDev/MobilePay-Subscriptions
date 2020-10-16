@@ -20,7 +20,7 @@ Notice that the **Subscription Payments** payload does not contain a currency co
 
 #### <a name="subscription-payments_update-existing"></a>Update existing Payment Request
 
-Once created, Recurring Payment Request can be updated (until it expires or is executed), Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentrequests/{paymentId}` endpoint to decrease the requested amount to be paid. It is possible to decrease the amount. However, it is not possible to increase it. If you have sent a payment request with a too high amount by mistake, you then can delete that payment request, and send another payment request with the correct amount. 
+Once created, Recurring Payment Request can be updated (until it expires or is executed), Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentrequests/{paymentId}` endpoint to decrease the requested amount to be paid. It is possible to decrease the amount. However, it is not possible to increase it. We only validate based on original amount set, we don't track the history. If you have sent a payment request with a too high amount by mistake, you then can delete that payment request, and send another payment request with the correct amount.  
 
 ```json
 [
