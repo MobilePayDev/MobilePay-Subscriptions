@@ -104,6 +104,23 @@ Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments`
 
 
 
+<a name="oneoffpayments_response-existing"></a>The response of `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` contains two values: a unique *id* of the newly requested **One-Off Payment** and a link *rel* = *mobile-pay*.
+
+```json
+{
+  "id": "07b70fdd-a300-460d-9ba1-aee2c8bb4b63",
+  "links": [
+    {
+      "rel": "mobile-pay",
+      "href": "https://<mobile-pay-landing-page>/?flow=agreement&id=1b08e244-4aea-4988-99d6-1bd22c6a5b2c&oneOffPaymentId=07b70fdd-a300-460d-9ba1-aee2c8bb4b63&redirectUrl=https%3a%2f%2fwww.example.com%2fredirect&countryCode=DK&mobile=4511100118"
+    }
+  ]
+}
+```
+ 
+* The *id* value can be used on the merchant's back-end system to map a one-off payment with a specific Subscription agreement on the merchant's side, and subsequently to capture a requested **One-Off Payment** when MobilePay user accepts it. 
+* The link *rel = mobile-pay* hyperlink reference must be used to redirect the user automatically using an HTTP response 302 or 303. Once the user is redirected, the MobilePay app will be opened to confirm the __One-off Payment__. This applies only if `auto_reserve` field is omitted or set to __false__.
+
 
 ## <a name="autoreserve"></a>Flow 3 - OneOff with Auto reserve
 * The one-off payment without swipe is sent directly to the MobilePay app. There is no MobilePay landing page. If the payment is successful, then a push message is shown that the One-off without swipe/confirmation was successful. 
@@ -160,23 +177,6 @@ Merchants who wants to use  `auto_reserve` field  feature, must apply for this i
         * Recommendation for "external_id" is to use up to 30 symbols. For instant transfers "external_id" is used as payment reference and will be truncated down to 30 symbols if it contains more. Truncated payment reference will be visible in bank statement.
     </p>
 </div>
-
-<a name="oneoffpayments_response-existing"></a>The response of `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` contains two values: a unique *id* of the newly requested **One-Off Payment** and a link *rel* = *mobile-pay*.
-
-```json
-{
-  "id": "07b70fdd-a300-460d-9ba1-aee2c8bb4b63",
-  "links": [
-    {
-      "rel": "mobile-pay",
-      "href": "https://<mobile-pay-landing-page>/?flow=agreement&id=1b08e244-4aea-4988-99d6-1bd22c6a5b2c&oneOffPaymentId=07b70fdd-a300-460d-9ba1-aee2c8bb4b63&redirectUrl=https%3a%2f%2fwww.example.com%2fredirect&countryCode=DK&mobile=4511100118"
-    }
-  ]
-}
-```
- 
-* The *id* value can be used on the merchant's back-end system to map a one-off payment with a specific Subscription agreement on the merchant's side, and subsequently to capture a requested **One-Off Payment** when MobilePay user accepts it. 
-* The link *rel = mobile-pay* hyperlink reference must be used to redirect the user automatically using an HTTP response 302 or 303. Once the user is redirected, the MobilePay app will be opened to confirm the __One-off Payment__. This applies only if `auto_reserve` field is omitted or set to __false__.
 
 #### <a name="oneoffpayments_screens"></a>One-Off payment screens
 
