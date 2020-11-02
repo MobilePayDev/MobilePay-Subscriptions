@@ -100,6 +100,7 @@ Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments`
 
 * Use case: When the customer alreadY has an active agreement and wants to order extra services/products. It is customer initiated, and the customer needs to swipe in the MobilePay app. It is not possible to capture expired payments.  
 * Capture and Reserve is handled by the Merchant. The Merchant needs to capture the payment, to avoid that the payment will end up as being expired. It is dependent on the merchant use case, how fast the Merchant wants to capture the One-Off payment. For example, a hotel may reserve a payment, then move the money when the guest checks out. 
+* Merchant uses Agreement ID to make the payment request, not the phone number.
 
 
 
