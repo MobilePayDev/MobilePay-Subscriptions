@@ -2,7 +2,7 @@
 
 There are 3 flows a customer can pay for a product or a service with One-Off payments. 
 You are able to:
-* Flow 1: Create Agreements with an initial One-Off Payment.
+* Flow 1: Create a new Agreement with an initial One-Off Payment.
 * Flow 2: Customer can initiate and request arbitrary One-Off Payment payments on their existing Agreement.
 * Flow 3: Merchants can send One-Off payment, which MobilePay will attempt to automatically reserve, without user’s confirmation
 
@@ -22,7 +22,7 @@ One-off payment does not affect the frequency and grace period. So if you create
  
 * Use this when the customer does not have an agreement already, and you need the customer to create an agreement and simultaneously pay for the service/product. 
 * When you create an agreement with a One-Off payment, and the user accepts the agreement, the payment will be created and reserved. 
-* Capture and Reserve is handled by the Merchant. 
+* Capture and Reserve is handled by the Merchant. Capture is done even if user is blocked after reservation
 
 Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreements` request payload if you want the agreement being activated only when the user is successfully charged an initial subscription amount.
 
