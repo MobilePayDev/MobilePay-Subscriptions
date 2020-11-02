@@ -104,25 +104,6 @@ Use a `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments`
 
 
 
-
-```json
-{
-  "amount": "80",
-  "external_id": "OOP00348",
-  "description": "Pay now for additional goods",
-  "links": [
-    {
-      "rel": "user-redirect",
-      "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
-    }
-  ],
-  "auto_reserve": true,
-  "expiration_timeout_minutes": "1440"
-}
-```
-
-
-
 ## <a name="autoreserve"></a>Flow 3 - OneOff with Auto reserve
 * The one-off payment without swipe is sent directly to the MobilePay app. There is no MobilePay landing page. If the payment is successful, then a push message is shown that the One-off without swipe/confirmation was successful. 
 * One Off without swipe is valid for One-Offs without new agreement. 
@@ -147,6 +128,30 @@ Merchants who wants to use  `auto_reserve` field  feature, must apply for this i
 |**links[].href** |string      |required  |*Link relation hyperlink reference.*|https://&lt;merchant's url&gt;|
 |**auto_reserve** |boolean     |optional  |*When this field is set to __true__, we will attempt to automatically reserve the payment without user's interaction. If you do not wish payment to be automatically reserved, you can omit this field or set it to __false__.*|true/false|
 |**expiration_timeout_minutes**|int|optional|*__One-Off Payment__ expiration timeout in minutes.*|Min: 1, max: 181440 (18 weeks), default: 1440 (24 hours)|
+
+
+
+
+
+
+
+```json
+{
+  "amount": "80",
+  "external_id": "OOP00348",
+  "description": "Pay now for additional goods",
+  "links": [
+    {
+      "rel": "user-redirect",
+      "href": "https://example.com/1b08e244-4aea-4988-99d6-1bd22c6a5b2c"
+    }
+  ],
+  "auto_reserve": true,
+  "expiration_timeout_minutes": "1440"
+}
+```
+
+
 
 <div class="note">
     <strong>Note:</strong>
