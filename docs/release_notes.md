@@ -1,4 +1,11 @@
 # Subscriptions API Release Notes
+<div class='post-date'>04 November 2020 - Invoice fields</div> 
+Merchants can add [invoice](invoice) for susbscription payments without user's information.
+Fields not mandatory: consumer_name, consumer_phone_number, consumer_address_lines.
+If the fields are not filled, they are not displayed in PDF.
+Can be negative: TotalVATAmount, TotalPriceIncludingVat, PricePerUnit, PriceDiscount.
+10 decimals allowed for: Quantity, PricePerUnit.
+
 <div class='post-date'>18 September 2020 - amount</div> 
 For DK merchants [payment](payments#request-parameters) amount limit is 60000. If the customer is identified via NemID or picture ID (drivers license, passport and etc) then the monthly payment limit for Subscriptions is 60.000 kr. 
 For example: If all payment requests share the same DueDate, and thereby exceed the normal payment limit of 15.000 kr.,   the customer can still pay all their Subscription payments, as long as the total amount does not exceed 60.000 kr. on a monthly basis. 
