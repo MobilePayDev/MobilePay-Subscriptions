@@ -3,7 +3,7 @@
 Merchants can add [invoice](invoice) for susbscription payments without user's information.
 Fields not mandatory: consumer_name, consumer_phone_number, consumer_address_lines.
 If the fields are not filled, they are not displayed in PDF.
-Can be negative: TotalVATAmount, TotalPriceIncludingVat, PricePerUnit, PriceDiscount.
+Can be negative: TotalVatAmount, TotalPriceIncludingVat, PricePerUnit, PriceDiscount.
 10 decimals allowed for: Quantity, PricePerUnit.
 
 <div class='post-date'>18 September 2020 - amount</div> 
