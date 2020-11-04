@@ -1,10 +1,10 @@
 # Subscriptions API Release Notes
 <div class='post-date'>04 November 2020 - Invoice fields</div> 
 Merchants can add [invoice](invoice) for susbscription payments without user's information.
-Fields not mandatory: consumer_name, consumer_phone_number, consumer_address_lines.
+Properties that are now optional: consumer_name, consumer_phone_number, consumer_address_lines.
 If the fields are not filled, they are not displayed in PDF.
-Can be negative: TotalVatAmount, TotalPriceIncludingVat, PricePerUnit, PriceDiscount.
-10 decimals allowed for: Quantity, PricePerUnit.
+Can be negative: total_vat_amount, total_price_including_vat, price_per_unit, price_discount.
+Up to 10 digits after the decimal seperator allowed for: quantity, price_per_unit.
 
 <div class='post-date'>18 September 2020 - amount</div> 
 For DK merchants [payment](payments#request-parameters) amount limit is 60000. If the customer is identified via NemID or picture ID (drivers license, passport and etc) then the monthly payment limit for Subscriptions is 60.000 kr. 
