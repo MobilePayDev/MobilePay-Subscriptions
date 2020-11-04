@@ -20,7 +20,7 @@ Notice that the **Subscription Payments** payload does not contain a currency co
 
 #### <a name="subscription-payments_update-existing"></a>Update existing Payment Request
 
-Once created, Recurring Payment Request can be updated (until it expires or is executed), Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentrequests/{paymentId}` endpoint to decrease the requested amount to be paid. It is possible to decrease the amount. However, it is not possible to increase it. If you have sent a payment request with a too high amount by mistake, you then can delete that payment request, and send another payment request with the correct amount. 
+Once created, Recurring Payment Request can be updated (until it expires or is executed), Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}/paymentrequests/{paymentId}` endpoint to decrease the requested amount to be paid. It is possible to decrease the amount. However, it is not possible to increase it. We only validate based on original amount set, we don't track the history. If you have sent a payment request with a too high amount by mistake, you then can delete that payment request, and send another payment request with the correct amount.  
 
 ```json
 [
@@ -56,11 +56,11 @@ Agreement disable_notification_management push notification. Merchant can set if
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |----------------------|------------|----------|-----------------------------------------------------------------|------------|
 |**agreement_id**      |guid        | required |*The Subscription __Agreement__ identifier that maps a __Merchant__ to a MobilePay __User__.*||
-|**amount**            |number(0.00)| required |*The requested amount to be paid.*|> 0.00, decimals separated with a dot.|
+|**amount**            |number(0.00)| required |*The requested amount to be paid.*|Min 0.00, Max (FI) 2000.00 or Max (DK) 60000.00, decimals separated with a dot.|
 |**due_date**          |date        | required |*Payment due date. Must be at least 1 day in the future, otherwise the __Subscription Payment__ will be declined.*|ISO date format: yyyy-MM-dd|
 |**next_payment_date** |date        |          |*Next __Subscription Payment's__ due date, to be shown to the user in the __Agreement__ details.*|ISO date format: yyyy-MM-dd|
-|**external_id**       |string(64)*      | required |*The identifier of a specific payment in the external merchant's system. Maximum length is 64 characters*||
-|**description**       |string(60)  | required |*Additional information of the __Subscription Payment__.*||
+|**external_id**       |string(64)*      | required |*The identifier of a specific payment in the external merchant's system. Maximum length is 64 characters The external_id is visible on the __Subscription Payment__ screen.*||
+|**description**       |string(60)  | required |*Additional information of the __Subscription Payment__ that is visible for the customer in the MobilePay app*||
 |**grace_period_days** |int  | optional |*Number of days to keep retrying the payment if it was not successful.*|1, 2, 3|
 
 <div class="note">
@@ -108,7 +108,7 @@ For example: if you have a customer where the frequency of an agreement is set t
 
 #### Payment screens
 
-[![](assets/images/Agreement_payments.jpg)](assets/images/Agreement_payments_3_new.png)
+[![](assets/images/Agreement_payments_3_new.png)](assets/images/Agreement_payments_3_new.png)
   
 #### <a name="subscription-payments_callbacks"></a>Callbacks
 
@@ -142,8 +142,8 @@ We will post the integrator or merchant a callback, and expect a HTTP 2xx respon
 |Declined  |_Merchant declined the Pending payment via the API_       | Any time during the 8-1 days period when user is presented with the Pending payment in the MobilePay activity list. |Declined  |Declined by merchant.| 50002 | 
 |Declined  |_**Agreement** is not in Active state._                | Right after the payment request was received. |Declined  |Declined by system: Agreement is not "Active" state.| 50003 | 
 |Declined  |_Another payment is already scheduled on that day for the user_| Right after the payment request was received. |Declined  |Declined by system: Another payment is already due.| 50004 | 
-|Declined  |When the **Agreement** was canceled by merchant or by system | Any time during the 8-1 days period when user is presented with the Pending payment in the MobilePay activity list.  |Declined  |Declined by system: Agreement was canceled. | 50005 | 
-|Rejected  |When the **Agreement** was canceled by user | Any time during the 8-1 days period when user is presented with the Pending payment in the MobilePay activity list.  |Rejected  |Declined by system: Agreement was canceled. | 50005 | 
+|Declined  |When the **Agreement** was canceled by merchant or by system | Any time unless retention period is set and active.  |Declined  |Declined by system: Agreement was canceled. | 50005 | 
+|Rejected  |When the **Agreement** was canceled by user | Any time unless retention period is set and active. |Rejected  |Declined by system: Agreement was canceled. | 50005 | 
 |Declined  |A catch-all error code when payment was declined by core system.| Right after the payment request was received. |Declined  | Declined by system. | 50006 | 
 |Declined  |Declined due to user status.| Right after the payment request was received. |Declined  | Declined due to user status. | 50009 | 
 |Declined  |When the **Agreement** does not exist| Right after the payment request was received. |Declined  | Agreement does not exist. | 50010 |
