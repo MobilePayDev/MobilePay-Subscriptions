@@ -69,6 +69,14 @@ After new payment is created, agreement’s NextPaymentDate property will be upd
   * NextPaymentDate (agreement)
   * NextPaymentDate (payment)
   * DueDate (payment)
+  
+#### <a name="agreements_update-existing"></a>Update existing Payment Request
+
+Once created, Agreement can be updated , Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}` endpoint to update **amount**, **plan**, **description**, **next_payment_date**, **frequency**, **external_id**, **success-callback**, **cancel-callback**, **cancel-redirect** in case the customer created an Agreement and later has changed their Agreement. For example: The customer has created Streaming Premium+ on started on the 1 January 2021, which costs 100kr. 
+On the 1st of March 2021, the customer decides to upgrade to Streaming Premium+ which costs 150kr. The Merchant should then update **amount** and **plan** parameters. 
+   
+
+* * *
 
 #### <a name="agreements_response"></a> Agreements response
 
