@@ -33,16 +33,17 @@ Once you have
  - [ ]  1. [ Create a new Agreement](https://mobilepaydev.github.io/MobilePay-Subscriptions/agreement#requests)  
  - [ ] 2. Accept the Agreement*  
   - [ ] 3. [Request a payment](https://mobilepaydev.github.io/MobilePay-Subscriptions/payments#requests)  
- - [ ] 3. Decline the pending Subscriptions payment  
- - [ ] 4. Request a new Subscriptions  payment and wait until due date for this to execute  
- - [ ] 5. Cancel the Agreement once the Subscriptions payment has been executed
- - [ ] 6. [Refund the Subscriptions Payment](https://mobilepaydev.github.io/MobilePay-Subscriptions/refund#requests)  
- - [ ] 7. [Request OneOff payment](https://mobilepaydev.github.io/MobilePay-Subscriptions/oneoffs#requests)  
- - [ ] 8. Cancel the reserved/requested OneOff payment  
+ - [ ] 4. Decline the pending Subscriptions payment  
+ - [ ] 5. Request a new Subscriptions  payment and wait until due date for this to execute  
+ - [ ] 6. Cancel the Agreement once the Subscriptions payment has been executed
+ - [ ] 7. [Refund the Subscriptions Payment](https://mobilepaydev.github.io/MobilePay-Subscriptions/refund#requests)  
+ - [ ] 8. [Request OneOff payment](https://mobilepaydev.github.io/MobilePay-Subscriptions/oneoffs#requests)  
+ - [ ] 9. Cancel the reserved/requested OneOff payment  
  - [ ] 10. [Request a new OneOff payment](https://mobilepaydev.github.io/MobilePay-Subscriptions/oneoffs#requests)  
- - [ ] 9. Accept the OneOff payment*  
+ - [ ] 11. Accept the OneOff payment*  
  - [ ] 12. [Capture the OneOff payment](https://mobilepaydev.github.io/MobilePay-Subscriptions/oneoffs#capture)  
-
-You must also have a setup for handling cancelled orders, and cancel reserved payments
+ - [ ] 13. You must also have a setup for handling cancelled orders, and cancel reserved payments
 
 ----------
+
+Once you have followed the steps above, you are ready to do the self-certification. Click the "I'm ready" button [here](https://developer.mobilepay.dk/subscriptions-verification#verification)  
