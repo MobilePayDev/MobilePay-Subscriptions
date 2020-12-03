@@ -1,5 +1,6 @@
 ## <a name="refunds"></a>Refunds
-This functionality is used to refund previously captured one-off payments or subscriptions payments. A refund transaction can be made up to 30 days after payment execution. Refunds are not restricted by agreement status. Refunds can be made on a cancelled agreement. As long as the payment is successful and no older than 30 days, then it should work
+Merchants can easily refund the customer with MobilePay Subscriptions. This functionality is used to refund previously captured one-off payments or subscriptions payments. A refund transaction can be made up to 30 days after payment execution. Refunds are not restricted by agreement status. Refunds can be made on a cancelled agreement. As long as the payment is successful and no older than 30 days, then it should work. 
+ Quick handling of refund proves vital to ensure customer loyalty. Seen as the customer previously executed the payment via MobilePay, it makes sense that it also gets refunded via MobilePay.  The reason being that the customer can see a receipt in the MobilePay app of the refund that corresponds to the original payment. The refund receipt is easily visible for the customer in the MobilePay app.   
 
 
 **Full refund** - 100% of the amount paid is returned to the payer.If the amount is not specified, the payment will be fully refunded
