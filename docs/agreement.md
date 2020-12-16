@@ -103,7 +103,7 @@ The link can be used in two ways:
 Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}` endpoint to change agreement request parameters. Its request must match the rules of [RFC 6902 JSON Patch standards](https://tools.ietf.org/html/rfc6902).  
 
 - Available operations: **replace**
-- Available properties: **amount**, **plan**, **description**, **next_payment_date**, **frequency**, **external_id**, **success-callback**, **cancel-callback**, **cancel-redirect**
+- Available properties: **amount**, **plan**, **description**, **next_payment_date**, **frequency**, **external_id**, **success-callback**, **cancel-callback**, **cancel-redirect**, **disable_notification_management**
 
 ```json
 [
@@ -117,6 +117,8 @@ Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}` endpoint to
 
 For example: The customer has created Streaming Premium+ on started on the 1 January 2021, which costs 100kr. 
 On the 1st of March 2021, the customer decides to upgrade to Streaming Premium+ which costs 150kr. The Merchant should then update **amount** and **plan** parameters to reflect those changes.  
+
+Setting **disable_notification_management** to **true** will disable notification management and turn off notifications for the agreement.
 
 #### New agreement creation in landing page
 
