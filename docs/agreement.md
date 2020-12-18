@@ -38,6 +38,7 @@ Once the user is given to choose the payment method on the merchant's signup flo
   "mobile_phone_number": "4511100118",
   "retention_period_hours": 0,
   "disable_notification_management": false,
+  "notifications_on": true
 }
 ```
 
@@ -49,20 +50,21 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |----------------------|------------|----------|-----------------------------------------------------------------|------------|
-|**amount**      |number(0.00)        |   |**Agreement**  amount, which will be displayed on the  **Agreement**  creation screen and on the  **Agreement**  details screen ._*|>= 0.00, decimals separated with a dot.|
-|**currency**            |string(3)| required |_The  **Agreement**  currency code, that will be displayed for the use in the MobilePay app. Currency and country_code must match a valid pair of: DKK->DK, EUR->FI._|DKK, EUR|
-|**country_code**          |string(2)| required |_Country code, which will be used to differentiate between MobilePay DK and FI apps._|DK, FI|
-|**plan** |string(30) |required          |_Short  **Agreement**  information text, that will be displayed on the  **Agreement**  screen in the app. (examples: "Basic" / "Premium")._| |
-|**description**       |string(60)      |  |_Additional information provided by the merchant to the user, that will be displayed on the  **Agreement**  screen in the app._||
+|**amount**      |number(0.00)        |   |**Agreement**  amount, which will be displayed on the  **Agreement**  creation screen and on the  **Agreement**  details screen .|>= 0.00, decimals separated with a dot.|
+|**currency**            |string(3)| required |The  **Agreement**  currency code, that will be displayed for the use in the MobilePay app. Currency and country_code must match a valid pair of: DKK->DK, EUR->FI.|DKK, EUR|
+|**country_code**          |string(2)| required |Country code, which will be used to differentiate between MobilePay DK and FI apps.|DK, FI|
+|**plan** |string(30) |required          |Short  **Agreement**  information text, that will be displayed on the  **Agreement**  screen in the app. (examples: "Basic" / "Premium").| |
+|**description**       |string(60)      |  |Additional information provided by the merchant to the user, that will be displayed on the  **Agreement**  screen in the app.||
 |**next_payment_date**       |date  |   |The date of the first scheduled  **Payment Request**. If used, this will be displayed on the  **Agreement**  creation screen and on the  **Agreement**  details screen if first payment date > current date.|ISO date format: yyyy-MM-dd|
-|**frequency** |int  |  |*Frequency of **Payment Requests**. This value will be used to divide the amount of days in a year to get a frequency in days (e.g. 365 / 12 = 30.4 - approx. every month, 365 - daily and 0 -flexible.). If you don't fill out the frequency, the default value will be Flexible, which will be displayed for the user in the MobilePay app*|1, 2, 4, 12, 26, 52, 365, 0|
-|**external_id** |string  |  |_**Agreement**  identifier on the merchant's and integrators side, which will be displayed for the user in the MobilePay app. When the user sends an e-mail from the app, the external_id is in the subject field. external_id will be included in the request body of the success / cancel callback. The external_id should be unique to the agreement. Two different agreements should not have the same external_id_|MinLength 1. MaxLength 64 |
-|**expiration_timeout_minutes** |int  |required  |_Agreement expiration timeout in minutes._|Min: 1, max: 181440 (18 weeks)|
-|**retention_period_hours** |int  |  |_Before retention period has passed User will not be able to Cancel an agreement_|Min: 0(default), max: 24 hours|
-|**disable_notification_management** |boolean  |  |*If true user will not be presented with notification parameter, therefor will not be able to enable notifications. If false push parameter will be visible in signed agreements and push will be turned on by default. Parameter controls just push message which is sent 1 day in advance before recurring payment execution.*|Default **false**|
-|**links** |string  | required |*Link relation of the  **Agreement**  creation sequence. Must contain 3 values for user redirect, success callback and cancel-callback links.*| |
-|**links[].rel** |string  |required  |*Link relation type*|user-redirect, success-callback, cancel-callback, cancel-redirect|
-|**links[].href** |string  | required |*Link relation hyperlink reference.*|https://<merchant's url>|
+|**frequency** |int  |  |Frequency of **Payment Requests**. This value will be used to divide the amount of days in a year to get a frequency in days (e.g. 365 / 12 = 30.4 - approx. every month, 365 - daily and 0 -flexible.). If you don't fill out the frequency, the default value will be Flexible, which will be displayed for the user in the MobilePay app|1, 2, 4, 12, 26, 52, 365, 0|
+|**external_id** |string  |  |**Agreement**  identifier on the merchant's and integrators side, which will be displayed for the user in the MobilePay app. When the user sends an e-mail from the app, the external_id is in the subject field. external_id will be included in the request body of the success / cancel callback. The external_id should be unique to the agreement. Two different agreements should not have the same external_id|MinLength 1. MaxLength 64 |
+|**expiration_timeout_minutes** |int  |required  |Agreement expiration timeout in minutes.|Min: 1, max: 181440 (18 weeks)|
+|**retention_period_hours** |int  |  |Before retention period has passed User will not be able to Cancel an agreement|Min: 0(default), max: 24 hours|
+|**disable_notification_management** |boolean  |  |If true user will not be presented with notification parameter, therefore will not be able to enable notifications. If false push parameter will be visible in signed agreements and push will be turned on by default. Parameter controls just push message which is sent 1 day in advance before recurring payment execution.*|Default **false**|
+|**notifications_on** |boolean  |  |If true notifications will be turned on by default for the agreement. If **disable_notification_management** is set to true, notifications cannot be turned on. _This field is supported only by MobilePay app 5.0.0+_ | Default **false** |
+|**links** |string  | required |Link relation of the  **Agreement**  creation sequence. Must contain 3 values for user redirect, success callback and cancel-callback links.| |
+|**links[].rel** |string  |required  |Link relation type|user-redirect, success-callback, cancel-callback, cancel-redirect|
+|**links[].href** |string  | required |Link relation hyperlink reference.|https://<merchant's url>|
 
 
 After new payment is created, agreement’s NextPaymentDate property will be updated to the earliest date from these proporties:

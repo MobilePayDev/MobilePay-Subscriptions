@@ -1,7 +1,8 @@
 # Subscriptions API Release Notes
-<div class='post-date'>16 December 2020 - Updated agreement patch request</div> 
-`disable_notification_management` field was added to [agreement patch](agreement#update-existing-agreement-request) request.
 
+<div class='post-date'>16 December 2020 - Updated agreement POST and PATCH requests</div> 
+- `disable_notification_management` property was added to [agreement patch](agreement#update-existing-agreement-request) request. 
+- `notications_on` property was added to [create agreement](agreement#create-agreement-request) request. This property will be honored **only** by MobilePay app starting from **5.0.0 version**.
 
 <div class='post-date'>04 November 2020 - Invoice fields</div> 
 Merchants can add [invoice](invoice) for susbscription payments without user's information.
