@@ -1,6 +1,6 @@
 # Subscriptions API Release Notes
 
-<div class='post-date'>--day of release-- January 2021 - One-off payment expiration </div> 
+<div class='post-date'>4 January 2021 - One-off payment expiration </div> 
 [One-off](oneoffs#oneoffpayments_expiredpaymen) payment expiration date changed from 14 to 7 days.
 
 <div class='post-date'>16 December 2020 - Updated agreement POST and PATCH requests</div> 
