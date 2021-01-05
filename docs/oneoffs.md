@@ -272,5 +272,5 @@ It is **mandatory** for the merchant to Capture or Cancel one-off payment if it 
 
 We encourage you to capture as soon as a service is rendered or order shipped. It results in bad end-user experience, if the amount is reserved on the customer’s account for too long, as the customer can see the amount on their bank statement. 
 
-Uncaptured one-off payments expire after 14 days. 
+Uncaptured one-off payments expire after 7 days. 
 
