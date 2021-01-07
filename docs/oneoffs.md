@@ -9,7 +9,7 @@ You are able to:
 Note: One-off payments are charged when the customer manually swipes accept or `auto_reserve` field was set to __true__ when one-off payment was requested.  
 
 __One-off Payment__ will expire in 1 day (by default) if it is not accepted or rejected by the user during that time or automatic reservation failed and user didn't take any action afterwards. The merchant will receive a callback when the One-Off Payment is expired.
-Custom expiration time ranging from 1 minute to 2 weeks can be specified by providing `expiration_timeout_minutes` field.
+Custom expiration time ranging from 1 minute to 18 weeks can be specified by providing `expiration_timeout_minutes` field.
 
 Payment reservation appears on the user's Activities List in the 'Pending' section in the MobilePay app. When the purchase is completed, the transaction is moved to the 'Approved' section in the MobilePay app. 
 
