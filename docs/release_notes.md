@@ -1,12 +1,5 @@
 # Subscriptions API Release Notes
 
-<div class='post-date'>9 February  2021 - return redirect url </div> 
-
-Recently MobilePay fixed the place where MobilePay return redirect URL when a merchant or integrator creates a  agreement or one-off payment. So instead of returning the direct url e.g.: https://open.mobilepay.dk:443/usersettings-landing-website/?token=637471569977919237&countryCode=DK&product=RecurringPayments MobilePay first do a redirect to e.g.: https://api.qa.mobilepay.dk/recurringpayments-restapi/api/redirect/resource/5a397860-3a55-4a1e-87ea-5328e5bf8620 
-Normally, a merchant would simply redirect user to the URL that we at MobilePay provide, and there would be no difference. But in case merchants are doing some kind magic with this url, then it would introduce breaking changes. As a consequence, there might be issues at merchant/integrator side, if they are using redirect url not only for redirecting, but for something else as well. 
-
-Furthermore, if a merchant uses GET endpoint to get details of agreement(s) the url in the response is generated with redirect. in a new way, that's why we decided to unify the response
-
 <div class='post-date'>4 January 2021 - One-off payment expiration </div> 
 [One-off](oneoffs#oneoffpayments_expiredpaymen) payment expiration date changed from 14 to 7 days.
 
