@@ -61,7 +61,7 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |**expiration_timeout_minutes** |int  |required  |Agreement expiration timeout in minutes.|Min: 1, max: 181440 (18 weeks)|
 |**retention_period_hours** |int  |  |Before retention period has passed User will not be able to Cancel an agreement|Min: 0(default), max: 24 hours|
 |**disable_notification_management** |boolean  |  |If true user will not be presented with notification parameter, therefore will not be able to enable notifications. If false push parameter will be visible in signed agreements and push will be turned on by default. Parameter controls just push message which is sent 1 day in advance before recurring payment execution.*|Default **false**|
-|**notifications_on** |boolean  |  |If true notifications will be turned on by default for the agreement. If **disable_notification_management** is set to true, notifications cannot be turned on. _This field is supported only by MobilePay app 5.0.0+_ | Default **false** |
+|**notifications_on** |boolean  |  |If true notifications will be turned on by default for the agreement. If **disable_notification_management** is set to true, notifications cannot be turned on. _This field is supported only by MobilePay app 5.0.0+_ | Default **true** |
 |**links** |string  | required |Link relation of the  **Agreement**  creation sequence. Must contain 3 values for user redirect, success callback and cancel-callback links.| |
 |**links[].rel** |string  |required  |Link relation type|user-redirect, success-callback, cancel-callback, cancel-redirect|
 |**links[].href** |string  | required |Link relation hyperlink reference.|https://<merchant's url>|
