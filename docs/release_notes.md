@@ -1,5 +1,8 @@
 # Subscriptions API Release Notes
 
+<div class='post-date'>18 February 2021 - notifications_on </div> 
+Default `notifications_on` value was changed from false to true in [create agreement](agreement#create-agreement-request) request.
+
 <div class='post-date'>4 January 2021 - One-off payment expiration </div> 
 [One-off](oneoffs#oneoffpayments_expiredpaymen) payment expiration date changed from 14 to 7 days.
 
