@@ -171,6 +171,9 @@ The table below shows possible *status*, *status_text* and *status_code* values 
 |Canceled  |_Merchant canceled an Active or Pending agreement_      |*cancel-callback*  |Canceled|Agreement canceled by merchant|40003|
 |Canceled  |_System canceled an Active agreement because user was Deleted_ |*cancel-callback*  |Canceled|Agreement canceled by system|40004|
 
+
+You do not get a callback that tells you specifically if/when the user closes the landing page with the timer.
+
 ##### <a name="agreements_state-diagram"></a>Agreement state diagram
 
 ![](assets/images/RecurringPayments_AgreementStateDiagram2final.png)
