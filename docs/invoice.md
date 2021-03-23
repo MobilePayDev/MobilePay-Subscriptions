@@ -247,8 +247,40 @@ POST /api/providers/{providerId}/agreements
 
 These are the examples of how your data will look like to user in the MobilePay, when it is generated to PDF file.
 
-Danish example:
-[![](assets/images/InvoicesExamples/InvoiceExampleDK.jpg)](assets/images/InvoicesExamples/InvoiceExampleDK.jpg)
+[![](assets/images/InvoicesExamples/InvoiceExampleDK.jpg)](assets/images/InvoicesExamples/pdf.jpg)
 
-Finnish example:
-[![](assets/images/InvoicesExamples/InvoiceExampleFI.jpg)](assets/images/InvoicesExamples/InvoiceExampleFI.jpg)
+| Marking from<br>an example | Mapping Subscriptions                                                   | EN                | DK                    | FI                   |
+|----------------------------|-------------------------------------------------------------------------|-------------------|-----------------------|----------------------|
+|                          1 | Hardcoded                                                               | Invoice           | FAKTURA               | LASKU                |
+|                          2 | Subscription provider logo                                              | N/A               | N/A                   | N/A                  |
+|                          3 | Subscription provider name                                              | N/A               | N/A                   | N/A                  |
+|                          4 | Subscription provider address                                           | N/A               | N/A                   | N/A                  |
+|                          5 | Merchant CVR                                                            | Company ID        | CVR                   | Y-tunnus             |
+|                          6 | merchant_contact_name                                                   | N/A               | N/A                   | N/A                  |
+|                          7 | consumer_name                                                           | N/A               | N/A                   | N/A                  |
+|                          8 | consumer_address_lines                                                  | N/A               | N/A                   | N/A                  |
+|                          9 | consumer_phone_number                                                   | N/A               | N/A                   | N/A                  |
+|                         10 | delivery_address_lines                                                  | Delivery address  | Leveringsadresse      | Toimitusosoite       |
+|                         11 | delivery_date                                                           | Delivery date     | Leveringsdato         | Toimituspäivä        |
+|                         12 | buyer_order_number                                                      | Buyers order ID   | Købers ordrenummer    | Ostajan tilausnumero |
+|                         13 | merchant_order_number                                                   | Merchant order ID | Sælgers ordrenummmer  | Myyjän tilausnumero  |
+|                         14 | order_date                                                              | Order date        | Ordredato             | Päivä                |
+|                         15 | invoice_number                                                          | Invoice number    | Fakturanummer         | Laskun numero        |
+|                         16 | issue_date                                                              | Issue date        | Fakturadato           | Laskun päivä         |
+|                         17 | due_date                                                                | Due date          | Betalingsdato         | Eräpäivä             |
+|                         18 | payment_reference                                                       | Payment reference | Betalingsreference    | Maksun viite         |
+|                         19 | article_number                                                          | Item ID           | Varenummer            | Tuotenumero          |
+|                         20 | article_description                                                     | Description       | Beskrivelse           | Kuvaus               |
+|                         21 | quantity                                                                | Quantity          | Antal                 | Määrä                |
+|                         22 | unit                                                                    | Type              | Enhed                 | Yksikkö              |
+|                         23 | price_per_unit                                                          | Quantity price    | Enhedspris            | Yksikköhinta         |
+|                         24 | vat_rate                                                                | VAT               | Moms                  | ALV                  |
+|                         25 | total_price_including_vat                                               | Total             | Total                 | Yhteensä             |
+|                         26 | Sum of price_reduction                                                  | Price deduction   | Total prisnedsættelse | Kokonaishinta        |
+|                         27 | Sum of price_discount                                                   | Discount          | Total rabat           | Alennus              |
+|                         28 | Sum of bonus                                                            | Bonus             | Total bonus           | Kokonaisbonus        |
+|                         29 | Calculated<br>total_amount - (sum of invoice_articles.total_vat_amount) | Total ex VAT      | Total uden moms       | Yhteensä ilman ALV   |
+|                         30 | total_vat_amount                                                        | Total VAT         | Moms                  | ALV yhteensä         |
+|                         31 | total_amount                                                            | Total             | Total                 | Yhteensä             |
+|                         32 | comment                                                                 | Comments          | Kommentar             | Kommentit            |
+
