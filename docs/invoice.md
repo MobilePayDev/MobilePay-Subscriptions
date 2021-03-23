@@ -247,7 +247,7 @@ POST /api/providers/{providerId}/agreements
 
 These are the examples of how your data will look like to user in the MobilePay, when it is generated to PDF file.
 
-[![](assets/images/InvoicesExamples/InvoiceExampleDK.jpg)](assets/images/pdf.jpg)
+[![](assets/images/pdf.jpg)](assets/images/pdf.jpg)
 
 | Marking from<br>an example | Mapping Subscriptions                                                   | EN                | DK                    | FI                   |
 |----------------------------|-------------------------------------------------------------------------|-------------------|-----------------------|----------------------|
