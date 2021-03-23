@@ -1,7 +1,7 @@
 # Subscriptions API Release Notes
  
 <div class='post-date'>22 January 2021 - Visual Design of PDF changed. </div> 
-More information under  [Invoice](https://mobilepaydev.github.io/MobilePay-Subscriptions/invoice), PDF Invoice examples".
+More information in [Invoice](https://mobilepaydev.github.io/MobilePay-Subscriptions/invoice)
 
 <div class='post-date'>4 January 2021 - One-off payment expiration </div> 
 [One-off](oneoffs#oneoffpayments_expiredpaymen) payment expiration date changed from 14 to 7 days.
