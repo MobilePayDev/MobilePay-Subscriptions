@@ -79,7 +79,7 @@ When the **Refund's** status changes from *Requested* we will do a callback to t
 |Declined  |_If the total sum of previous **Refunds** exceed the original payment amount_           | Right after the refund was requested |Declined  |The total sum of previous **Refunds** cannot exceed the original payment amount.| 60002 |
 |Declined  |_When **Refund** was declined by system_          | Right after the refund was requested |Declined  |Payment was not found.| 60003 |
 |Declined  |_When **Refund** was declined by system_           | Right after the refund was requested |Declined  |Payment cannot be refunded.| 60004 |
-|Declined  |_A catch-all error code when **Refund** was declined by core system._           | Right after the refund was requested |Declined  |Refund was declined by system.| 60005 |
+|Declined  |_A catch-all error code when **Refund** was declined by core system. E.g.: more then 2 decimals, receiver is not active, receiver's bank declines refund, etc._           | Right after or up to 3 h after refund was requested |Declined  |Refund was declined by system.| 60005 |
 |Declined  |_When **Refund** was declined by system._           | Right after the refund was requested |Declined  |Cannot refund payments that are older than 30 days.| 60006 |
 |Declined  |_When **Refund** was declined by system._           | Right after the refund was requested |Declined  |Cannot refund instantly transferred payments.| 60007 |
 
