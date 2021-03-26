@@ -1,6 +1,6 @@
 # Subscriptions API Release Notes
  
-### <a name="response_code"></a> 22 January 2021 - Visual design of PDF changed.
+### 22 January 2021 - Visual design of PDF changed.
 More information in [Invoice](https://mobilepaydev.github.io/MobilePay-Subscriptions/invoice), PDF Invoice example.
 
 <div class='post-date'>4 January 2021 - One-off payment expiration </div> 
