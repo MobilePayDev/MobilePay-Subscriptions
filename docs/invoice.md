@@ -245,7 +245,7 @@ POST /api/providers/{providerId}/agreements
 
 ### <a name="pdfexamples"/> PDF invoice examples
 
-These are the examples of how your data will look like to user in the MobilePay, when it is generated to PDF file.
+This is the example of how your data will look like to user in the MobilePay, when it is generated to PDF file.
 
 [![](assets/images/pdf.jpg)](assets/images/pdf.jpg)
 
