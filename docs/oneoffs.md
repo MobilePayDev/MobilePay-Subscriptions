@@ -69,7 +69,7 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
 |:--------------------------------|:-----------|:---------|:----------------------------------------------------------------|:-----------|
 |**one_off_payment**              |object      |          |*__One-Off Payment__ details.*||
 |**one_off_payment.amount**       |number(0.00)|required  |*__One-Off Payment__ amount, which will be displayed for the user in the MobilePay app.*|> 0.00, decimals separated with a dot.|
-|**one_off_payment.description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen.*||
+|**one_off_payment.description**  |string(60)  |required  |*Additional information provided by the merchant to the user, that will be displayed on the __One-off Payment__ screen. Description is a short description of what the client is paying for.*||
 |**one_off_payment.external_id**  |string(64)*  |required  |*__One-Off Payment__ identifier on the merchant's side. This will be included in the request body of the payment callback. The external_id is visible on the __One-off Payment__ screen.*||
 |**one_off_payment.expiration_timeout_minutes**|int|optional|*__One-Off Payment__ expiration timeout in minutes.*|Min: 1, max: 181440 (18 weeks), default: 1440 (24 hours)|
 
