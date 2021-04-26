@@ -229,6 +229,7 @@ It means that the you can not withdraw the money from the customers payment card
 Solution : MobilePay sends the customer a push notification, if there was an error with the card, in order to catch errors. If there were insufficient funds on the customers card, we also push the customer to execute the payment manually. The Merchant should contact the customer, and have it cleared out with the customer. 
 
 We also send sms message each day at 10:00 in Denmark and 11:00 in Finland for customers who have suspended payments (one sms for each payment). This is the messages we send out:
+
 ![image](https://user-images.githubusercontent.com/26201833/116053252-22d14a00-a683-11eb-9724-33777003d91d.png)
 ![image](https://user-images.githubusercontent.com/26201833/116053317-38df0a80-a683-11eb-8041-2b6c2f3ff8e4.png)
 
