@@ -1,5 +1,8 @@
 # Subscriptions API Release Notes
  
+ ### 23 April 2021 - Sms messages for suspended payments.
+Each day customers will receive one sms message for each suspended payment they have. Sms are sent at 10:00 in Denmark and 11:00 in Finland. 
+ 
 ### 22 January 2021 - Visual design of PDF changed.
 More information in [Invoice](https://mobilepaydev.github.io/MobilePay-Subscriptions/invoice), PDF Invoice example.
 
