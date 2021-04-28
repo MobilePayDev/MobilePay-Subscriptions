@@ -1,7 +1,8 @@
 # Subscriptions API Release Notes
  
- ### 23 April 2021 - Sms messages for suspended payments.
-Each day customers will receive one sms message for each suspended payment they have. Sms are sent at 10:00 in Denmark and 11:00 in Finland. 
+### 23 April 2021 - Sms messages for suspended payments.
+We recently implemented SMS sending to users, in case they have a `suspended` payment. The purpose of the SMS is to prompt the customer to pay quicker. `suspended`  means that the the Merchant could not withdraw the money from the customers payment card. There can be various reasons why it can he suspended. If the problem persists, and there is not sufficient funds on the customers card, or/and if the card is expired or/and blocked, then the payment will fail. Suspended is a status internally for MobilePay to mark hiccupped payments, which is why it is not a part of the callback table [here](subscription-payments_callbacks). Merchants should see the `suspended` as a sign to contact the user to find the root cause and ensure that the payment goes through.  
+Sms are sent at 10:00 in Denmark and 11:00 in Finland. 
  
 ### 22 January 2021 - Visual design of PDF changed.
 More information in [Invoice](https://mobilepaydev.github.io/MobilePay-Subscriptions/invoice), PDF Invoice example.
