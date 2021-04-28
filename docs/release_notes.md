@@ -8,7 +8,7 @@ We recently implemented SMS sending to users, in case they have a `suspended` pa
 |Executed  |_The payment was successfully executed on the due-date_| After 03:15 in the morning of the due-date |Executed  | | 0 |
 |Failed    |_Payment failed to execute during the due-date or at the end of grace period._| After 23:59 of the due-date, or the last day of grace period. |Failed    | | 50000 |
 
-`failed` callback entails that MobilePay has sent push messages and SMS to the user, and the payment still didn't go through. If you get the callback status `failed`, we recommend that you contact the user to find the root cause as a last resort 
+`failed` callback entails that MobilePay has sent push messages and SMS to the user, and the payment still didn't go through. If you get the callback status `failed`, we recommend that you contact the user to find the root cause. 
 
 Sms are sent at 10:00 in Denmark and 11:00 in Finland. 
  
