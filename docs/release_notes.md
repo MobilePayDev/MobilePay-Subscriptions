@@ -1,7 +1,15 @@
 # Subscriptions API Release Notes
  
 ### 23 April 2021 - Sms messages for suspended payments.
-We recently implemented SMS sending to users, in case they have a `suspended` payment. The purpose of the SMS is to prompt the customer to pay quicker. `suspended`  means that the the Merchant could not withdraw the money from the customers payment card. There can be various reasons why it can he suspended. If the problem persists, and there is not sufficient funds on the customers card, or/and if the card is expired or/and blocked, then the payment will fail. Suspended is a status internally for MobilePay to mark hiccupped payments, which is why it is not a part of the callback table [here](subscription-payments_callbacks). Merchants should see the `suspended` as a sign to contact the user to find the root cause and ensure that the payment goes through.  
+We recently implemented SMS sending to users, in case they have a `suspended` payment. The purpose of the SMS is to prompt the customer to pay quicker. `suspended`  means that the the Merchant could not withdraw the money from the customers payment card. There can be various reasons why it can he suspended. If the problem persists, and there is not sufficient funds on the customers card, or/and if the card is expired or/and blocked, then the payment will fail. Suspended is a status internally for MobilePay to mark hiccupped payments, which is why it is not a part of the callback table [here](subscription-payments_callbacks). You should still see the status `failed` or `executed` as the final status 
+
+|New Status|Condition|When to expect|Callback *status*  | Callback *status_text* | Callback *status_code* |
+|----------|---------|--------------|-------------------|------------------------|------------------------|
+|Executed  |_The payment was successfully executed on the due-date_| After 03:15 in the morning of the due-date |Executed  | | 0 |
+|Failed    |_Payment failed to execute during the due-date or at the end of grace period._| After 23:59 of the due-date, or the last day of grace period. |Failed    | | 50000 |
+
+`failed` callback entails that MobilePay has sent push messages and SMS to the user, and the payment still didn't go through. If you get the callback status `failed`, we recommend that you contact the user to find the root cause as a last resort 
+
 Sms are sent at 10:00 in Denmark and 11:00 in Finland. 
  
 ### 22 January 2021 - Visual design of PDF changed.
