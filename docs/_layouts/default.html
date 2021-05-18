@@ -18,59 +18,36 @@
         <div class="wrapper">
             <header>
                 <h1>{{ site.title | default: site.github.repository_name }}</h1>
-                <h4 class="mt5"><a href="{{ site.data.nav.overview_url }}">{{ site.data.nav.overview_title }}</a></h3>
-                    <h4 class="mt5"><a
-                            href="{{ site.data.nav.general_notes_url }}">{{ site.data.nav.general_notes_title }}</a>
-                        </h3>
-                        <h4 class="mt5"><a
-                                href="{{ site.data.nav.authentication_url }}">{{ site.data.nav.authentication_title }}</a>
-                            </h3>
-                            <h4 class="mt5"><a
-                                    href="{{ site.data.nav.subscription_providers_url }}">{{ site.data.nav.subscription_providers_title }}</a>
-                                </h3>
-                                <h4 class="mt5"><a
-                                        href="{{ site.data.nav.agreement_url }}">{{ site.data.nav.agreement_title }}</a>
-                                    </h3>
-                                    {% for item in site.data.nav.agreement %}
-                                    <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
-                                    {% endfor %}
-                                    <h4 class="mt5"><a
-                                            href="{{ site.data.nav.payments_url }}">{{ site.data.nav.payments_title }}</a>
-                                        </h3>
-                                        {% for item in site.data.nav.payments %}
-                                        <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
-                                        {% endfor %}
-                                        <h4 class="mt5"><a
-                                                href="{{ site.data.nav.oneoffs_url }}">{{ site.data.nav.oneoffs_title }}</a>
-                                            </h3>
-                                            {% for item in site.data.nav.oneoffs %}
-                                            <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
-                                            {% endfor %}
-                                            <h4 class="mt5"><a
-                                                    href="{{ site.data.nav.refund_url }}">{{ site.data.nav.refund_title }}</a>
-                                                </h3>
-                                                {% for item in site.data.nav.refund %}
-                                                <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
-                                                {% endfor %}
-                                                <h4 class="mt5"><a
-                                                        href="{{ site.data.nav.invoice_url }}">{{ site.data.nav.invoice_title }}</a>
-                                                    </h3>
-                                                    <h4 class="mt5"><a
-                                                            href="{{ site.data.nav.release_notes_url }}">{{ site.data.nav.release_notes_title }}</a>
-                                                        </h3>
-                                                        <h4 class="mt5"><a
-                                                                href="{{ site.data.nav.mutual_ssl_url }}">{{ site.data.nav.mutual_ssl_title }}</a>
-                                                            </h3>
-                                                            <h4 class="mt5"><a
-                                                                    href="{{ site.data.nav.glossary_url }}">{{ site.data.nav.glossary_title }}</a>
-                                                                </h3>
-                                                                <h4 class="mt5"><a
-                                                                    href="{{ site.data.nav.get_started_url }}">{{ site.data.nav.get_started_title }}</a>
-                                                                </h3>
-                                                                <h4 class="mt5"><a href="{{ site.data.nav.api_principles_url }}">{{ site.data.nav.api_principles_title }}</a></h3>
-                                                                    {% for item in site.data.nav.api_principles %}
-                                                                    <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
-                                                                    {% endfor %}
+                <h4 class="mt5"><a href="{{ site.data.nav.overview_url }}">{{ site.data.nav.overview_title }}</a></h4>
+                <h4 class="mt5"><a href="{{ site.data.nav.general_notes_url }}">{{ site.data.nav.general_notes_title }}</a></h4>
+                <h4 class="mt5"><a href="{{ site.data.nav.authentication_url }}">{{ site.data.nav.authentication_title }}</a></h4>
+                <h4 class="mt5"><a href="{{ site.data.nav.subscription_providers_url }}">{{ site.data.nav.subscription_providers_title }}</a></h4>
+                <h4 class="mt5"><a href="{{ site.data.nav.agreement_url }}">{{ site.data.nav.agreement_title }}</a></h4>
+                {% for item in site.data.nav.agreement %}
+                    <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
+                {% endfor %}
+                <h4 class="mt5"><a href="{{ site.data.nav.payments_url }}">{{ site.data.nav.payments_title }}</a></h4>
+                {% for item in site.data.nav.payments %}
+                    <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
+                {% endfor %}
+                <h4 class="mt5"><a href="{{ site.data.nav.oneoffs_url }}">{{ site.data.nav.oneoffs_title }}</a></h4>
+                {% for item in site.data.nav.oneoffs %}
+                    <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
+                {% endfor %}
+                <h4 class="mt5"><a href="{{ site.data.nav.refund_url }}">{{ site.data.nav.refund_title }}</a></h4>
+                {% for item in site.data.nav.refund %}
+                    <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
+                {% endfor %}
+                <h4 class="mt5"><a href="{{ site.data.nav.invoice_url }}">{{ site.data.nav.invoice_title }}</a></h4>
+                <h4 class="mt5"><a href="{{ site.data.nav.release_notes_url }}">{{ site.data.nav.release_notes_title }}</a></h4>
+                <h4 class="mt5"><a href="{{ site.data.nav.mutual_ssl_url }}">{{ site.data.nav.mutual_ssl_title }}</a></h4>
+                <h4 class="mt5"><a href="{{ site.data.nav.glossary_url }}">{{ site.data.nav.glossary_title }}</a></h4>
+                <h4 class="mt5"><a href="{{ site.data.nav.get_started_url }}">{{ site.data.nav.get_started_title }}</a></h4>
+                <h4 class="mt5"><a href="{{ site.data.nav.api_principles_url }}">{{ site.data.nav.api_principles_title }}</a></h4>
+                {% for item in site.data.nav.api_principles %}
+                    <p class="view"><a href="{{ item.url }}">{{ item.title }}</a></p>
+                {% endfor %}
+                <h4 class="mt5"><a href="{{ site.data.nav.coming_soon_url }}" style="color:#e35619"> 🤫 {{ site.data.nav.coming_soon_title }}</a></h4>
             </header>
             <section>
 

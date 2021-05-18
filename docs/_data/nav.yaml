@@ -51,6 +51,9 @@ invoice:
 - title: "PDF invoice examples"
   url: "invoice#pdf_examples"
 
+coming_soon_title: Coming soon
+coming_soon_url: "coming_soon"
+
 release_notes_title: Release notes
 release_notes_url: "release_notes"
 
