@@ -56,9 +56,9 @@ We are also reducing the amount of mandatory fields in `attachment_datails`:
 |                            | unit                    | string     | ~~Required~~. Unit, e.g.: pcs, coli, kg, m.                                 | Optional        |
 |                            | quantity                | decimal    | ~~Required~~. Quantity of an article.                                       | Optional        |
 |                            | price_per_unit          | decimal    | ~~Required~~. Price per unit.                                               | Optional        |
-|                            | price_reduction         | decimal    | Price reduction.                                                            | Optional        |
-|                            | price_discount          | decimal    | Price discount.                                                             | Optional        |
-|                            | bonus                   | decimal    | Bonus of an article.                                                        | Optional        |
+| price_reduction            |                         | decimal    | Price reduction.                                                            | Optional        |
+| price_discount             |                         | decimal    | Price discount.                                                             | Optional        |
+| bonus                      |                         | decimal    | Bonus of an article.                                                        | Optional        |
 | merchant_contact_name      |                         | string     | Contact name of the individual who issued the document.                     | Optional        |
 | delivery_address_lines     |                         | string[]   | Delivery address.                                                           | Optional        |
 | payment_reference          |                         | string(60) | Any extra reference to be presented in the generated PDF file.              | Optional        |
