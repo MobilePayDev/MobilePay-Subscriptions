@@ -1,4 +1,4 @@
-## <a name="paymentAttachmentsV2"></a>Payment attachments V2
+## <a name="attachments"></a>Payment attachments V2
 
 The purpose of payment attachments V2 is to replace existing invoice PDF functionality and to offer more flexibility for the merchant. With this new functionality you will be able to choose how attachment will be presented to the user:
 - Your own link to the payment document
@@ -7,7 +7,7 @@ The purpose of payment attachments V2 is to replace existing invoice PDF functio
 
 The old way how we create invoice PDF attachments remains, but we strongly recommend to use this new approach.
 
-### <a name="createUpdate"></a>Create & Update 
+### <a name="requests"></a>Create & Update 
 
 Payment attachments on top of the payment can be created with a separate request:
 
@@ -107,7 +107,7 @@ We reduced the amount of mandatory fields in `attachment_datails`:
 | buyer_order_number         |                         | string     | The buyer order number for the document used internally by the merchant.    | Optional        |
 | comment                    |                         | string     | Additonal information for the consumer.                                     | Optional        |
 
-### <a name="reviewDelete"></a>Review & Delete 
+### <a name="reviewdelete"></a>Review & Delete 
 
 `GET /api/providers/{providerId}/payments/{paymentId}/attachment` to get the details of the payment attachment.
 
@@ -158,7 +158,7 @@ This is the example of how your data will look like to user in the MobilePay, wh
 |                         31 | total_amount                                                            | Total             | Total                 | Yhteensä             |
 |                         32 | comment                                                                 | Comments          | Kommentar             | Kommentit            |
 
-## <a name="paymentAttachmentsV1"></a>Payment attachments V1 (Deprecated)
+## <a name="attachmentsdeprecated"></a>Payment attachments V1 (Deprecated)
 
 <div class="note">
     <strong>Note:</strong>
