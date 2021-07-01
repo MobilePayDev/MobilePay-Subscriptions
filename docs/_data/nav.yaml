@@ -44,16 +44,16 @@ refund:
   url: "refund#callbacks"
 
 invoice_title: Invoice
-invoice_url: "attachments"
+invoice_url: "invoice"
 invoice:
 - title: "Create & Update"
-  url: "attachments#requests"
+  url: "invoice#requests"
 - title: "Review & Delete"
-  url: "attachments#reviewdelete"
+  url: "invoice#reviewdelete"
 - title: "PDF invoice examples"
-  url: "attachments#pdfexamples"
+  url: "invoice#pdfexamples"
 - title: "Deprecated"
-  url: "attachmentsdeprecated"
+  url: "invoice#attachmentsdeprecated"
 
 coming_soon_title: Coming soon
 coming_soon_url: "coming_soon"
