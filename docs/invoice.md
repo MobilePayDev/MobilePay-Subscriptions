@@ -13,7 +13,7 @@ Payment attachments on top of the payment can be created with a separate request
 ```json
 {
     "external_attachment_url" : "https://example.com/link/to/e_g_invoice/12345/pdf",
-    "generate_pdf" : false
+    "generate_pdf" : false,
     "attachment_details" : {
         "document_title": "Company's Faktura",
         "hide_payment_point_address": false,
@@ -32,18 +32,20 @@ Payment attachments on top of the payment can be created with a separate request
             "Wonderland"
         ],
         "articles": [
-            "article_number": "456",
-            "article_description": "Lorem ipsum dolor sit amet",
-            "vat_rate": 25,
-            "total_vat_amount": 25
-            "total_price_including_vat": 25,
-            "unit": "pcs",
-            "quantity": 6,
-            "price_per_unit": 60
+            {
+                "article_number": "456",
+                "article_description": "Lorem ipsum dolor sit amet",
+                "vat_rate": 25,
+                "total_vat_amount": 25,
+                "total_price_including_vat": 25,
+                "unit": "pcs",
+                "quantity": 6,
+                "price_per_unit": 60
+            }
         ],
         "price_reduction": 1.2,
         "price_discount": 2,
-        "bonus": 5
+        "bonus": 5,
         "merchant_contact_name": "Some Company",
         "delivery_address_lines": [
             "Østerbrogade 120",
