@@ -7,6 +7,7 @@ The purpose of payment attachments V2 is to replace existing invoice PDF functio
 
 The old way how we create invoice PDF attachments remains, but we strongly recommend to use this new approach.
 
+### <a name="createUpdate"></a>Create & Update 
 
 Payment attachments on top of the payment can be created with a separate request:
 
@@ -105,6 +106,8 @@ We reduced the amount of mandatory fields in `attachment_datails`:
 | merchant_order_number      |                         | string     | The merchant order number for the document used internally by the merchant. | Optional        |
 | buyer_order_number         |                         | string     | The buyer order number for the document used internally by the merchant.    | Optional        |
 | comment                    |                         | string     | Additonal information for the consumer.                                     | Optional        |
+
+### <a name="reviewDelete"></a>Review & Delete 
 
 `GET /api/providers/{providerId}/payments/{paymentId}/attachment` to get the details of the payment attachment.
 
