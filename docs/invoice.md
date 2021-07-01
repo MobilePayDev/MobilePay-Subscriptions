@@ -157,6 +157,13 @@ This is the example of how your data will look like to user in the MobilePay, wh
 
 ## <a name="paymentAttachmentsV1"></a>Payment attachments V1 (Deprecated)
 
+<div class="note">
+    <strong>Note:</strong>
+    <p>
+        Payment attachments V1 functionality will be removed by the end of 2021.
+    </p>
+</div>
+
 ### <a name="payment"/> Add invoice details to subscription payment
 
 You can add invoice details to your payment. These will be shown to the user in the MobilePay app. Also we will generate a PDF file that will also be accessible to the user from the MobilePay.
@@ -403,10 +410,3 @@ POST /api/providers/{providerId}/agreements
 |`comment`||`string`|Additional information to the consumer.|
 
 <strong>Note:</strong> All <code>decimal</code> values should be >0 and decimals (no more than 2 digits) should be separated with a dot.
-
-<div class="note">
-    <strong>Note:</strong>
-    <p>
-        Payment attachments V1 functionality will be removed by the end of 2021.
-    </p>
-</div>
