@@ -79,22 +79,22 @@ We reduced the amount of mandatory fields in `attachment_datails`:
 | consumer_name              |                         | string     | Full name of the user.                                                      | Optional        |
 | consumer_phone_number      |                         | string     | Mobile phone number of MobilePay user.                                      | Optional        |
 | total_amount               |                         | decimal    | The requested amount to be paid.                                            | Required        |
-| total_vat_amount           |                         | decimal    | ~~Required~~. Total VAT amount.                                             | Optional        |
+| total_vat_amount           |                         | decimal    | Total VAT amount.                                                           | Optional        |
 | total_amount_ex_vat        |                         | decimal    | Total amount excluding VAT.                                                 | Optional        |
-| issue_date                 |                         | date       | ~~Required~~. Issue date of the document.                                   | Optional        |
-| invoice_number             |                         | string     | ~~Required~~. Invoice number for invoice documents.                         | Optional        |
-| order_date                 |                         | date       | ~~Required~~. Order date.                                                   | Optional        |
-| due_date                   |                         | date       | ~~Required~~. Payment due date.                                             | Optional        |
+| issue_date                 |                         | date       | Issue date of the document.                                                 | Optional        |
+| invoice_number             |                         | string     | Invoice number for invoice documents.                                       | Optional        |
+| order_date                 |                         | date       | Order date.                                                                 | Optional        |
+| due_date                   |                         | date       | Payment due date.                                                           | Optional        |
 | consumer_address_lines     |                         | string[]   | Address of consumer receiving the document.                                 | Optional        |
 | articles                   |                         | array      | __At least one array element is required.__                                 | Required        |
-|                            | article_number          | string     | ~~Required~~. Article number, e.g.: 123456ABC.                              | Optional        |
+|                            | article_number          | string     | Article number, e.g.: 123456ABC.                                            | Optional        |
 |                            | article_description     | string     | Article description.                                                        | Required        |
-|                            | vat_rate                | decimal    | ~~Required~~. VAT rate of an article.                                       | Optional        |
-|                            | total_vat_amount        | decimal    | ~~Required~~. Total VAT amount of an article.                               | Optional        |
+|                            | vat_rate                | decimal    | VAT rate of an article.                                                     | Optional        |
+|                            | total_vat_amount        | decimal    | Total VAT amount of an article.                                             | Optional        |
 |                            | total_price_inc_vat     | decimal    | Total price of an article including VAT. Can be negative.                   | Required        |
-|                            | unit                    | string     | ~~Required~~. Unit, e.g.: pcs, coli, kg, m.                                 | Optional        |
-|                            | quantity                | decimal    | ~~Required~~. Quantity of an article.                                       | Optional        |
-|                            | price_per_unit          | decimal    | ~~Required~~. Price per unit.                                               | Optional        |
+|                            | unit                    | string     | Unit, e.g.: pcs, coli, kg, m.                                               | Optional        |
+|                            | quantity                | decimal    | Quantity of an article.                                                     | Optional        |
+|                            | price_per_unit          | decimal    | Price per unit.                                                             | Optional        |
 | price_reduction            |                         | decimal    | Price reduction.                                                            | Optional        |
 | price_discount             |                         | decimal    | Price discount.                                                             | Optional        |
 | bonus                      |                         | decimal    | Bonus.                                                                      | Optional        |
