@@ -9,6 +9,7 @@ The old way how we create invoice PDF attachments remains, but we strongly recom
 
 
 Payment attachments on top of the payment can be created with a separate request:
+
 `PUT /api/providers/{providerId}/payments/{paymentId}/attachment`
 ```json
 {
