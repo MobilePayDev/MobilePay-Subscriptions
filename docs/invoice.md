@@ -175,7 +175,7 @@ POST /api/providers/{providerId}/paymentrequests
         "due_date": "2017-03-09",
         "next_payment_date": "2017-04-09",
         "external_id": "PMT000023",
-        "description": "Monthly payment"
+        "description": "Monthly payment",
         "invoice": {
             "consumer_name": "John Johnson",
             "consumer_phone_number": "+4544667788",
@@ -191,17 +191,19 @@ POST /api/providers/{providerId}/paymentrequests
                 "Wonderland"
             ],
             "invoice_articles": [
-                "article_number": "456",
-                "article_description": "Lorem ipsum dolor sit amet",
-                "vat_rate": 25,
-                "total_vat_amount": 25
-                "total_price_including_vat": 25,
-                "unit": "pcs",
-                "quantity": 6,
-                "price_per_unit": 60,
-                "price_reduction": 1.2,
-                "price_discount": 2,
-                "bonus": 5
+                {
+                    "article_number": "456",
+                    "article_description": "Lorem ipsum dolor sit amet",
+                    "vat_rate": 25,
+                    "total_vat_amount": 25,
+                    "total_price_including_vat": 25,
+                    "unit": "pcs",
+                    "quantity": 6,
+                    "price_per_unit": 60,
+                    "price_reduction": 1.2,
+                    "price_discount": 2,
+                    "bonus": 5
+                }
             ],
             "merchant_contact_name": "Some Company",
             "delivery_address_lines": [
@@ -254,17 +256,19 @@ POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments
             "Wonderland"
         ],
         "invoice_articles": [
-            "article_number": "456",
-            "article_description": "Lorem ipsum dolor sit amet",
-            "vat_rate": 25,
-            "total_vat_amount": 25
-            "total_price_including_vat": 25,
-            "unit": "pcs",
-            "quantity": 6,
-            "price_per_unit": 60,
-            "price_reduction": 1.2,
-            "price_discount": 2,
-            "bonus": 5
+            {
+                "article_number": "456",
+                "article_description": "Lorem ipsum dolor sit amet",
+                "vat_rate": 25,
+                "total_vat_amount": 25,
+                "total_price_including_vat": 25,
+                "unit": "pcs",
+                "quantity": 6,
+                "price_per_unit": 60,
+                "price_reduction": 1.2,
+                "price_discount": 2,
+                "bonus": 5
+            }
         ],
         "merchant_contact_name": "Some Company",
         "delivery_address_lines": [
@@ -336,17 +340,19 @@ POST /api/providers/{providerId}/agreements
             "Wonderland"
         ],
         "invoice_articles": [
-            "article_number": "456",
-            "article_description": "Lorem ipsum dolor sit amet",
-            "vat_rate": 25,
-            "total_vat_amount": 25
-            "total_price_including_vat": 25,
-            "unit": "pcs",
-            "quantity": 6,
-            "price_per_unit": 60,
-            "price_reduction": 1.2,
-            "price_discount": 2,
-            "bonus": 5
+            {
+                "article_number": "456",
+                "article_description": "Lorem ipsum dolor sit amet",
+                "vat_rate": 25,
+                "total_vat_amount": 25,
+                "total_price_including_vat": 25,
+                "unit": "pcs",
+                "quantity": 6,
+                "price_per_unit": 60,
+                "price_reduction": 1.2,
+                "price_discount": 2,
+                "bonus": 5
+            }
         ],
         "merchant_contact_name": "Some Company",
         "delivery_address_lines": [
