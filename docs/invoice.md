@@ -75,37 +75,37 @@ We reduced the amount of mandatory fields in `attachment_datails`:
 
 |Parameter                   |Sub Parameter            |Type        |Description                                                                  |Requirement      |
 |----------------------------|-------------------------|------------|-----------------------------------------------------------------------------|-----------------|
-| document_title             |                         | string     | Used as document title in PDF document. Up to 60 characters.                | Required        |
-| hide_payment_point_address |                         | boolean    | Hides payment point address. Default is __false__.                          | Optional        |
-| consumer_name              |                         | string     | Full name of the user.                                                      | Optional        |
-| consumer_phone_number      |                         | string     | Mobile phone number of MobilePay user.                                      | Optional        |
-| total_amount               |                         | decimal    | The requested amount to be paid.                                            | Required        |
-| total_vat_amount           |                         | decimal    | Total VAT amount.                                                           | Optional        |
-| total_amount_ex_vat        |                         | decimal    | Total amount excluding VAT.                                                 | Optional        |
-| issue_date                 |                         | date       | Issue date of the document.                                                 | Optional        |
-| invoice_number             |                         | string     | Invoice number for invoice documents.                                       | Optional        |
-| order_date                 |                         | date       | Order date.                                                                 | Optional        |
-| due_date                   |                         | date       | Payment due date.                                                           | Optional        |
-| consumer_address_lines     |                         | string[]   | Address of consumer receiving the document.                                 | Optional        |
-| articles                   |                         | array      | __At least one array element is required.__                                 | Required        |
-|                            | article_number          | string     | Article number, e.g.: 123456ABC.                                            | Optional        |
-|                            | article_description     | string     | Article description.                                                        | Required        |
-|                            | vat_rate                | decimal    | VAT rate of an article.                                                     | Optional        |
-|                            | total_vat_amount        | decimal    | Total VAT amount of an article.                                             | Optional        |
-|                            | total_price_inc_vat     | decimal    | Total price of an article including VAT. Can be negative.                   | Required        |
-|                            | unit                    | string     | Unit, e.g.: pcs, coli, kg, m.                                               | Optional        |
-|                            | quantity                | decimal    | Quantity of an article.                                                     | Optional        |
-|                            | price_per_unit          | decimal    | Price per unit.                                                             | Optional        |
-| price_reduction            |                         | decimal    | Price reduction.                                                            | Optional        |
-| price_discount             |                         | decimal    | Price discount.                                                             | Optional        |
-| bonus                      |                         | decimal    | Bonus.                                                                      | Optional        |
-| merchant_contact_name      |                         | string     | Contact name of the individual who issued the document.                     | Optional        |
-| delivery_address_lines     |                         | string[]   | Delivery address.                                                           | Optional        |
-| payment_reference          |                         | string(60) | Any extra reference to be presented in the generated PDF file.              | Optional        |
-| delivery_date              |                         | date       | Delivery date of the document.                                              | Optional        |
-| merchant_order_number      |                         | string     | The merchant order number for the document used internally by the merchant. | Optional        |
-| buyer_order_number         |                         | string     | The buyer order number for the document used internally by the merchant.    | Optional        |
-| comment                    |                         | string     | Additonal information for the consumer.                                     | Optional        |
+| document_title             |                           | string     | Used as document title in PDF document. Up to 60 characters.                | Optional        |
+| hide_payment_point_address |                           | boolean    | Hides payment point address. Default is __false__.                          | Optional        |
+| consumer_name              |                           | string     | Full name of the user.                                                      | Optional        |
+| consumer_phone_number      |                           | string     | Mobile phone number of MobilePay user.                                      | Optional        |
+| total_amount               |                           | decimal    | The requested amount to be paid.                                            | Required        |
+| total_vat_amount           |                           | decimal    | Total VAT amount.                                                           | Optional        |
+| total_amount_ex_vat        |                           | decimal    | Total amount excluding VAT.                                                 | Optional        |
+| issue_date                 |                           | date       | Issue date of the document.                                                 | Optional        |
+| invoice_number             |                           | string     | Invoice number for invoice documents.                                       | Optional        |
+| order_date                 |                           | date       | Order date.                                                                 | Optional        |
+| due_date                   |                           | date       | Payment due date.                                                           | Optional        |
+| consumer_address_lines     |                           | string[]   | Address of consumer receiving the document.                                 | Optional        |
+| articles                   |                           | array      | __At least one array element is required.__                                 | Required        |
+|                            | article_number            | string     | Article number, e.g.: 123456ABC.                                            | Optional        |
+|                            | article_description       | string     | Article description.                                                        | Required        |
+|                            | vat_rate                  | decimal    | VAT rate of an article.                                                     | Optional        |
+|                            | total_vat_amount          | decimal    | Total VAT amount of an article.                                             | Optional        |
+|                            | total_price_including_vat | decimal    | Total price of an article including VAT. Can be negative.                   | Required        |
+|                            | unit                      | string     | Unit, e.g.: pcs, coli, kg, m.                                               | Optional        |
+|                            | quantity                  | decimal    | Quantity of an article.                                                     | Optional        |
+|                            | price_per_unit            | decimal    | Price per unit.                                                             | Optional        |
+| price_reduction            |                           | decimal    | Price reduction.                                                            | Optional        |
+| price_discount             |                           | decimal    | Price discount.                                                             | Optional        |
+| bonus                      |                           | decimal    | Bonus.                                                                      | Optional        |
+| merchant_contact_name      |                           | string     | Contact name of the individual who issued the document.                     | Optional        |
+| delivery_address_lines     |                           | string[]   | Delivery address.                                                           | Optional        |
+| payment_reference          |                           | string     | Any extra reference to be presented in the generated PDF file.              | Optional        |
+| delivery_date              |                           | date       | Delivery date of the document.                                              | Optional        |
+| merchant_order_number      |                           | string     | The merchant order number for the document used internally by the merchant. | Optional        |
+| buyer_order_number         |                           | string     | The buyer order number for the document used internally by the merchant.    | Optional        |
+| comment                    |                           | string     | Additonal information for the consumer.                                     | Optional        |
 
 ### <a name="reviewdelete"></a>Review & Delete 
 
