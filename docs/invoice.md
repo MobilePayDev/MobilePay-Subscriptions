@@ -75,7 +75,7 @@ We reduced the amount of mandatory fields in `attachment_datails`:
 
 |Parameter                   |Sub Parameter            |Type        |Description                                                                  |Requirement      |
 |----------------------------|-------------------------|------------|-----------------------------------------------------------------------------|-----------------|
-| document_title             |                           | string     | Used as document title in PDF document. Up to 60 characters.                | Optional        |
+| document_title             |                           | string(60) | Used as document title in PDF document.                                     | Optional        |
 | hide_payment_point_address |                           | boolean    | Hides payment point address. Default is __false__.                          | Optional        |
 | consumer_name              |                           | string     | Full name of the user.                                                      | Optional        |
 | consumer_phone_number      |                           | string     | Mobile phone number of MobilePay user.                                      | Optional        |
@@ -101,7 +101,7 @@ We reduced the amount of mandatory fields in `attachment_datails`:
 | bonus                      |                           | decimal    | Bonus.                                                                      | Optional        |
 | merchant_contact_name      |                           | string     | Contact name of the individual who issued the document.                     | Optional        |
 | delivery_address_lines     |                           | string[]   | Delivery address.                                                           | Optional        |
-| payment_reference          |                           | string     | Any extra reference to be presented in the generated PDF file.              | Optional        |
+| payment_reference          |                           | string(60) | Any extra reference to be presented in the generated PDF file.              | Optional        |
 | delivery_date              |                           | date       | Delivery date of the document.                                              | Optional        |
 | merchant_order_number      |                           | string     | The merchant order number for the document used internally by the merchant. | Optional        |
 | buyer_order_number         |                           | string     | The buyer order number for the document used internally by the merchant.    | Optional        |
