@@ -5,7 +5,7 @@ The purpose of payment attachments V2 is to replace existing invoice PDF functio
 - Attachment details which will be visible in MobilePay payment receipt and payment confirmation screens
 - PDF document generated from the attachment details
 
-The old way how we create invoice PDF attachments remains, but we strongly recommend to use this new approach.
+The old way how we create invoice PDF attachments remains, but will be deprecated by the end of 2021.
 
 ### <a name="requests"></a>Create & Update 
 
