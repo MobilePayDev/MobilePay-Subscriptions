@@ -127,7 +127,7 @@ This is the example of how your data will look like to user in the MobilePay, wh
 
 | Marking from<br>an example | Mapping Subscriptions                                                   | EN                | DK                    | FI                   |
 |----------------------------|-------------------------------------------------------------------------|-------------------|-----------------------|----------------------|
-|                          1 | document_title                                                          | Invoice           | FAKTURA               | LASKU                |
+|                          1 | document_title                                                          | N/A               | N/A.                  | N/A                  |
 |                          2 | Subscription provider logo                                              | N/A               | N/A                   | N/A                  |
 |                          3 | Subscription provider name                                              | N/A               | N/A                   | N/A                  |
 |                          4 | Subscription provider address                                           | N/A               | N/A                   | N/A                  |
