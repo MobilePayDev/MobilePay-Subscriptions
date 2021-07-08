@@ -125,7 +125,7 @@ This is the example of how your data will look like to user in the MobilePay, wh
 
 | Marking from<br>an example | Mapping Subscriptions                                                   | EN                | DK                    | FI                   |
 |----------------------------|-------------------------------------------------------------------------|-------------------|-----------------------|----------------------|
-|                          1 | Hardcoded                                                               | Invoice           | FAKTURA               | LASKU                |
+|                          1 | document_title                                                          | Invoice           | FAKTURA               | LASKU                |
 |                          2 | Subscription provider logo                                              | N/A               | N/A                   | N/A                  |
 |                          3 | Subscription provider name                                              | N/A               | N/A                   | N/A                  |
 |                          4 | Subscription provider address                                           | N/A               | N/A                   | N/A                  |
@@ -150,10 +150,10 @@ This is the example of how your data will look like to user in the MobilePay, wh
 |                         23 | price_per_unit                                                          | Quantity price    | Enhedspris            | Yksikköhinta         |
 |                         24 | vat_rate                                                                | VAT               | Moms                  | ALV                  |
 |                         25 | total_price_including_vat                                               | Total             | Total                 | Yhteensä             |
-|                         26 | Sum of price_reduction                                                  | Price deduction   | Total prisnedsættelse | Kokonaishinta        |
-|                         27 | Sum of price_discount                                                   | Discount          | Total rabat           | Alennus              |
-|                         28 | Sum of bonus                                                            | Bonus             | Total bonus           | Kokonaisbonus        |
-|                         29 | Calculated<br>total_amount - (sum of invoice_articles.total_vat_amount) | Total ex VAT      | Total uden moms       | Yhteensä ilman ALV   |
+|                         26 | price_reduction                                                         | Price reduction   | Total prisnedsættelse | Kokonaishinta        |
+|                         27 | price_discount                                                          | Discount          | Total rabat           | Alennus              |
+|                         28 | bonus                                                                   | Bonus             | Total bonus           | Kokonaisbonus        |
+|                         29 | total_amount_ex_vat                                                     | Total ex VAT      | Total uden moms       | Yhteensä ilman ALV   |
 |                         30 | total_vat_amount                                                        | Total VAT         | Moms                  | ALV yhteensä         |
 |                         31 | total_amount                                                            | Total             | Total                 | Yhteensä             |
 |                         32 | comment                                                                 | Comments          | Kommentar             | Kommentit            |
