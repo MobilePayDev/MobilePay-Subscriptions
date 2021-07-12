@@ -1,6 +1,6 @@
 # Subscriptions API Release Notes
 
-### 09 July 2021 - Payment attachments V2.
+### 12 July 2021 - Payment attachments V2.
 The purpose of payment attachments V2 is to replace existing invoice PDF functionality and to offer more flexibility for the merchant. With this new functionality you will be able to choose how attachment will be presented to the user:
 - External URL. Your own link to the payment document.
 - Attachment details. Extra payment details.
