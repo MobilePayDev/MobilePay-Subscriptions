@@ -1,5 +1,13 @@
 # Subscriptions API Release Notes
- 
+
+### 12 July 2021 - Payment attachments V2.
+The purpose of payment attachments V2 is to replace existing invoice PDF functionality and to offer more flexibility for the merchant. With this new functionality you will be able to choose how attachment will be presented to the user:
+- External URL. Your own link to the payment document.
+- Attachment details. Extra payment details.
+- MobilePay generated PDF. PDF document generated from the attachment details.
+
+More information in [Invoice](invoice).
+
 ### 23 April 2021 - Sms messages for suspended payments.
 We recently implemented SMS sending to users, in case they have a `suspended` payment. The purpose of the SMS is to prompt the customer to pay quicker. `suspended`  means that the the Merchant could not withdraw the money from the customers payment card. There can be various reasons why it can he suspended. If the problem persists, and there is not sufficient funds on the customers card, or/and if the card is expired or/and blocked, then the payment will fail. Suspended is a status internally for MobilePay to mark hiccupped payments, which is why it is not a part of the callback table [here](subscription-payments_callbacks). You should still see the status `failed` or `executed` as the final status 
 

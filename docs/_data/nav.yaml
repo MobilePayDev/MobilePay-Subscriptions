@@ -46,10 +46,14 @@ refund:
 invoice_title: Invoice
 invoice_url: "invoice"
 invoice:
-- title: "Requests"
+- title: "Create & Update"
   url: "invoice#requests"
+- title: "Review & Delete"
+  url: "invoice#reviewdelete"
 - title: "PDF invoice examples"
-  url: "invoice#pdf_examples"
+  url: "invoice#pdfexamples"
+- title: "Deprecated"
+  url: "invoice#attachmentsdeprecated"
 
 coming_soon_title: Coming soon
 coming_soon_url: "coming_soon"
