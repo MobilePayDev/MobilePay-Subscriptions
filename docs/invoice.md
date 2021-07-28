@@ -160,7 +160,7 @@ This is the example of how your data will look like to user in the MobilePay, wh
 |                         31 | total_amount                                                            | Total             | Total                 | Yhteensä             |
 |                         32 | comment                                                                 | Comments          | Kommentar             | Kommentit            |
 
-## <a name="attachmentsappscreens"></a>App screens
+### <a name="attachmentsappscreens"></a>App screens
 Payment attachments are represented in payment/one-off confirmation and receipt screens
 
 MobilePay generated PDF + Attachment details    | Attachment details   
