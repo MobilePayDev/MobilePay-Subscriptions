@@ -5,7 +5,7 @@ The purpose of payment attachments V2 is to replace existing invoice PDF functio
 - Attachment details. Extra payment details.
 - MobilePay generated PDF. PDF document generated from the attachment details.
 
-![Payment-attachments-image](https://user-images.githubusercontent.com/51047233/124934235-3565e900-e00d-11eb-9986-edd5ed6e627d.png)
+[![](assets/images/attachment_combinations.png)](assets/images/attachment_combinations.png)
 
 The old way how we create invoice PDF attachments remains, but will be deprecated by the end of 2021.
 
@@ -159,6 +159,17 @@ This is the example of how your data will look like to user in the MobilePay, wh
 |                         30 | total_vat_amount                                                        | Total VAT         | Moms                  | ALV yhteensä         |
 |                         31 | total_amount                                                            | Total             | Total                 | Yhteensä             |
 |                         32 | comment                                                                 | Comments          | Kommentar             | Kommentit            |
+
+### <a name="attachmentsappscreens"></a>App screens
+Payment attachments are represented in payment/one-off confirmation and receipt screens.
+
+MobilePay generated PDF + Attachment details    | Attachment details   
+:-------------------------:|:-------------------------:
+![](https://user-images.githubusercontent.com/51047233/127310022-90c4328d-91ee-487e-aef2-6f5ad42efd61.png)  |  ![](https://user-images.githubusercontent.com/51047233/127311030-d625abca-84a0-4a94-98aa-e7370500850b.png) |
+
+External URL + Attachment details    | External URL   
+:-------------------------:|:-------------------------:
+![](https://user-images.githubusercontent.com/51047233/127310291-4420f5c8-97c8-4c3a-ae24-30b286d1d78e.png)  |  ![](https://user-images.githubusercontent.com/51047233/127310321-277c33e0-e9cb-43c7-9de8-27b7119f8913.png) |
 
 ## <a name="attachmentsdeprecated"></a>Payment attachments V1 (Deprecated)
 

@@ -74,8 +74,8 @@ Agreement disable_notification_management push notification. Merchant can set if
 The `POST /api/providers/{providerId}/paymentrequests` service returns HTTP 202 - Accepted response if at least one payment is provided in the request payload.
 
 The response body containts two lists:
-* **pending_payments** - a map of newly generated Subscription payment ID and the external ID, that where accepted for processing and now are in a _Pending_ state.
-* **rejected_payments** - a list of rejected payments. This can only occur if any of the mandatory fields are missing or do not conform to the format rule. Business logic validations are done asynchronously in the back-end (for example, checking if due-date conforms to 1 day rule).
+* **pending_payments** - a map of newly generated Subscription payment ID and the external ID, that were accepted for processing and now are in a _Pending_ state.
+* **rejected_payments** - a list of rejected payments. This can only occur if any of the mandatory fields are missing or do not conform to the format rule. Business logic validations are done asynchronously in the back-end (for example, rejecting if payments on same due_date have same external_id).
 
 ##### <a name="subscription-payments_response-example"></a>HTTP 202 Response body example
 
@@ -96,9 +96,9 @@ The response body containts two lists:
 
 #### <a name="subscription-payments_frequency"></a>Frequency of Payment Requests
 
- The merchant can send a payment max 126 days prior due date, and at least 1 day before due date. Valid values are 1, 2, 4, 12, 26, 52, 365, 0. This means that the daily payment (365) is the most frequent. When you are requesting a payment, you need to keep the 1 day rule. The user can have a single pending payment on due date. E.g. User can have 3 pending payments but the DueDate of those payments should be different.
+ The merchant can send a payment max 126 days prior due date, and at least 1 day before due date. Valid values are 1, 2, 4, 12, 26, 52, 365, 0. This means that the daily payment (365) is the most frequent. When you are requesting a payment, you need to keep in mind that there cannot be more than one payment on same due_date with same external_id. The user can have a few pending payments on same due date. E.g. User can have 3 pending payments on same due_date but the external_id of those payments should be different.
 
-- **Due Date** Payments cannot be created with the same Due Date.
+- **External Id** Payments cannot be created with the same external_id on same due_date.
 - **Multiple Recurring payments**  Multiple recurring payment requests can be created within period [126 before Due Date >= Payment Request Date >= 1 before Due Date].
 - **Next Payment Date** If there are multiple pending payments, Next Payment Date is the one closest to Today().
 
@@ -141,7 +141,7 @@ We will post the integrator or merchant a callback, and expect a HTTP 2xx respon
 |Rejected  |_User rejected the Pending payment in MobilePay_       | Any time during the 8-1 days period when user is presented with the Pending payment in the MobilePay activity list. |Rejected  |Rejected by user.| 50001 | 
 |Declined  |_Merchant declined the Pending payment via the API_       | Any time during the 8-1 days period when user is presented with the Pending payment in the MobilePay activity list. |Declined  |Declined by merchant.| 50002 | 
 |Declined  |_**Agreement** is not in Active state._                | Right after the payment request was received. |Declined  |Declined by system: Agreement is not "Active" state.| 50003 | 
-|Declined  |_Another payment is already scheduled on that day for the user_| Right after the payment request was received. |Declined  |Declined by system: Another payment is already due.| 50004 | 
+|Declined  |_Another payment with the same ExternalId is already scheduled on that day for the user_| Right after the payment request was received. |Declined  |Declined by system: Found duplicates for same DueDate and AgreementId or ExternalId.| 50004 | 
 |Declined  |When the **Agreement** was canceled by merchant or by system | Any time unless retention period is set and active.  |Declined  |Declined by system: Agreement was canceled. | 50005 | 
 |Rejected  |When the **Agreement** was canceled by user | Any time unless retention period is set and active. |Rejected  |Declined by system: Agreement was canceled. | 50005 | 
 |Declined  |A catch-all error code when payment was declined by core system.| Right after the payment request was received. |Declined  | Declined by system. | 50006 | 
