@@ -16,7 +16,7 @@
 
     <body>
         <div class="wrapper">
-            <header>
+            <header class="screen-space-top">
                 <h1>{{ site.title | default: site.github.repository_name }}</h1>
                 <h4 class="mt5"><a href="{{ site.data.nav.overview_url }}">{{ site.data.nav.overview_title }}</a></h4>
                 <h4 class="mt5"><a href="{{ site.data.nav.general_notes_url }}">{{ site.data.nav.general_notes_title }}</a></h4>
@@ -52,7 +52,7 @@
                 {% endfor %}
                 <h4 class="mt5"><a href="{{ site.data.nav.coming_soon_url }}" style="color:#e35619"> 🤫 {{ site.data.nav.coming_soon_title }}</a></h4>
             </header>
-            <section>
+            <section class="screen-space-top">
 
                 {{ content }}
 
