@@ -18,9 +18,9 @@
 ----------
 Once you have 
 
- - [ ] 1. Received OIDC credentials via zip file. The zip file will be sent via e-mail. The zip file is locked with a password. DeveloperSupport will provide the password via text message, due to security reasons.
- - [ ] 2. Received testmerchant 
- - [ ] 3. Have a whitelisted `redirect_uri`   
+ - [ ] 1. Have a whitelisted `redirect_uri`   (Send an e-mail to developer@mobilepay.dk with your `redirect_uri` and we will revert back to you, once it has been whitelisted. 
+ - [ ] 2. Received OIDC credentials via zip file. The zip file will be sent via e-mail. The zip file is locked with a password. DeveloperSupport will provide the password via text message, due to security reasons.
+ - [ ] 3. Received testmerchant 
 
  you can start implementing the OpenID Connect flow. Read more about OpenID Connect and the process [here](https://mobilepaydev.github.io/MobilePay-Subscriptions/authentication)
  
