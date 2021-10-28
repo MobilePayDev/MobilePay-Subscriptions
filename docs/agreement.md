@@ -184,7 +184,7 @@ You do not get a callback that tells you specifically if/when the user closes th
 |----------------|------------|------------------------------------------------------|------|
 |**agreement_id**|guid        |Subscription agreement ID on the MobilePay side.||
 |**external_id** |string      |Agreement ID on the merchant's side                   ||
-|**timestamp**   |datetime    |Timestamp when the status change occurred.            |ISO 8601 UTC date and time format: YYYY-MM-DDThh:mm:ssZ|
+|**timestamp**   |datetime    |Timestamp when the status change occurred.            |ISO 8601 UTC date and time format: YYYY-MM-DDThh:mm:ssXXX|
 
 ##### <a name="agreements_callback-request"></a>Agreement callback request example
 
