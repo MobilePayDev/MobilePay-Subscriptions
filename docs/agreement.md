@@ -127,6 +127,12 @@ Setting **disable_notification_management** to **true** will disable notificatio
 
 [![](assets/images/SUBS_New_Agreement_WEB_Flow.png)](assets/images/SUBS_New_Agreement_WEB_Flow.png)
 
+### The landing page
+
+The MobilePay landing page is mandatory. It provides a consistent and recognizable user experience, that helps guide the user through the MobilePay payment flow. Our data shows, that it gives a higher success rate and lower drop-off, because the users get a recognisable user experience seen as they know the MobilePay payment flow.  
+
+
+
 #### New agreement creation in APP
 
 [![](assets/images/new_agreements_4.png)](assets/images/new_agreements_4.png)
