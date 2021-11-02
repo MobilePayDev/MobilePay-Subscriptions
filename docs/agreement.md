@@ -106,6 +106,9 @@ The link can be used in two ways:
 
 #### Update existing Agreement Request
 
+It is the merchant's responsibility to manage and update the agreements, and to use the API to make sure everything is in sync.
+
+
 Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}` endpoint to change agreement request parameters. Its request must match the rules of [RFC 6902 JSON Patch standards](https://tools.ietf.org/html/rfc6902).  
 
 - Available operations: **replace**
@@ -183,6 +186,8 @@ The table below shows possible *status*, *status_text* and *status_code* values 
 
 
 You do not get a callback that tells you specifically if/when the user closes the landing page with the timer.
+
+If there should be a pause in an agreement, like a temporary stop of a subscription: Simply do not create any charges during the pause.  You might want to update the **description** field of the agreement so the user can see that the subscription is paused in MobilePay. The endpoint `DELETE /api/providers/{providerId}/agreements/{agreementId}` will cancel the agreement, so we recommend that the merchant only uses that endpoint if the customer clearly notifies the merchant that they want to cancel a subscription or service. Cancelled agreements can not be reactivated. 
 
 ##### <a name="agreements_state-diagram"></a>Agreement state diagram
 
