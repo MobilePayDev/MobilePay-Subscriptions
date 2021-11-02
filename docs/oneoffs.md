@@ -21,11 +21,11 @@ One-off payment does not affect the frequency and grace period. So if you create
 
 ## <a name="requests"></a>Flow 1- Request One-Off Payment With a New Agreement
  
-* Use this when the customer does not have an agreement already, and you need the customer to create an agreement and simultaneously pay for the service/product. 
+* Use this when the customer does not have an agreement already, and you need the customer to create an agreement and simultaneously pay for the service/product. This allows for products to be bundled with agreements as one transaction (for example a phone).  
 * When you create an agreement with a One-Off payment, and the user accepts the agreement, the payment will be created and reserved. 
-* Capture and Reserve is handled by the Merchant. Capture is done even if user is blocked after reservation
+* Capture and Reserve is handled by the Merchant. Capture is done even if user is blocked after reservation. When the one-offpayment is processed, the payment will show up in the users's activitylist in the MobilePay app.
 
-Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreements` request payload if you want the agreement being activated only when the user is successfully charged an initial subscription amount.
+Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreements` request payload if you want the agreement being activated only when the user is successfully charged an initial subscription amount. 
 
 ```json
 {
