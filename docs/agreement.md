@@ -1,8 +1,9 @@
 ## <a name="agreements"></a>Agreements
 
 An agreement is used to provide subscription service to sell to Customers.
-Once the user is given to choose the payment method on the merchant's signup flow, an additional "*Pay with MobilePay*" button should be shown for the user to be able to click on. When user clicks on this button, merchant's back-end system must call the `POST /api/providers/{providerId}/agreements` endpoint in order to create a *Pending* Subscription **Agreement**, which can only be activated by the MobilePay user through the app. The agreement is a prerequisite in order to send Subscription payments.  After agreement confirmation, user is redirected to merchant success page. If user did not manage to confirm agreement, the customer sees a timeout screen if they are on dual device. If they are on app, nothing is displayed.  
+Once the user is given to choose the payment method on the merchant's signup flow, an additional "*Pay with MobilePay*" button should be shown for the user to be able to click on. When user clicks on this button, merchant's back-end system must call the `POST /api/providers/{providerId}/agreements` endpoint in order to create a *Pending* Subscription **Agreement**, which can only be activated by the MobilePay user through the app. After agreement confirmation, user is redirected to merchant success page. If user did not manage to confirm agreement, the customer sees a timeout screen if they are on dual device. If they are on app, nothing is displayed.  
 
+When the user has accepted the agreement in the MobilePay app, then the Merchant can charge Subscription payments `POST /api/providers/{providerId}/paymentrequests` and One-Off payments `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments`.  
 
 
 #### <a name="requests"></a>Create agreement request
