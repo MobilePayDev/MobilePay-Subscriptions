@@ -1,7 +1,10 @@
 ## <a name="agreements"></a>Agreements
 
 An agreement is used to provide subscription service to sell to Customers.
-Once the user is given to choose the payment method on the merchant's signup flow, an additional "*Pay with MobilePay*" button should be shown for the user to be able to click on. When user clicks on this button, merchant's back-end system must call the `POST /api/providers/{providerId}/agreements` endpoint in order to create a *Pending* Subscription **Agreement**, which can only be activated by the MobilePay user through the app. After agreement confirmation, user is redirected to merchant success page. If user did not manage to confirm agreement, the customer sees a timeout screen if they are on dual device. If they are on app, nothing is displayed.  
+
+MobilePay Subscriptions is a flexible service, that allows merchant to tailor the user experience to their needs by using normal agreements, agreement with an initial one-off payment, agreements with a period where the price is lower than usual, and existing agreements where the customer wants to buy an add-on. 
+
+Once the user is given to choose the payment method on the merchant's signup flow, an "*Pay with MobilePay*" button should be shown for the user to be able to click on. The MobilePay button must adhere to our branding guidelines [here](https://developer.mobilepay.dk/design).  When user clicks on this button, merchant's back-end system must call the `POST /api/providers/{providerId}/agreements` endpoint in order to create a *Pending* Subscription **Agreement**, which can only be activated by the MobilePay user through the app. After agreement confirmation, user is redirected to merchant success page. If user did not manage to confirm agreement, the customer sees a timeout screen if they are on dual device. If they are on app, nothing is displayed.  
 
 When the user has accepted the agreement in the MobilePay app, then the Merchant can charge Subscription payments `POST /api/providers/{providerId}/paymentrequests` and One-Off payments `POST /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments`.  
 
