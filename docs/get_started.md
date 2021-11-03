@@ -1,7 +1,7 @@
 
 
 
-## <a name="getstarted"></a> Get started
+# <a name="getstarted"></a> Get started
 
  1. **Read API documentation**. You'll find it in the  [APIs menu](https://developer.mobilepay.dk/product). *The API documentation provides insight into the structure of the API and will help you determine the best approach for integration as well as provide details on typical use cases.*
 
@@ -13,7 +13,7 @@
 -  Subscriptions
 -  Subscriptions User Simulation
 
-### Step 2 - Authentication
+## Step 2 - Authentication
 
 ----------
 Once you have 
@@ -45,5 +45,13 @@ Once you have
  - [ ] 13. You must also have a setup for handling cancelled orders, and cancel reserved payments
 
 ----------
+
+### Step 3 - Avoid Integration pitfalls 
+ - [ ]  14. The Merchant _must not_ rely on `user-redirect`. All proper data comunication and logging and monitoring should be done thorugh callbacks and GET calls. 
+ - [ ]  15. The MobilePay branding must be according to the [MobilePay design guidelines](https://developer.mobilepay.dk/design)
+ - [ ]  16. The Merchant must have a way for the user to manage and stop subscription if the merchant is using cancel-redirect. This should result in a timely update of the MobilePay Agreement.
+ - [ ]  17. Follow the [external_id recommendations](https://mobilepaydev.github.io/MobilePay-Subscriptions/payments#externalid-payment)
+ - [ ]  18. Correctly handle callbacks from MobilePay, both for successful and unsuccessful payments. 
+
 
 Once you have followed the steps above, you are ready to do the self-certification. Click the "I'm ready" button [here](https://developer.mobilepay.dk/subscriptions-verification#verification)  
