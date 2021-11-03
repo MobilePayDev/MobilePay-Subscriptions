@@ -51,7 +51,7 @@ Once created, Recurring Payment Request can be updated (until it expires or is e
 
 Agreement disable_notification_management push notification. Merchant can set if their customer should be able to manage push notifications for an agreement or not. If the merchant choses so, then the push notification is not displayed when signing new agreement and when browsing agreement information. 
 
-#### <a name="request-parameters"></a>Request parameters
+### <a name="request-parameters"></a>Request parameters
 
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |----------------------|------------|----------|-----------------------------------------------------------------|------------|
@@ -63,11 +63,13 @@ Agreement disable_notification_management push notification. Merchant can set if
 |**description**       |string(60)  | required |*Additional information of the __Subscription Payment__ that is visible for the customer in the MobilePay app*||
 |**grace_period_days** |int  | optional |*Number of days to keep retrying the payment if it was not successful.*|1, 2, 3|
 
+### <a name="externalid-payment"></a> External ID Recommendations 
+
 <div class="note">
-    <strong>Note:</strong>
-    <p>
-        * Recommendation for "external_id" is to use up to 30 symbols. For instant transfers "external_id" is used as payment reference and will be truncated down to 30 symbols if it contains more. Truncated payment reference will be visible in bank statement.
-    </p>
+Recommendation for "external_id" is to use up to 30 symbols. "external_id" is provided by Merchant or Itegrator when initiating payments and is used for correlating transactions between MobilePay and Merchant or Integrator system. We recommend that it is unique, as then it is easier for MobilePay to search in the logs. If you ever have a problem that requires us to search in our logs. A good starting point is to use UUID, on the format `123e4567-e89b-12d3-a456-426614174000`. UUIDs are not always the most human-friendly, so see the other tips too. For instant transfers "external_id" is used as payment reference and will be truncated down to 30 symbols if it contains more. Truncated payment reference will be visible in customers bank statement.
+    
+If you need to make multiple payment requests in case the customer didn't pay, you can add a suffix to the external_id to make it unique: If your internal external_id  is mp-shop-123-order123abc you can add -1 to get a unique MobilePay external_id mp-shop-123-order123abc-1 for the first attempt, mp-shop-123-order123abc-2 for the second, etc. This is useful if a customer doesn't pay for their subscription, and when you are sending another request. 
+ 
 </div>
 
 <a name="subscription-payments_response"></a>
