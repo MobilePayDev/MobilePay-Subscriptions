@@ -224,7 +224,10 @@ Please ensure that your usage of user-redirect is well implemented at the mercha
 
 Merchants can add their internal order ID to the *rel = user-redirect*  when they create the agreement. For example https://www.merchantwebsite.com/ourcallback?order_id=<internal order id here> 
 This way, the merchant knows, which order the *rel = user-redirect*  should handle. It is therefore a prerequisite that the merchant has an internal order ID on their side. By including the internal order ID to the *rel = user-redirect*, the merchant also has a back-up solution, in case the end customer is using incognito, as incognito makes session management, tracking and cookie storage more complex. The *rel = user-redirect* does not need to be whitelisted by MobilePay. 
+  
+Please note:  user-redirect is primarily for the visual user experiance. The merchant should be aware of the fact that the user might close the browser,  the internet might fail etc. There are cases where the user and browser interrupt the flow, and MobilePay can't control these cases. 
 
+ MobilePay doesn't do logging on the user-redirect, since part of the data is in in the app and part of the data is in landing page, hence it would be a very complicated set up. ​ All proper data comunication and logging and monitoring should be done thorugh callbacks and GET calls.  
 
 #### <a name="agreements_creation-diagram"></a>Agreement creation sequence diagram
 
