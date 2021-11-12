@@ -60,7 +60,7 @@ Once you have
 In addition, all Integrators are required to complete the following:
 - [ ] Technical documentation for Merchants
      - [ ] Documentation for merchants regarding how to apply for MobilePay products on [the MobilePay Portal](https://admin.mobilepay.dk/)
-     - [ ] Documentation for merchants regarding how to configure and use the Integrator module. This includes ensuring that the Merchant can customise the agreement parameters (`amount`, `plan`, `frequency` `description`, `next_payment_date` and payment screens parameters (`description`, `next_payment_date`, `external_id`)
+     - [ ] Documentation for merchants regarding how to configure and use the Integrator module. This includes ensuring that the Merchant can customise the agreement parameters (`amount`, `plan`, `frequency` `description`, `next_payment_date` and payment screens parameters (`description`, `next_payment_date`, `external_id`). 
      - [ ] FAQ for merchants
 - [ ] Provide one pilot customer to verify the integration in production environment
 
