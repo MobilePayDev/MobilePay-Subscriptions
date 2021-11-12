@@ -1,5 +1,5 @@
 
-
+An integration is considered finished when all the elements of the relevant API's checklist are done
 
 # <a name="getstarted"></a> Get started
 
@@ -49,9 +49,23 @@ Once you have
 ### Step 3 - Avoid Integration pitfalls 
  - [ ]  14. The Merchant _must not_ rely on `user-redirect`. All proper data comunication and logging and monitoring should be done thorugh callbacks and GET calls. 
  - [ ]  15. The MobilePay branding must be according to the [MobilePay design guidelines](https://developer.mobilepay.dk/design)
- - [ ]  16. The Merchant must have a way for the user to manage and stop subscription if the merchant is using cancel-redirect. This should result in a timely update of the MobilePay Agreement.
+ - [ ]  16. The Merchant must have a way for the user to manage and stop subscription if the merchant is using `cancel-redirect`. This should result in a timely update of the MobilePay Agreement.
  - [ ]  17. Follow the [external_id recommendations](https://mobilepaydev.github.io/MobilePay-Subscriptions/payments#externalid-payment)
  - [ ]  18. Correctly handle callbacks from MobilePay, both for successful and unsuccessful payments. 
 
+----------
+
+### Third Party integrators
+
+In addition, all Integrators are required to complete the following:
+- [ ] Technical documentation for Merchants
+     - [ ] Documentation for merchants regarding how to apply for MobilePay products on [the MobilePay Portal](https://admin.mobilepay.dk/)
+     - [ ] Documentation for merchants regarding how to configure and use the Integrator module. This includes ensuring that the Merchant can customise the agreement parameters (`amount`, `plan`, `description`, `next_payment_date` and payment screens parameters (`description`, `next_payment_date`, `external_id`)
+     - [ ] FAQ for merchants
+- [ ] Provide one pilot customer to verify the integration in production environment
+
+When the integration checklist is completed, notify the MobilePay Developer Support, who will verify the integration, and contact the Integrator.
+
+MobilePay then adds the integrator to  [the MobilePay Website]( https://www.mobilepay.dk/erhverv/abonnementer-og-fakturering/mobilepay-subscriptions/integrator-liste)
 
 Once you have followed the steps above, you are ready to do the self-certification. Click the "I'm ready" button [here](https://developer.mobilepay.dk/subscriptions-verification#verification)  
