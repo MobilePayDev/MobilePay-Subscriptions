@@ -49,9 +49,15 @@ When the user has accepted the agreement in the MobilePay app, then the Merchant
 `mobile_phone_number` is not required. Neither for agreement creation, or one-off creation. If you choose to add it, the phone number will be prefilled on our landing page. So that the user will not have to type the phone number on the landing page, which makes it more convenient for the user, if you add `mobile_phone_number`. We cannot enclose any phone number updates (if any) to the Merchant. We do not notify the merchant if the prefilled number was used / not used.
 
 #### <a name="cancel_redirect"></a> <code>cancel-redirect</code> 
-By making it possible for customers to cancel the agreement in merchants own environment, merchant can get more control of their possible leaving customers. 
+<code>cancel-redirect</code> makes it possible for customers to cancel the agreement in merchants own environment, and the merchant gets more flexibility on terms of retention strategies for their possible leaving customers. 
 
-The cancel-redirect is not mandatory, and the Merchant can only use cancel-redirect if they have a self-service environment where a cancel button is visible. The Merchant should ensure that the customer can easily cancel the agreement on their own self-service environment. 
+The cancel-redirect is not mandatory, since the Merchant should only use cancel-redirect if they have a self-service environment, where a cancel or unsubscribe button is visible. The Merchant should ensure that the customer can easily cancel the agreement on their own self-service environment. To ensure the best ustomer experience, a clear "Unsubsribe" or "Cancel" button should be present on the merchant website.  
+
+The <code>cancel-redirect</code> is a link to a website, where the customer can manage the agreement: Change, pause, cancel, etc. MobilePay does not offer any form of agreement management, like changing subscription types or price, temporary address change, etc. The URL is opened in the standard web browser.
+The integrator must implement such functionality for the customer to manage the agreement in their system.  When a user notifies the merchant that they want to cancel a subscription or service, the merchant must ensure that the status of the agreement is set to cancelled at a suitable time.
+
+
+
 
 How is this implemented?
 
