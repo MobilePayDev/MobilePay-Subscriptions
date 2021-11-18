@@ -48,6 +48,17 @@ When the user has accepted the agreement in the MobilePay app, then the Merchant
 
 `mobile_phone_number` is not required. Neither for agreement creation, or one-off creation. If you choose to add it, the phone number will be prefilled on our landing page. So that the user will not have to type the phone number on the landing page, which makes it more convenient for the user, if you add `mobile_phone_number`. We cannot enclose any phone number updates (if any) to the Merchant. We do not notify the merchant if the prefilled number was used / not used.
 
+#### <a name="cancel_redirect"></a> <code>cancel-redirect</code> 
+By making it possible for customers to cancel the agreement in merchants own environment, merchant can get more control of their possible leaving customers. 
+
+The cancel-redirect is not mandatory, and the Merchant can only use cancel-redirect if they have a self-service environment. The Merchant should ensure that the customer can easily cancel the agreement on their own self-service environment.
+
+How is this implemented?
+
+For new agreements, use endpoint `POST /api/providers/{providerId}/agreements` with cancel-redirect link. A new link allows agreement to be cancelled in merchant own environmnet. Merchant should ensure easy access to information and support.
+For existing agreements: use endpoint `PATCH /api/providers/{providerId}/agreements{agreementId}`   endpoint to change agreement request parameters
+
+
 The *Pending* **Agreement**, if not activated, will expire within the value, provided in the `expiration_timeout_minutes`.
 
 #### <a name="agreements_paramters"></a>Request parameters for Create agreement request
@@ -79,7 +90,8 @@ After new payment is created, agreement’s NextPaymentDate property will be upd
   * NextPaymentDate (payment)
   * DueDate (payment)
 
-   
+
+
 
 * * *
 
@@ -244,7 +256,8 @@ Please note:  user-redirect is primarily for the visual user experiance. The mer
 #### <a name="agreements_cancel-active-diagram"></a>When user cancels an Active agreement - sequence diagram
 
 <div class="note">
-<b>Note</b>: If <code>cancel-redirect</code> url is set on an agreement, then this flow is not relevant, because agreement cancellation is not possible in MobilePay app.
+<b>Note</b>: If <code>cancel-redirect</code> url is set on an agreement, then this flow is not relevant, because agreement cancellation is not possible in MobilePay app. 
+
 </div>
 
 ![](assets/images/RecurringPayments_CancelAgreement_User.png)
