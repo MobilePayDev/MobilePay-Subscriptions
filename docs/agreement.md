@@ -51,7 +51,7 @@ When the user has accepted the agreement in the MobilePay app, then the Merchant
 #### <a name="cancel_redirect"></a> <code>cancel-redirect</code> 
 By making it possible for customers to cancel the agreement in merchants own environment, merchant can get more control of their possible leaving customers. 
 
-The cancel-redirect is not mandatory, and the Merchant can only use cancel-redirect if they have a self-service environment. The Merchant should ensure that the customer can easily cancel the agreement on their own self-service environment.
+The cancel-redirect is not mandatory, and the Merchant can only use cancel-redirect if they have a self-service environment where a cancel button is visible. The Merchant should ensure that the customer can easily cancel the agreement on their own self-service environment. 
 
 How is this implemented?
 
