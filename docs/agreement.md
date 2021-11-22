@@ -54,7 +54,7 @@ When the user has accepted the agreement in the MobilePay app, then the Merchant
 The cancel-redirect is not mandatory, since the Merchant should only use cancel-redirect if they have a self-service environment, where a cancel or unsubscribe button is visible. The Merchant should ensure that the customer can easily cancel the agreement on their own self-service environment. To ensure the best ustomer experience, a clear "Unsubsribe" or "Cancel" button should be present on the merchant website.  
 
 The <code>cancel-redirect</code> is a link to a website, where the customer can manage the agreement: Change, pause, cancel, etc. MobilePay does not offer any form of agreement management, like changing subscription types or price, temporary address change, etc. The URL is opened in the standard web browser.
-The integrator must implement such functionality for the customer to manage the agreement in their system.  When a user notifies the merchant that they want to cancel a subscription or service, the merchant must ensure that the status of the agreement is set to cancelled at a suitable time.
+The integrator must implement such functionality for the customer to manage the agreement in their system.  When a user notifies the merchant that they want to cancel a subscription or service, the merchant must ensure that the status of the agreement is set to cancelled at a suitable time. However, if the customer wants to pause the agreement, then we highly recommend that you update the parameters `description` and `next_payment_date` so the customer knows what the status of the payment is.  Furthermore, we highly recommend that you send a receipt to the customer via email or SMS, so they are sure that the agreement change has been established. 
 
 
 
