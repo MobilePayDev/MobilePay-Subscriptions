@@ -212,10 +212,11 @@ The process on failed payments the DueDate is as follows:
 
 You can choose a reference or ID on the subscriptions payments that your merchant sends via MobilePay Subscriptions. It is possible to do reconciliation in several ways.
 
-- Callbacks: You get the status of the payment through the API callbacks. When the payment has status `executed` then the customer has paid, and MobilePay sends a callback to you. Callbacks for subscription payments are found here. Callbacks for one-off payments are found here. 
+- Callbacks: You get the status of the payment through the API callbacks. When the payment has status `executed` then the customer has paid, and MobilePay sends a callback to you. Callbacks for subscription payments are found [here](https://mobilepaydev.github.io/MobilePay-Subscriptions/payments#callbacks). Callbacks for one-off payments are found [here](https://mobilepaydev.github.io/MobilePay-Subscriptions/oneoffs#callbacks). 
 - Mapping `external_id` The individual transactions will contain the same `external_id`, that you have assigned, and that `external_id` will be returned through the API.  `external_id` is the identifier of a specific payment in merchant and integrator system.
-- CSV file via MobilePay Portal: The Merchant logs in to our MobilePay portal on https://admin.mobilepay.dk where you can export the transactions in a CSV file. This method is quite manual. 
-- Use the Transaction Reporting API which contains GET calls containing specific transaction and transfer information, specifically the parameter  `MerchantReference`  
+- CSV file via MobilePay Portal: The Merchant logs in to our MobilePay portal on [MobilePay Portal](https://admin.mobilepay.dk/)  where you can export the transactions in a CSV file. This method is quite manual, but it is an easy way for Merchants to see their payments. 
+- Use the Transaction Reporting API which contains GET calls containing specific transaction and transfer information, specifically the parameter  `MerchantReference` as it directly is mapped to `external_id`
+
 For example, if the merchant wants to use their FIK-Creditor-ID for transactions, then you simply choose the reference number, which can be the merchant FIK Creditor ID. There are no special requirements for the merchant FIK creditor-ID to be able to use it for MobilePay Subscriptions.
 
 
