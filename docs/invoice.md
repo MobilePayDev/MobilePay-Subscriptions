@@ -397,8 +397,7 @@ POST /api/providers/{providerId}/agreements
 |Parameter|Sub Parameter|Type|Description|
 |---------|-------------|----|-----------|
 |`consumer_name`||`string`|Full name of the user. We validate it using|
-|`consumer_phone_number`||`string`|Mobile phone number of the MobilePay user. Should start with a '+' sign and country phone code. <br/> 
-+4512345678 or +35812345678|                                                           |
+|`consumer_phone_number`||`string`|Mobile phone number of the MobilePay user. Should start with a '+' sign and country phone code. <br/> E.g +4512345678 or +35812345678|                                                           |
 |`total_amount`||`decimal`|**Required.** The requested amount to be paid. <br/> >0.00, decimals separated with a dot.|
 |`total_vat_amount`||`decimal`|**Required.** VAT amount, decimals separated with a dot.|
 |`issue_date`||`date`|**Required.** Issue date of invoice. ISO date format: `YYYY-MM-DD`|
