@@ -107,7 +107,7 @@ We reduced the amount of mandatory fields in `attachment_datails`:
 | delivery_date              |                           | date       | Delivery date of the document.                                              | Optional        |
 | merchant_order_number      |                           | string     | The merchant order number for the document used internally by the merchant. | Optional        |
 | buyer_order_number         |                           | string     | The buyer order number for the document used internally by the merchant.    | Optional        |
-| comment                    |                           | string     | Additonal information for the consumer.                                     | Optional        |
+| comment                    |                           | string     | Additonal information for the consumer. "\n" can be used to break line, e.g.: "First line. \nSecond line." | Optional        |
 
 ### <a name="reviewdelete"></a>Review & Delete 
 
@@ -397,7 +397,8 @@ POST /api/providers/{providerId}/agreements
 |Parameter|Sub Parameter|Type|Description|
 |---------|-------------|----|-----------|
 |`consumer_name`||`string`|Full name of the user. We validate it using|
-|`consumer_phone_number`||`string`|Mobile phone number of the MobilePay user. Should start with a '+' sign and country phone code. <br/> E.g +4512345678 or +35812345678|                                                           |
+|`consumer_phone_number`||`string`|Mobile phone number of the MobilePay user. Should start with a '+' sign and country phone code. <br/> 
++4512345678 or +35812345678|                                                           |
 |`total_amount`||`decimal`|**Required.** The requested amount to be paid. <br/> >0.00, decimals separated with a dot.|
 |`total_vat_amount`||`decimal`|**Required.** VAT amount, decimals separated with a dot.|
 |`issue_date`||`date`|**Required.** Issue date of invoice. ISO date format: `YYYY-MM-DD`|
