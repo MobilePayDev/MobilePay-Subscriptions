@@ -107,7 +107,7 @@ We reduced the amount of mandatory fields in `attachment_datails`:
 | delivery_date              |                           | date       | Delivery date of the document.                                              | Optional        |
 | merchant_order_number      |                           | string     | The merchant order number for the document used internally by the merchant. | Optional        |
 | buyer_order_number         |                           | string     | The buyer order number for the document used internally by the merchant.    | Optional        |
-| comment                    |                           | string     | Additonal information for the consumer.                                     | Optional        |
+| comment                    |                           | string     | Additonal information for the consumer. "\n" can be used for a line break, e.g.: "First line. \nSecond line." | Optional        |
 
 ### <a name="reviewdelete"></a>Review & Delete 
 

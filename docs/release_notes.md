@@ -1,4 +1,8 @@
 # Subscriptions API Release Notes
+### 22 December 2021 - Line break in attachment's comment field.
+Merchants are now able to add a line break in the payment attachment's comment field using "\n".
+
+More information in [Invoice](invoice).
 
 ### 28 July 2021 - Multiple payments on same due date.
 Merchants are now able to create multiple payments for same AgreementId and DueDate but such payments must have different ExternalId.
