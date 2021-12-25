@@ -52,6 +52,8 @@ Once you have
  - [ ]  16. The Merchant must have a way for the user to manage and stop subscription if the merchant is using `cancel-redirect`. This should result in a timely update of the MobilePay Agreement.
  - [ ]  17. Follow the [external_id recommendations](https://mobilepaydev.github.io/MobilePay-Subscriptions/payments#externalid-payment)
  - [ ]  18. Correctly handle callbacks from MobilePay, both for successful and unsuccessful payments. 
+ - [ ]  20. Follow [our reconciliation guideline](https://mobilepaydev.github.io/MobilePay-Subscriptions/payments#subscription-payments_reconciliation)
+
 
 ----------
 
@@ -66,6 +68,6 @@ In addition, all Integrators are required to complete the following:
 
 When the integration checklist is completed, notify the MobilePay Developer Support, who will verify the integration, and contact the Integrator.
 
-MobilePay then adds the integrator to  [the MobilePay Website]( https://www.mobilepay.dk/erhverv/abonnementer-og-fakturering/mobilepay-subscriptions/integrator-liste)
+MobilePay then adds the integrator to  [the MobilePay Website]( https://www.mobilepaygroup.com/partner/subscriptions)
 
 Once you have followed the steps above, you are ready to do the self-certification. Click the "I'm ready" button [here](https://developer.mobilepay.dk/subscriptions-verification#verification)  
