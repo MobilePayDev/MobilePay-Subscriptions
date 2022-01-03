@@ -51,7 +51,7 @@ Once you have
  - [ ]  15. The MobilePay branding must be according to the [MobilePay design guidelines](https://developer.mobilepay.dk/design)
  - [ ]  16. The Merchant must have a way for the user to manage and stop subscription if the merchant is using `cancel-redirect`. This should result in a timely update of the MobilePay Agreement.
  - [ ]  17. Follow the [external_id recommendations](https://mobilepaydev.github.io/MobilePay-Subscriptions/payments#externalid-payment)
- - [ ]  18. Correctly handle callbacks from MobilePay, both for successful and unsuccessful payments.[Payment Callbacks](https://mobilepaydev.github.io/MobilePay-Subscriptions/payments#callbacks). [One-off Callbacks](https://mobilepaydev.github.io/MobilePay-Subscriptions/oneoffs#callbacks). [Agreement Callbacks](https://mobilepaydev.github.io/MobilePay-Subscriptions/agreement#callbacks) 
+ - [ ]  18. Correctly handle callbacks from MobilePay including [Payment Callbacks](https://mobilepaydev.github.io/MobilePay-Subscriptions/payments#callbacks) and [One-off Callbacks](https://mobilepaydev.github.io/MobilePay-Subscriptions/oneoffs#callbacks) and [Agreement Callbacks](https://mobilepaydev.github.io/MobilePay-Subscriptions/agreement#callbacks) 
  - [ ]  19. Implement GET Status calls so you always know the status of the payments, in case you have issues with retrieving callbacks.
  - [ ]  20. Follow [our reconciliation guideline](https://mobilepaydev.github.io/MobilePay-Subscriptions/payments#subscription-payments_reconciliation)
 
