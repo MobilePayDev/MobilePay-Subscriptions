@@ -60,6 +60,17 @@ You might encounter the following HTTP errors:
     }
     ```
 
+## <a name="Get Calls"></a>  Checking Requests
+There is no admin panel to check request, but you can use the following API calls:
+
+- `GET /api/providers/{providerId}/agreements` - Get a list of agreements
+- `GET /api/providers/{providerId}/agreements/{agreementId}` - Get agreements details
+- `GET /api/providers/{providerId}/agreements/{agreementId}/paymentrequests` - Get a list of payments in a given agreement
+- `GET /api/providers/{providerId}/agreements/{agreementId}/paymentrequests/{paymentId} - Get single payment details  
+- `GET /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments` - Get all OneOff payments of a single agreement
+- `GET /api/providers/{providerId}/agreements/{agreementId}/oneoffpayments/{paymentId}` - Get single OneOff payment details
+- `GET /api/providers/{providerId}/agreements/{agreementId}/payments/{paymentId}/refunds` - Get a list of refunds issued for particular payment
+
 
 ## <a name="apichange"></a>  API Change 
 
