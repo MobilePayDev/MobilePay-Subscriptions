@@ -52,6 +52,7 @@ Once you have
  - [ ]  16. The Merchant must have a way for the user to manage and stop subscription if the merchant is using `cancel-redirect`. This should result in a timely update of the MobilePay Agreement.
  - [ ]  17. Follow the [external_id recommendations](https://mobilepaydev.github.io/MobilePay-Subscriptions/payments#externalid-payment)
  - [ ]  18. Correctly handle callbacks from MobilePay, both for successful and unsuccessful payments. 
+ - [ ]  19. Implement GET Status calls so you always know the status of the payments, in case you have issues with retrieving callbacks.
  - [ ]  20. Follow [our reconciliation guideline](https://mobilepaydev.github.io/MobilePay-Subscriptions/payments#subscription-payments_reconciliation)
 
 
