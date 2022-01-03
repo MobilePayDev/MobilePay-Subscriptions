@@ -55,6 +55,15 @@ Once you have
  - [ ]  19. Implement GET Status calls so you always know the status of the payments, in case you have issues with retrieving callbacks.
  - [ ]  20. Follow [our reconciliation guideline](https://mobilepaydev.github.io/MobilePay-Subscriptions/payments#subscription-payments_reconciliation)
 
+In the table below, you can see the parameter in the Subscriptions API to the corresponding parameter in the Transaction Reporting Api. Please use the table below for correlating transactions between MobilePay Subscriptions and external merchant / integrator system. 
+
+
+| Transaction Reporting API | Subscriptions API | **Description** |
+|--|--|--|
+|**`ExternalTransactionID`**  |  `external_id` for payments and one_off_payments  | Used for correlating transactions between MobilePay & Integrator system. |
+| **`Merchant Payer Reference`** | `external_id`  for agreements | Is included in the subject field, if user sends an email from the MobilePay app |
+| **`merchant_reference`** | `external_id` for payments | Identifier assigned by merchant to a specific payment |
+| **`payment_transaction_id`** |   | Includes transaction_id for all payments: recurring, one-off and refund. Visible on the users receipt screen. |
 
 
 | TRANSFER METHOD | **Instant Transfer** | **Daily Transfer** |
