@@ -1,7 +1,7 @@
 
 
 ## Order MobilePay Subscriptions
-Before using MobilePay Subscriptions, the merchant must have at least one Subscriptions provider which can be created via [MobilePay Portal - Denmark](https://admin.mobilepay.dk/) or  [MobilePay Portal - Finland ](https://admin.mobilepay.fi/) by clicking 'Opret nyt betalingssted'. 
+Before using MobilePay Subscriptions, the merchant must have at least one Subscriptions provider which can be created via [MobilePay Portal - Denmark](https://admin.mobilepay.dk/) or  [MobilePay Portal - Finland ](https://admin.mobilepay.fi/) by clicking 'Opret nyt betalingssted'. The merchant can have multiple providers, which is why the integrator must support having more than one providers. 
 
 
 ## <a name="general-notes_provider-list"></a>Getting a list of subscription providers
