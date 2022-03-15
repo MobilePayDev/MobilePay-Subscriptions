@@ -181,7 +181,7 @@ Merchants who wants to use  `auto_reserve` field  feature, must apply for this i
 
 #### <a name="oneoffpayments_screens"></a>One-Off payment screens
 
-[![](assets/images/One-off-flows.svg)](assets/images/One-off-flows.svg)
+[![](assets/images/One-off-flows.png)](assets/images/One-off-flows.png)
 
 When `auto_reserve` field is set to __true__:
 
