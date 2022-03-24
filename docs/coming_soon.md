@@ -16,14 +16,11 @@ In <strong>Android<strong> app if you set <code>WebViewClient</code> on Webview,
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             Uri uri = Uri.parse(url);
-            if (uri.getScheme().toLowerCase().contains("mobilepay")
-                    || uri.getHost().toLowerCase().contains("open.mobilepay.dk")) {
+            if (uri.getHost().toLowerCase().contains("open.mobilepay.dk")) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                    return true;
-                }
+                startActivity(intent);
+                return true;
             }
             return false;
         }
@@ -31,7 +28,6 @@ In <strong>Android<strong> app if you set <code>WebViewClient</code> on Webview,
     </pre>
 </code>
 
-Without this code MobilePay app will not get opened.
-Users with older than MobilePay app version 5.16 will see the "Landing Page" dual device scenario.
+Without this code MobilePay app will not get opened. Users with older than MobilePay app version 5.16 will see the "Landing Page" dual device scenario.
 
 </div>
