@@ -9,7 +9,6 @@ Functionality will be available for users with MobilePay app version 5.16 (and h
 <strong>Important configuration for Android Webview<strong>
 <br>
 In <strong>Android<strong> app if you set <code>WebViewClient</code> on Webview, then you must override <code>shouldOverrideUrlLoading</code> method exactly like this:
-
 <code>
     <pre>
     webView.setWebViewClient(new WebViewClient() {
@@ -27,7 +26,6 @@ In <strong>Android<strong> app if you set <code>WebViewClient</code> on Webview,
     });
     </pre>
 </code>
-
 Without this code MobilePay app will not get opened. Users with older than MobilePay app version 5.16 will see the "Landing Page" dual device scenario.
 
 </div>
