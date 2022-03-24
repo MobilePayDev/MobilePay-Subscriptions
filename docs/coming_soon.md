@@ -1,9 +1,9 @@
 # Coming soon
 
 ### How subscription flow works from app webview
-A WebView might be useful if the merchant needs more control over the UI and advanced configuration options that will allow the Merchant to embed web pages in a specially-designed environment for their app.
+A WebView might be useful if the merchant needs more control over the UI and advanced configuration options that will allow the Merchant to embed web pages in a specially-designed environment for their app. It does not include any features of a fully developed web browser, such as navigation controls or an address bar. All that WebView does is show a web page.
 
-If you use WebViews in your app, the user will experience single device flow - MobilePay app will get opened for user to continue the flow.
+If the Merchant uses WebViews in their app, the user will experience single device flow - MobilePay app will get opened for user to continue the flow.
 Functionality will be available for users with MobilePay app version 5.16 (and higher). ETA: May release.
 
 <div class="note">
