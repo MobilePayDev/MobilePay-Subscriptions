@@ -1,6 +1,9 @@
 ## <a name="refunds"></a>Refunds
 Merchants can easily refund the customer with MobilePay Subscriptions. This functionality is used to refund previously captured one-off payments or subscriptions payments. A refund transaction can be made up to 90 days after payment execution. Refunds are not restricted by agreement status. Refunds can be made on a cancelled agreement. As long as the payment is successful and no older than 90 days, then it should work. 
- Quick handling of refund proves vital to ensure customer loyalty. Seen as the customer previously executed the payment via MobilePay, it makes sense that it also gets refunded via MobilePay.  The reason being that the customer can see a receipt in the MobilePay app of the refund that corresponds to the original payment. The refund receipt is easily visible for the customer in the MobilePay app.   
+
+A refund can be executed if the Merchants payment balance contains enough money to cover the refund. If the balance doesn’t cover the amount of the refund, the refund will fail. You can issue more than one refund against a payment_id, but you can’t refund a total greater than the original payment_id amount.
+
+Quick handling of refund proves vital to ensure customer loyalty. Seen as the customer previously executed the payment via MobilePay, it makes sense that it also gets refunded via MobilePay.  The reason being that the customer can see a receipt in the MobilePay app of the refund that corresponds to the original payment. The refund receipt is easily visible for the customer in the MobilePay app.   
 
 
 **Full refund** - 100% of the amount paid is returned to the payer.If the amount is not specified, the payment will be fully refunded
