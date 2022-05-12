@@ -1,4 +1,7 @@
 # Subscriptions API Release Notes
+### 12 May 2022 - Refunds can be done 90 days after payment.
+Instead of 30 days, [refunds](refund) can now be done 90 days after payment.
+
 ### 22 December 2021 - Line break in attachment's comment field.
 Merchants are now able to add a line break in the payment attachment's comment field using "\n".
 
