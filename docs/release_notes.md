@@ -92,7 +92,6 @@ The feature to attach `cancel-redirect` url to an agreement has been released. I
   "amount": "10",
   "currency": "DKK",
   "description": "Monthly subscription",
-  "next_payment_date": "2017-03-09",
   "frequency": 12,
   "links": [
     {
