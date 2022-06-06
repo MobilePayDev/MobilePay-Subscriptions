@@ -10,7 +10,6 @@ Notice that the **Subscription Payments** payload does not contain a currency co
         "agreement_id": "fda31b3c-794e-4148-ac00-77b957a7d47f",
         "amount": "10.99",
         "due_date": "2017-03-09",
-        "next_payment_date": "2017-04-09",
         "external_id": "PMT000023",
         "description": "Monthly payment",
         "grace_period_days": 3
@@ -58,7 +57,6 @@ Agreement disable_notification_management push notification. Merchant can set if
 |**agreement_id**      |guid        | required |*The Subscription __Agreement__ identifier that maps a __Merchant__ to a MobilePay __User__.*||
 |**amount**            |number(0.00)| required |*The requested amount to be paid.*|Min 0.00, Max (FI) 2000.00 or Max (DK) 60000.00, decimals separated with a dot.|
 |**due_date**          |date        | required |*Payment due date. Must be at least 1 day in the future, otherwise the __Subscription Payment__ will be declined.*|ISO date format: yyyy-MM-dd|
-|**next_payment_date** |date        |          |*Next __Subscription Payment's__ due date, to be shown to the user in the __Agreement__ details.*|ISO date format: yyyy-MM-dd|
 |**external_id**       |string(64)*      | required |*The identifier of a specific payment in the external merchant's system. Maximum length is 64 characters The external_id is visible on the __Subscription Payment__ screen.*||
 |**description**       |string(60)  | required |*Additional information of the __Subscription Payment__ that is visible for the customer in the MobilePay app*||
 |**grace_period_days** |int  | optional |*Number of days to keep retrying the payment if it was not successful.*|1, 2, 3|
@@ -102,7 +100,6 @@ The response body containts two lists:
 
 - **External Id** Payments cannot be created with the same external_id on same due_date.
 - **Multiple Recurring payments**  Multiple recurring payment requests can be created within period [126 before Due Date >= Payment Request Date >= 1 before Due Date].
-- **Next Payment Date** If there are multiple pending payments, Next Payment Date is the one closest to Today().
 
 ##### <a name="subscription-payments_grace-example"></a>Example of Frequency
 
