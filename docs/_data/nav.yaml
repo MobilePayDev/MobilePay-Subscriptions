@@ -55,9 +55,6 @@ invoice:
 - title: "Deprecated"
   url: "invoice#attachmentsdeprecated"
 
-coming_soon_title: Coming soon
-coming_soon_url: "coming_soon"
-
 release_notes_title: Release notes
 release_notes_url: "release_notes"
 
@@ -67,10 +64,15 @@ glossary_url: "glossary"
 get_started_title: Get Started
 get_started_url: "get_started"
 
-api_principles_title: API Principles
-api_principles_url: "api_principles"
-api_principles:
+implementation_title: API Principles
+implementation_url: "implementation"
+implementation:
 - title: Error Handling
-  url: "api_principles#error_handling"
+  url: "implementation#error_handling"
 - title: API Change 
-  url: "api_principles#apichange"
+  url: "implementation#apichange"
+- title: WebView
+  url: "implementation#webview"
+
+coming_soon_title: Coming soon
+coming_soon_url: "coming_soon"
