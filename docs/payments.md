@@ -48,6 +48,7 @@ Once created, Recurring Payment Request can be updated (until it expires or is e
 - On 23:59 we will decline the transaction and revert back with a callback  
 - Subscriptions payments are collected automatically, so there is no need for the customer to swipe.
 - Reserve and Capture is managed by MobilePay. 
+- note: The user cannot cancel their connection with the Merchant through MobilePay. They can solely disconnect their payment method. The merchant will receive callbacks real-time, in case the customer unsubscribes to automatic payment in the MobilePay app. By default, the cancellation takes effect immediately. Afterwards you should clarify with the customer, how upcoming payments should be handled.
 
 Agreement disable_notification_management push notification. Merchant can set if their customer should be able to manage push notifications for an agreement or not. If the merchant choses so, then the push notification is not displayed when signing new agreement and when browsing agreement information. 
 
