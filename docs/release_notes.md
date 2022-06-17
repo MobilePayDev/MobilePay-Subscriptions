@@ -1,5 +1,5 @@
 # Subscriptions API Release Notes
-### 8 June 2022 - NextPaymentDate is no longer used.
+### 17 June 2022 - NextPaymentDate is no longer used.
 NextPaymentDate is no longer used in any of the requests and responses.
 
 ### 12 May 2022 - Refunds can be done 90 days after payment.
