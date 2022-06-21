@@ -33,7 +33,6 @@ Add a `one_off_payment` property to the `POST /api/providers/{providerId}/agreem
   "amount": "10",
   "currency": "DKK",
   "description": "Monthly subscription",
-  "next_payment_date": "2017-03-09",
   "frequency": 12,
   "links": [
     {

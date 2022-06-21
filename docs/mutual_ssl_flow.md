@@ -186,7 +186,6 @@ Once the user is given to choose the payment method on the merchant's signup flo
   "amount": "10",
   "currency": "DKK",
   "description": "Monthly subscription",
-  "next_payment_date": "2017-03-09",
   "frequency": 12,
   "links": [
     {
@@ -220,7 +219,6 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 |**country_code**      |string(2)   |required |*Country code, which will be used to differentiate between MobilePay DK and FI apps.*|DK, FI|
 |**plan**              |string(30)  |required |*Short __Agreement__ information text, that will be displayed on the __Agreement__ screen. (examples: "Basic" / "Premium").*||
 |**description**       |string(60)  |         |*Additional information provided by the merchant to the user, that will be displayed on the __Agreement__ screen.*||
-|**next_payment_date** |date        |         |*The date of the first scheduled __Payment Request__. This will be displayed on the __Agreement__ creation screen and on the __Agreement__ details screen if first payment date > current date.*|ISO date format: yyyy-MM-dd|
 |**frequency**         |int         |         |*Frequency of __Payment Requests__. This value will be used to divide the amount of days in a year to get a frequency in days (e.g. 365 / 12 = 30.4 - approx. every month.). If not provided will default to 12.*|1, 2, 4, 12, 26|
 |**external_id**       |string      |         |*__Agreement__ identifier on the merchant's side. This will be included in the request body of the success / cancel callback. The external_id should be unique to the agreement. Two different agreements should not have the same external_id ||
 |**expiration_timeout_minutes**|int |required |*Agreement expiration timeout in minutes.*|Min: 5, max: 20160 (2 weeks)|
@@ -269,7 +267,7 @@ The link can be used in two ways:
 Use the `PATCH /api/merchants/me/agreements/{agreementId}` endpoint to change agreement request parameters. Its request must match the rules of [RFC 6902 JSON Patch standards](https://tools.ietf.org/html/rfc6902).
 
 - Available operations: **replace**
-- Available properties: **amount**, **plan**, **description**, **next_payment_date**, **frequency**, **external_id**, **success-callback**, **cancel-callback**
+- Available properties: **amount**, **plan**, **description**, **frequency**, **external_id**, **success-callback**, **cancel-callback**
 
 ```json
 [
@@ -393,7 +391,6 @@ Notice that the **Subscription Payments** payload does not contain a currency co
         "agreement_id": "fda31b3c-794e-4148-ac00-77b957a7d47f",
         "amount": "10.99",
         "due_date": "2017-03-09",
-        "next_payment_date": "2017-04-09",
         "external_id": "PMT000023",
         "description": "Monthly payment"
     }
@@ -407,7 +404,6 @@ Notice that the **Subscription Payments** payload does not contain a currency co
 |**agreement_id**      |guid        | required |*The Subscription __Agreement__ identifier that maps a __Merchant__ to a MobilePay __User__.*||
 |**amount**            |number(0.00)| required |*The requested amount to be paid.*|> 0.00, decimals separated with a dot.|
 |**due_date**          |date        | required |*Payment due date. Must be at least 1 day in the future, otherwise the __Subscription Payment__ will be declined.*|ISO date format: yyyy-MM-dd|
-|**next_payment_date** |date        |          |*Next __Subscription Payment's__ due date, to be shown to the user in the __Agreement__ details.*|ISO date format: yyyy-MM-dd|
 |**external_id**       |string      | required |*The identifier of a specific payment in the external merchant's system. Maximum length is 30 characters*||
 |**description**       |string(60)  | required |*Additional information of the __Subscription Payment__.*||
 
@@ -440,7 +436,6 @@ The response body containts two lists:
 When you are requesting a payment, you need to keep the 1 day rule. The user can have a single pending payment on due date. E.g. User can have 3 pending payments but the DueDate of those payments should be different. 
  * **Due Date** Payments cannot be created with the same Due Date. 
 * **Multiple Recurring payments**  Multiple recurring payment requests can be created within period [32 before Due Date >= Payment Request Date >= 8 before Due Date]
-* **Next Payment Date** If there are multiple pending payments, Next Payment Date is the one closest to Today()
  
  ##### <a name="subscription-payments_grace-example"></a>Example of Frequency
 For example: if you have a customer where the frequency of an agreement is set to 4, that means  365 / 4 = 91.25 (approximately payment requests every 3rd month). 
@@ -608,7 +603,6 @@ Add a `one_off_payment` property to the `POST /api/merchants/me/agreements?api-v
   "amount": "10",
   "currency": "DKK",
   "description": "Monthly subscription",
-  "next_payment_date": "2017-03-09",
   "frequency": 12,
   "links": [
     {

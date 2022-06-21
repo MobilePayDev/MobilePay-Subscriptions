@@ -16,7 +16,6 @@ When the user has accepted the agreement in the MobilePay app, then the Merchant
   "amount": "10",
   "currency": "DKK",
   "description": "Monthly subscription",
-  "next_payment_date": "2017-03-09",
   "frequency": 12,
   "links": [
     {
@@ -54,7 +53,7 @@ When the user has accepted the agreement in the MobilePay app, then the Merchant
 The cancel-redirect is not mandatory, since the Merchant should only use cancel-redirect if they have a self-service environment, where a cancel or unsubscribe button is visible. The Merchant should ensure that the customer can easily cancel the agreement on their own self-service environment. To ensure the best ustomer experience, a clear "Unsubsribe" or "Cancel" button should be present on the merchant website.  
 
 The <code>cancel-redirect</code> is a link to a website, where the customer can manage the agreement: Change, pause, cancel, etc. MobilePay does not offer any form of agreement management, like changing subscription types or price, temporary address change, etc. The URL is opened in the standard web browser.
-The integrator must implement such functionality for the customer to manage the agreement in their system.  When a user notifies the merchant that they want to cancel a subscription or service, the merchant must ensure that the status of the agreement is set to cancelled at a suitable time. However, if the customer wants to pause the agreement, then we highly recommend that you update the parameters `description` and `next_payment_date` so the customer knows what the status of the payment is.  Furthermore, we highly recommend that you send a receipt to the customer via email or SMS, so they are sure that the agreement change has been established. 
+The integrator must implement such functionality for the customer to manage the agreement in their system.  When a user notifies the merchant that they want to cancel a subscription or service, the merchant must ensure that the status of the agreement is set to cancelled at a suitable time. However, if the customer wants to pause the agreement, then we highly recommend that you update the parameter `description` so the customer knows what the status of the payment is.  Furthermore, we highly recommend that you send a receipt to the customer via email or SMS, so they are sure that the agreement change has been established. 
 
 
 
@@ -69,7 +68,7 @@ The *Pending* **Agreement**, if not activated, will expire within the value, pro
 
 #### <a name="agreements_paramters"></a>Request parameters for Create agreement request
 
-Please note: You should consider which parameter in the table below should be used. Not all parameters are required, but the user will see **amount**, **plan** and **description** , **next_payment_date**  in the Agreement screen, if you choose to use those parameters. For example: if you have a campaign where the subscription is cheaper in the beginning, users will be confused by how it appears in the MobilePay app, as it might look like the full price period starts immediately, if you enter the full price in **amount**  
+Please note: You should consider which parameter in the table below should be used. Not all parameters are required, but the user will see **amount**, **plan** and **description** in the Agreement screen, if you choose to use those parameters. For example: if you have a campaign where the subscription is cheaper in the beginning, users will be confused by how it appears in the MobilePay app, as it might look like the full price period starts immediately, if you enter the full price in **amount**  
 
 |Parameter             |Type        |Required  |Description                                                      |Valid values|
 |----------------------|------------|----------|-----------------------------------------------------------------|------------|
@@ -78,7 +77,6 @@ Please note: You should consider which parameter in the table below should be us
 |**country_code**          |string(2)| required |Country code, which will be used to differentiate between MobilePay DK and FI apps.|DK, FI|
 |**plan** |string(30) |required          |Short  **Agreement**  information text, that will be displayed on the  **Agreement**  screen in the app. (examples: "Basic" / "Premium").| |
 |**description**       |string(60)      |  |Additional information provided by the merchant to the user, that will be displayed on the  **Agreement**  screen in the app.||
-|**next_payment_date**       |date  |   |The date of the first scheduled  **Payment Request**. If used, this will be displayed on the  **Agreement**  creation screen and on the  **Agreement**  details screen if first payment date > current date.|ISO date format: yyyy-MM-dd|
 |**frequency** |int  |  |Frequency of **Payment Requests**. This value will be used to divide the amount of days in a year to get a frequency in days (e.g. 365 / 12 = 30.4 - approx. every month, 365 - daily and 0 -flexible.). If you don't fill out the frequency, the default value will be Flexible, which will be displayed for the user in the MobilePay app|1, 2, 4, 12, 26, 52, 365, 0|
 |**external_id** |string  |  |**Agreement**  identifier that the merchant's and integrators create, that identifies the user. It will be displayed for the user in the MobilePay app.  When the user sends an e-mail from the app, the external_id is in the subject field. external_id will be included in the request body of the success / cancel callback. The external_id should be unique to the agreement, and we rerecommend that the external_id for agreement is the equivalent users customer number or customer ID on merchant side. Two different agreements should not have the same external_id|MinLength 1. MaxLength 64 |
 |**expiration_timeout_minutes** |int  |required  |Agreement expiration timeout in minutes.|Min: 1, max: 181440 (18 weeks)|
@@ -89,12 +87,6 @@ Please note: You should consider which parameter in the table below should be us
 |**links** |string  | required |Link relation of the  **Agreement**  creation sequence. Must contain 3 values for user redirect, success callback and cancel-callback links.| |
 |**links[].rel** |string  |required  |Link relation type|user-redirect, success-callback, cancel-callback, cancel-redirect|
 |**links[].href** |string  | required |Link relation hyperlink reference.|https://<merchant's url>|
-
-
-After new payment is created, agreement’s NextPaymentDate property will be updated to the earliest date from these proporties:
-  * NextPaymentDate (agreement)
-  * NextPaymentDate (payment)
-  * DueDate (payment)
 
 
 
@@ -133,7 +125,7 @@ It is the merchant's responsibility to manage and update the agreements, and to 
 Use the `PATCH /api/providers/{providerId}/agreements/{agreementId}` endpoint to change agreement request parameters. Its request must match the rules of [RFC 6902 JSON Patch standards](https://tools.ietf.org/html/rfc6902).  
 
 - Available operations: **replace**
-- Available properties: **amount**, **plan**, **description**, **next_payment_date**, **frequency**, **external_id**, **success-callback**, **cancel-callback**, **cancel-redirect**, **disable_notification_management**
+- Available properties: **amount**, **plan**, **description**, **frequency**, **external_id**, **success-callback**, **cancel-callback**, **cancel-redirect**, **disable_notification_management**
 
 ```json
 [
@@ -182,7 +174,6 @@ The purple parameters below are visible in the MobilePay app on the **Agreement 
 |------|-------------|
 | amount| MobilePay recommends you include the amount, if the customer pays a fixed amount every month. However, omit this parameter if the customer pays a varied amount. **Example**: Netflix  charges the same amount, for example 99kr every month. Netflix could include the amount. Whereas an electricity provider charges a varied amount, dependent on the customers usage of electricity. It would not make sense for the Electricity Provider to include the amount. |
 | description         | Additional information provided by the merchant to the user. It is up to the merchant what the information should contain, as long as it is within 60 characters  |
-| next_payment_date| Information on when the customer should pay next time. Do not use next_payment_date, unless you know the concrete date for next_payment_date |
 | disable_notification_management| Merchant can set if their customer should be able to manage push notifications for an agreement or not. If the merchant choses so (true), then the push notification is not displayed when signing new agreement and when browsing agreement information. If merchant leaves parameter as false, then push parameter will be visible in signed agreements and push will be turned on by default. Parameter controls just push message which is sent 1 day in advance before recurring payment execution.   |
 
 

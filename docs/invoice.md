@@ -196,7 +196,6 @@ POST /api/providers/{providerId}/paymentrequests
         "agreement_id": "fda31b3c-794e-4148-ac00-77b957a7d47f",
         "amount": "10.99",
         "due_date": "2017-03-09",
-        "next_payment_date": "2017-04-09",
         "external_id": "PMT000023",
         "description": "Monthly payment",
         "invoice": {
@@ -323,7 +322,6 @@ POST /api/providers/{providerId}/agreements
   "amount": "10",
   "currency": "DKK",
   "description": "Monthly subscription",
-  "next_payment_date": "2017-03-09",
   "frequency": 12,
   "links": [
     {
