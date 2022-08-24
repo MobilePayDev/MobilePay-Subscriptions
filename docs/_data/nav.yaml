@@ -76,3 +76,7 @@ implementation:
 
 coming_soon_title: Coming soon
 coming_soon_url: "coming_soon"
+
+
+deprecated_features_title: Deprecated features
+deprecated_features_url: "deprecated_features"
