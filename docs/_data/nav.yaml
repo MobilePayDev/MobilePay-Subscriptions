@@ -52,8 +52,6 @@ invoice:
   url: "invoice#reviewdelete"
 - title: "PDF invoice examples"
   url: "invoice#pdfexamples"
-- title: "Deprecated"
-  url: "invoice#attachmentsdeprecated"
 
 release_notes_title: Release notes
 release_notes_url: "release_notes"
