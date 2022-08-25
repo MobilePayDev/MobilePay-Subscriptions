@@ -1,4 +1,7 @@
 # Subscriptions API Release Notes
+### 24 August 2022 - Deprecated features section added.
+There is now a section in the menu dedicated for [deprecated features](deprecated_features).
+
 ### 17 June 2022 - NextPaymentDate is no longer used.
 NextPaymentDate is no longer used in any of the requests and responses.
 
