@@ -142,22 +142,24 @@ On the 1st of March 2021, the customer decides to upgrade to Streaming Premium+ 
 
 Setting **disable_notification_management** to **true** will disable notification management and turn off notifications for the agreement.
 
-#### New agreement creation in landing page
+#### <a name="agreement-flows"></a> Agreement signing in dual device flow
+[![](assets/images/Subs_agreement_dual_device_flow.jpeg)](assets/images/Subs_agreement_dual_device_flow.jpeg)
 
-[![](assets/images/SUBS_New_Agreement_WEB_Flow.png)](assets/images/SUBS_New_Agreement_WEB_Flow.png)
+#### Agreement signing in single device flow
+[![](assets/images/SUBS_single_device_flow.jpeg)](assets/images/SUBS_single_device_flow.jpeg)
 
-### The landing page
+#### Agreement screen with and without amount parameter 
+[![](assets/images/Agreement_screen_variations.jpeg)](assets/images/Agreement_screen_variations.jpeg)
 
-The MobilePay landing page is mandatory. It provides a consistent and recognizable user experience, that helps guide the user through the MobilePay payment flow. Our data shows, that it gives a higher success rate and lower drop-off, because the users get a recognisable user experience seen as they know the MobilePay payment flow.  
+##### Translations of text in confirmation checkbox
+|Language| Translation|
+|----------|-------------------------------|
+|EN|**Yes, I have read the terms of the payment agreement with the merchant** <br/>The payment agreement allows the merchant to charge you with MobilePay if you use their service. For further info, see the terms of the merchant. |
+|FI|**Kyllä, olen lukenut kauppiaan kanssa tehdyn maksusopimuksen ehdot**<br/>Maksusopimus antaa kauppiaalle mahdollisuuden veloittaa sinua MobilePayn kautta, jos käytät heidän palveluaan. Katso lisätietoja kauppiaan ehdoista.|
+|DK|**Ja, jeg har læst betingelserne for betalingsaftalen hos virksomheden**<br/>Betalingsaftalen giver virksomheden mulighed for at opkræve dig med MobilePay, når du bruger deres service. For yderligere info, se virksomhedens betingelser.|
 
 
-
-#### New agreement creation in APP
-
-[![](assets/images/new_agreements_4.png)](assets/images/new_agreements_4.png)
-
-
-#### Existing Deleted agreement
+#### Existing and Deleted agreements
 
 [![](assets/images/Existing_Deleted_agreements_v3.png)](assets/images/Existing_Deleted_agreements_v3.png)
 
@@ -175,11 +177,6 @@ The purple parameters below are visible in the MobilePay app on the **Agreement 
 | amount| MobilePay recommends you include the amount, if the customer pays a fixed amount every month. However, omit this parameter if the customer pays a varied amount. **Example**: Netflix  charges the same amount, for example 99kr every month. Netflix could include the amount. Whereas an electricity provider charges a varied amount, dependent on the customers usage of electricity. It would not make sense for the Electricity Provider to include the amount. |
 | description         | Additional information provided by the merchant to the user. It is up to the merchant what the information should contain, as long as it is within 60 characters  |
 | disable_notification_management| Merchant can set if their customer should be able to manage push notifications for an agreement or not. If the merchant choses so (true), then the push notification is not displayed when signing new agreement and when browsing agreement information. If merchant leaves parameter as false, then push parameter will be visible in signed agreements and push will be turned on by default. Parameter controls just push message which is sent 1 day in advance before recurring payment execution.   |
-
-
- 
-#### Agreement screen with and without amount parameter 
-[![](assets/images/Appscreen.png)](assets/images/Appscreen.png)
 
 #### <a name="agreements_callback"></a>Callbacks
 

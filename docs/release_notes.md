@@ -1,4 +1,8 @@
 # Subscriptions API Release Notes
+
+### 13 September 2022 - Update on agreement signing flow.
+With MobilePay app August release (version 5.20.0) agreement context screen was removed. In agreement confirm screen confirmation checkbox was added. Updated flow you can find [HERE](agreement#agreement-flows).
+
 ### 24 August 2022 - Deprecated features section added.
 There is now a section in the menu dedicated for [deprecated features](deprecated_features).
 
