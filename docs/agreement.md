@@ -152,6 +152,7 @@ Setting **disable_notification_management** to **true** will disable notificatio
 [![](assets/images/Agreement_screen_variations.jpeg)](assets/images/Agreement_screen_variations.jpeg)
 
 ##### Translations of text in confirmation checkbox
+
 |Language| Translation|
 |----------|-------------------------------|
 |EN|**Yes, I have read the terms of the payment agreement with the merchant** <br/>The payment agreement allows the merchant to charge you with MobilePay if you use their service. For further info, see the terms of the merchant. |
