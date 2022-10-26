@@ -6,8 +6,10 @@ With MobilePay app August release (version 5.20.0) agreement context screen was 
 ### 24 August 2022 - Deprecated features section added.
 There is now a section in the menu dedicated for [deprecated features](deprecated_features).
 
-### 17 June 2022 - NextPaymentDate is no longer used.
-NextPaymentDate is no longer used in any of the requests and responses.
+### 17 June 2022 - next_payment_date is no longer used.
+`next_payment_date` is no longer used in any of the requests and responses. You can can still make requests and receive responses with `next_payment_date`. However, `next_payment_date` is not shown in the MobilePay app and therefore not visible for the enduser. 
+
+
 
 ### 12 May 2022 - Refunds can be done 90 days after payment.
 Instead of 30 days, [refunds](refund) can now be done 90 days after payment.
