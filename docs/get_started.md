@@ -3,15 +3,8 @@ An integration is considered finished when all the elements of the relevant API'
 
 # <a name="getstarted"></a> Get started
 
- 1. **Read API documentation**. You'll find it in the  [APIs menu](https://developer.mobilepay.dk/product). *The API documentation provides insight into the structure of the API and will help you determine the best approach for integration as well as provide details on typical use cases.*
+ 1. **Read Best Practice**. You'll find it in the  [MobilePay Partner site ](www.mobilepaygroup.com/partner/best-practice). *The Best Practice provides insight into the structure of the API and will help you determine the best approach for integration as well as provide details on typical use cases.*
 
- 2. **Log-in** Go to  [Sandbox developer portal](https://sandbox-developer.mobilepay.dk/ ) and log in with your credentials.
-
- 3. **Create app** - My Apps > Create new App to register a new application. IMPORTANT: _Please make a note of your Client Secret as you will only see this once! You need to supply the `x-ibm-client-id` and `x-ibm-client-secret` when calling the api. You should always store the `x-ibm-client-id` in a secure location, and never reveal it publicly. If you suspect that the secret key has been compromised, you may reset it immediately by clicking the link on the application details page._
-
- 4. **Subscribe to APIs.**  To implement MobilePay Subscriptions, go to  [APIs](https://sandbox-developer.mobilepay.dk/product)  and subscribe to the following APIs:
--  Subscriptions
--  Subscriptions User Simulation
 
 ## Step 2 - Authentication
 
