@@ -1,5 +1,10 @@
 # Subscriptions API Release Notes
 
+### 14 November 2022 - Payment agreement deletion by users
+Users can always delete payment agreement from the app from 5.22.0 app version.
+
+![](assets/images/agreement_deletion_by_user.png)
+
 ### 13 September 2022 - Update on agreement signing flow.
 With MobilePay app August release (version 5.20.0) agreement context screen was removed. In agreement confirm screen confirmation checkbox was added. Updated flow you can find [HERE](agreement#agreement-flows).
 
