@@ -1,6 +1,6 @@
 # Subscriptions API Release Notes
 
-### 14 November 2022 - Payment agreement deletion by users.
+### 14 November 2022 - Payment agreement deletion by users
 Users can always delete payment agreement from the app from 5.22.0 app version.
 
 ### 13 September 2022 - Update on agreement signing flow.
